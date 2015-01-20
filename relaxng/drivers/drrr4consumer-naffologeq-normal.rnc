@@ -81,12 +81,12 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_inf_expansi
 # 
 # ATTRIBUTES WITH DEFAULT VALUES ARE ABSENT OR OPTIONAL
 #
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_absent_expansion_module.rnc" inherit = ruleml {
-#  start |= notAllowed
-#}
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_absent_folog_expansion_module.rnc" inherit = ruleml {
-#  start |= notAllowed
-#}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_absent_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_absent_folog_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 # 
 # ATTRIBUTES WITH DEFAULT VALUES REQUIRED
 #
@@ -117,10 +117,10 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
 # 
 # xsi:schemaLocation ALLOWED IN RuleML (include in RNC)
 #
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/xsi_schemalocation_expansion_module.rnc"
-#        inherit = ruleml {
-#  start |= notAllowed
-#}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/xsi_schemalocation_expansion_module.rnc"
+        inherit = ruleml {
+  start |= notAllowed
+}
 # 
 # UNIVERSAL RESOURCE IDENTIFIERS (URIs) INCLUDED
 #
