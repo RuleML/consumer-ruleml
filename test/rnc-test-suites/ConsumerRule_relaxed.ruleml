@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-model href="../../relaxng/drivers/drrr4consumer-naffologeq-relaxed.rnc" type="application/relax-ng-compact-syntax"?>
+<Rule xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd">
+  <if>
+    <Atom>
+      <op>
+        <Rel>likes</Rel>
+      </op>
+      <Var>X</Var>
+      <Ind>wine</Ind>
+    </Atom>
+  </if>
+  <then>
+    <Atom>
+      <op>
+        <Rel>likes</Rel>
+      </op>
+      <Ind>John</Ind>
+      <Var>X</Var>
+    </Atom>
+  </then>
+</Rule>
