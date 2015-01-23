@@ -664,9 +664,7 @@ Time =
   }
 And =
   element And {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute mapClosure { "universal" | "existential" }?
-     & attribute ns1:schemaLocation { text }?
+    (attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -718,9 +716,7 @@ And =
   }
 Or =
   element Or {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute mapClosure { "universal" | "existential" }?
-     & attribute ns1:schemaLocation { text }?
+    (attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -772,9 +768,7 @@ Or =
   }
 Neg =
   element Neg {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute mapClosure { "universal" | "existential" }?
-     & attribute ns1:schemaLocation { text }?
+    (attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -895,7 +889,6 @@ Negation =
 Implies =
   element Implies {
     (attribute material { "yes" | "no" }?
-     & attribute mapMaterial { "yes" | "no" }?
      & attribute type {
          xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
@@ -1017,19 +1010,17 @@ Implies =
   }
 Equivalent =
   element Equivalent {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute closure {
-         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
-         | xsd:string {
-             minLength = "1"
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           }
-         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-         | "universal"
-         | "existential"
-       }?
-     & attribute mapClosure { "universal" | "existential" }?
+    (attribute closure {
+       xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
+       | xsd:string {
+           minLength = "1"
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         }
+       | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       | "universal"
+       | "existential"
+     }?
      & attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1088,9 +1079,7 @@ Equivalent =
   }
 Forall =
   element Forall {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute mapClosure { "universal" | "existential" }?
-     & attribute ns1:schemaLocation { text }?
+    (attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1143,9 +1132,7 @@ Forall =
   }
 Exists =
   element Exists {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute mapClosure { "universal" | "existential" }?
-     & attribute ns1:schemaLocation { text }?
+    (attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1336,9 +1323,7 @@ then =
   }
 Naf =
   element Naf {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute mapClosure { "universal" | "existential" }?
-     & attribute ns1:schemaLocation { text }?
+    (attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4504,19 +4489,17 @@ _2 =
   }
 And_2 =
   element And {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute closure {
-         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
-         | xsd:string {
-             minLength = "1"
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           }
-         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-         | "universal"
-         | "existential"
-       }?
-     & attribute mapClosure { "universal" | "existential" }?
+    (attribute closure {
+       xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
+       | xsd:string {
+           minLength = "1"
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         }
+       | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       | "universal"
+       | "existential"
+     }?
      & attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -4569,19 +4552,17 @@ And_2 =
   }
 Or_2 =
   element Or {
-    (attribute mapMaterial { "yes" | "no" }?
-     & attribute closure {
-         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
-         | xsd:string {
-             minLength = "1"
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           }
-         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-         | "universal"
-         | "existential"
-       }?
-     & attribute mapClosure { "universal" | "existential" }?
+    (attribute closure {
+       xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
+       | xsd:string {
+           minLength = "1"
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         }
+       | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       | "universal"
+       | "existential"
+     }?
      & attribute ns1:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
