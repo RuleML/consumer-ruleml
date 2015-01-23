@@ -13,14 +13,7 @@ start |= Exists-node.choice
 # ROOT NODE AND PERFORMATIVES INCLUDED
 # WITH SEPARATION OF ATTLIST FOR ASSERT AND RETRACT
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_performative_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-# 
-# ROOT NODE AND PERFORMATIVES DISALLOWED
-# SO THEY WILL NOT APPEAR WITHIN REIFICATIONS
-#
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_performative_contraction_module.rnc" inherit = ruleml { 
+include "../modules/consumer_performative_content_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -374,7 +367,7 @@ include "http://reaction.ruleml.org/1.02/relaxng/modules/negation_expansion_modu
 #
 # Reaction RuleML
 #
-include "../modules/drrr_consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #

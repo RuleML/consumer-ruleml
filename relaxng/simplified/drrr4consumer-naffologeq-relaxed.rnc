@@ -13,6 +13,7 @@ start =
   | Or
   | Neg
   | Negation
+  | Naf
   | Implies
   | Equivalent
   | Forall
@@ -886,6 +887,66 @@ Negation =
        }?
      & attribute vocab { xsd:anyURI }?)
   }
+Naf =
+  element Naf {
+    (attribute ns1:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           minLength = "1"
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         }
+         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           minLength = "1"
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         }
+         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute meta {
+         list {
+           xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               minLength = "1"
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             }
+           | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+         }
+       }?
+     & attribute vocab { xsd:anyURI }?
+     & attribute type {
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             minLength = "1"
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           }
+         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?),
+    meta*,
+    degree?,
+    (weak
+     | Atom
+     | Equal
+     | Interval
+     | Spatial
+     | Operator
+     | Time
+     | And
+     | Or
+     | Neg
+     | Negation
+     | Implies
+     | Equivalent
+     | Forall
+     | Exists)
+  }
 Implies =
   element Implies {
     (attribute material { "yes" | "no" }?
@@ -1320,66 +1381,6 @@ then =
        | Equivalent
        | Forall
        | Exists)
-  }
-Naf =
-  element Naf {
-    (attribute ns1:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           minLength = "1"
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-         }
-         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           minLength = "1"
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-         }
-         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         list {
-           xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
-           | xsd:string {
-               minLength = "1"
-               pattern =
-                 "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             }
-           | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-         }
-       }?
-     & attribute vocab { xsd:anyURI }?
-     & attribute type {
-         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
-         | xsd:string {
-             minLength = "1"
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           }
-         | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?),
-    meta*,
-    degree?,
-    (weak
-     | Atom
-     | Equal
-     | Interval
-     | Spatial
-     | Operator
-     | Time
-     | And
-     | Or
-     | Neg
-     | Negation
-     | Implies
-     | Equivalent
-     | Forall
-     | Exists)
   }
 degree =
   element degree {
@@ -4169,6 +4170,42 @@ formula_3 =
          | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
   }
+weak =
+  element weak {
+    attribute ns1:schemaLocation { text }?
+    & attribute xml:base { xsd:anyURI }?
+    & attribute xml:id { xsd:NCName }?
+    & attribute key {
+        xsd:string {
+          minLength = "1"
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+        }
+        | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & attribute keyref {
+        xsd:string {
+          minLength = "1"
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+        }
+        | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & (Atom
+       | Equal
+       | Interval
+       | Spatial
+       | Operator
+       | Time
+       | And
+       | Or
+       | Neg
+       | Negation
+       | Implies
+       | Equivalent
+       | Forall
+       | Exists)
+  }
 torso =
   element torso {
     attribute ns1:schemaLocation { text }?
@@ -4263,42 +4300,6 @@ formula_4 =
   }
 formula_5 =
   element formula {
-    attribute ns1:schemaLocation { text }?
-    & attribute xml:base { xsd:anyURI }?
-    & attribute xml:id { xsd:NCName }?
-    & attribute key {
-        xsd:string {
-          minLength = "1"
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-        }
-        | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & attribute keyref {
-        xsd:string {
-          minLength = "1"
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)?(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-        }
-        | xsd:anyURI { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & (Atom
-       | Equal
-       | Interval
-       | Spatial
-       | Operator
-       | Time
-       | And
-       | Or
-       | Neg
-       | Negation
-       | Implies
-       | Equivalent
-       | Forall
-       | Exists)
-  }
-weak =
-  element weak {
     attribute ns1:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
