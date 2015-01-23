@@ -1,0 +1,41 @@
+namespace dc = "http://purl.org/dc/elements/1.1/"
+namespace dcterms = "http://purl.org/dc/terms/"
+
+dc:title [ "Reaction RuleML for DR- Extended Implications" ]
+dc:version [ "1.0" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:creator [ "Adrian Paschke" ]
+dc:subject [ "RuleML, Reaction, Deliberation, Implication" ]
+dc:description [
+  "The expansion module for extended implication."
+]
+dc:language [ "en" ]
+dcterms:rights [ "TBD" ]
+dc:relation [ "http://reaction.ruleml.org" ]
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansion_module.rnc" {
+  body_Implies.name.choice |= notAllowed
+  head_Implies.name.choice |= notAllowed
+  
+  reImplies.attlist &= operator-interface.attlist?
+
+}
+# *** if ***
+if_Rule-edge.choice |= if_Rule.edge.def
+if_Rule.edge.def =
+  ## <if>: contains the premises of the rule. See 
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-if
+  element if {if_Rule.type.def}
+if_Rule.type.def = if_Rule.attlist? & if_Rule.content
+if_Rule.content |= PremiseFormula.choice
+if_Rule.attlist &= commonInit.attlist?
+edge.choice |= if_Rule.edge.def
+# *** then ***
+then_Rule-edge.choice |= then_Rule.edge.def
+then_Rule.edge.def =
+  ## <then>: contains the conclusion of the rule. See 
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-then
+  element then {then_Rule.type.def}
+then_Rule.type.def = then_Rule.attlist? & then_Rule.content
+then_Rule.content |= ConclusionFormula.choice
+then_Rule.attlist &= commonInit.attlist?
+edge.choice |= then_Rule.edge.def

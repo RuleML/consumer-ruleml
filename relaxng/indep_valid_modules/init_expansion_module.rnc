@@ -1,0 +1,3 @@
+include "../modules/init_expansion_module.rnc"
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/init_expansion_module.rnc"
+include "http://reaction.ruleml.org/1.02/relaxng/modules/init_expansion_module.rnc"

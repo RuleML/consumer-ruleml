@@ -31,26 +31,20 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/atom_expansion_modu
 }
 # 
 # CONJUNCTIONS AND DISJUNCTIONS INCLUDED
-# WITH EXTENDED CONTENT MODEL FOR AND/OR IN QUERIES
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_andor_strict_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/andor_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
 # IMPLICATIONS INCLUDED
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_implication_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_implication_content_strict_expansion_module.rnc" inherit = ruleml { 
+include "../modules/drrr_implication_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
 # QUANTIFICATION OVER VARIABLES INCLUDED
-# WITH EXTENDED CONTENT MODEL FOR EXISTENTIALS
-# ALLOWING QUERY VERSION OF AND/OR
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_quantification_expansion_module.rnc" inherit = ruleml { 
+include "../modules/drrr_quantification_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -60,16 +54,10 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/expr_expansion_modu
   start |= notAllowed
 }
 # 
-# DISJUNCTIONS IN CONCLUSIONS INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/dis_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-# 
 # RESTRICTIONS ON COMPOUNDING CLASSICAL FORMULAS REMOVED 
 #   FULL FIRST-ORDER EXPRESSIVITY (INCLUDING NEGATION) IS AVAILABLE 
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_fo_expansion_module.rnc" inherit = ruleml {
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/folog_cl_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
 # 
@@ -171,24 +159,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/xml_id_expansion_mo
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/equivalent_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-# 
-# INFERENCE DIRECTION ATTRIBUTE IS INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/direction_attrib_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-# 
-# NON-DEFAULT VALUES OF INFERENCE DIRECTION NOT INCLUDED
-#
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/direction_non-default_expansion_module.rnc" inherit = ruleml {
-#  start |= notAllowed
-#}
-# 
-# DEFAULT VALUES OF INFERENCE DIRECTION INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/direction_default_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
 # MATERIAL IMPLICATION ATTRIBUTE IS INCLUDED
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/material_attrib_expansion_module.rnc" inherit = ruleml {
@@ -228,24 +198,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/card_expansion_modu
 # EQUATIONS INCLUDED
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/equal_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-# 
-# ORIENTED EQUALITY ATTRIBUTE IS INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/oriented_attrib_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-# 
-# NON-DEFAULT VALUES OF ORIENTED EQUALITY ATTRIBUTE INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/oriented_non-default_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-# 
-# DEFAULT VALUE OF ORIENTED EQUALITY ATTRIBUTE INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/oriented_default_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
 # 
