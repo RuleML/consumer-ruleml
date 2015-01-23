@@ -332,7 +332,7 @@ include "http://reaction.ruleml.org/1.02/relaxng/modules/negation_expansion_modu
 #
 # Reaction RuleML
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
+include "..modules/drrr_consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
