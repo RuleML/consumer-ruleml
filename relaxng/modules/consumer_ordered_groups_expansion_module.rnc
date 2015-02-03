@@ -34,7 +34,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/ordered_groups_expa
 argumentsForTime.sequence |= arg_time.choice*, restOfPositionalArguments-edge.choice?, slot-edge.choice*, restOfSlots-edge.choice?
 argumentsForSpatial.sequence |= arg_spatial.choice*, restOfPositionalArguments-edge.choice?, slot-edge.choice*, restOfSlots-edge.choice?
 #
-Node.header &= metaKnowledge-edge.choice*
 # *** Derivation Rule content model ***
 DerivationRule.content |= Implies.main, else_Rule-edge.choice?
 

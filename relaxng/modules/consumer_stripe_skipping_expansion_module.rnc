@@ -38,7 +38,3 @@ arg_time.choice |= time_primitives.content
 arg_spatial.choice |= spatial_primitives.content
 arg_interval.choice |= interval_primitives.content
 formula-quant.choice |= formula_Forall.content
-#
-formula_And-query-edge.choice |= formula_And-query.content
-formula_Or-query-edge.choice |= formula_Or-query.content
-formula_Exists-query-edge.choice |= formula_Exists-query.content

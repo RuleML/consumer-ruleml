@@ -87,15 +87,15 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
 # 
 # EXPLICIT DATATYPING ENABLED (include in RNC)
 #
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/explicit_datatyping_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/dataterm_simple_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/data_simple_content_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/explicit_datatyping_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/dataterm_simple_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/data_simple_content_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 # 
 # xsi:schemaLocation ALLOWED IN RuleML (include in RNC)
 #
@@ -130,9 +130,8 @@ include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_naf_expansion_modu
 }
 # 
 # IN-PLACE ANNOTATIONS INCLUDED
-# WITH OPTIONAL INDEX ATTRIBUTE
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_meta_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/meta_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -198,7 +197,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/equal_expansion_mod
 # EXPLICIT TYPING OF TERMS AND NONLOGICAL SYMBOLS INCLUDED
 # WITH REACTION RULEML EXTENSION FOR CURIES
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_type_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/type_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -220,12 +219,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/skolem_expansion_mo
   start |= notAllowed
 }
 # 
-# REIFICATION TERMS INCLUDED, EXPLICIT CONTENT (incude in RNC)
-#
-#include "http://deliberation.ruleml.org/1.02/relaxng/modules/reify_expansion_module.rnc" inherit = ruleml {
-#  start |= notAllowed
-#}
-# 
 # INDIVIDUAL TERMS (INTERPRETED NAMES) ARE INCLUDED
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/individual_expansion_module.rnc" inherit = ruleml {
@@ -240,7 +233,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/variable_expansion_
 # 
 # IMPLICIT CLOSURE INCLUDED
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/drrr_closure_expansion_module.rnc" inherit = ruleml {
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/closure_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
 # 
@@ -302,13 +295,13 @@ include "http://reaction.ruleml.org/1.02/relaxng/modules/any_content_strict_expa
 #
 # Reaction RuleML
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/attributes_dr_consumer_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_attribute_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
 # Reaction RuleML
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/curie_key_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_key_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
@@ -356,6 +349,3 @@ include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = rul
 include "http://reaction.ruleml.org/1.02/relaxng/modules/time_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
-#include "http://reaction.ruleml.org/1.02/relaxng/modules/unordered_groups_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}

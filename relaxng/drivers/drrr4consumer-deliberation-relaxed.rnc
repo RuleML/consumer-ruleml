@@ -1,11 +1,12 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
-start |= Rule
+#start |= Rule
 start |= SimpleFormula-node.choice
 start |= And-node.choice
 start |= Or-node.choice
 start |= Negation-node.choice
+start |= NegationAsFailure-node.choice
 start |= Implication-node.choice
 start |= Forall-node.choice
 start |= Exists-node.choice
@@ -288,9 +289,9 @@ include "http://reaction.ruleml.org/1.02/relaxng/modules/init_expansion_module.r
 #
 # Reaction RuleML ANY (include in RNC)
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/any_content_strict_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
+#include "http://reaction.ruleml.org/1.02/relaxng/modules/any_content_strict_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
 #
 # Reaction RuleML
 #
@@ -300,21 +301,21 @@ include "../modules/consumer_attribute_expansion_module.rnc" inherit = ruleml {
 #
 # Reaction RuleML
 #
-include "../modules/consumer_key_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
+#include "../modules/consumer_key_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
 #
 # Reaction RuleML
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/interval_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
+#include "http://reaction.ruleml.org/1.02/relaxng/modules/interval_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
 #
 # Reaction RuleML
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/negation_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
+#include "http://reaction.ruleml.org/1.02/relaxng/modules/negation_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
 #
 # Reaction RuleML
 #
@@ -324,27 +325,27 @@ include "../modules/consumer_ordered_groups_expansion_module.rnc" inherit = rule
 #
 # Reaction RuleML
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/rule_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-#
-# Reaction RuleML
-#
-include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-#
-# Reaction RuleML
-#
-include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_temporal_interval_algebra_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-#include "http://reaction.ruleml.org/1.02/relaxng/modules/stripe_skipping_expansion_module.rnc" inherit = ruleml { 
+#include "http://reaction.ruleml.org/1.02/relaxng/modules/rule_expansion_module.rnc" inherit = ruleml { 
 #  start |= notAllowed
 #}
 #
 # Reaction RuleML
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/time_expansion_module.rnc" inherit = ruleml { 
+#include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
+#
+# Reaction RuleML
+#
+#include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_temporal_interval_algebra_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
+include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
+#
+# Reaction RuleML
+#
+#include "http://reaction.ruleml.org/1.02/relaxng/modules/time_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
