@@ -16,7 +16,7 @@ shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
 REPO_HOME="${BASH_HOME}../"
 RNC_HOME=${REPO_HOME}relaxng/
-RNC4SIMP_HOME=${RNC_HOME}drivers/
+RNC4SIMP_HOME=${RNC_HOME}drivers4simp/
 SIMP_HOME=${RNC_HOME}simplified/
 
 # 
