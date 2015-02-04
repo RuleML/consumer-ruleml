@@ -1,17 +1,17 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "Reaction RuleML for DR- Extended Quantifications" ]
-dc:version [ "1.0" ]
+dc:title [ "Consumer RuleML Extended Quantifications" ]
+dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Reaction, Deliberation, Quantification" ]
+dc:subject [ "RuleML, Consumer, Quantification" ]
 dc:description [
   "The expansion module for extended quantifications."
 ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-dc:relation [ "http://reaction.ruleml.org" ]
+
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/quantification_expansion_module.rnc" {
 
 ForallFormula.choice |=
@@ -25,6 +25,8 @@ ForallFormula.choice |=
     | Forall-node.choice
     | Exists-fo-node.choice
 
+  reForall.attlist &= operator-interface.attlist?
+
 
   ExistsFormula.choice |=
     SimpleFormula-node.choice
@@ -36,4 +38,7 @@ ForallFormula.choice |=
     | Implication-fo-node.choice
     | Forall-fo-node.choice
     | Exists-node.choice
+
+  reExists.attlist &= operator-interface.attlist?
+
 }

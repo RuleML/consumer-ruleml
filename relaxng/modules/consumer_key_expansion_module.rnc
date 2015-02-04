@@ -1,17 +1,17 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "Reaction RuleML for DR CURIEs" ]
-dc:version [ "1.0" ]
+dc:title [ "Consumer RuleML CURIEs" ]
+dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Reaction, Deliberation, CURIE" ]
+dc:subject [ "RuleML, Consumer, CURIE" ]
 dc:description [
   "The expansion module for CURIE datatypes."
 ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-dc:relation [ "http://reaction.ruleml.org" ]
+
 start |= notAllowed
 
 # *** @key ***
@@ -29,3 +29,8 @@ keyref-att.choice |= keyref.attrib.def
 keyref.attrib.def = attribute keyref { keyref.value }
 keyref.value |= PrefixedCURIE.datatype
 keyref.value |= AbsIRI.datatype
+
+#
+commonInit.attlist &= key-att.choice?
+commonInit.attlist &= keyref-att.choice?
+

@@ -1,24 +1,28 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "Reaction RuleML for DR- Extended Implications" ]
-dc:version [ "1.0" ]
+dc:title [ "Consumer RuleML Extended Implications" ]
+dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Reaction, Deliberation, Implication" ]
+dc:subject [ "RuleML, Consumer, Implication" ]
 dc:description [
   "The expansion module for extended implication."
 ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-dc:relation [ "http://reaction.ruleml.org" ]
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansion_module.rnc" {
-  body_Implies.name.choice |= notAllowed
-  head_Implies.name.choice |= notAllowed
-  
-  reImplies.attlist &= operator-interface.attlist?
 
+# This module includes and extends the Deliberation RuleML implication module.
+# Additional optional attributes are added.
+# Noew if/then edge elements, used by both Implies and Rule, are defined.
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansion_module.rnc"{
+  # if/then edges defined in this module are removed from the edge.choice pattern
+  edge.choice |= notAllowed
+# optional attributes for Implies are extended
+  reImplies.attlist &= operator-interface.attlist?
 }
+
+
 # *** if ***
 if_Rule-edge.choice |= if_Rule.edge.def
 if_Rule.edge.def =

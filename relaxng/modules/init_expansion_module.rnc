@@ -1,1 +1,37 @@
 start |= notAllowed
+type-formula-att.choice |= notAllowed
+type-att.choice |= notAllowed
+iri-att.choice |= notAllowed
+style-att.choice |= notAllowed
+scope-formula-att.choice |= notAllowed
+
+formula-interface.attlist &= empty
+operator-interface.attlist &= empty
+term-interface.attlist &= empty
+
+#interval
+interval_algebra_group.content |= notAllowed
+
+#ordered_groups
+arg_spatial.choice |= notAllowed
+arg_time.choice |= notAllowed
+
+#quantification
+NegationAsFailure-ae-node.choice |= notAllowed
+
+#rule
+DerivationRule.content |= notAllowed
+
+#spatial
+spatial_temporal_algebra_group.content |= notAllowed
+argumentsForSpatial.sequence |= notAllowed
+
+#stripe-skipping
+formula-negation.content |= notAllowed
+if_Rule.content |= notAllowed
+if_Rule-edge.choice |= notAllowed
+then_Rule.content |= notAllowed
+then_Rule-edge.choice |= notAllowed
+interval_primitives.content |= notAllowed
+spatial_primitives.content |= notAllowed
+time_primitives.content |= notAllowed

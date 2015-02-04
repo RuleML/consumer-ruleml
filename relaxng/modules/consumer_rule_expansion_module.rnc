@@ -1,0 +1,36 @@
+namespace dc = "http://purl.org/dc/elements/1.1/"
+namespace dcterms = "http://purl.org/dc/terms/"
+
+dc:title [ "Consumer RuleML for Rules" ]
+dc:version [ "1.02" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:creator [ "Adrian Paschke" ]
+dc:subject [ "RuleML, Consumer, Rule" ]
+dc:description [ "The expansion module for rules in Consumer RuleML." ]
+dc:language [ "en" ]
+dcterms:rights [ "TBD" ]
+
+##
+start |= Rule
+Node.choice |= Rule
+
+##
+Rule =
+  
+  ## <Rule>: defines a rule in Consumer RuleML. See
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Rule
+  element Rule { Rule.type.def }
+Rule.type.def = Rule.content, (Rule-datt.choice & reRule.attlist)
+Rule-datt.choice |= direction-att-inf.choice & material-att-inf.choice
+reRule.attlist &= operator-interface.attlist?
+reRule.attlist &= commonNode.attlist?
+Rule.content |= Rule.header, Rule.main?
+Rule.header &= Node.header, degree-edge.choice?
+
+## An internal group for the implementation of a rule in the Consumer RuleML language
+Rule.main |= DerivationRule.content
+
+##
+AssertRetractFormula.choice |= Rule
+ForallFormula.choice |= Rule
+RulebaseFormula.choice |= Rule

@@ -2,14 +2,14 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
 dc:title [ "Stripe-skipping in Reaction RuleML" ]
-dc:version [ "1.0" ]
+dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Reaction, stripe-skipping" ]
+dc:subject [ "RuleML, Consumer, stripe-skipping" ]
 dc:description [ "The expansion module for stripe-skipping." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-dc:relation [ "http://reaction.ruleml.org" ]
+
 # 
 # STRIPE-SKIPPING MODE ENABLED
 #
@@ -18,7 +18,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_exp
 }
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc" {
   start |= notAllowed
-  # both stripes skipped
+  # one or both stripes skipped
   Implies.main |=
     (if_Rule-ss.content, then_Rule-ss.content)
     | (if_Rule-ss.content, then_Rule-edge.choice)
@@ -31,10 +31,8 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/asynchronous_stripe
 #
 if_Rule-ss.content |= if_Rule.content
 then_Rule-ss.content |= then_Rule.content
-# all stripes, including else, skipped
-DerivationRule.content |= if_Rule-ss.content, then_Rule-ss.content, then_Rule-ss.content
 formula-negation.choice |= formula-negation.content
+arg_interval.choice |= interval_primitives.content
 arg_time.choice |= time_primitives.content
 arg_spatial.choice |= spatial_primitives.content
-arg_interval.choice |= interval_primitives.content
 formula-quant.choice |= formula_Forall.content
