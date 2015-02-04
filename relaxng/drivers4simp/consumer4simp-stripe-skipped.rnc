@@ -1,7 +1,7 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
-#start |= Rule
+start |= Rule
 start |= SimpleFormula-node.choice
 start |= And-node.choice
 start |= Or-node.choice
@@ -37,6 +37,7 @@ include "../modules/consumer_implication_expansion_module.rnc" inherit = ruleml 
 }
 # 
 # QUANTIFICATION OVER VARIABLES INCLUDED
+# WITH WEAK NEGATION
 #
 include "../modules/consumer_quantification_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
@@ -75,6 +76,9 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_absent_folo
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_present_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_present_folog_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 # 
 # POLYADIC TERM (ONE OR MORE TERMS) SEQUENCES INCLUDED
 #
@@ -94,17 +98,17 @@ include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = rul
   start |= notAllowed
 }
 # 
-# EXPLICIT DATATYPING ENABLED (include in RNC, not in 4simp or 4xsd)
+# EXPLICIT DATATYPING DISABLED (include in RNC, not in 4simp or 4xsd)
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/explicit_datatyping_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/dataterm_simple_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/data_simple_content_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
+#include "http://deliberation.ruleml.org/1.02/relaxng/modules/explicit_datatyping_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
+#include "http://deliberation.ruleml.org/1.02/relaxng/modules/dataterm_simple_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
+#include "http://deliberation.ruleml.org/1.02/relaxng/modules/data_simple_content_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
 # 
 # xsi:schemaLocation ALLOWED IN RuleML (include in RNC)
 #
@@ -134,12 +138,14 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/fuzzy_expansion_mod
 }
 # 
 # STRONG NEGATION INCLUDED
+# WITH NESTED NEGATION
 #
 include "../modules/consumer_neg_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
 # WEAK NEGATIONS INCLUDED
+# WITH NESTED NEGATION
 #
 include "../modules/consumer_naf_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
@@ -149,9 +155,9 @@ include "../modules/consumer_naf_expansion_module.rnc" inherit = ruleml {
 # QUANTIFICATIONS, IMPLICATIONS, STRONG NEGATIONS, GENERIC NEGATIONS,
 # AND WITHIN NAF ITSELF
 #
-#include "http://reaction.ruleml.org/1.02/relaxng/modules/ae_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "http://reaction.ruleml.org/1.02/relaxng/modules/ae_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 # 
 # IN-PLACE ANNOTATIONS INCLUDED
 #
@@ -307,60 +313,60 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/per_default_expansi
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/init_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-include "../modules/init_expansion_module.rnc" inherit = ruleml {
+#include "../modules/init_expansion_module.rnc" inherit = ruleml {
+#  start |= notAllowed
+#}
+#
+# INCLUDE GENERIC ANY OPERATOR
+#
+include "http://reaction.ruleml.org/1.02/relaxng/modules/any_content_strict_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
-# DISABLE GENERIC ANY OPERATOR
+# INCLUDE EXTENEDED ATTRIBUTES FOR SPECIFYING SEMANTIC VARIANTS AND ANNOTATIONS
 #
-#include "http://reaction.ruleml.org/1.02/relaxng/modules/any_content_strict_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "../modules/consumer_attribute_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 #
-# DISABLE EXTENEDED ATTRIBUTES FOR SPECIFYING SEMANTIC VARIANTS AND ANNOTATIONS
+# INCLUDE KEY AND KEYREF ATTRIBUTES FOR SYNTACTIC LABELLING AND REFERENCING
 #
-#include "../modules/consumer_attribute_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "../modules/consumer_key_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 #
-# DISABLE KEY AND KEYREF ATTRIBUTES FOR SYNTACTIC LABELLING AND REFERENCING
+# INCLUDE INTERVAL TERMS AND FORMULAS
 #
-#include "../modules/consumer_key_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "../modules/consumer_interval_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 #
-# DISABLE INTERVAL TERMS AND FORMULAS
+# INCLUDE GENERIC NEGATION OPERATOR
 #
-#include "../modules/consumer_interval_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "http://reaction.ruleml.org/1.02/relaxng/modules/negation_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 #
-# DISABLE GENERIC NEGATION OPERATOR
+# INCLUDE RULES
 #
-#include "http://reaction.ruleml.org/1.02/relaxng/modules/negation_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "../modules/consumer_rule_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 #
-# DISABLE RULES
+# INCLUDE SPATIAL TERMS AND FORMULAS 
 #
-#include "../modules/consumer_rule_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "../modules/consumer_spatial_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 #
-# DISABLE SPATIAL TERMS AND FORMULAS 
+# INCLUDE SPATIAL, TEMPORAL AND INTERVAL ALGEBRA OPERATORS
 #
-#include "../modules/consumer_spatial_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_temporal_interval_algebra_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 #
-# DISABLE SPATIAL, TEMPORAL AND INTERVAL ALGEBRA OPERATORS
+# INCLUDE TEMPORAL TERMS AND FORMULAS
 #
-#include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_temporal_interval_algebra_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
-#
-# DISABLE TEMPORAL TERMS AND FORMULAS
-#
-#include "http://reaction.ruleml.org/1.02/relaxng/modules/time_expansion_module.rnc" inherit = ruleml { 
-#  start |= notAllowed
-#}
+include "http://reaction.ruleml.org/1.02/relaxng/modules/time_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
