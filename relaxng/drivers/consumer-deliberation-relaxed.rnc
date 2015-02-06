@@ -84,7 +84,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
 #
 # INCLUDE CONTENT MODELS WITH CANONICAL ORDER
 #
-include "../modules/consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_unordered_groups_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
