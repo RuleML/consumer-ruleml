@@ -179,6 +179,23 @@ Atom =
            minLength = "1"
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     meta*,
     oid?,
@@ -225,6 +242,33 @@ Equal =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     meta*,
@@ -606,6 +650,33 @@ And =
            minLength = "1"
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     meta*,
     degree?,
@@ -653,6 +724,33 @@ Or =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     meta*,
@@ -1046,6 +1144,23 @@ Equivalent =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     meta*,

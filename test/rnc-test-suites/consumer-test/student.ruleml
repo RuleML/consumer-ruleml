@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../relaxng/drivers/consumer-relaxed.rnc"?> 
+<And xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+
+  <!-- a particular person is a student -->
+  <Atom>
+    <Rel>student</Rel>
+    <Ind>personA</Ind>
+  </Atom>
+
+  <!--a particular person is an employee -->
+  <!-- 
+		     <Atom>
+		       <Rel>employee</Rel>
+		       <Ind>personA</Ind>
+		       <Ind>companyB</Ind>
+		     </Atom>
+		     -->
+
+  <!--a student is a fulltime-student if the student cannot be proved as a parttime-student -->
+
+  <Implies>
+    <if>
+      <And>
+        <Atom>
+          <Rel>student</Rel>
+          <Var>person</Var>
+        </Atom>
+        <Naf>
+          <Atom>
+            <Rel>parttime-student</Rel>
+            <Var>person</Var>
+          </Atom>
+        </Naf>
+      </And>
+    </if>
+    <then>
+      <Atom>
+        <Rel>fulltime-student</Rel>
+        <Var>person</Var>
+      </Atom>
+    </then>
+  </Implies>
+
+
+  <!--An "negative integrity constraint" that a fulltime-student cannot also be an employee of a company-->
+
+  <Implies closure="universal">
+    <And>
+      <Atom>
+        <Rel>fulltime-student</Rel>
+        <Var>person</Var>
+      </Atom>
+      <Atom>
+        <Rel>employee</Rel>
+        <Var>person</Var>
+        <Var>company</Var>
+      </Atom>
+    </And>
+    <Or/>
+  </Implies>
+
+  <!-- A similar (but weaker) "negative integrity constraint" espressed using weak negation. -->
+  <Naf>
+    <And closure="existential">
+      <Atom>
+        <Rel>fulltime-student</Rel>
+        <Var>person</Var>
+      </Atom>
+      <Atom>
+        <Rel>employee</Rel>
+        <Var>person</Var>
+        <Var>company</Var>
+      </Atom>
+    </And>
+  </Naf>
+
+</And>
