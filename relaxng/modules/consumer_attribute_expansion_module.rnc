@@ -62,8 +62,9 @@ generic-Node.attlist &= commonNode.attlist?
 # a group of attributes for the meta knowledge interface of knowledge formulas
 # that may have implicit closure
 # 
-formula-interface.attlist &= type-att.choice?
-formula-interface.attlist &= style-att.choice?
+formula-interface-ext.attlist &=  type-formula-att.choice?
+formula-interface-ext.attlist &=  style-att.choice?
+formula-interface.attlist &= formula-interface-ext.attlist?
 formula-interface.attlist &= closure-att.choice?
 #
 # a group of attributes for the meta knowledge interface of terms
@@ -71,6 +72,14 @@ formula-interface.attlist &= closure-att.choice?
 term-interface.attlist &=  type-att.choice?
 # 
 # a group of attributes for the meta knowledge interface of all connectives/operators in Reaction RuleML
-operator-interface.attlist &=  type-formula-att.choice?
-operator-interface.attlist &=  style-att.choice?
+operator-interface-ext.attlist &=  type-formula-att.choice?
+operator-interface-ext.attlist &=  style-att.choice?
+operator-interface.attlist &= operator-interface-ext.attlist?
 operator-interface.attlist &= closure-att.choice?
+
+# extension of optional attribute groups from Deliberation RuleML
+reEqual.attlist &= formula-interface.attlist?
+reAtom.attlist &= formula-interface-ext.attlist?
+reAnd.attlist &= operator-interface.attlist?
+reOr.attlist &= operator-interface.attlist?
+reEquivalent.attlist &= operator-interface-ext.attlist?
