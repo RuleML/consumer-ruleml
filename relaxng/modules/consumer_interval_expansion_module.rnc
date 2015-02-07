@@ -44,7 +44,7 @@ edge.choice |= arg_interval
 
 # in interval module
 SimpleKeyTerm.choice |= Interval_term
-SimpleFormula-node.choice |= Interval_formula
+Atom-node.choice |= Interval_formula
 
 ## Interval primitives
 interval_primitives.content |= arg.content | interval_algebra_group.content

@@ -43,7 +43,7 @@ edge.choice |= arg_spatial
 
 # in spatial module
 SimpleKeyTerm.choice |= Spatial_term
-SimpleFormula-node.choice |= Spatial_formula
+Atom-node.choice |= Spatial_formula
 
 ## An internal group for the spatial primitives for interpretation as spatial
 spatial_primitives.content |= arg.content | spatial_temporal_algebra_group.content

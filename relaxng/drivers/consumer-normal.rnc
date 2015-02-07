@@ -14,7 +14,7 @@ start |= Exists-node.choice
 # ROOT NODE AND PERFORMATIVES INCLUDED
 # WITH SEPARATION OF ATTLIST FOR ASSERT AND RETRACT
 #
-include "../modules/consumer_performative_content_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/performative_content_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -39,7 +39,7 @@ include "../modules/consumer_implication_expansion_module.rnc" inherit = ruleml 
 # QUANTIFICATION OVER VARIABLES INCLUDED
 # WITH WEAK NEGATION
 #
-include "../modules/consumer_quantification_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/quantification_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -137,22 +137,14 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/fuzzy_expansion_mod
 # STRONG NEGATION INCLUDED
 # WITH NESTED NEGATION
 #
-include "../modules/consumer_neg_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/neg_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
 # WEAK NEGATIONS INCLUDED
 # WITH NESTED NEGATION
 #
-include "../modules/consumer_naf_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-#
-# NAF ALLOWED IN OPERATORS THAT EMPLOY THE ASSERT/RETRACT OR RULEBASE FORMULA PATTERNS,
-# QUANTIFICATIONS, IMPLICATIONS, STRONG NEGATIONS, GENERIC NEGATIONS,
-# AND WITHIN NAF ITSELF
-#
-include "http://reaction.ruleml.org/1.02/relaxng/modules/ae_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/naf_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -200,7 +192,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/material_default_ex
 # OBJECT IDENTIFIERS INCLUDED
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/oid_expansion_module.rnc" inherit = ruleml {
-#  start |= notAllowed
+  start |= notAllowed
 }
 # 
 # SLOTS INCLUDED

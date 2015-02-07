@@ -18,8 +18,6 @@ dcterms:rights [ "TBD" ]
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansion_module.rnc"{
   # if/then edges defined in this module are removed from the edge.choice pattern
   edge.choice |= notAllowed
-# optional attributes for Implies are extended
-  reImplies.attlist &= operator-interface.attlist?
 }
 
 

@@ -83,3 +83,10 @@ reAtom.attlist &= formula-interface-ext.attlist?
 reAnd.attlist &= operator-interface.attlist?
 reOr.attlist &= operator-interface.attlist?
 reEquivalent.attlist &= operator-interface-ext.attlist?
+reNaf.attlist &= operator-interface.attlist?
+reNeg.attlist &= operator-interface.attlist?
+reForall.attlist &= operator-interface.attlist?
+reExists.attlist &= operator-interface.attlist?
+reImplies.attlist &= operator-interface-ext.attlist?
+
+
