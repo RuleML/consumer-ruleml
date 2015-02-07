@@ -14,6 +14,8 @@ dcterms:rights [ "TBD" ]
 
 start |= notAllowed
 Node.choice |= Spatial_formula.def
+edge.choice |= arg_spatial
+#
 Spatial_formula-node.choice |= Spatial_formula.def
 Spatial_term-node.choice |= Spatial_term.def
 
@@ -38,7 +40,6 @@ arg_spatial.attlist &= commonInit.attlist?
 arg_spatial.content |= spatial_primitives.content
 arg_spatial.type.def = arg_spatial.content, arg_spatial.attlist
 arg_spatial = element arg { arg_spatial.type.def }
-edge.choice |= arg_spatial
 
 
 # in spatial module

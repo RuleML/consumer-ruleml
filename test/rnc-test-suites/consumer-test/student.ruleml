@@ -44,7 +44,7 @@
   </Implies>
 
 
-  <!--An "negative integrity constraint" that a fulltime-student cannot also be an employee of a company-->
+  <!--As "negative integrity constraint" that a fulltime-student cannot also be an employee of a company-->
 
   <Implies closure="universal">
     <And>

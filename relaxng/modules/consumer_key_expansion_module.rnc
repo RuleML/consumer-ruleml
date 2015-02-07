@@ -33,4 +33,8 @@ keyref.value |= AbsIRI.datatype
 #
 commonInit.attlist &= key-att.choice?
 commonInit.attlist &= keyref-att.choice?
+#
+# a dummy element to assist in XSD conversion
+#
+DummyKeyElement.def = element Key { key-att.choice }
 

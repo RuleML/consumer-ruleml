@@ -1,8 +1,4 @@
 start |= notAllowed
-#drivers
-Rule-node.choice |= notAllowed
-Spatial_formula-node.choice |= notAllowed
-Time_formula-node.choice |= notAllowed
 
 #attribute
 type-formula-att.choice |= notAllowed

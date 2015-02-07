@@ -13,6 +13,9 @@ dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
 dc:relation [ "http://reaction.ruleml.org" ]
 start |= notAllowed
+Node.choice |= Interval_formula.def
+edge.choice |= arg_interval.def
+
 # This module declares the following Reaction RuleML elements:
 # * Interval
 
@@ -27,7 +30,6 @@ Interval_formula.content |= Node.header, (arg_interval.choice, arg_interval.choi
 #
 Interval_term.type.def = Interval_term.content, Interval_term.attlist
 Interval_formula.type.def = Interval_formula.content, Interval_formula.attlist
-Node.choice |= Interval_formula.def
 Interval_term.def =
   
   ## <Interval>: generic Interval element. See
@@ -40,7 +42,6 @@ arg_interval.attlist &= commonInit.attlist?
 arg_interval.content |= interval_primitives.content
 arg_interval.type.def = arg_interval.content, arg_interval.attlist
 arg_interval.def = element arg { arg_interval.type.def }
-edge.choice |= arg_interval.def
 
 # in interval module
 SimpleKeyTerm.choice |= Interval_term.def

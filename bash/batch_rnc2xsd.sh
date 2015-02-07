@@ -16,10 +16,16 @@ OXY_HOME=/Applications/oxygen/
 SAX_HOME=${OXY_HOME}lib/
 XSLT_HOME=${REPO_HOME}xslt/rnc2xsd/
 #
-# creates the xsd and xsd_min directory if they don't exist, and clears them, in case they already have contents
+# creates the xsd directory if they doesn't exist, and clears them, in case they already have contents
 mkdir -p ${XSD_HOME}
 rm ${XSD_HOME}*.xsd >> /dev/null 2>&1
 
+# simplify before converting
+#simplify= true
+# 
+# don't simplify before converting
+# instead, flatten after converting
+simplify= false
 # applies the script rnc2xsd.sh to all RNC4XSD schemas
 # for debugging, do not remove the temporary RNG
 finish= false
@@ -31,10 +37,12 @@ do
   filename=$(basename "$f")
   #extension="${filename##*.}"
   filenameNE="${filename%.*}"
-  ${BASH_HOME}rnc2xsd.sh "$f" ${XSD_HOME}"$filenameNE".xsd $finish
+  ${BASH_HOME}rnc2xsd.sh "$f" ${XSD_HOME}"$filenameNE".xsd "{$simplify}" "{$finish}"
 done
+# temporary exit
+#exit 2
 
-rm ${XSD_HOME}xml.xsd
+rm ${XSD_HOME}xml.xsd  >> /dev/null 2>&1
 # Apply XSLT transforamtions
 # transform in place for files in XSD_HOME
 # FIXME write an aux script for the xslt call

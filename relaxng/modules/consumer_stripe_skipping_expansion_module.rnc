@@ -1,5 +1,6 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
+default namespace ruleml = "http://ruleml.org/spec"
 
 dc:title [ "Stripe-skipping in Reaction RuleML" ]
 dc:version [ "1.02" ]
@@ -13,10 +14,10 @@ dcterms:rights [ "TBD" ]
 # 
 # STRIPE-SKIPPING MODE ENABLED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
   # one or both stripes skipped
   Implies.main |=
@@ -31,3 +32,7 @@ arg_interval.choice |= interval_primitives.content
 arg_time.choice |= time_primitives.content
 arg_spatial.choice |= spatial_primitives.content
 formula-quant.choice |= formula_Forall.content
+#
+# a dummy element to assist in XSD conversion
+#
+DummySkipElement.def = element Skip { interval_primitives.content }

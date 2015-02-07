@@ -1,11 +1,12 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
+default namespace this = inherit
 
 dc:title [ "Consumer RuleML Attributes" ]
 dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Consumer, Attributes" ]
+dc:subject [ "RuleML, Consumer, attributes" ]
 dc:description [ "The expansion module for Consumer RuleML attributes beyond Deliberation RuleML." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
@@ -13,80 +14,85 @@ start |= notAllowed
 # This module declares the following Consumer RuleML attributes:
 #    * @meta (reference to meta knowledge)
 #    * @style (reference to a profile definition)	
-#    * @scope (reference to a scope definition)
 #    * @type for operators
-
-  
+#
 # *** @meta ***
-## @meta: an attribute referencing meta knowledge. See
-## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@meta
 meta-att.choice |= meta.attrib.def
-meta.attrib.def =  attribute meta { meta.value }?
+meta.attrib.def =
+  
+  ## @meta: an attribute referencing meta knowledge. See
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@meta
+  attribute meta { meta.value }?
 meta.value |= PrefixedCURIE.datatype
 meta.value |= AbsIRI.datatype
-
+#
 # *** @style ***
 #  when absent, equivalent to: reasoning (in DR Reaction RuleML), active 
 # (in PR and ECA RuleML), and messaging (in CEP RuleML)
 style.attrib = style-att.choice
-## @style: defines a reference to a corresponding unique key. See
-## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style
 style-att.choice |= style.attrib.def
-style.attrib.def = attribute style { style.value }
+style.attrib.def =
+  
+  ## @style: defines a reference to a corresponding unique key. See
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style
+  attribute style { style.value }
 style.value |= "reasoning"
 style.value |= PrefixedCURIE.datatype
 style.value |= AbsIRI.datatype
-
+#
 # *** @type *** 
-## an attribute referencing a type definition. See
-## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@type
 type-formula-att.choice |= type-formula-attrib.def
-type-formula-attrib.def =  attribute type { type-formula.value }?
+type-formula-attrib.def =
+  
+  ## an attribute referencing a type definition. See
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@type
+  attribute type { type-formula.value }?
 type-formula.value |= PrefixedCURIE.datatype
 type-formula.value |= AbsIRI.datatype
-
-#
+# 
 # @meta is interleaved with the group of attributes for all Nodes
 #
-commonNode.attlist &=  meta-att.choice?
-
-#
+commonNode.attlist &= meta-att.choice?
+# 
 # a group of attributes for generic Nodes
 #
+generic-Node.attlist &= commonNode.attlist?
 generic-Node.attlist &= type-formula-att.choice?
 generic-Node.attlist &= iri-att.choice?
-generic-Node.attlist &= commonNode.attlist?
-
-
 # 
 # a group of attributes for the meta knowledge interface of knowledge formulas
 # that may have implicit closure
-# 
-formula-interface-ext.attlist &=  type-formula-att.choice?
-formula-interface-ext.attlist &=  style-att.choice?
+#
+formula-interface-ext.attlist &= type-formula-att.choice?
+formula-interface-ext.attlist &= style-att.choice?
 formula-interface.attlist &= formula-interface-ext.attlist?
 formula-interface.attlist &= closure-att.choice?
-#
-# a group of attributes for the meta knowledge interface of terms
 # 
-term-interface.attlist &=  type-att.choice?
+# a group of attributes for the meta knowledge interface of terms
+#
+term-interface.attlist &= type-att.choice?
 # 
 # a group of attributes for the meta knowledge interface of all connectives/operators in Reaction RuleML
-operator-interface-ext.attlist &=  type-formula-att.choice?
-operator-interface-ext.attlist &=  style-att.choice?
+#
+operator-interface-ext.attlist &= type-formula-att.choice?
+operator-interface-ext.attlist &= style-att.choice?
 operator-interface.attlist &= operator-interface-ext.attlist?
 operator-interface.attlist &= closure-att.choice?
-
+# 
 # extension of optional attribute groups from Deliberation RuleML
-reEqual.attlist &= formula-interface.attlist?
+#
 reAtom.attlist &= formula-interface-ext.attlist?
+reEqual.attlist &= formula-interface.attlist?
 reAnd.attlist &= operator-interface.attlist?
 reOr.attlist &= operator-interface.attlist?
-reEquivalent.attlist &= operator-interface-ext.attlist?
 reNaf.attlist &= operator-interface.attlist?
 reNeg.attlist &= operator-interface.attlist?
+reImplies.attlist &= operator-interface-ext.attlist?
+reEquivalent.attlist &= operator-interface-ext.attlist?
 reForall.attlist &= operator-interface.attlist?
 reExists.attlist &= operator-interface.attlist?
-reImplies.attlist &= operator-interface-ext.attlist?
-
+#
+# a dummy element to assist in XSD conversion
+#
+DummyElement.def = element Dummy { formula-interface.attlist }
 
