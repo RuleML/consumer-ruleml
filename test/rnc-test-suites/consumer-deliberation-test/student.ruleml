@@ -12,13 +12,11 @@
   </Atom>
 
   <!--a particular person is an employee -->
-  <!-- 
-		     <Atom>
-		       <Rel>employee</Rel>
-		       <Ind>personA</Ind>
-		       <Ind>companyB</Ind>
-		     </Atom>
-		     -->
+  <Atom>
+    <Rel>employee</Rel>
+    <Ind>personA</Ind>
+    <Ind>companyB</Ind>
+  </Atom>
 
   <!--a student is a fulltime-student if the student cannot be proved as a parttime-student -->
 
@@ -46,7 +44,7 @@
   </Implies>
 
 
-  <!--An "negative integrity constraint" that a fulltime-student cannot also be an employee of a company-->
+  <!--A "negative integrity constraint" that a fulltime-student cannot also be an employee of a company-->
 
   <Forall>
     <Var>person</Var>
@@ -67,7 +65,7 @@
     </Implies>
   </Forall>
 
-  <!-- A similar (but weaker) "negative integrity constraint" espressed using weak negation. -->
+  <!-- A similar (but weaker) "negative integrity constraint" expressed using weak negation. -->
   <Naf>
     <Exists>
       <Var>person</Var>
