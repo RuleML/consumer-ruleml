@@ -21,14 +21,9 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ift
   # one or both stripes skipped
   Implies.main |=
     (if_Rule-ss.content, then_Rule-ss.content)
-    | (if_Rule-ss.content, then_Rule-edge.choice)
-    | (if_Rule-edge.choice, then_Rule-ss.content)
+#    | (if_Rule-ss.content, then_Rule-edge.choice)
+#    | (if_Rule-edge.choice, then_Rule-ss.content)
 }
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/asynchronous_stripe_skipping_entailment_expansion_module.rnc" {
-  start |= notAllowed
-}
-#
 if_Rule-ss.content |= if_Rule.content
 then_Rule-ss.content |= then_Rule.content
 formula-negation.choice |= formula-negation.content

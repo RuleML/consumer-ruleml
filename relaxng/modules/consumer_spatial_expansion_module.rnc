@@ -13,8 +13,9 @@ dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
 
 start |= notAllowed
-# This module declares the following Reaction RuleML elements:
-# * Spatial
+Node.choice |= Spatial_formula.def
+Spatial_formula-node.choice |= Spatial_formula.def
+Spatial_term-node.choice |= Spatial_term.def
 
 #   *** Spatial ***
 Spatial_term.attlist &= term-interface.attlist?
@@ -23,17 +24,16 @@ Spatial_formula.attlist &= formula-interface.attlist?
 Spatial_formula.attlist &= commonNode.attlist?
 Spatial.content |= Node.header, argumentsForSpatial.sequence
 arg_spatial.choice |= arg_spatial
-Node.choice |= Spatial_formula
 Spatial_term.type.def = Spatial.content, Spatial_term.attlist
 Spatial_formula.type.def = Spatial.content, Spatial_formula.attlist
-Spatial_term =
+Spatial_term.def =
   
   ## <Spatial>: generic Spatial element. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Spatial
   element Spatial { Spatial_term.type.def }
-Spatial_formula = element Spatial { Spatial_formula.type.def }
+Spatial_formula.def = element Spatial { Spatial_formula.type.def }
 # *** arg ***
-arg_spatial.attlist &= index-attrib.choice
+arg_spatial.attlist &= index-attrib.choice?
 arg_spatial.attlist &= commonInit.attlist?
 arg_spatial.content |= spatial_primitives.content
 arg_spatial.type.def = arg_spatial.content, arg_spatial.attlist
@@ -42,8 +42,8 @@ edge.choice |= arg_spatial
 
 
 # in spatial module
-SimpleKeyTerm.choice |= Spatial_term
-Atom-node.choice |= Spatial_formula
+SimpleKeyTerm.choice |= Spatial_term.def
+Atom-node.choice |= Spatial_formula.def
 
 ## An internal group for the spatial primitives for interpretation as spatial
 spatial_primitives.content |= arg.content | spatial_temporal_algebra_group.content

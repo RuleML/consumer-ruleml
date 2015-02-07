@@ -11,11 +11,11 @@ dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
 
 ##
-start |= Rule
-Node.choice |= Rule
-
+start |= Rule.def
+Node.choice |= Rule.def
+Rule-node.choice |= Rule.def
 ##
-Rule =
+Rule.def =
   
   ## <Rule>: defines a rule in Consumer RuleML. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Rule
@@ -25,12 +25,11 @@ Rule-datt.choice |= direction-att-inf.choice & material-att-inf.choice
 reRule.attlist &= operator-interface.attlist?
 reRule.attlist &= commonNode.attlist?
 Rule.content |= Rule.header, Rule.main?
-Rule.header &= Node.header, degree-edge.choice?
 
 ## An internal group for the implementation of a rule in the Consumer RuleML language
 Rule.main |= DerivationRule.content
 
 ##
-AssertRetractFormula.choice |= Rule
-ForallFormula.choice |= Rule
-RulebaseFormula.choice |= Rule
+AssertRetractFormula.choice |= Rule.def
+ForallFormula.choice |= Rule.def
+RulebaseFormula.choice |= Rule.def

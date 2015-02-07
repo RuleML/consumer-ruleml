@@ -13,10 +13,12 @@ dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
 dc:relation [ "http://reaction.ruleml.org" ]
 start |= notAllowed
+Node.choice |= Time_formula.def
+Time_formula-node.choice |= Time_formula.def
 
 # in time module
-SimpleKeyTerm.choice |= Time_term
-Atom-node.choice |= Time_formula
+SimpleKeyTerm.choice |= Time_term.def
+Atom-node.choice |= Time_formula.def
 
 
 # This module declares the following Reaction RuleML elements:
@@ -26,23 +28,22 @@ Time_term.attlist &= commonNode.attlist?
 Time_formula.attlist &= formula-interface.attlist?
 Time_formula.attlist &= commonNode.attlist?
 Time.content |= Node.header, argumentsForTime.sequence
-arg_time.choice |= arg_time
+arg_time.choice |= arg_time.def
 Time_term.type.def = Time.content, Time_formula.attlist
 Time_formula.type.def = Time.content, Time_formula.attlist
-Node.choice |= Time_formula
-Time_term =
+Time_term.def =
   
   ## <Time>: generic Time element. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Time
   element Time { Time_term.type.def }
-Time_formula = element Time { Time_formula.type.def }
+Time_formula.def = element Time { Time_formula.type.def }
 # *** arg ***
 arg_time.attlist &= index-attrib.choice?
 arg_time.attlist &= commonInit.attlist?
 arg_time.content |= time_primitives.content
 arg_time.type.def = arg_time.content, arg_time.attlist
-arg_time = element arg { arg_time.type.def }
-edge.choice |= arg_time
+arg_time.def = element arg { arg_time.type.def }
+edge.choice |= arg_time.def
 
 ## An internal group for the time primitives for interpretation as time
 time_primitives.content |= arg.content | spatial_temporal_algebra_group.content

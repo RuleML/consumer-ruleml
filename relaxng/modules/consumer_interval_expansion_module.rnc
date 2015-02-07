@@ -21,30 +21,30 @@ Interval_term.attlist &= term-interface.attlist?
 Interval_term.attlist &= commonNode.attlist?
 Interval_formula.attlist &= formula-interface.attlist?
 Interval_formula.attlist &= commonNode.attlist?
-arg_interval.choice |= arg_interval
+arg_interval.choice |= arg_interval.def
 Interval_term.content |= Node.header, (arg_interval.choice, arg_interval.choice?)?
 Interval_formula.content |= Node.header, (arg_interval.choice, arg_interval.choice?)?
 #
 Interval_term.type.def = Interval_term.content, Interval_term.attlist
 Interval_formula.type.def = Interval_formula.content, Interval_formula.attlist
-Node.choice |= Interval_formula
-Interval_term =
+Node.choice |= Interval_formula.def
+Interval_term.def =
   
   ## <Interval>: generic Interval element. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Interval
   element Interval { Interval_term.type.def }
-Interval_formula = element Interval { Interval_formula.type.def }
+Interval_formula.def = element Interval { Interval_formula.type.def }
 # *** arg ***
-arg_interval.attlist &= index-attrib.choice
+arg_interval.attlist &= index-attrib.choice?
 arg_interval.attlist &= commonInit.attlist?
 arg_interval.content |= interval_primitives.content
 arg_interval.type.def = arg_interval.content, arg_interval.attlist
-arg_interval = element arg { arg_interval.type.def }
-edge.choice |= arg_interval
+arg_interval.def = element arg { arg_interval.type.def }
+edge.choice |= arg_interval.def
 
 # in interval module
-SimpleKeyTerm.choice |= Interval_term
-Atom-node.choice |= Interval_formula
+SimpleKeyTerm.choice |= Interval_term.def
+Atom-node.choice |= Interval_formula.def
 
 ## Interval primitives
 interval_primitives.content |= arg.content | interval_algebra_group.content

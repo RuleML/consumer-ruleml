@@ -1,4 +1,10 @@
 start |= notAllowed
+#drivers
+Rule-node.choice |= notAllowed
+Spatial_formula-node.choice |= notAllowed
+Time_formula-node.choice |= notAllowed
+
+#attribute
 type-formula-att.choice |= notAllowed
 type-att.choice |= notAllowed
 iri-att.choice |= notAllowed
@@ -21,10 +27,14 @@ NegationAsFailure-ae-node.choice |= notAllowed
 
 #rule
 DerivationRule.content |= notAllowed
+Rule.header &= empty
 
 #spatial
 spatial_temporal_algebra_group.content |= notAllowed
 argumentsForSpatial.sequence |= notAllowed
+
+#time
+argumentsForTime.sequence |= notAllowed
 
 #stripe-skipping
 formula-negation.content |= notAllowed

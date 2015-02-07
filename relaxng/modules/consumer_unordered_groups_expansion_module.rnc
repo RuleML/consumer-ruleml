@@ -37,10 +37,5 @@ argumentsForSpatial.sequence |= arg_spatial.choice* & restOfPositionalArguments-
 # *** Derivation Rule content model ***
 DerivationRule.content |= Implies.main
 
-
-
-
-
-
-
-
+Rule.header &= Node.header?
+Rule.header &= degree-edge.choice?
