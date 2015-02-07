@@ -1,20 +1,19 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "Reaction RuleML for DR Time" ]
-dc:version [ "1.0" ]
+dc:title [ "Consumer RuleML for Time" ]
+dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Reaction, Deliberation, Time" ]
+dc:subject [ "RuleML, Consumer, Deliberation, Time" ]
 dc:description [
-  "The expansion module for temporal entities."
+  "The expansion module for temporal entities in Consumer RuleML."
 ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-dc:relation [ "http://reaction.ruleml.org" ]
 # This module declares the following Reaction RuleML elements:
-# *** arg ***
-# *** arg ***
+#   * arg
+#   * Time
 start |= Time_formula.def
 start |= Time_term.def
 #
@@ -25,6 +24,7 @@ Time_formula-node.choice |= Time_formula.def
 Time_term-node.choice |= Time_term.def
 arg_time.choice |= arg_time.def
 #
+# *** Time ***
 Time_term.def =
   
   ## <Time>: generic Time element. See
@@ -40,10 +40,13 @@ Time_formula.attlist &= commonNode.attlist?
 Time_formula.attlist &= formula-interface.attlist?
 #
 Time.content |= Node.header, argumentsForTime.sequence
-# in choice patterns
+#
+# usage in choice patterns
+#
 SimpleKeyTerm.choice |= Time_term.def
 Atom-node.choice |= Time_formula.def
 #
+# *** arg ***
 arg_time.def = element arg { arg_time.type.def }
 arg_time.type.def = arg_time.attlist, arg_time.content
 arg_time.attlist &= commonInit.attlist?
