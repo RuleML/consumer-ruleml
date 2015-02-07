@@ -1,7 +1,7 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
-start |= Rule
+start |= Rule-node.choice
 start |= SimpleFormula-node.choice
 start |= And-node.choice
 start |= Or-node.choice
@@ -10,6 +10,9 @@ start |= NegationAsFailure-node.choice
 start |= Implication-node.choice
 start |= Forall-node.choice
 start |= Exists-node.choice
+start |= Spatial_formula-node.choice
+start |= Time_formula-node.choice
+
 # 
 # ROOT NODE AND PERFORMATIVES INCLUDED
 # WITH SEPARATION OF ATTLIST FOR ASSERT AND RETRACT
@@ -356,6 +359,6 @@ include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_temporal_interv
 #
 # INCLUDE TEMPORAL TERMS AND FORMULAS
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/time_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_time_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
