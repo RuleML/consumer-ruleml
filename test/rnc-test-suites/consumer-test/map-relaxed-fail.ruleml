@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-model href="../../relaxng/drivers/consumer-relaxed.rnc" type="application/relax-ng-compact-syntax"?>
-<Assert  xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd"
-  direction="bidirectional">
-  
-<Rule>
+<?xml-model href="../../../relaxng/drivers/consumer-relaxed.rnc" type="application/relax-ng-compact-syntax"?>
+<Rule xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- This instance should fail Relax NG validation because @direction is not included in the Consumer Dialect  -->
   <if>
+    <And mapClosure="existential" mapMaterial="no">
+      
     <Atom>
       <op>
         <Rel>likes</Rel>
@@ -16,6 +14,7 @@
       <Var>X</Var>
       <Ind>wine</Ind>
     </Atom>
+    </And>
   </if>
   <then>
     <Atom>
@@ -27,4 +26,3 @@
     </Atom>
   </then>
 </Rule>
-</Assert>
