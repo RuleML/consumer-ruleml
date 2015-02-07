@@ -8,7 +8,6 @@
 # Jing
 # Trang
 # FIXME use configuration script to set path variables
-# FIXME use named pipe instead of temporary file
 APP_HOME=/Users/taraathan/Library/
 LIB=${APP_HOME}Java/Extensions/
 CP1=${LIB}jing-20091111/jing.jar
@@ -51,7 +50,9 @@ if [ "$?" != "0" ];then
    echo "Conversion to XSD Failed."
    exit 1
 fi
-function finish {
-  rm ${TMP}
-}
-trap finish EXIT
+if [ $3 = true ]; then
+  function finish {
+    rm ${TMP}
+  }
+  trap finish EXIT
+fi

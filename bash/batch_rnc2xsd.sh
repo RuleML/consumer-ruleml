@@ -21,12 +21,17 @@ mkdir -p ${XSD_HOME}
 rm ${XSD_HOME}*.xsd >> /dev/null 2>&1
 
 # applies the script rnc2xsd.sh to all RNC4XSD schemas
+# for debugging, do not remove the temporary RNG
+finish= false
+# for a clean build, remove the temporary RNG
+# finish= true
+#
 for f in ${RNC4XSD_HOME}*.rnc
 do
   filename=$(basename "$f")
   #extension="${filename##*.}"
   filenameNE="${filename%.*}"
-  ${BASH_HOME}rnc2xsd.sh "$f" ${XSD_HOME}"$filenameNE".xsd
+  ${BASH_HOME}rnc2xsd.sh "$f" ${XSD_HOME}"$filenameNE".xsd $finish
 done
 
 rm ${XSD_HOME}xml.xsd
