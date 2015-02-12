@@ -23,7 +23,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansi
 }
 # 
 # QUANTIFICATION OVER VARIABLES INCLUDED
-# WITH WEAK NEGATION
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/quantification_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
@@ -126,14 +125,12 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/fuzzy_expansion_mod
 }
 # 
 # STRONG NEGATION INCLUDED
-# WITH NESTED NEGATION
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/neg_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
 # WEAK NEGATIONS INCLUDED
-# WITH NESTED NEGATION
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/naf_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed

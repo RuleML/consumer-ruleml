@@ -23,6 +23,7 @@
       <xs:element ref="ruleml:Negation"/>
       <xs:element ref="ruleml:Rule"/>
       <xs:group ref="ruleml:Spatial_formula.def"/>
+      <xs:group ref="ruleml:IntervalAlgebraEqual"/>
       <xs:element ref="ruleml:After"/>
       <xs:element ref="ruleml:Before"/>
       <xs:element ref="ruleml:Every"/>
@@ -902,16 +903,13 @@
       <xs:documentation>formulas allowed to be universally quantified.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:choice>
-        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-        <xs:group ref="ruleml:And-fo-node.choice"/>
-        <xs:group ref="ruleml:Or-fo-node.choice"/>
-        <xs:group ref="ruleml:Negation-node.choice"/>
-        <xs:group ref="ruleml:Implication-node.choice"/>
-        <xs:group ref="ruleml:Forall-node.choice"/>
-        <xs:group ref="ruleml:Exists-fo-node.choice"/>
-      </xs:choice>
-      <xs:element ref="ruleml:Rule"/>
+      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+      <xs:group ref="ruleml:And-fo-node.choice"/>
+      <xs:group ref="ruleml:Or-fo-node.choice"/>
+      <xs:group ref="ruleml:Negation-node.choice"/>
+      <xs:group ref="ruleml:Implication-node.choice"/>
+      <xs:group ref="ruleml:Forall-node.choice"/>
+      <xs:group ref="ruleml:Exists-fo-node.choice"/>
     </xs:choice>
   </xs:group>
   
@@ -1158,7 +1156,7 @@
   
   <xs:group name="Atom.main">
     <xs:annotation>
-      <xs:documentation>Pre-fix operator notation for atomic formulas is required in a normal-form
+      <xs:documentation>Pre-fix operator notation for atomic formulas is required in a deterministic
         serialization.</xs:documentation>
     </xs:annotation>
     <xs:choice>
@@ -1171,37 +1169,37 @@
   </xs:group>
   <xs:group name="argumentsForAtoms.sequence">
     <xs:annotation>
-      <xs:documentation>Slotted arguments follow positional arguments in atomic formulas in the
-        normal-form serialization. </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:group ref="ruleml:positionalArgumentsForAtoms.sequence"/>
-      <xs:group ref="ruleml:slotsForAtoms.sequence"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="positionalArgumentsForAtoms.sequence">
-    <xs:annotation>
-      <xs:documentation>Positional rest arguments follow the ordinary positional arguments in atomic
-        formulas in the normal-form serialization. </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:group ref="ruleml:termsForAtoms.sequence"/>
-      <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="slotsForAtoms.sequence">
-    <xs:annotation>
-      <xs:documentation>Slotted rest arguments follow the ordinary slots in atomic formulas in the
-        normal-form serialization. </xs:documentation>
+      <xs:documentation>Slotted arguments may precede or  follow positional arguments  in atomic
+        formulas in the deterministic serialization. </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:group ref="ruleml:slotTermsForAtoms.sequence"/>
-      <xs:group minOccurs="0" ref="ruleml:restOfSlots-edge.choice"/>
+      <xs:sequence minOccurs="0">
+        <xs:choice>
+          <xs:sequence>
+            <xs:group ref="ruleml:termsForAtoms.nonemptysequence.choice"/>
+            <xs:group minOccurs="0" ref="ruleml:repo"/>
+          </xs:sequence>
+          <xs:group ref="ruleml:repo"/>
+        </xs:choice>
+        <xs:group ref="ruleml:slotTermsForAtoms.sequence"/>
+      </xs:sequence>
+      <xs:group minOccurs="0" ref="ruleml:resl"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="repo">
+    <xs:sequence>
+      <xs:group ref="ruleml:restOfPositionalArguments-edge.choice"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="resl">
+    <xs:sequence>
+      <xs:group ref="ruleml:restOfSlots-edge.choice"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="Expr.main">
     <xs:annotation>
-      <xs:documentation>Pre-fix operator notation for expressions is required in the normal-form
+      <xs:documentation>Pre-fix operator notation for expressions is required in the deterministic
         serialization.</xs:documentation>
     </xs:annotation>
     <xs:choice>
@@ -1214,50 +1212,57 @@
   </xs:group>
   <xs:group name="argumentsForExpressions.sequence">
     <xs:annotation>
-      <xs:documentation>Slotted arguments follow positional arguments in expressions in the
-        normal-form serialization. </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:sequence minOccurs="0">
-        <xs:group ref="ruleml:positionalArgumentsForExpressions.sequence"/>
-        <xs:group ref="ruleml:slotsForExpressions.sequence"/>
-      </xs:sequence>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="positionalArgumentsForExpressions.sequence">
-    <xs:annotation>
-      <xs:documentation>Positional rest arguments follow the ordinary positional arguments in
-        expressions in the normal-form serialization. </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:sequence minOccurs="0">
-        <xs:group ref="ruleml:termsForExpressions.sequence"/>
-        <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
-      </xs:sequence>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="slotsForExpressions.sequence">
-    <xs:annotation>
-      <xs:documentation>Slotted rest arguments follow the ordinary slots in expressions in the
-        normal-form serialization. </xs:documentation>
+      <xs:documentation>Slotted arguments may precede or  follow positional arguments  in the
+        deterministic serialization. </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:sequence minOccurs="0">
         <xs:group ref="ruleml:slotTermsForExpressions.sequence"/>
-        <xs:group minOccurs="0" ref="ruleml:restOfSlots-edge.choice"/>
+        <xs:sequence minOccurs="0">
+          <xs:choice>
+            <xs:sequence>
+              <xs:group ref="ruleml:termsForExpressions.nonemptysequence.choice"/>
+              <xs:group minOccurs="0" ref="ruleml:repo"/>
+            </xs:sequence>
+            <xs:group ref="ruleml:repo"/>
+          </xs:choice>
+          <xs:group ref="ruleml:slotTermsForExpressions.sequence"/>
+        </xs:sequence>
+        <xs:group minOccurs="0" ref="ruleml:resl"/>
       </xs:sequence>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="positionalArgumentsForExpressions.sequence">
+    <xs:annotation>
+      <xs:documentation>Positional rest arguments follow the ordinary positional arguments in
+        expressions in the deterministic serialization. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:group ref="ruleml:termsForExpressions.sequence"/>
+      <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="slotsForExpressions.sequence">
+    <xs:annotation>
+      <xs:documentation>Slotted rest arguments follow the ordinary slots in expressions in the
+        deterministic serialization. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:group ref="ruleml:slotTermsForExpressions.sequence"/>
+      <xs:group minOccurs="0" ref="ruleml:resl"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:group name="Implies.main">
     <xs:annotation>
-      <xs:documentation>In the normal-form serialization, the if and then of an implication must
-        occur in canonical order.</xs:documentation>
+      <xs:documentation>In the deterministic serialization, the if and then  of an implication can
+        occur in either order if striped. This pattern can be translated accurately into
+        XSD.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
         <xs:group ref="ruleml:body_Implies.name.choice"/>
         <xs:group ref="ruleml:head_Implies.name.choice"/>
-      </xs:sequence>
+      </xs:choice>
       <xs:sequence>
         <xs:group ref="ruleml:body_Implies-ss.content"/>
         <xs:group ref="ruleml:head_Implies.content"/>
@@ -1266,7 +1271,7 @@
   </xs:group>
   <xs:group name="TruthValuedConnective.header">
     <xs:annotation>
-      <xs:documentation>In the normal-form serialization, the order of header elements is: an
+      <xs:documentation>In the deterministic serialization, the order of header elements is: an
         optional header element sequence as defined in Node.header, followed by optional object
         identifier and degree</xs:documentation>
     </xs:annotation>
@@ -1294,20 +1299,37 @@
   <xs:complexType name="argumentsForTime.sequence">
     <xs:choice>
       <xs:sequence>
-        <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_time.choice"/>
-        <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
         <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
+        <xs:sequence minOccurs="0">
+          <xs:choice>
+            <xs:sequence>
+              <xs:group maxOccurs="unbounded" ref="ruleml:arg_time.choice"/>
+              <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
+            </xs:sequence>
+            <xs:group ref="ruleml:restOfPositionalArguments-edge.choice"/>
+          </xs:choice>
+          <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
+        </xs:sequence>
         <xs:group minOccurs="0" ref="ruleml:restOfSlots-edge.choice"/>
       </xs:sequence>
       <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:time_anycontent"/>
     </xs:choice>
   </xs:complexType>
+  
   <xs:complexType name="argumentsForSpatial.sequence">
     <xs:choice>
       <xs:sequence>
-        <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_spatial.choice"/>
-        <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
         <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
+        <xs:sequence minOccurs="0">
+          <xs:choice>
+            <xs:sequence>
+              <xs:group maxOccurs="unbounded" ref="ruleml:arg_spatial.choice"/>
+              <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
+            </xs:sequence>
+            <xs:group ref="ruleml:restOfPositionalArguments-edge.choice"/>
+          </xs:choice>
+          <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
+        </xs:sequence>
         <xs:group minOccurs="0" ref="ruleml:restOfSlots-edge.choice"/>
       </xs:sequence>
       <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:spatial_anycontent"/>
@@ -2619,7 +2641,9 @@
       <xs:documentation>A generalized list within a positional rest variable contains a positional
         argument sequence</xs:documentation>
     </xs:annotation>
-    <xs:group ref="ruleml:positionalArgumentsForExpressions.sequence"/>
+    <xs:complexContent>
+      <xs:extension base="ruleml:positionalArgumentsForExpressions.sequence"/>
+    </xs:complexContent>
   </xs:complexType>
   
   <xs:group name="Plex_resl-node.choice">
@@ -2656,7 +2680,9 @@
       <xs:documentation>A generalized list within a slotted rest variable contains a slotted
         argument sequence</xs:documentation>
     </xs:annotation>
-    <xs:group ref="ruleml:slotsForExpressions.sequence"/>
+    <xs:complexContent>
+      <xs:extension base="ruleml:slotsForExpressions.sequence"/>
+    </xs:complexContent>
   </xs:complexType>
   
   
@@ -3303,7 +3329,11 @@
     </xs:sequence>
   </xs:complexType>
   
+  
   <xs:group name="if_Rule-edge.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
     <xs:sequence>
       <xs:group ref="ruleml:if_Rule.edge.def"/>
     </xs:sequence>

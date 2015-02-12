@@ -23,7 +23,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansi
 }
 # 
 # QUANTIFICATION OVER VARIABLES INCLUDED
-# WITH WEAK NEGATION
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/quantification_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
@@ -72,12 +71,10 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
   start |= notAllowed
 }
 #
-# INCLUDE CONTENT MODELS WITH CANONICAL ORDER
+# ORDER MODE - UNORDERED DETERMINISTIC GROUPS ENABLED (XSD COMPATIBLE)
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/ordered_groups_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-include "../modules/consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/unordered_deterministic_groups_expansion_module.rnc" inherit = ruleml {start |= notAllowed}
+include "../modules/consumer_unordered_deterministic_groups_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
@@ -129,14 +126,12 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/fuzzy_expansion_mod
 }
 # 
 # STRONG NEGATION INCLUDED
-# WITH NESTED NEGATION
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/neg_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
 # WEAK NEGATIONS INCLUDED
-# WITH NESTED NEGATION
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/naf_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed

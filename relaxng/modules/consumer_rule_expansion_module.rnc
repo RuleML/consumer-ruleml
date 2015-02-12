@@ -30,7 +30,7 @@ reRule.attlist &= commonNode.attlist?
 Rule.content |= Rule.header, Rule.main?
 
 ##
-ForallFormula.choice |= Rule.def
+#ForallFormula.choice |= Rule.def
 
 # *** if ***
 if_Rule-edge.choice |= if_Rule.edge.def
