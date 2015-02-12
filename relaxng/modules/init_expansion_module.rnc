@@ -18,12 +18,18 @@ interval_algebra_group.content |= notAllowed
 arg_spatial.choice |= notAllowed
 arg_time.choice |= notAllowed
 
+# optional_op
+argumentsForAtoms.sequence |= notAllowed
+argumentsForExpressions.sequence |= notAllowed
+
 #quantification
 NegationAsFailure-ae-node.choice |= notAllowed
 
 #rule
+PremiseFormula.choice |= notAllowed
 DerivationRule.content |= notAllowed
 Rule.header &= empty
+Rule.main |= notAllowed
 
 #spatial
 spatial_temporal_algebra_group.content |= notAllowed

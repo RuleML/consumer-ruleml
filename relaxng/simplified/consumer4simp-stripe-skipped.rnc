@@ -1,5 +1,5 @@
-default namespace = "http://ruleml.org/spec"
-namespace ns1 = "http://www.w3.org/2001/XMLSchema-instance"
+default namespace ns1 = "http://ruleml.org/spec"
+namespace ns2 = "http://www.w3.org/2001/XMLSchema-instance"
 
 start =
   Atom
@@ -22,11 +22,9 @@ start =
   | Var
   | Plex
   | Interval
-  | Interval_2
   | Negation
   | Rule
   | Spatial
-  | Spatial_2
   | Operator
   | After
   | Before
@@ -41,12 +39,11 @@ start =
   | Meets
   | Finishes
   | Time
-  | Time_2
   | op
   | formula
   | formula_2
-  | if
   | then
+  | if
   | declare
   | formula_3
   | formula_4
@@ -55,7 +52,6 @@ start =
   | degree
   | strong
   | weak
-  | meta
   | torso
   | oid
   | slot
@@ -67,6 +63,8 @@ start =
   | content
   | arg_2
   | formula_6
+  | if_2
+  | then_2
   | arg_3
   | arg_4
 Atom =
@@ -81,7 +79,7 @@ Atom =
          }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -125,23 +123,35 @@ Atom =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     oid?,
     degree?,
-    (op | Rel)?,
-    (Skolem
-     | Ind
-     | Data
-     | Interval_2
-     | Spatial_2
-     | Time_2
-     | Var
-     | Expr
-     | Plex
-     | arg)*,
-    repo?,
-    slot*,
-    resl?
+    (((op | Rel),
+      (Skolem
+       | Ind
+       | Data
+       | Interval_2
+       | Spatial_2
+       | Time_2
+       | Var
+       | Expr
+       | Plex
+       | arg)*,
+      repo?,
+      slot*,
+      resl?)
+     | ((Skolem
+         | Ind
+         | Data
+         | Interval_2
+         | Spatial_2
+         | Time_2
+         | Var
+         | Expr
+         | Plex
+         | arg)*,
+        repo?,
+        slot*,
+        resl?))
   }
 Rel =
   element Rel {
@@ -153,7 +163,7 @@ Rel =
        }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -194,7 +204,7 @@ And =
          }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -221,7 +231,6 @@ And =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (formula
      | Atom
@@ -252,7 +261,7 @@ Or =
          }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -279,7 +288,6 @@ Or =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (formula_2
      | Atom
@@ -320,7 +328,7 @@ Implies =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -364,7 +372,6 @@ Implies =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     ((if, then)
      | ((Atom
@@ -398,7 +405,7 @@ Implies =
   }
 Forall =
   element Forall {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -452,7 +459,6 @@ Forall =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (declare | Var)+,
     (formula_3
@@ -474,7 +480,7 @@ Forall =
   }
 Exists =
   element Exists {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -528,7 +534,6 @@ Exists =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (declare | Var)+,
     (formula_4
@@ -568,7 +573,7 @@ Expr =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -595,22 +600,34 @@ Expr =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     oid?,
-    (op_2 | Fun)?,
-    (Skolem
-     | Ind
-     | Data
-     | Interval_2
-     | Spatial_2
-     | Time_2
-     | Var
-     | Expr
-     | Plex
-     | arg)*,
-    repo?,
-    slot*,
-    resl?
+    (((op_2 | Fun),
+      (Skolem
+       | Ind
+       | Data
+       | Interval_2
+       | Spatial_2
+       | Time_2
+       | Var
+       | Expr
+       | Plex
+       | arg)*,
+      repo?,
+      slot*,
+      resl?)
+     | ((Skolem
+         | Ind
+         | Data
+         | Interval_2
+         | Spatial_2
+         | Time_2
+         | Var
+         | Expr
+         | Plex
+         | arg)*,
+        repo?,
+        slot*,
+        resl?))
   }
 Fun =
   element Fun {
@@ -633,7 +650,7 @@ Fun =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -664,7 +681,7 @@ Fun =
   }
 Rulebase =
   element Rulebase {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -691,7 +708,6 @@ Rulebase =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     (Atom
      | Interval
      | Spatial
@@ -711,7 +727,7 @@ Rulebase =
   }
 Neg =
   element Neg {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -765,7 +781,6 @@ Neg =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (Atom
      | Interval
@@ -785,7 +800,7 @@ Neg =
   }
 Naf =
   element Naf {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -839,7 +854,6 @@ Naf =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (Atom
      | Interval
@@ -869,7 +883,7 @@ Equivalent =
          }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -913,7 +927,6 @@ Equivalent =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (Atom
      | Interval
@@ -946,7 +959,7 @@ Equivalent =
   }
 Equal =
   element Equal {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1000,7 +1013,6 @@ Equal =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (Skolem
      | Ind
@@ -1025,7 +1037,7 @@ Equal =
   }
 Data =
   element Data {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -1065,7 +1077,7 @@ Skolem =
        }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1112,7 +1124,7 @@ Ind =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1151,7 +1163,7 @@ Var =
        }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1182,7 +1194,7 @@ Var =
   }
 Plex =
   element Plex {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1209,7 +1221,6 @@ Plex =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -1226,7 +1237,6 @@ Plex =
   }
 Interval =
   element Interval {
-    meta*,
     ((Skolem
       | Ind
       | Data
@@ -1294,86 +1304,7 @@ Interval =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
-  }
-Interval_2 =
-  element Interval {
-    meta*,
-    ((Skolem
-      | Ind
-      | Data
-      | Interval_2
-      | Spatial_2
-      | Time_2
-      | Var
-      | Expr
-      | Plex
-      | During
-      | Overlaps
-      | Starts
-      | Precedes
-      | Succeeds
-      | Meets
-      | Equal_2
-      | Finishes
-      | Operator_2
-      | content_2
-      | arg_2),
-     (Skolem
-      | Ind
-      | Data
-      | Interval_2
-      | Spatial_2
-      | Time_2
-      | Var
-      | Expr
-      | Plex
-      | During
-      | Overlaps
-      | Starts
-      | Precedes
-      | Succeeds
-      | Meets
-      | Equal_2
-      | Finishes
-      | Operator_2
-      | content_2
-      | arg_2)?)?,
-    (attribute type {
-       xsd:string {
-         pattern =
-           "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-         minLength = "1"
-       }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1403,7 +1334,6 @@ Interval_2 =
   }
 Negation =
   element Negation {
-    meta*,
     (Atom
      | Interval
      | Spatial
@@ -1419,7 +1349,7 @@ Negation =
      | Forall
      | Exists
      | formula_6),
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1465,9 +1395,8 @@ Negation =
   }
 Rule =
   element Rule {
-    meta*,
     degree?,
-    ((if, then)
+    ((if_2, then_2)
      | ((Atom
          | Interval
          | Spatial
@@ -1533,7 +1462,7 @@ Rule =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1563,7 +1492,6 @@ Rule =
   }
 Spatial =
   element Spatial {
-    meta*,
     (((Skolem
        | Ind
        | Data
@@ -1611,66 +1539,7 @@ Spatial =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
-  }
-Spatial_2 =
-  element Spatial {
-    meta*,
-    (((Skolem
-       | Ind
-       | Data
-       | Interval_2
-       | Spatial_2
-       | Time_2
-       | Var
-       | Expr
-       | Plex
-       | After
-       | Before
-       | Every
-       | Any
-       | Timer
-       | Operator
-       | arg_3)*,
-      repo?,
-      slot*,
-      resl?)
-     | content_3*),
-    (attribute type {
-       xsd:string {
-         pattern =
-           "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-         minLength = "1"
-       }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1727,7 +1596,7 @@ Operator =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1754,7 +1623,6 @@ Operator =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     (Atom
      | Interval
      | Spatial
@@ -1774,7 +1642,6 @@ Operator =
   }
 After =
   element After {
-    meta*,
     ((Skolem
       | Ind
       | Data
@@ -1842,7 +1709,7 @@ After =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1872,7 +1739,6 @@ After =
   }
 Before =
   element Before {
-    meta*,
     ((Skolem
       | Ind
       | Data
@@ -1940,7 +1806,7 @@ Before =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -1970,7 +1836,6 @@ Before =
   }
 Every =
   element Every {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2018,7 +1883,7 @@ Every =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2048,7 +1913,6 @@ Every =
   }
 Any =
   element Any {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2096,7 +1960,7 @@ Any =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2126,7 +1990,6 @@ Any =
   }
 Timer =
   element Timer {
-    meta*,
     ((Skolem
       | Ind
       | Data
@@ -2194,7 +2057,7 @@ Timer =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2224,7 +2087,6 @@ Timer =
   }
 During =
   element During {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2292,7 +2154,7 @@ During =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2322,7 +2184,6 @@ During =
   }
 Overlaps =
   element Overlaps {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2390,7 +2251,7 @@ Overlaps =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2420,7 +2281,6 @@ Overlaps =
   }
 Starts =
   element Starts {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2488,7 +2348,7 @@ Starts =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2518,7 +2378,6 @@ Starts =
   }
 Precedes =
   element Precedes {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2586,7 +2445,7 @@ Precedes =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2616,7 +2475,6 @@ Precedes =
   }
 Succeeds =
   element Succeeds {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2684,7 +2542,7 @@ Succeeds =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2714,7 +2572,6 @@ Succeeds =
   }
 Meets =
   element Meets {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2782,7 +2639,7 @@ Meets =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2812,7 +2669,6 @@ Meets =
   }
 Finishes =
   element Finishes {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -2880,7 +2736,7 @@ Finishes =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -2910,7 +2766,6 @@ Finishes =
   }
 Time =
   element Time {
-    meta*,
     (((Skolem
        | Ind
        | Data
@@ -2931,85 +2786,7 @@ Time =
       slot*,
       resl?)
      | content_4*),
-    (attribute ns1:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute type {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute style {
-         "reasoning"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute closure {
-         "universal"
-         | "existential"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
-  }
-Time_2 =
-  element Time {
-    meta*,
-    (((Skolem
-       | Ind
-       | Data
-       | Interval_2
-       | Spatial_2
-       | Time_2
-       | Var
-       | Expr
-       | Plex
-       | After
-       | Before
-       | Every
-       | Any
-       | Timer
-       | Operator
-       | arg_4)*,
-      repo?,
-      slot*,
-      resl?)
-     | content_4*),
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -3066,7 +2843,7 @@ Time_2 =
   }
 op =
   element op {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3089,7 +2866,7 @@ op =
   }
 formula =
   element formula {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3126,44 +2903,7 @@ formula =
   }
 formula_2 =
   element formula {
-    attribute ns1:schemaLocation { text }?
-    & attribute xml:base { xsd:anyURI }?
-    & attribute xml:id { xsd:NCName }?
-    & attribute key {
-        xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
-        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & attribute keyref {
-        xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
-        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & (Atom
-       | Interval
-       | Spatial
-       | Time
-       | Equal
-       | Operator
-       | And_2
-       | Or_2
-       | Neg
-       | Negation
-       | Naf
-       | Implies
-       | Equivalent
-       | Forall
-       | Exists)
-  }
-if =
-  element if {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3200,7 +2940,7 @@ if =
   }
 then =
   element then {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3233,9 +2973,46 @@ then =
        | Forall
        | Exists)
   }
+if =
+  element if {
+    attribute ns2:schemaLocation { text }?
+    & attribute xml:base { xsd:anyURI }?
+    & attribute xml:id { xsd:NCName }?
+    & attribute key {
+        xsd:string {
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+          minLength = "1"
+        }
+        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & attribute keyref {
+        xsd:string {
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+          minLength = "1"
+        }
+        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & (Atom
+       | Interval
+       | Spatial
+       | Time
+       | Equal
+       | Operator
+       | And_2
+       | Or_2
+       | Neg
+       | Negation
+       | Naf
+       | Implies
+       | Equivalent
+       | Forall
+       | Exists)
+  }
 declare =
   element declare {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3258,7 +3035,7 @@ declare =
   }
 formula_3 =
   element formula {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3295,7 +3072,7 @@ formula_3 =
   }
 formula_4 =
   element formula {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3331,7 +3108,7 @@ formula_4 =
   }
 op_2 =
   element op {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3354,7 +3131,7 @@ op_2 =
   }
 formula_5 =
   element formula {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3391,7 +3168,7 @@ formula_5 =
   }
 degree =
   element degree {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3414,7 +3191,7 @@ degree =
   }
 strong =
   element strong {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3450,7 +3227,7 @@ strong =
   }
 weak =
   element weak {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3484,47 +3261,9 @@ weak =
        | Forall
        | Exists)
   }
-meta =
-  element meta {
-    attribute ns1:schemaLocation { text }?
-    & attribute xml:base { xsd:anyURI }?
-    & attribute xml:id { xsd:NCName }?
-    & attribute key {
-        xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
-        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & attribute keyref {
-        xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
-        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & (Atom
-       | Interval
-       | Spatial
-       | Time
-       | Equal
-       | Operator
-       | And_2
-       | Or_2
-       | Neg
-       | Negation
-       | Implies
-       | Equivalent
-       | Forall
-       | Exists
-       | Rulebase
-       | Rule)
-  }
 torso =
   element torso {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3559,7 +3298,7 @@ torso =
   }
 oid =
   element oid {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3591,7 +3330,7 @@ oid =
 slot =
   element slot {
     (attribute card { xsd:nonNegativeInteger }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -3623,7 +3362,7 @@ slot =
   }
 left =
   element left {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3654,7 +3393,7 @@ left =
   }
 right =
   element right {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3686,7 +3425,7 @@ right =
 arg =
   element arg {
     (attribute index { xsd:positiveInteger }
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -3717,7 +3456,7 @@ arg =
   }
 resl =
   element resl {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3740,7 +3479,7 @@ resl =
   }
 repo =
   element repo {
-    attribute ns1:schemaLocation { text }?
+    attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -3784,11 +3523,9 @@ content =
      | Var
      | Plex
      | Interval
-     | Interval_2
      | Negation
      | Rule
      | Spatial
-     | Spatial_2
      | Operator
      | After
      | Before
@@ -3803,12 +3540,11 @@ content =
      | Meets
      | Finishes
      | Time
-     | Time_2
      | op
      | formula
      | formula_2
-     | if
      | then
+     | if
      | declare
      | formula_3
      | formula_4
@@ -3817,7 +3553,6 @@ content =
      | degree
      | strong
      | weak
-     | meta
      | torso
      | oid
      | slot
@@ -3829,9 +3564,11 @@ content =
      | content
      | arg_2
      | formula_6
+     | if_2
+     | then_2
      | arg_3
      | arg_4),
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -3872,7 +3609,7 @@ arg_2 =
      | Finishes
      | Operator_2),
     (attribute index { xsd:positiveInteger }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -3908,7 +3645,7 @@ formula_6 =
      | Equivalent
      | Forall
      | Exists),
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -3928,6 +3665,78 @@ formula_6 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
   }
+if_2 =
+  element if {
+    attribute ns2:schemaLocation { text }?
+    & attribute xml:base { xsd:anyURI }?
+    & attribute xml:id { xsd:NCName }?
+    & attribute key {
+        xsd:string {
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+          minLength = "1"
+        }
+        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & attribute keyref {
+        xsd:string {
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+          minLength = "1"
+        }
+        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & (Atom
+       | Interval
+       | Spatial
+       | Time
+       | Equal
+       | Operator
+       | And_2
+       | Or_2
+       | Neg
+       | Negation
+       | Naf
+       | Implies
+       | Equivalent
+       | Forall
+       | Exists)
+  }
+then_2 =
+  element then {
+    attribute ns2:schemaLocation { text }?
+    & attribute xml:base { xsd:anyURI }?
+    & attribute xml:id { xsd:NCName }?
+    & attribute key {
+        xsd:string {
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+          minLength = "1"
+        }
+        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & attribute keyref {
+        xsd:string {
+          pattern =
+            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+          minLength = "1"
+        }
+        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+      }?
+    & (Atom
+       | Interval
+       | Spatial
+       | Time
+       | Equal
+       | And_2
+       | Or_2
+       | Neg
+       | Negation
+       | Implies
+       | Equivalent
+       | Forall
+       | Exists)
+  }
 arg_3 =
   element arg {
     (Skolem
@@ -3946,7 +3755,7 @@ arg_3 =
      | Timer
      | Operator),
     (attribute index { xsd:positiveInteger }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -3968,7 +3777,7 @@ arg_3 =
   }
 arg_4 =
   element arg {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4004,9 +3813,222 @@ arg_4 =
      | Timer
      | Operator)
   }
+Interval_2 =
+  element Interval {
+    ((Skolem
+      | Ind
+      | Data
+      | Interval_2
+      | Spatial_2
+      | Time_2
+      | Var
+      | Expr
+      | Plex
+      | During
+      | Overlaps
+      | Starts
+      | Precedes
+      | Succeeds
+      | Meets
+      | Equal_2
+      | Finishes
+      | Operator_2
+      | content_2
+      | arg_2),
+     (Skolem
+      | Ind
+      | Data
+      | Interval_2
+      | Spatial_2
+      | Time_2
+      | Var
+      | Expr
+      | Plex
+      | During
+      | Overlaps
+      | Starts
+      | Precedes
+      | Succeeds
+      | Meets
+      | Equal_2
+      | Finishes
+      | Operator_2
+      | content_2
+      | arg_2)?)?,
+    (attribute type {
+       xsd:string {
+         pattern =
+           "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         minLength = "1"
+       }
+       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+     }?
+     & attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute meta {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?)
+  }
+Spatial_2 =
+  element Spatial {
+    (((Skolem
+       | Ind
+       | Data
+       | Interval_2
+       | Spatial_2
+       | Time_2
+       | Var
+       | Expr
+       | Plex
+       | After
+       | Before
+       | Every
+       | Any
+       | Timer
+       | Operator
+       | arg_3)*,
+      repo?,
+      slot*,
+      resl?)
+     | content_3*),
+    (attribute type {
+       xsd:string {
+         pattern =
+           "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         minLength = "1"
+       }
+       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+     }?
+     & attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute meta {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?)
+  }
+Time_2 =
+  element Time {
+    (((Skolem
+       | Ind
+       | Data
+       | Interval_2
+       | Spatial_2
+       | Time_2
+       | Var
+       | Expr
+       | Plex
+       | After
+       | Before
+       | Every
+       | Any
+       | Timer
+       | Operator
+       | arg_4)*,
+      repo?,
+      slot*,
+      resl?)
+     | content_4*),
+    (attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute meta {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?)
+  }
 And_2 =
   element And {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4060,7 +4082,6 @@ And_2 =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (formula
      | Atom
@@ -4081,7 +4102,7 @@ And_2 =
   }
 Or_2 =
   element Or {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4135,7 +4156,6 @@ Or_2 =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     degree?,
     (formula_2
      | Atom
@@ -4161,7 +4181,6 @@ _1 =
   }
 Equal_2 =
   element Equal {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -4229,7 +4248,7 @@ Equal_2 =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4259,7 +4278,6 @@ Equal_2 =
   }
 Operator_2 =
   element Operator {
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -4327,7 +4345,7 @@ Operator_2 =
            }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
-     & attribute ns1:schemaLocation { text }?
+     & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4357,7 +4375,7 @@ Operator_2 =
   }
 content_2 =
   element content {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4397,11 +4415,9 @@ content_2 =
      | Var
      | Plex
      | Interval
-     | Interval_2
      | Negation
      | Rule
      | Spatial
-     | Spatial_2
      | Operator
      | After
      | Before
@@ -4416,12 +4432,11 @@ content_2 =
      | Meets
      | Finishes
      | Time
-     | Time_2
      | op
      | formula
      | formula_2
-     | if
      | then
+     | if
      | declare
      | formula_3
      | formula_4
@@ -4430,7 +4445,6 @@ content_2 =
      | degree
      | strong
      | weak
-     | meta
      | torso
      | oid
      | slot
@@ -4442,6 +4456,8 @@ content_2 =
      | content
      | arg_2
      | formula_6
+     | if_2
+     | then_2
      | arg_3
      | arg_4)
   }
@@ -4468,11 +4484,9 @@ content_3 =
      | Var
      | Plex
      | Interval
-     | Interval_2
      | Negation
      | Rule
      | Spatial
-     | Spatial_2
      | Operator
      | After
      | Before
@@ -4487,12 +4501,11 @@ content_3 =
      | Meets
      | Finishes
      | Time
-     | Time_2
      | op
      | formula
      | formula_2
-     | if
      | then
+     | if
      | declare
      | formula_3
      | formula_4
@@ -4501,7 +4514,6 @@ content_3 =
      | degree
      | strong
      | weak
-     | meta
      | torso
      | oid
      | slot
@@ -4513,9 +4525,11 @@ content_3 =
      | content
      | arg_2
      | formula_6
+     | if_2
+     | then_2
      | arg_3
      | arg_4),
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4558,11 +4572,9 @@ content_4 =
      | Var
      | Plex
      | Interval
-     | Interval_2
      | Negation
      | Rule
      | Spatial
-     | Spatial_2
      | Operator
      | After
      | Before
@@ -4577,12 +4589,11 @@ content_4 =
      | Meets
      | Finishes
      | Time
-     | Time_2
      | op
      | formula
      | formula_2
-     | if
      | then
+     | if
      | declare
      | formula_3
      | formula_4
@@ -4591,7 +4602,6 @@ content_4 =
      | degree
      | strong
      | weak
-     | meta
      | torso
      | oid
      | slot
@@ -4603,9 +4613,11 @@ content_4 =
      | content
      | arg_2
      | formula_6
+     | if_2
+     | then_2
      | arg_3
      | arg_4),
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4627,7 +4639,7 @@ content_4 =
   }
 Plex_2 =
   element Plex {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4654,13 +4666,12 @@ Plex_2 =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     slot*,
     resl?
   }
 Plex_3 =
   element Plex {
-    (attribute ns1:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -4687,7 +4698,6 @@ Plex_3 =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
-    meta*,
     (Skolem
      | Ind
      | Data
@@ -4701,8 +4711,14 @@ Plex_3 =
     repo?
   }
 _2 =
+  element * - ns1:* {
+    (_3
+     | attribute * { text }
+     | text)+
+  }
+_3 =
   element * {
-    (_2
+    (_3
      | attribute * { text }
      | text)+
   }

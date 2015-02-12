@@ -25,7 +25,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/andor_expansion_mod
 # 
 # IMPLICATIONS INCLUDED
 #
-include "../modules/consumer_implication_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -69,9 +69,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_absent_folo
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_present_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/default_present_folog_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
 # 
 # POLYADIC TERM (ONE OR MORE TERMS) SEQUENCES INCLUDED
 #
@@ -81,12 +78,21 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
 #
 # INCLUDE CONTENT MODELS WITH CANONICAL ORDER
 #
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/ordered_groups_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 include "../modules/consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
 # ENABLE STRIPE-SKIPPING
 #
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
@@ -141,12 +147,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/neg_expansion_modul
 # WITH NESTED NEGATION
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/naf_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-# 
-# IN-PLACE ANNOTATIONS INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/meta_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 

@@ -96,8 +96,10 @@
     <xs:choice>
       <xs:group ref="ruleml:atom.edge.defs"/>
       <xs:group ref="ruleml:andor.edge.defs"/>
-      <xs:group ref="ruleml:if_Rule.edge.def"/>
-      <xs:group ref="ruleml:then_Rule.edge.def"/>
+      <xs:choice>
+        <xs:group ref="ruleml:head_Implies.edge.def"/>
+        <xs:group ref="ruleml:body_Implies.edge.def"/>
+      </xs:choice>
       <xs:group ref="ruleml:quantification.edge.defs"/>
       <xs:group ref="ruleml:op_Expr.edge.def"/>
       <xs:group ref="ruleml:formula_Rulebase.edge.def"/>
@@ -117,6 +119,8 @@
       <xs:group ref="ruleml:profile_anycontent"/>
       <xs:group ref="ruleml:arg_interval.def"/>
       <xs:group ref="ruleml:formula-negation"/>
+      <xs:group ref="ruleml:if_Rule.edge.def"/>
+      <xs:group ref="ruleml:then_Rule.edge.def"/>
       <xs:group ref="ruleml:arg_spatial"/>
       <xs:group ref="ruleml:arg_time.def"/>
     </xs:choice>
@@ -763,65 +767,6 @@
     </xs:sequence>
   </xs:group>
   
-  
-  
-  
-  <xs:group name="if_Rule-edge.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:if_Rule.edge.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="if_Rule.edge.def">
-    <xs:sequence>
-      <xs:element form="qualified" name="if" type="ruleml:if_Rule.type.def">
-        <xs:annotation>
-          <xs:documentation>&lt;if&gt;: contains the premises of the rule. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-if</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:complexType name="if_Rule.type.def">
-    <xs:group ref="ruleml:if_Rule.content"/>
-    <xs:attributeGroup ref="ruleml:if_Rule.attlist"/>
-  </xs:complexType>
-  <xs:group name="if_Rule.content">
-    <xs:sequence>
-      <xs:group ref="ruleml:PremiseFormula.choice"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:attributeGroup name="if_Rule.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  
-  <xs:group name="then_Rule-edge.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:then_Rule.edge.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="then_Rule.edge.def">
-    <xs:sequence>
-      <xs:element form="qualified" name="then" type="ruleml:then_Rule.type.def">
-        <xs:annotation>
-          <xs:documentation>&lt;then&gt;: contains the conclusion of the rule. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-then</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:complexType name="then_Rule.type.def">
-    <xs:group ref="ruleml:then_Rule.content"/>
-    <xs:attributeGroup ref="ruleml:then_Rule.attlist"/>
-  </xs:complexType>
-  <xs:group name="then_Rule.content">
-    <xs:sequence>
-      <xs:group ref="ruleml:ConclusionFormula.choice"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:attributeGroup name="then_Rule.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  
   <xs:group name="quantification.Node.defs">
     <xs:choice>
       <xs:element ref="ruleml:Forall"/>
@@ -1269,6 +1214,19 @@
     </xs:sequence>
   </xs:group>
   
+  <xs:group name="Atom.main">
+    <xs:annotation>
+      <xs:documentation>Pre-fix operator notation for atomic formulas is required in a normal-form
+        serialization.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:sequence>
+        <xs:group ref="ruleml:operatorForAtoms-edge.choice"/>
+        <xs:group ref="ruleml:argumentsForAtoms.sequence"/>
+      </xs:sequence>
+      <xs:group ref="ruleml:argumentsForAtoms.sequence"/>
+    </xs:choice>
+  </xs:group>
   <xs:group name="argumentsForAtoms.sequence">
     <xs:annotation>
       <xs:documentation>Slotted arguments follow positional arguments in atomic formulas in the
@@ -1298,6 +1256,19 @@
       <xs:group ref="ruleml:slotTermsForAtoms.sequence"/>
       <xs:group minOccurs="0" ref="ruleml:restOfSlots-edge.choice"/>
     </xs:sequence>
+  </xs:group>
+  <xs:group name="Expr.main">
+    <xs:annotation>
+      <xs:documentation>Pre-fix operator notation for expressions is required in the normal-form
+        serialization.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:sequence>
+        <xs:group ref="ruleml:operatorForExpressions-edge.choice"/>
+        <xs:group ref="ruleml:argumentsForExpressions.sequence"/>
+      </xs:sequence>
+      <xs:group ref="ruleml:argumentsForExpressions.sequence"/>
+    </xs:choice>
   </xs:group>
   <xs:group name="argumentsForExpressions.sequence">
     <xs:annotation>
@@ -1335,6 +1306,22 @@
       </xs:sequence>
     </xs:sequence>
   </xs:group>
+  <xs:group name="Implies.main">
+    <xs:annotation>
+      <xs:documentation>In the normal-form serialization, the if and then of an implication must
+        occur in canonical order.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:sequence>
+        <xs:group ref="ruleml:body_Implies.name.choice"/>
+        <xs:group ref="ruleml:head_Implies.name.choice"/>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:group ref="ruleml:body_Implies-ss.content"/>
+        <xs:group ref="ruleml:head_Implies.content"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:group>
   <xs:group name="TruthValuedConnective.header">
     <xs:annotation>
       <xs:documentation>In the normal-form serialization, the order of header elements is: an
@@ -1361,32 +1348,6 @@
   
   
   
-  <xs:group name="Atom.main">
-    <xs:sequence>
-      <xs:group minOccurs="0" ref="ruleml:operatorForAtoms-edge.choice"/>
-      <xs:group ref="ruleml:argumentsForAtoms.sequence"/>
-    </xs:sequence>
-  </xs:group>
-  
-  <xs:group name="Expr.main">
-    <xs:sequence>
-      <xs:group minOccurs="0" ref="ruleml:operatorForExpressions-edge.choice"/>
-      <xs:group ref="ruleml:argumentsForExpressions.sequence"/>
-    </xs:sequence>
-  </xs:group>
-  
-  <xs:group name="Implies.main">
-    <xs:choice>
-      <xs:sequence>
-        <xs:group ref="ruleml:if_Rule-edge.choice"/>
-        <xs:group ref="ruleml:then_Rule-edge.choice"/>
-      </xs:sequence>
-      <xs:sequence>
-        <xs:group ref="ruleml:if_Rule-ss.content"/>
-        <xs:group ref="ruleml:then_Rule-ss.content"/>
-      </xs:sequence>
-    </xs:choice>
-  </xs:group>
   
   <xs:complexType name="argumentsForTime.sequence">
     <xs:choice>
@@ -1411,10 +1372,17 @@
     </xs:choice>
   </xs:complexType>
   
-  <xs:group name="DerivationRule.content">
-    <xs:sequence>
-      <xs:group ref="ruleml:Implies.main"/>
-    </xs:sequence>
+  <xs:group name="Rule.main">
+    <xs:choice>
+      <xs:sequence>
+        <xs:group ref="ruleml:if_Rule-edge.choice"/>
+        <xs:group ref="ruleml:then_Rule-edge.choice"/>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:group ref="ruleml:if_Rule-ss.content"/>
+        <xs:group ref="ruleml:then_Rule-ss.content"/>
+      </xs:sequence>
+    </xs:choice>
   </xs:group>
   
   <xs:group name="Rule.header">
@@ -1504,7 +1472,6 @@
       <xs:group ref="ruleml:head_Implies.content"/>
     </xs:sequence>
   </xs:group>
-  
   
   
   
@@ -3477,15 +3444,62 @@
       <xs:group minOccurs="0" ref="ruleml:Rule.main"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:group name="Rule.main">
-    <xs:annotation>
-      <xs:documentation>An internal group for the implementation of a rule in the Consumer RuleML
-        language</xs:documentation>
-    </xs:annotation>
+  
+  <xs:group name="if_Rule-edge.choice">
     <xs:sequence>
-      <xs:group ref="ruleml:DerivationRule.content"/>
+      <xs:group ref="ruleml:if_Rule.edge.def"/>
     </xs:sequence>
   </xs:group>
+  <xs:group name="if_Rule.edge.def">
+    <xs:sequence>
+      <xs:element form="qualified" name="if" type="ruleml:if_Rule.type.def">
+        <xs:annotation>
+          <xs:documentation>&lt;if&gt;: contains the premises of the rule. See
+            http://www.reaction.ruleml.org/1.02/glossary/#gloss-if</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="if_Rule.type.def">
+    <xs:group ref="ruleml:if_Rule.content"/>
+    <xs:attributeGroup ref="ruleml:if_Rule.attlist"/>
+  </xs:complexType>
+  <xs:group name="if_Rule.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:PremiseFormula.choice"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="if_Rule.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  
+  <xs:group name="then_Rule-edge.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:then_Rule.edge.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="then_Rule.edge.def">
+    <xs:sequence>
+      <xs:element form="qualified" name="then" type="ruleml:then_Rule.type.def">
+        <xs:annotation>
+          <xs:documentation>&lt;then&gt;: contains the conclusion of the rule. See
+            http://www.reaction.ruleml.org/1.02/glossary/#gloss-then</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="then_Rule.type.def">
+    <xs:group ref="ruleml:then_Rule.content"/>
+    <xs:attributeGroup ref="ruleml:then_Rule.attlist"/>
+  </xs:complexType>
+  <xs:group name="then_Rule.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:ConclusionFormula.choice"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="then_Rule.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   
   
   <xs:group name="Spatial_formula-node.choice">

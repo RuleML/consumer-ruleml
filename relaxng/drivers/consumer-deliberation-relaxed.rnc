@@ -27,7 +27,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/andor_expansion_mod
 # 
 # IMPLICATIONS INCLUDED
 #
-include "../modules/consumer_implication_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/implication_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -79,15 +79,24 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
 #
 # INCLUDE CONTENT MODELS WITH CANONICAL ORDER
 #
-include "../modules/consumer_unordered_groups_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/unordered_groups_expansion_module.rnc" {
   start |= notAllowed
 }
+#include "../modules/consumer_unordered_groups_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
 #
 # ENABLE STRIPE-SKIPPING
 #
-include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = ruleml { 
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
+#include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = ruleml { 
+#  start |= notAllowed
+#}
 # 
 # EXPLICIT DATATYPING ENABLED (include in RNC, not in 4simp or 4xsd)
 #
@@ -137,12 +146,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/neg_expansion_modul
 # WEAK NEGATIONS INCLUDED
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/naf_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-# 
-# IN-PLACE ANNOTATIONS INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/meta_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 # 
@@ -294,9 +297,9 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/per_default_expansi
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/init_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-include "../modules/init_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
+#include "../modules/init_expansion_module.rnc" inherit = ruleml {
+#  start |= notAllowed
+#}
 #
 # DISABLE GENERIC ANY OPERATOR
 #

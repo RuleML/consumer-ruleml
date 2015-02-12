@@ -10,21 +10,16 @@ dc:subject [ "RuleML, Consumer, stripe-skipping" ]
 dc:description [ "The expansion module for stripe-skipping." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-
+start |= notAllowed
 # 
 # STRIPE-SKIPPING MODE ENABLED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
   # one or both stripes skipped
-  Implies.main |=
+  Rule.main |=
     (if_Rule-ss.content, then_Rule-ss.content)
 #    | (if_Rule-ss.content, then_Rule-edge.choice)
 #    | (if_Rule-edge.choice, then_Rule-ss.content)
-}
+
 if_Rule-ss.content |= if_Rule.content
 then_Rule-ss.content |= then_Rule.content
 formula-negation.choice |= formula-negation.content
