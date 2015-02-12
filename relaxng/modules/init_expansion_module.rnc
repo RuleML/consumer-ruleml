@@ -47,3 +47,7 @@ then_Rule-edge.choice |= notAllowed
 interval_primitives.content |= notAllowed
 spatial_primitives.content |= notAllowed
 time_primitives.content |= notAllowed
+Interval_term.content |= notAllowed
+
+#algebra
+arg_interval.choice |= notAllowed

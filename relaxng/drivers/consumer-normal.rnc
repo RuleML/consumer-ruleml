@@ -4,13 +4,6 @@ default namespace ruleml = "http://ruleml.org/spec"
 start |= Node.choice
 start |= edge.choice
 # 
-# ROOT NODE AND PERFORMATIVES INCLUDED
-# WITH SEPARATION OF ATTLIST FOR ASSERT AND RETRACT
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/performative_content_expansion_module.rnc" inherit = ruleml { 
-  start |= notAllowed
-}
-# 
 # ATOMIC FORMULAS INCLUDED
 #
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/atom_expansion_module.rnc" inherit = ruleml { 
@@ -125,10 +118,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/web_expansion_modul
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/iri_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-#
-# RULEBASES INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/rulebase_expansion_module.rnc" inherit = ruleml {start |= notAllowed}
 # 
 # DEGREE OF UNCERTAINTY INCLUDED
 #
@@ -346,7 +335,7 @@ include "../modules/consumer_spatial_expansion_module.rnc" inherit = ruleml {
 #
 # INCLUDE SPATIAL, TEMPORAL AND INTERVAL ALGEBRA OPERATORS
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/spatial_temporal_interval_algebra_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_sti_algebra_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #

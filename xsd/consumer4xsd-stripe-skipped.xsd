@@ -1,57 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:ruleml="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ruleml.org/spec"><xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
   
-  
-  <xs:group name="AssertRetractFormula.choice">
-    <xs:annotation>
-      <xs:documentation>Formulas allowed in assertions and retractions: Simple formulas are allowed
-        in assertions and retractions in all sub-languages. Conjunctions and disjunctions are
-        allowed in assertions and retractions in sub-languages that contain these components.
-        Implications and universal quantifications is allowed in assertions and retractions for all
-        quantified sub-languages. Strong and weak negation are allowed in assertions and retractions
-        for all sub-languages that contain these components. Existential quantification is added to
-        assertions and retractions for full first-order sub-languages.</xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:choice>
-        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-        <xs:group ref="ruleml:And-fo-node.choice"/>
-        <xs:group ref="ruleml:Or-fo-node.choice"/>
-        <xs:group ref="ruleml:Negation-node.choice"/>
-        <xs:group ref="ruleml:Implication-node.choice"/>
-        <xs:group ref="ruleml:Forall-node.choice"/>
-        <xs:group ref="ruleml:Exists-fo-node.choice"/>
-      </xs:choice>
-      <xs:group ref="ruleml:Rulebase-node.choice"/>
-      <xs:element ref="ruleml:Rule"/>
-    </xs:choice>
-  </xs:group>
-  
-  
-  <xs:group name="QueryFormula.choice">
-    <xs:annotation>
-      <xs:documentation>Formulas allowed in queries: Simple formulas are allowed in queries in all
-        sub-languages. Conjunctions and disjunctions are allowed in queries in sub-languages that
-        contain these components. Existential quantifications is allowed in queries for all
-        quantified sub-languages. Strong and weak negation are allowed in queries for all
-        sub-languages that contain these components. Implications and universal quantification are
-        added to queries for full first-order sub-languages.</xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:choice>
-        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-        <xs:group ref="ruleml:And-Query-node.choice"/>
-        <xs:group ref="ruleml:Or-Query-node.choice"/>
-        <xs:group ref="ruleml:Negation-node.choice"/>
-        <xs:group ref="ruleml:NegationAsFailure-node.choice"/>
-        <xs:group ref="ruleml:Implication-fo-node.choice"/>
-        <xs:group ref="ruleml:Forall-fo-node.choice"/>
-        <xs:group ref="ruleml:Exists-node.choice"/>
-      </xs:choice>
-      <xs:group ref="ruleml:Rulebase-node.choice"/>
-    </xs:choice>
-  </xs:group>
-  
-  
   <xs:group name="Node.choice">
     <xs:choice>
       <xs:group ref="ruleml:atom.Node.defs"/>
@@ -62,7 +10,6 @@
         <xs:element ref="ruleml:Expr"/>
         <xs:element ref="ruleml:Fun"/>
       </xs:choice>
-      <xs:element ref="ruleml:Rulebase"/>
       <xs:element ref="ruleml:Neg"/>
       <xs:element ref="ruleml:Naf"/>
       <xs:element ref="ruleml:Equivalent"/>
@@ -76,7 +23,6 @@
       <xs:element ref="ruleml:Negation"/>
       <xs:element ref="ruleml:Rule"/>
       <xs:group ref="ruleml:Spatial_formula.def"/>
-      <xs:group ref="ruleml:Operator_any_formula.def"/>
       <xs:element ref="ruleml:After"/>
       <xs:element ref="ruleml:Before"/>
       <xs:element ref="ruleml:Every"/>
@@ -102,7 +48,6 @@
       </xs:choice>
       <xs:group ref="ruleml:quantification.edge.defs"/>
       <xs:group ref="ruleml:op_Expr.edge.def"/>
-      <xs:group ref="ruleml:formula_Rulebase.edge.def"/>
       <xs:element ref="ruleml:degree"/>
       <xs:element ref="ruleml:strong"/>
       <xs:element ref="ruleml:weak"/>
@@ -142,11 +87,8 @@
       <xs:documentation>atomic formulas are a kind of simple formula</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:choice>
-        <xs:group ref="ruleml:Atom-node.choice"/>
-        <xs:group ref="ruleml:Equal-node.choice"/>
-      </xs:choice>
-      <xs:group ref="ruleml:Operator_any_formula.choice"/>
+      <xs:group ref="ruleml:Atom-node.choice"/>
+      <xs:group ref="ruleml:Equal-node.choice"/>
     </xs:choice>
   </xs:group>
   <xs:group name="Atom-node.choice">
@@ -1429,16 +1371,6 @@
       <xs:element ref="ruleml:right"/>
     </xs:choice>
   </xs:group>
-  <xs:group name="formula_Rulebase-edge.choice">
-    <xs:annotation>
-      <xs:documentation>Stripe-skipping is allowed asynchronously for formulas in assertions and
-        retractions.</xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:group ref="ruleml:formula_Rulebase.content"/>
-      <xs:group ref="ruleml:formula_Rulebase.edge.def"/>
-    </xs:choice>
-  </xs:group>
   <xs:group name="weak-edge.choice">
     <xs:annotation>
       <xs:documentation>Stripe-skipping is allowed for weak negations.</xs:documentation>
@@ -1579,83 +1511,6 @@
   <xs:simpleType name="iri.content">
     <xs:restriction base="ruleml:iri.value"/>
   </xs:simpleType>
-  
-  
-  <xs:group name="Rulebase-node.choice">
-    <xs:annotation>
-      <xs:documentation>an extension point for specializations of the rulebase tag name.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element ref="ruleml:Rulebase"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:element name="Rulebase">
-    <xs:annotation>
-      <xs:documentation>A collection of rules that can be ordered or unordered, without or with
-        duplicates.  See http://ruleml.org/1.02/glossary/#gloss-Rulebase</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:Rulebase.main">
-          <xs:attributeGroup ref="ruleml:reRulebase.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  <xs:attributeGroup name="reRulebase.attlist">
-    <xs:annotation>
-      <xs:documentation>Rulebases may have an optional scope quantification closure
-        attribute.</xs:documentation>
-    </xs:annotation>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  
-  
-  <xs:complexType name="Rulebase.main">
-    <xs:annotation>
-      <xs:documentation>Rulebases contain zero or more formulas.</xs:documentation>
-    </xs:annotation>
-    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula_Rulebase-edge.choice"/>
-  </xs:complexType>
-  <xs:group name="formula_Rulebase.edge.def">
-    <xs:sequence>
-      <xs:element form="qualified" name="formula">
-        <xs:annotation>
-          <xs:documentation>The formula role of a conjunctive (&lt;And&gt;) or disjunctive (&lt;Or&gt;) expression,
-            quantifier (&lt;Forall&gt; or &lt;Exists&gt;), or performative (&lt;Assert&gt;, &lt;Query&gt; or &lt;Retract&gt;). See
-            http://ruleml.org/1.02/glossary/#gloss-formula Within Rulebase ...</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:group ref="ruleml:formula_Rulebase.content"/>
-          <xs:attributeGroup ref="ruleml:formula_Rulebase.attlist"/>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="formula_Rulebase.content">
-    <xs:sequence>
-      <xs:group ref="ruleml:RulebaseFormula.choice"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="RulebaseFormula.choice">
-    <xs:annotation>
-      <xs:documentation>formulas allowed to belong to a Rulebase:  Atomic formulas are allowed in
-        rulebases.</xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:choice>
-        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-        <xs:group ref="ruleml:And-fo-node.choice"/>
-        <xs:group ref="ruleml:Or-fo-node.choice"/>
-        <xs:group ref="ruleml:Negation-node.choice"/>
-        <xs:group ref="ruleml:Implication-node.choice"/>
-        <xs:group ref="ruleml:Forall-node.choice"/>
-        <xs:group ref="ruleml:Exists-fo-node.choice"/>
-      </xs:choice>
-      <xs:element ref="ruleml:Rule"/>
-    </xs:choice>
-  </xs:group>
   
   
   <xs:group name="degree-edge.choice">
@@ -2978,6 +2833,9 @@
   <xs:attributeGroup name="Reify-node.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
+  <xs:attributeGroup name="reRulebase.attlist">
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+  </xs:attributeGroup>
   <xs:attributeGroup name="formula_Rulebase.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -3588,7 +3446,6 @@
   </xs:group>
   
   
-  
   <xs:group name="spatial_temporal_algebra_group.content">
     <xs:choice>
       <xs:element ref="ruleml:After"/>
@@ -3596,63 +3453,8 @@
       <xs:element ref="ruleml:Every"/>
       <xs:element ref="ruleml:Any"/>
       <xs:element ref="ruleml:Timer"/>
-      <xs:group ref="ruleml:Operator_any_formula.choice"/>
     </xs:choice>
   </xs:group>
-  
-  <xs:group name="Operator_any_term.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:Operator_any_term.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:complexType name="Operator_any_term.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:Operator_any_term.content">
-        <xs:attributeGroup ref="ruleml:Operator_any_term.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:attributeGroup name="Operator_any_term.attlist">
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Operator_any_term.content">
-    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula_Rulebase-edge.choice"/>
-  </xs:complexType>
-  <xs:group name="Operator_any_term.def">
-    <xs:sequence>
-      <xs:element form="qualified" name="Operator" type="ruleml:Operator_any_term.type.def">
-        <xs:annotation>
-          <xs:documentation>&lt;Operator&gt;: a generic Operator element which can be overloaded. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-Operator    </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="Operator_any_formula.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:Operator_any_formula.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="Operator_any_formula.def">
-    <xs:sequence>
-      <xs:element form="qualified" name="Operator" type="ruleml:Operator_any_formula.type.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:complexType name="Operator_any_formula.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:Operator_any_formula.content">
-        <xs:attributeGroup ref="ruleml:Operator_any_formula.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:attributeGroup name="Operator_any_formula.attlist">
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Operator_any_formula.content">
-    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula_Rulebase-edge.choice"/>
-  </xs:complexType>
   
   <xs:group name="interval_algebra_group.content">
     <xs:choice>
@@ -3664,7 +3466,7 @@
       <xs:element ref="ruleml:Meets"/>
       <xs:group ref="ruleml:IntervalAlgebraEqual"/>
       <xs:element ref="ruleml:Finishes"/>
-      <xs:group ref="ruleml:IntervalAlgebraOperator"/>
+      <xs:element ref="ruleml:Operator"/>
     </xs:choice>
   </xs:group>
   <xs:group name="IntervalAlgebraEqual">
@@ -3672,11 +3474,7 @@
       <xs:element form="qualified" name="Equal" type="ruleml:IntervalAlgebraOperator.type.def"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="IntervalAlgebraOperator">
-    <xs:sequence>
-      <xs:element form="qualified" name="Operator" type="ruleml:IntervalAlgebraOperator.type.def"/>
-    </xs:sequence>
-  </xs:group>
+  <xs:element name="Operator" type="ruleml:IntervalAlgebraOperator.type.def"/>
   <xs:attributeGroup name="IntervalAlgebraOperator.attlist">
     <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
@@ -3917,8 +3715,6 @@
       <xs:group ref="ruleml:spatial_temporal_algebra_group.content"/>
     </xs:choice>
   </xs:group>
-  
-  
   
   
   

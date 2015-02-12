@@ -11,7 +11,6 @@ start =
   | Exists
   | Expr
   | Fun
-  | Rulebase
   | Neg
   | Naf
   | Equivalent
@@ -25,7 +24,6 @@ start =
   | Negation
   | Rule
   | Spatial
-  | Operator
   | After
   | Before
   | Every
@@ -48,7 +46,6 @@ start =
   | formula_3
   | formula_4
   | op_2
-  | formula_5
   | degree
   | strong
   | weak
@@ -62,7 +59,7 @@ start =
   | repo
   | content
   | arg_2
-  | formula_6
+  | formula_5
   | if_2
   | then_2
   | arg_3
@@ -238,7 +235,6 @@ And =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -295,7 +291,6 @@ Or =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -379,7 +374,6 @@ Implies =
          | Spatial
          | Time
          | Equal
-         | Operator
          | And_2
          | Or_2
          | Neg
@@ -467,7 +461,6 @@ Forall =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -542,7 +535,6 @@ Exists =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -679,52 +671,6 @@ Fun =
        }?),
     xsd:token
   }
-Rulebase =
-  element Rulebase {
-    (attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?),
-    (Atom
-     | Interval
-     | Spatial
-     | Time
-     | Equal
-     | Operator
-     | And_2
-     | Or_2
-     | Neg
-     | Negation
-     | Implies
-     | Equivalent
-     | Forall
-     | Exists
-     | Rule
-     | formula_5)*
-  }
 Neg =
   element Neg {
     (attribute ns2:schemaLocation { text }?
@@ -787,7 +733,6 @@ Neg =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -860,7 +805,6 @@ Naf =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -1254,7 +1198,7 @@ Interval =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2),
      (Skolem
@@ -1274,7 +1218,7 @@ Interval =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2)?)?,
     (attribute type {
@@ -1339,7 +1283,6 @@ Negation =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -1348,7 +1291,7 @@ Negation =
      | Equivalent
      | Forall
      | Exists
-     | formula_6),
+     | formula_5),
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1402,7 +1345,6 @@ Rule =
          | Spatial
          | Time
          | Equal
-         | Operator
          | And_2
          | Or_2
          | Neg
@@ -1506,7 +1448,6 @@ Spatial =
        | Every
        | Any
        | Timer
-       | Operator
        | arg_3)*,
       repo?,
       slot*,
@@ -1567,79 +1508,6 @@ Spatial =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
   }
-Operator =
-  element Operator {
-    (attribute type {
-       xsd:string {
-         pattern =
-           "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-         minLength = "1"
-       }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute style {
-         "reasoning"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute closure {
-         "universal"
-         | "existential"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?),
-    (Atom
-     | Interval
-     | Spatial
-     | Time
-     | Equal
-     | Operator
-     | And_2
-     | Or_2
-     | Neg
-     | Negation
-     | Implies
-     | Equivalent
-     | Forall
-     | Exists
-     | Rule
-     | formula_5)*
-  }
 After =
   element After {
     ((Skolem
@@ -1659,7 +1527,7 @@ After =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2),
      (Skolem
@@ -1679,7 +1547,7 @@ After =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2)?)?,
     (attribute type {
@@ -1756,7 +1624,7 @@ Before =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2),
      (Skolem
@@ -1776,7 +1644,7 @@ Before =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2)?)?,
     (attribute type {
@@ -1853,7 +1721,7 @@ Every =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2)?,
     (attribute type {
@@ -1930,7 +1798,7 @@ Any =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2)*,
     (attribute type {
@@ -2007,7 +1875,7 @@ Timer =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2),
      (Skolem
@@ -2027,7 +1895,7 @@ Timer =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2)?)?,
     (attribute type {
@@ -2104,7 +1972,7 @@ During =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -2124,7 +1992,7 @@ During =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -2201,7 +2069,7 @@ Overlaps =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -2221,7 +2089,7 @@ Overlaps =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -2298,7 +2166,7 @@ Starts =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -2318,7 +2186,7 @@ Starts =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -2395,7 +2263,7 @@ Precedes =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -2415,7 +2283,7 @@ Precedes =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -2492,7 +2360,7 @@ Succeeds =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -2512,7 +2380,7 @@ Succeeds =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -2589,7 +2457,7 @@ Meets =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -2609,7 +2477,7 @@ Meets =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -2686,7 +2554,7 @@ Finishes =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -2706,7 +2574,7 @@ Finishes =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -2780,7 +2648,6 @@ Time =
        | Every
        | Any
        | Timer
-       | Operator
        | arg_4)*,
       repo?,
       slot*,
@@ -2890,7 +2757,6 @@ formula =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -2927,7 +2793,6 @@ formula_2 =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -2999,7 +2864,6 @@ if =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -3059,7 +2923,6 @@ formula_3 =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -3096,7 +2959,6 @@ formula_4 =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -3128,43 +2990,6 @@ op_2 =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & Fun
-  }
-formula_5 =
-  element formula {
-    attribute ns2:schemaLocation { text }?
-    & attribute xml:base { xsd:anyURI }?
-    & attribute xml:id { xsd:NCName }?
-    & attribute key {
-        xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
-        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & attribute keyref {
-        xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
-        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-      }?
-    & (Atom
-       | Interval
-       | Spatial
-       | Time
-       | Equal
-       | Operator
-       | And_2
-       | Or_2
-       | Neg
-       | Negation
-       | Implies
-       | Equivalent
-       | Forall
-       | Exists
-       | Rule)
   }
 degree =
   element degree {
@@ -3215,7 +3040,6 @@ strong =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -3251,7 +3075,6 @@ weak =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -3512,7 +3335,6 @@ content =
      | Exists
      | Expr
      | Fun
-     | Rulebase
      | Neg
      | Naf
      | Equivalent
@@ -3526,7 +3348,6 @@ content =
      | Negation
      | Rule
      | Spatial
-     | Operator
      | After
      | Before
      | Every
@@ -3549,7 +3370,6 @@ content =
      | formula_3
      | formula_4
      | op_2
-     | formula_5
      | degree
      | strong
      | weak
@@ -3563,7 +3383,7 @@ content =
      | repo
      | content
      | arg_2
-     | formula_6
+     | formula_5
      | if_2
      | then_2
      | arg_3
@@ -3607,7 +3427,7 @@ arg_2 =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2),
+     | Operator),
     (attribute index { xsd:positiveInteger }?
      & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
@@ -3629,14 +3449,13 @@ arg_2 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
   }
-formula_6 =
+formula_5 =
   element formula {
     (Atom
      | Interval
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -3691,7 +3510,6 @@ if_2 =
        | Spatial
        | Time
        | Equal
-       | Operator
        | And_2
        | Or_2
        | Neg
@@ -3752,8 +3570,7 @@ arg_3 =
      | Before
      | Every
      | Any
-     | Timer
-     | Operator),
+     | Timer),
     (attribute index { xsd:positiveInteger }?
      & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
@@ -3810,8 +3627,7 @@ arg_4 =
      | Before
      | Every
      | Any
-     | Timer
-     | Operator)
+     | Timer)
   }
 Interval_2 =
   element Interval {
@@ -3832,7 +3648,7 @@ Interval_2 =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2),
      (Skolem
@@ -3852,7 +3668,7 @@ Interval_2 =
       | Meets
       | Equal_2
       | Finishes
-      | Operator_2
+      | Operator
       | content_2
       | arg_2)?)?,
     (attribute type {
@@ -3907,7 +3723,6 @@ Spatial_2 =
        | Every
        | Any
        | Timer
-       | Operator
        | arg_3)*,
       repo?,
       slot*,
@@ -3965,7 +3780,6 @@ Time_2 =
        | Every
        | Any
        | Timer
-       | Operator
        | arg_4)*,
       repo?,
       slot*,
@@ -4089,7 +3903,6 @@ And_2 =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -4163,7 +3976,6 @@ Or_2 =
      | Spatial
      | Time
      | Equal
-     | Operator
      | And_2
      | Or_2
      | Neg
@@ -4198,7 +4010,7 @@ Equal_2 =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -4218,7 +4030,7 @@ Equal_2 =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -4276,7 +4088,7 @@ Equal_2 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
   }
-Operator_2 =
+Operator =
   element Operator {
     (Skolem
      | Ind
@@ -4295,7 +4107,7 @@ Operator_2 =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (Skolem
@@ -4315,7 +4127,7 @@ Operator_2 =
      | Meets
      | Equal_2
      | Finishes
-     | Operator_2
+     | Operator
      | content_2
      | arg_2),
     (attribute type {
@@ -4404,7 +4216,6 @@ content_2 =
      | Exists
      | Expr
      | Fun
-     | Rulebase
      | Neg
      | Naf
      | Equivalent
@@ -4418,7 +4229,6 @@ content_2 =
      | Negation
      | Rule
      | Spatial
-     | Operator
      | After
      | Before
      | Every
@@ -4441,7 +4251,6 @@ content_2 =
      | formula_3
      | formula_4
      | op_2
-     | formula_5
      | degree
      | strong
      | weak
@@ -4455,7 +4264,7 @@ content_2 =
      | repo
      | content
      | arg_2
-     | formula_6
+     | formula_5
      | if_2
      | then_2
      | arg_3
@@ -4473,7 +4282,6 @@ content_3 =
      | Exists
      | Expr
      | Fun
-     | Rulebase
      | Neg
      | Naf
      | Equivalent
@@ -4487,7 +4295,6 @@ content_3 =
      | Negation
      | Rule
      | Spatial
-     | Operator
      | After
      | Before
      | Every
@@ -4510,7 +4317,6 @@ content_3 =
      | formula_3
      | formula_4
      | op_2
-     | formula_5
      | degree
      | strong
      | weak
@@ -4524,7 +4330,7 @@ content_3 =
      | repo
      | content
      | arg_2
-     | formula_6
+     | formula_5
      | if_2
      | then_2
      | arg_3
@@ -4561,7 +4367,6 @@ content_4 =
      | Exists
      | Expr
      | Fun
-     | Rulebase
      | Neg
      | Naf
      | Equivalent
@@ -4575,7 +4380,6 @@ content_4 =
      | Negation
      | Rule
      | Spatial
-     | Operator
      | After
      | Before
      | Every
@@ -4598,7 +4402,6 @@ content_4 =
      | formula_3
      | formula_4
      | op_2
-     | formula_5
      | degree
      | strong
      | weak
@@ -4612,7 +4415,7 @@ content_4 =
      | repo
      | content
      | arg_2
-     | formula_6
+     | formula_5
      | if_2
      | then_2
      | arg_3
