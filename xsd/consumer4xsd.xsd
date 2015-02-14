@@ -250,8 +250,9 @@
       <xs:documentation>The attribute list of the conjunction element will accept a scoped closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
+    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
   <xs:group name="And-Query-node.choice">
     <xs:annotation>
@@ -392,11 +393,12 @@
   </xs:group>
   <xs:attributeGroup name="reOr.attlist">
     <xs:annotation>
-      <xs:documentation>The attribute list of the disjunction element will accept a scoped closure
+      <xs:documentation>The attribute list of the disjunction element will accept a (scoped) closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
+    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
   <xs:group name="Or-Query-node.choice">
     <xs:annotation>
@@ -753,8 +755,9 @@
       <xs:documentation>The attribute list of the universal quantification formula  will accept a
         scoped closure attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
+    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
   <xs:group name="Forall.header">
     <xs:annotation>
@@ -805,8 +808,9 @@
       <xs:documentation>The attribute list of the existential quantification formula  will accept a
         scoped closure attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
+    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
   <xs:group name="Exists.header">
     <xs:annotation>
@@ -978,12 +982,12 @@
         http://ruleml.org/1.02/glossary/#gloss-Expr</xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Expr.header"/>
-        <xs:group ref="ruleml:Expr.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:Expr-datt.choice"/>
-      <xs:attributeGroup ref="ruleml:reExpr.attlist"/>
+      <xs:complexContent>
+        <xs:extension base="ruleml:Expr.main">
+          <xs:attributeGroup ref="ruleml:Expr-datt.choice"/>
+          <xs:attributeGroup ref="ruleml:reExpr.attlist"/>
+        </xs:extension>
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="reExpr.attlist">
@@ -1100,6 +1104,9 @@
       <xs:group ref="ruleml:Exists-node.choice"/>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="closure-att-fo.choice">
+    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
+  </xs:attributeGroup>
   
   
   <xs:attributeGroup name="Expr-datt.choice">
@@ -1197,7 +1204,7 @@
       <xs:group ref="ruleml:restOfSlots-edge.choice"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="Expr.main">
+  <xs:complexType name="Expr.main">
     <xs:annotation>
       <xs:documentation>Pre-fix operator notation for expressions is required in the deterministic
         serialization.</xs:documentation>
@@ -1209,7 +1216,7 @@
       </xs:sequence>
       <xs:group ref="ruleml:argumentsForExpressions.sequence"/>
     </xs:choice>
-  </xs:group>
+  </xs:complexType>
   <xs:group name="argumentsForExpressions.sequence">
     <xs:annotation>
       <xs:documentation>Slotted arguments may precede or  follow positional arguments  in the
@@ -1287,16 +1294,11 @@
       </xs:sequence>
     </xs:sequence>
   </xs:group>
-  <xs:group name="Expr.header">
-    <xs:sequence>
-      <xs:group minOccurs="0" ref="ruleml:objectIdentifier-edge.choice"/>
-    </xs:sequence>
-  </xs:group>
   
   
   
   
-  <xs:complexType name="argumentsForTime.sequence">
+  <xs:group name="argumentsForTime.sequence">
     <xs:choice>
       <xs:sequence>
         <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
@@ -1314,9 +1316,9 @@
       </xs:sequence>
       <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:time_anycontent"/>
     </xs:choice>
-  </xs:complexType>
+  </xs:group>
   
-  <xs:complexType name="argumentsForSpatial.sequence">
+  <xs:group name="argumentsForSpatial.sequence">
     <xs:choice>
       <xs:sequence>
         <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
@@ -1334,7 +1336,7 @@
       </xs:sequence>
       <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:spatial_anycontent"/>
     </xs:choice>
-  </xs:complexType>
+  </xs:group>
   
   <xs:group name="Rule.main">
     <xs:choice>
@@ -1592,8 +1594,9 @@
   </xs:element>
   
   <xs:attributeGroup name="reNeg.attlist">
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
+    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
   <xs:group name="Neg.header">
     <xs:annotation>
@@ -1668,8 +1671,9 @@
   </xs:element>
   
   <xs:attributeGroup name="reNaf.attlist">
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
+    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
   <xs:group name="Naf.header">
     <xs:annotation>
@@ -2039,6 +2043,11 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="reEqual.attlist">
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attributeGroup ref="ruleml:formula-interface-ext.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="Equal.header">
     <xs:annotation>
       <xs:documentation>Equations accept the header of truth-valued connectives</xs:documentation>
@@ -2771,10 +2780,6 @@
   <xs:attributeGroup name="reData.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
-  <xs:attributeGroup name="reEqual.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
-  </xs:attributeGroup>
   <xs:attributeGroup name="left.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -3184,11 +3189,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Interval_formula.content">
-    <xs:sequence minOccurs="0">
-      <xs:group ref="ruleml:arg_interval.choice"/>
-      <xs:group minOccurs="0" ref="ruleml:arg_interval.choice"/>
+    <xs:sequence>
+      <xs:group ref="ruleml:Interval_formula.header"/>
+      <xs:sequence minOccurs="0">
+        <xs:group ref="ruleml:arg_interval.choice"/>
+        <xs:group minOccurs="0" ref="ruleml:arg_interval.choice"/>
+      </xs:sequence>
     </xs:sequence>
   </xs:complexType>
+  <xs:group name="Interval_formula.header">
+    <xs:sequence>
+      <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
+    </xs:sequence>
+  </xs:group>
   
   <xs:complexType name="Interval_term.type.def">
     <xs:complexContent>
@@ -3409,21 +3422,30 @@
     <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
-  <xs:complexType name="Spatial.content">
-    <xs:complexContent>
-      <xs:extension base="ruleml:argumentsForSpatial.sequence"/>
-    </xs:complexContent>
+  <xs:complexType name="Spatial_term.content">
+    <xs:group ref="ruleml:argumentsForSpatial.sequence"/>
   </xs:complexType>
+  <xs:complexType name="Spatial_formula.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:Spatial_formula.header"/>
+      <xs:group ref="ruleml:argumentsForSpatial.sequence"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="Spatial_formula.header">
+    <xs:sequence>
+      <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
+    </xs:sequence>
+  </xs:group>
   <xs:complexType name="Spatial_term.type.def">
     <xs:complexContent>
-      <xs:extension base="ruleml:Spatial.content">
+      <xs:extension base="ruleml:Spatial_term.content">
         <xs:attributeGroup ref="ruleml:Spatial_term.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="Spatial_formula.type.def">
     <xs:complexContent>
-      <xs:extension base="ruleml:Spatial.content">
+      <xs:extension base="ruleml:Spatial_formula.content">
         <xs:attributeGroup ref="ruleml:Spatial_formula.attlist"/>
       </xs:extension>
     </xs:complexContent>
@@ -3682,8 +3704,8 @@
   </xs:group>
   <xs:complexType name="Time_term.type.def">
     <xs:complexContent>
-      <xs:extension base="ruleml:Time.content">
-        <xs:attributeGroup ref="ruleml:Time_formula.attlist"/>
+      <xs:extension base="ruleml:Time_term.content">
+        <xs:attributeGroup ref="ruleml:Time_term.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -3699,7 +3721,7 @@
   </xs:group>
   <xs:complexType name="Time_formula.type.def">
     <xs:complexContent>
-      <xs:extension base="ruleml:Time.content">
+      <xs:extension base="ruleml:Time_formula.content">
         <xs:attributeGroup ref="ruleml:Time_formula.attlist"/>
       </xs:extension>
     </xs:complexContent>
@@ -3709,11 +3731,20 @@
     <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
   </xs:attributeGroup>
   
-  <xs:complexType name="Time.content">
-    <xs:complexContent>
-      <xs:extension base="ruleml:argumentsForTime.sequence"/>
-    </xs:complexContent>
+  <xs:complexType name="Time_term.content">
+    <xs:group ref="ruleml:argumentsForTime.sequence"/>
   </xs:complexType>
+  <xs:complexType name="Time_formula.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:Time_formula.header"/>
+      <xs:group ref="ruleml:argumentsForTime.sequence"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="Time_formula.header">
+    <xs:sequence>
+      <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
+    </xs:sequence>
+  </xs:group>
   
   
   <xs:group name="arg_time.def">

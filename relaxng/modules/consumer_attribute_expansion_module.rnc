@@ -82,15 +82,15 @@ operator-interface.attlist &= closure-att.choice?
 # extension of optional attribute groups from Deliberation RuleML
 #
 reAtom.attlist &= formula-interface-ext.attlist?
-reEqual.attlist &= formula-interface.attlist?
-reAnd.attlist &= operator-interface.attlist?
-reOr.attlist &= operator-interface.attlist?
-reNaf.attlist &= operator-interface.attlist?
-reNeg.attlist &= operator-interface.attlist?
+reEqual.attlist &= formula-interface-ext.attlist?
+reAnd.attlist &= operator-interface-ext.attlist?
+reOr.attlist &= operator-interface-ext.attlist?
+reNaf.attlist &= operator-interface-ext.attlist?
+reNeg.attlist &= operator-interface-ext.attlist?
 reImplies.attlist &= operator-interface-ext.attlist?
 reEquivalent.attlist &= operator-interface-ext.attlist?
-reForall.attlist &= operator-interface.attlist?
-reExists.attlist &= operator-interface.attlist?
+reForall.attlist &= operator-interface-ext.attlist?
+reExists.attlist &= operator-interface-ext.attlist?
 #
 # a dummy element to assist in XSD conversion
 #

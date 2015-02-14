@@ -24,10 +24,13 @@ Spatial_term.attlist &= term-interface.attlist?
 Spatial_term.attlist &= commonNode.attlist?
 Spatial_formula.attlist &= formula-interface.attlist?
 Spatial_formula.attlist &= commonNode.attlist?
-Spatial.content |= Node.header, argumentsForSpatial.sequence
+Spatial_term.content |= Spatial_term.header, argumentsForSpatial.sequence
+Spatial_formula.content |= Spatial_formula.header, argumentsForSpatial.sequence
+Spatial_term.header &= Expr.header?
+Spatial_formula.header &= Atom.header?
 arg_spatial.choice |= arg_spatial
-Spatial_term.type.def = Spatial.content, Spatial_term.attlist
-Spatial_formula.type.def = Spatial.content, Spatial_formula.attlist
+Spatial_term.type.def = Spatial_term.content, Spatial_term.attlist
+Spatial_formula.type.def = Spatial_formula.content, Spatial_formula.attlist
 Spatial_term.def =
   
   ## <Spatial>: generic Spatial element. See

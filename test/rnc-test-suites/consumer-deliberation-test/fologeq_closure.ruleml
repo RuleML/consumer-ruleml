@@ -12,7 +12,7 @@
       <Var>d</Var>
     </Equal>
 
-    <Forall>
+    <Forall closure="existential">
       <Var>d</Var>
       <Equal>
         <Ind>some constant</Ind>
@@ -20,7 +20,7 @@
       </Equal>
     </Forall>
 
-    <Exists>
+    <Exists closure="universal">
       <Var>d</Var>
       <Equal>
         <Ind>some constant</Ind>
@@ -48,7 +48,7 @@
       </Implies>
     </Forall>
 
-  <Neg closure="universal">
+  <Neg closure="existential">
       <Equal>
         <Ind>some constant</Ind>
         <Var>d</Var>
@@ -167,7 +167,7 @@
     </Implies>
     <Implies>
       <if>
-        <And>
+        <And closure="universal">
           <Equal>
             <Ind>some constant</Ind>
             <Var>d</Var>
@@ -218,7 +218,7 @@
         </And>
       </if>
       <then>
-        <Or>
+        <Or closure="existential">
           <Atom>
             <op>
               <Rel>friend</Rel>
@@ -247,7 +247,7 @@
       </then>
     </Implies>
 
-    <Atom>
+    <Atom closure="universal">
       <Rel>some relation</Rel>
       <slot>
         <Ind>role_name1</Ind>

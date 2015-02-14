@@ -30,16 +30,19 @@ Time_term.def =
   ## <Time>: generic Time element. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Time
   element Time { Time_term.type.def }
-Time_term.type.def = Time.content, Time_formula.attlist
+Time_term.type.def = Time_term.content, Time_term.attlist
 Time_term.attlist &= commonNode.attlist?
 Time_term.attlist &= term-interface.attlist?
 #
 Time_formula.def = element Time { Time_formula.type.def }
-Time_formula.type.def = Time.content, Time_formula.attlist
+Time_formula.type.def = Time_formula.content, Time_formula.attlist
 Time_formula.attlist &= commonNode.attlist?
 Time_formula.attlist &= formula-interface.attlist?
 #
-Time.content |= Node.header, argumentsForTime.sequence
+Time_term.content |= Time_term.header, argumentsForTime.sequence
+Time_formula.content |= Time_formula.header, argumentsForTime.sequence
+Time_term.header &= Expr.header?
+Time_formula.header &= Atom.header?
 #
 # usage in choice patterns
 #

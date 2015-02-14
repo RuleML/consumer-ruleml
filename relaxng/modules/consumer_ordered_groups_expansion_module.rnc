@@ -36,4 +36,3 @@ Rule.header &= (Node.header, degree-edge.choice?)?
 
 
 
-
