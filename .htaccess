@@ -1,0 +1,11 @@
+
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .ruleml .rnc .rng .nvdl .xhtml .rdfs
+AddType application/relax-ng-compact-syntax .rnc
+AddType text/xml .ruleml
+AddType application/rdf+xml .rdfs
+AddType text/xhtml+xml .xhtml
+AddType application/xml .nvdl .rng .sch
+
+HeaderName HEADER.html
+ReadmeName FOOTER.html
