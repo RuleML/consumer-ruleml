@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../nvdl/fipa-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<fipa-message act="inform">
+  <sender>
+    <agent-identifier>
+      <name id="Me"/>
+    </agent-identifier>
+  </sender>
+  <receiver>
+    <agent-identifier>
+      <name id="You"/>
+    </agent-identifier>
+  </receiver>
+  <content xmlns:ruleml="http://ruleml.org/spec">
+    <ruleml:Atom>
+      <ruleml:Rel>P</ruleml:Rel>
+    </ruleml:Atom>
+    <ruleml:Time>
+      <ruleml:After>
+        <ruleml:Time><ruleml:Ind>t2</ruleml:Ind></ruleml:Time>
+        <ruleml:Time><ruleml:Ind>t1</ruleml:Ind></ruleml:Time>
+      </ruleml:After>
+    </ruleml:Time>
+  </content>
+</fipa-message>
+

@@ -1,0 +1,154 @@
+# Document Type: XML DTD
+# 
+# Document Purpose: Encoding of FIPA ACL messages in XML
+# 
+# (see [FIPA00067]) and http://www.fipa.org/)
+# 
+start |= fipa-message
+# Last Revised: 2002/05/10
+
+# Possible FIPA Communicative Acts. See [FIPA00037] for a
+# 
+# full list of valid performatives.
+
+communicative-acts =
+  "accept-proposal"
+  | "agree"
+  | "cancel"
+  | "cfp"
+  | "confirm"
+  | "disconfirm"
+  | "failure"
+  | "inform"
+  | "not-understood"
+  | "propose"
+  | "query-if"
+  | "query-ref"
+  | "refuse"
+  | "reject-proposal"
+  | "request"
+  | "request-when"
+  | "request-whenever"
+  | "subscribe"
+  | "inform-if"
+  | "inform-ref"
+  | "proxy"
+  | "propagate"
+# The FIPA message root element, the communicative act is
+# 
+# an attribute - see below and the message itself is a list
+# 
+# of parameters. The list is unordered. None of the elements
+# 
+# should occur more than once except receiver.
+msg-param =
+  receiver
+  | sender
+  | content
+  | language
+  | encoding
+  | ontology
+  | protocol
+  | reply-with
+  | in-reply-to
+  | reply-by
+  | reply-to
+  | conversation-id
+  | user-defined
+fipa-message = element fipa-message { attlist-fipa-message, msg-param* }
+# Attribute for the fipa-message - the communicative act itself and
+# 
+# the conversation id (which is here so an ID value can be used).
+attlist-fipa-message &=
+  attribute act { communicative-acts },
+  attribute conversation-id { xsd:ID }?
+sender = element sender { attlist-sender, agent-identifier }
+attlist-sender &= empty
+receiver = element receiver { attlist-receiver, agent-identifier+ }
+attlist-receiver &= empty
+# The message content.
+# 
+# One can choose to embed the actual content in the message,
+# 
+# or alternatively refer to a URI which represents this content.
+content = element content { attlist-content, text }
+attlist-content &= attribute href { text }?
+# The content language used for the content.
+# 
+# The linking attribute href associated with language can be used
+# 
+# to refer in an unambiguous way to the (formal) definition of the
+# 
+# standard/fipa content language.
+language = element language { attlist-language, text }
+attlist-language &= attribute href { text }?
+# The encoding used for the content language.
+# 
+# The linking attribute href associated with encoding can be used
+# 
+# to refer in an unambiguous way to the (formal) definition of the
+# 
+# language encoding.
+encoding = element encoding { attlist-encoding, text }
+attlist-encoding &= attribute href { text }?
+# The ontology used in the content.
+# 
+# The linking attribute href associated with ontology can be used
+# 
+# to refer in an unambiguous way to the (formal) definition of the
+# 
+# ontology.
+ontology = element ontology { attlist-ontology, text }
+attlist-ontology &= attribute href { text }?
+# The protocol element.
+# 
+# The linking attribute href associated with protocol can be used
+# 
+# to refer in an unambiguous way to the (formal) definition of the
+# 
+# protocol.
+protocol = element protocol { attlist-protocol, text }
+attlist-protocol &= attribute href { text }?
+reply-with = element reply-with { attlist-reply-with, text }
+attlist-reply-with &= attribute href { text }?
+in-reply-to = element in-reply-to { attlist-in-reply-to, text }
+attlist-in-reply-to &= attribute href { text }?
+reply-by = element reply-by { attlist-reply-by, empty }
+attlist-reply-by &=
+  attribute time { text },
+  attribute href { text }?
+reply-to = element reply-to { attlist-reply-to, agent-identifier+ }
+attlist-reply-to &= empty
+conversation-id =
+  element conversation-id { attlist-conversation-id, text }
+attlist-conversation-id &= attribute href { text }?
+agent-identifier =
+  element agent-identifier {
+    attlist-agent-identifier,
+    name,
+    addresses?,
+    resolvers?,
+    user-defined*
+  }
+attlist-agent-identifier &= empty
+name = element name { attlist-name, empty }
+# An id can be used to uniquely identify the name of the agent.
+# 
+# The refid attribute can be used to refer to an already defined
+# 
+# agent name, avoiding unnecessary repetition. Either the id
+# 
+# OR refid should be specified, (both should not be present at the
+# 
+# same time).
+attlist-name &=
+  attribute id { xsd:ID }?,
+  attribute refid { xsd:IDREF }?
+addresses = element addresses { attlist-addresses, url+ }
+attlist-addresses &= empty
+url = element url { attlist-url, empty }
+attlist-url &= attribute href { text }?
+resolvers = element resolvers { attlist-resolvers, agent-identifier+ }
+attlist-resolvers &= empty
+user-defined = element user-defined { attlist-user-defined, text }
+attlist-user-defined &= attribute href { text }?

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules xmlns="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <namespace ns="">
+    <validate schema="../relaxng/external/fipa-acl.rnc"
+      schemaType="application/relax-ng-compact-syntax"/>
+  </namespace>  
+  <namespace ns="http://ruleml.org/spec">
+    <validate
+      schema="http://consumer.ruleml.org/1.02/relaxng/drivers/consumer-relaxed.rnc"
+      schemaType="application/relax-ng-compact-syntax"/>
+    
+  </namespace>
+  
+</rules>

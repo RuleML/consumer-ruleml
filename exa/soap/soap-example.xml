@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<?xml-model href="../../nvdl/soap-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <soap:Header>
+  </soap:Header>
+  <soap:Body  xmlns:ruleml="http://ruleml.org/spec">
+    <ruleml:Atom>
+      <ruleml:Rel>P</ruleml:Rel>
+    </ruleml:Atom>
+    <ruleml:Time>
+      <ruleml:After>
+        <ruleml:Time><ruleml:Ind>t2</ruleml:Ind></ruleml:Time>
+        <ruleml:Time><ruleml:Ind>t1</ruleml:Ind></ruleml:Time>
+      </ruleml:After>
+    </ruleml:Time>
+  </soap:Body>
+</soap:Envelope>
