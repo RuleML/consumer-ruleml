@@ -70,10 +70,10 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
 #
 # INCLUDE CONTENT MODELS WITH CANONICAL ORDER
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/ordered_groups_expansion_module.rnc" inherit = ruleml {
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/unordered_deterministic_groups_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-include "../modules/consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_unordered_deterministic_groups_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
