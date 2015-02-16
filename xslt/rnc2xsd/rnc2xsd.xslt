@@ -40,6 +40,12 @@
   <xsl:template match="xs:element[@name='Closure']"></xsl:template>
   <xsl:template match="xs:element[@name='Type']"></xsl:template>
   <xsl:template match="xs:element[@name='Dummy']"></xsl:template>
+  <xsl:template match="xs:element[@name='Base']"></xsl:template>
+  <xsl:template match="xs:element[@name='Card']"></xsl:template>
+  <xsl:template match="xs:element[@name='Common']"></xsl:template>
+  <xsl:template match="xs:element[@name='Key']"></xsl:template>
+  <xsl:template match="xs:element[@name='Material']"></xsl:template>
+  <xsl:template match="xs:element[@name='Per']"></xsl:template>
   
     
   <!-- Copies everything to the transformation output -->

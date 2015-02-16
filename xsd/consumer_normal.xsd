@@ -1529,11 +1529,7 @@
     <xs:attribute name="keyref" type="ruleml:keyref.value"/>
   </xs:attributeGroup>
   
-  <xs:element name="Base">
-    <xs:complexType>
-      <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-    </xs:complexType>
-  </xs:element>
+  
   
   
   
@@ -1651,11 +1647,7 @@
     <xs:union memberTypes="ruleml:material_default.value ruleml:material_non-default.value"/>
   </xs:simpleType>
   
-  <xs:element name="Material">
-    <xs:complexType>
-      <xs:attributeGroup ref="ruleml:material-att.choice"/>
-    </xs:complexType>
-  </xs:element>
+  
   
   
   <xs:simpleType name="material_non-default.value">
@@ -1813,11 +1805,7 @@
     <xs:restriction base="xs:nonNegativeInteger"/>
   </xs:simpleType>
   
-  <xs:element name="Card">
-    <xs:complexType>
-      <xs:attributeGroup ref="ruleml:cardinality-att.choice"/>
-    </xs:complexType>
-  </xs:element>
+  
   
   
   <xs:group name="Equal-node.choice">
@@ -2572,11 +2560,7 @@
     </xs:union>
   </xs:simpleType>
   
-  <xs:element name="Per">
-    <xs:complexType>
-      <xs:attributeGroup ref="ruleml:interpretation-att.choice"/>
-    </xs:complexType>
-  </xs:element>
+  
   
   
   
@@ -2751,11 +2735,7 @@
   
   
   
-  <xs:element name="Common">
-    <xs:complexType>
-      <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-    </xs:complexType>
-  </xs:element>
+  
   
   
   <xs:group name="formula_Profile-edge.choice">
@@ -3011,11 +2991,7 @@
   </xs:simpleType>
   
   
-  <xs:element name="Key">
-    <xs:complexType>
-      <xs:attributeGroup ref="ruleml:key-att.choice"/>
-    </xs:complexType>
-  </xs:element>
+  
   
   
   
