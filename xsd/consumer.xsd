@@ -206,8 +206,8 @@
       <xs:documentation/>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:And-Query.Node.def"/>
-      <xs:group ref="ruleml:Or-Query.Node.def"/>
+      <xs:element ref="ruleml:And"/>
+      <xs:element ref="ruleml:Or"/>
     </xs:choice>
   </xs:group>
   <xs:group name="andor.edge.defs">
@@ -221,30 +221,22 @@
       <xs:documentation/>
     </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:And.Node.def"/>
+      <xs:element ref="ruleml:And"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="And.Node.def">
+  <xs:element name="And">
     <xs:annotation>
-      <xs:documentation>A polyadic conjunctive expression,  Within anything other than
-        Query...</xs:documentation>
+      <xs:documentation>&lt;And&gt;: polyadic conjunction where &lt;And/&gt; is true. See
+        http://ruleml.org/1.02/glossary/#gloss-And</xs:documentation>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element form="qualified" name="And">
-        <xs:annotation>
-          <xs:documentation>&lt;And&gt;: polyadic conjunction where &lt;And/&gt; is true. See
-            http://ruleml.org/1.02/glossary/#gloss-And</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:group ref="ruleml:And.header"/>
-            <xs:group ref="ruleml:And.main"/>
-          </xs:sequence>
-          <xs:attributeGroup ref="ruleml:reAnd.attlist"/>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group ref="ruleml:And.header"/>
+        <xs:group ref="ruleml:And.main"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="ruleml:reAnd.attlist"/>
+    </xs:complexType>
+  </xs:element>
   <xs:attributeGroup name="reAnd.attlist">
     <xs:annotation>
       <xs:documentation>The attribute list of the conjunction element will accept a scoped closure
@@ -254,43 +246,6 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
-  <xs:group name="And-Query-node.choice">
-    <xs:annotation>
-      <xs:documentation>an extension point for specializations of the conjunction tag name in
-        queries.  </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:group ref="ruleml:And-Query.Node.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="And-Query.Node.def">
-    <xs:annotation>
-      <xs:documentation>Within Query...</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element form="qualified" name="And">
-        <xs:annotation>
-          <xs:documentation/>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:group ref="ruleml:And.header"/>
-            <xs:group ref="ruleml:And.main"/>
-          </xs:sequence>
-          <xs:attributeGroup ref="ruleml:reAnd-Query.attlist"/>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:attributeGroup name="reAnd-Query.attlist">
-    <xs:annotation>
-      <xs:documentation>Within query, conjunctions may have an optional existential closure
-        attribute.</xs:documentation>
-    </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  
   <xs:group name="And.header">
     <xs:annotation>
       <xs:documentation>Conjunctions accept the header patter common to truth-valued
@@ -368,29 +323,22 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:Or.Node.def"/>
+      <xs:element ref="ruleml:Or"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="Or.Node.def">
+  <xs:element name="Or">
     <xs:annotation>
-      <xs:documentation>A polyadic disjunctive expression, </xs:documentation>
+      <xs:documentation>&lt;Or&gt;: polyadic disjunction where &lt;Or/&gt; is false. See
+        http://ruleml.org/1.02/glossary/#gloss-Or</xs:documentation>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element form="qualified" name="Or">
-        <xs:annotation>
-          <xs:documentation>&lt;Or&gt;: polyadic disjunction where &lt;Or/&gt; is false. See
-            http://ruleml.org/1.02/glossary/#gloss-Or</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:group ref="ruleml:Or.header"/>
-            <xs:group ref="ruleml:Or.main"/>
-          </xs:sequence>
-          <xs:attributeGroup ref="ruleml:reOr.attlist"/>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group ref="ruleml:Or.header"/>
+        <xs:group ref="ruleml:Or.main"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="ruleml:reOr.attlist"/>
+    </xs:complexType>
+  </xs:element>
   <xs:attributeGroup name="reOr.attlist">
     <xs:annotation>
       <xs:documentation>The attribute list of the disjunction element will accept a (scoped) closure
@@ -400,43 +348,6 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
   </xs:attributeGroup>
-  <xs:group name="Or-Query-node.choice">
-    <xs:annotation>
-      <xs:documentation>an extension point for specializations of the disjunction tag name in
-        queries.  </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:group ref="ruleml:Or-Query.Node.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="Or-Query.Node.def">
-    <xs:annotation>
-      <xs:documentation>Within Query...</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element form="qualified" name="Or">
-        <xs:annotation>
-          <xs:documentation/>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:group ref="ruleml:Or.header"/>
-            <xs:group ref="ruleml:Or.main"/>
-          </xs:sequence>
-          <xs:attributeGroup ref="ruleml:reOr-Query.attlist"/>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:attributeGroup name="reOr-Query.attlist">
-    <xs:annotation>
-      <xs:documentation>Within query, disjunctions may have an optional existential closure
-        attribute.</xs:documentation>
-    </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  
   <xs:group name="Or.header">
     <xs:annotation>
       <xs:documentation>Disjunctions accept the header patter common to truth-valued
@@ -2753,8 +2664,14 @@
   
   
   
+  <xs:attributeGroup name="reAnd-Query.attlist">
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+  </xs:attributeGroup>
   <xs:attributeGroup name="formula_And.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="reOr-Query.attlist">
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="formula_Or.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>

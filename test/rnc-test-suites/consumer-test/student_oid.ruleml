@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../relaxng/drivers/consumer-relaxed.rnc"?> 
+<And xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+
+  <!-- a particular person is a student at some time -->
+  <Atom closure="existential">
+    <oid>
+      <Ind>personA</Ind>
+    </oid>
+    <Rel>student</Rel>
+    <slot>
+      <Ind>at time</Ind>
+      <Time><Var>time_student</Var></Time>
+    </slot>
+    
+  </Atom>
+
+  <!--a particular person is an employee of company at some time -->
+  <Atom>
+    <oid>
+      <Ind>personA</Ind>
+    </oid>
+    <Rel>employee</Rel>
+    <slot>
+      <Ind>employer</Ind>
+      <Ind>companyB</Ind>
+    </slot>
+    <slot>
+      <Ind>at time</Ind>
+      <Time><Var>time_employee</Var></Time>
+    </slot>
+  </Atom>
+
+  <!--a student is a fulltime-student if the student cannot be proved as a parttime-student -->
+
+  <Implies closure="universal">
+    <if>
+      <And>
+        <Atom>
+          <oid>
+            <Var>person</Var>
+          </oid>
+          <Rel>student</Rel>
+          <slot>
+            <Ind>at time</Ind>
+            <Time><Var>time_student</Var></Time>
+          </slot></Atom>
+        <Naf>
+          <Atom>
+            <oid>
+              <Var>person</Var>
+            </oid>
+            <Rel>parttime-student</Rel>
+            <slot>
+              <Ind>at time</Ind>
+              <Time><Var>time_student</Var></Time>
+            </slot></Atom>
+        </Naf>
+      </And>
+    </if>
+    <then>
+      <Atom>
+        <oid>
+          <Var>person</Var>
+        </oid>
+        <Rel>fulltime-student</Rel>
+        <slot>
+          <Ind>at time</Ind>
+          <Time><Var>time_student</Var></Time>
+        </slot></Atom>
+    </then>
+  </Implies>
+
+
+  <!--A "negative integrity constraint" that a fulltime-student cannot also be an employee of a company-->
+
+  <Implies closure="universal">
+    <And>
+      <Atom>
+        <oid>
+          <Var>person</Var>
+        </oid>
+        <Rel>fulltime-student</Rel>
+        <slot>
+          <Ind>at time</Ind>
+          <Time><Var>time_student</Var></Time>
+        </slot></Atom>
+      <Atom>
+        <oid>
+          <Var>person</Var>
+        </oid>
+        <Rel>employee</Rel>
+        <Var>person</Var>
+        <slot>
+          <Ind>employer</Ind>
+          <Ind>companyB</Ind>
+        </slot>
+        <slot>
+          <Ind>at time</Ind>
+          <Time><Var>time_student</Var></Time>
+        </slot></Atom>
+    </And>
+    <Or/>
+  </Implies>
+
+  <!-- A similar (but weaker) "negative integrity constraint" expressed using weak negation. -->
+  <Naf>
+    <And closure="existential">
+      <Atom>
+        <oid>
+          <Var>person</Var>
+        </oid>
+        <Rel>fulltime-student</Rel>
+      </Atom>
+      <Atom>
+        <oid>
+          <Var>person</Var>
+        </oid>
+        <Rel>employee</Rel>
+        <slot>
+          <Ind>employer</Ind>
+          <Ind>companyB</Ind>
+        </slot>
+      </Atom>
+    </And>
+  </Naf>
+
+</And>

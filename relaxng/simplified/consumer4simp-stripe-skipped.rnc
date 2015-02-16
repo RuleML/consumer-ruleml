@@ -228,6 +228,23 @@ And =
            minLength = "1"
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
     (formula
@@ -236,8 +253,8 @@ And =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Naf
@@ -284,6 +301,23 @@ Or =
            minLength = "1"
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute type {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute style {
+         "reasoning"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
     (formula_2
@@ -292,8 +326,8 @@ Or =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Naf
@@ -375,8 +409,8 @@ Implies =
          | Spatial
          | Time
          | Equal
-         | And_2
-         | Or_2
+         | And
+         | Or
          | Neg
          | Negation
          | Naf
@@ -389,8 +423,8 @@ Implies =
          | Spatial
          | Time
          | Equal
-         | And_2
-         | Or_2
+         | And
+         | Or
          | Neg
          | Negation
          | Implies
@@ -462,8 +496,8 @@ Forall =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -535,8 +569,8 @@ Exists =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -732,8 +766,8 @@ Neg =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -804,8 +838,8 @@ Naf =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -876,8 +910,8 @@ Equivalent =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -890,8 +924,8 @@ Equivalent =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -1284,8 +1318,8 @@ Negation =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -1346,8 +1380,8 @@ Rule =
          | Spatial
          | Time
          | Equal
-         | And_2
-         | Or_2
+         | And
+         | Or
          | Neg
          | Negation
          | Naf
@@ -1360,8 +1394,8 @@ Rule =
          | Spatial
          | Time
          | Equal
-         | And_2
-         | Or_2
+         | And
+         | Or
          | Neg
          | Negation
          | Implies
@@ -2859,8 +2893,8 @@ formula =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Naf
@@ -2895,8 +2929,8 @@ formula_2 =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Naf
@@ -2931,8 +2965,8 @@ then =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Implies
@@ -2966,8 +3000,8 @@ if =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Naf
@@ -3025,8 +3059,8 @@ formula_3 =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Implies
@@ -3060,8 +3094,8 @@ formula_4 =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Implies
@@ -3141,8 +3175,8 @@ strong =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Implies
@@ -3176,8 +3210,8 @@ weak =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Implies
@@ -3211,8 +3245,8 @@ torso =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Implies
@@ -3558,8 +3592,8 @@ formula_5 =
      | Spatial
      | Time
      | Equal
-     | And_2
-     | Or_2
+     | And
+     | Or
      | Neg
      | Negation
      | Implies
@@ -3612,8 +3646,8 @@ if_2 =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Naf
@@ -3648,8 +3682,8 @@ then_2 =
        | Spatial
        | Time
        | Equal
-       | And_2
-       | Or_2
+       | And
+       | Or
        | Neg
        | Negation
        | Implies
@@ -3922,152 +3956,6 @@ Time_2 =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
-  }
-And_2 =
-  element And {
-    (attribute closure {
-       "universal"
-       | "existential"
-       | xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute type {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute style {
-         "reasoning"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?),
-    degree?,
-    (formula
-     | Atom
-     | Interval
-     | Spatial
-     | Time
-     | Equal
-     | And_2
-     | Or_2
-     | Neg
-     | Negation
-     | Naf
-     | Implies
-     | Equivalent
-     | Forall
-     | Exists)*
-  }
-Or_2 =
-  element Or {
-    (attribute closure {
-       "universal"
-       | "existential"
-       | xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute meta {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute type {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute style {
-         "reasoning"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?),
-    degree?,
-    (formula_2
-     | Atom
-     | Interval
-     | Spatial
-     | Time
-     | Equal
-     | And_2
-     | Or_2
-     | Neg
-     | Negation
-     | Naf
-     | Implies
-     | Equivalent
-     | Forall
-     | Exists)*
   }
 _1 =
   element * {
