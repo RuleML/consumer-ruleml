@@ -20,9 +20,10 @@ edge.choice |= arg_interval.def
 # * Interval
 
 #   *** Interval ***
-Interval_term.attlist &= term-interface.attlist?
+Interval_term.attlist &= type-att.choice?
 Interval_term.attlist &= commonNode.attlist?
 Interval_formula.attlist &= formula-interface.attlist?
+Interval_formula.attlist &= type-att.choice?
 Interval_formula.attlist &= commonNode.attlist?
 arg_interval.choice |= arg_interval.def
 Interval_term.content |= Interval_term.header, (arg_interval.choice, arg_interval.choice?)?

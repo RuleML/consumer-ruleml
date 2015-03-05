@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-model href="../../../relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
+<Rule xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1"
+  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd" 
+  key=":rule1" style="reasoning" closure="universal" material="yes">
+
+  <!-- Clocksin/Mellish sample rule 
+
+This is the extended version of the simple derivation rule example (SimpleDerivationRule.rrml).
+It explicitly shows all metadata information
+
+-->
+
+            <if>
+              <!-- rule body -->
+              <Atom>
+                <op>
+                  <Rel>likes</Rel>
+                </op>
+                <arg index="1">
+                  <Var>X</Var>
+                </arg>
+                <arg index="2">
+                  <Ind>wine</Ind>
+                </arg>
+              </Atom>
+            </if>
+            <then>
+              <!-- rule head -->
+              <Atom>
+                <op>
+                  <Rel>likes</Rel>
+                </op>
+                <arg index="1">
+                  <Ind>John</Ind>
+                </arg>
+                <arg index="2">
+                  <Var>X</Var>
+                </arg>
+              </Atom>
+            </then>
+
+</Rule>

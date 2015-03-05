@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
+<Equivalent xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1"
+  xmlns:owltime="http://www.w3.org/2006/time"
+  xmlns:this="http://consumer.ruleml.org/exa/consumer-reaction/TemporalExample2#"
+  xmlns:ex="http://reaction.ruleml.org/exa/dr/TemporalExample2#" closure="universal">
+
+  <Time key="this:time1" type="ex:TimeType1">
+    <Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data>
+  </Time>
+  <Atom key="this:time2">
+    <Rel iri=":Time" type="ex:TimeType1"/>
+    <Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data>
+  </Atom>
+</Equivalent>

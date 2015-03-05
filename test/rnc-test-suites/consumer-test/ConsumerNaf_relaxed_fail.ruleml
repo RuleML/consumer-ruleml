@@ -4,15 +4,14 @@
 <Naf xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:rel="http://example.org/relation-classes#"
-  xmlns:sorts="http://example.org/sorts#"
-  style=":answer-set" closure="universal">
-  <Neg style=":">      
-    <Atom  style=":">
+  type=":answer-set">
+  <Neg type="">      
+    <Atom type="">
       <op>
-        <Rel type="rel:binary">likes</Rel>
+        <Rel style="rel:binary">likes</Rel>
       </op>
-      <Var type="sorts:Person">X</Var>
-      <Ind type="sorts:Beverage">wine</Ind>
+      <Var style="sorts:Person">X</Var>
+      <Ind style="sorts:Beverage">wine</Ind>
     </Atom>
   </Neg>
 </Naf>

@@ -1,7 +1,6 @@
 start |= notAllowed
 
 #attribute
-type-formula-att.choice |= notAllowed
 type-att.choice |= notAllowed
 iri-att.choice |= notAllowed
 style-att.choice |= notAllowed

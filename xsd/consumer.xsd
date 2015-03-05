@@ -123,7 +123,12 @@
     </xs:annotation>
     <xs:attributeGroup ref="ruleml:closure-att.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:formula-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   
   <xs:group name="operatorForAtoms-edge.choice">
@@ -191,6 +196,12 @@
     </xs:annotation>
     <xs:attributeGroup ref="ruleml:Resource.attlist"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:simpleType name="Rel.content">
     <xs:annotation>
@@ -242,9 +253,13 @@
       <xs:documentation>The attribute list of the conjunction element will accept a scoped closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="And.header">
     <xs:annotation>
@@ -344,9 +359,13 @@
       <xs:documentation>The attribute list of the disjunction element will accept a (scoped) closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="Or.header">
     <xs:annotation>
@@ -459,7 +478,12 @@
     </xs:annotation>
     <xs:attributeGroup ref="ruleml:closure-att.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   
   <xs:group name="Implies.header">
@@ -666,9 +690,13 @@
       <xs:documentation>The attribute list of the universal quantification formula  will accept a
         scoped closure attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="Forall.header">
     <xs:annotation>
@@ -719,9 +747,13 @@
       <xs:documentation>The attribute list of the existential quantification formula  will accept a
         scoped closure attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="Exists.header">
     <xs:annotation>
@@ -901,14 +933,6 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  <xs:attributeGroup name="reExpr.attlist">
-    <xs:annotation>
-      <xs:documentation>Expressions optionally accept the attribute pattern of objects with
-        user-defined types.</xs:documentation>
-    </xs:annotation>
-    <xs:attributeGroup ref="ruleml:Type.attlist"/>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
   <xs:group name="operatorForExpressions-edge.choice">
     <xs:annotation>
       <xs:documentation>an extension point for stripe skipping as well as specializations of the
@@ -975,6 +999,12 @@
     </xs:annotation>
     <xs:attributeGroup ref="ruleml:Resource.attlist"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   
   <xs:simpleType name="Fun.content">
@@ -1015,9 +1045,6 @@
       <xs:group ref="ruleml:Exists-node.choice"/>
     </xs:sequence>
   </xs:group>
-  <xs:attributeGroup name="closure-att-fo.choice">
-    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
-  </xs:attributeGroup>
   
   
   <xs:attributeGroup name="Expr-datt.choice">
@@ -1505,9 +1532,13 @@
   </xs:element>
   
   <xs:attributeGroup name="reNeg.attlist">
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="Neg.header">
     <xs:annotation>
@@ -1582,9 +1613,13 @@
   </xs:element>
   
   <xs:attributeGroup name="reNaf.attlist">
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="Naf.header">
     <xs:annotation>
@@ -1677,7 +1712,12 @@
     </xs:annotation>
     <xs:attributeGroup ref="ruleml:closure-att.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   
   <xs:group name="Equivalent.header">
@@ -1943,9 +1983,13 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="reEqual.attlist">
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:formula-interface-ext.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="Equal.header">
     <xs:annotation>
@@ -2690,6 +2734,15 @@
   <xs:attributeGroup name="torso.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
+  <xs:attributeGroup name="reExpr.attlist">
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
   <xs:attributeGroup name="op_Expr.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -2746,6 +2799,12 @@
   </xs:attributeGroup>
   <xs:attributeGroup name="rePlex.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:attributeGroup name="declare.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
@@ -2966,25 +3025,9 @@
     </xs:union>
   </xs:simpleType>
   
-  <xs:attributeGroup name="type-formula-att.choice">
-    <xs:attributeGroup ref="ruleml:type-formula-attrib.def"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="type-formula-attrib.def">
-    <xs:attribute name="type" type="ruleml:type-formula.value">
-      <xs:annotation>
-        <xs:documentation>an attribute referencing a type definition. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@type</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:simpleType name="type-formula.value">
-    <xs:union memberTypes="ruleml:PrefixedCURIE.datatype ruleml:AbsIRI.datatype"/>
-  </xs:simpleType>
-  
   
   <xs:attributeGroup name="generic-Node.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:type-formula-att.choice"/>
     <xs:attribute name="iri" type="ruleml:iri.value">
       <xs:annotation>
         <xs:documentation>An attribute for referring to a IRI.     See
@@ -2993,8 +3036,8 @@
     </xs:attribute>
   </xs:attributeGroup>
   
+  
   <xs:attributeGroup name="formula-interface-ext.attlist">
-    <xs:attributeGroup ref="ruleml:type-formula-att.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -3007,17 +3050,7 @@
     <xs:attributeGroup ref="ruleml:closure-att.choice"/>
   </xs:attributeGroup>
   
-  <xs:attributeGroup name="term-interface.attlist">
-    <xs:attribute name="type" type="ruleml:type.value">
-      <xs:annotation>
-        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
-          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  
   <xs:attributeGroup name="operator-interface-ext.attlist">
-    <xs:attributeGroup ref="ruleml:type-formula-att.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -3029,6 +3062,7 @@
     <xs:attributeGroup ref="ruleml:operator-interface-ext.attlist"/>
     <xs:attributeGroup ref="ruleml:closure-att.choice"/>
   </xs:attributeGroup>
+  
   
   
   
@@ -3068,11 +3102,22 @@
   
   
   <xs:attributeGroup name="Interval_term.attlist">
-    <xs:attributeGroup ref="ruleml:term-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="Interval_formula.attlist">
     <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Interval_term.content">
@@ -3308,11 +3353,22 @@
   </xs:group>
   
   <xs:attributeGroup name="Spatial_term.attlist">
-    <xs:attributeGroup ref="ruleml:term-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="Spatial_formula.attlist">
     <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Spatial_term.content">
@@ -3604,7 +3660,12 @@
   </xs:complexType>
   <xs:attributeGroup name="Time_term.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attributeGroup ref="ruleml:term-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   
   <xs:group name="Time_formula.def">
@@ -3622,6 +3683,12 @@
   <xs:attributeGroup name="Time_formula.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   
   <xs:complexType name="Time_term.content">

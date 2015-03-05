@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-model href="../../../relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
+<Rule xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:ex="http://reaction.ruleml.org/exa/dr/FrameDerivationRule#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd">
+  <!-- Clocksin/Mellish sample rule 
+
+  Shows the frame representation 
+
+  -->
+
+        
+    <!-- rule -->
+
+      <if>
+        <Atom>
+          <oid><Var type="ex:person">X</Var></oid>
+          <slot><Ind>likes</Ind><Ind>wine</Ind></slot>
+        </Atom>
+      </if>
+      <then>
+        <Atom>
+          <oid><Ind>John</Ind></oid>
+          <slot><Ind>likes</Ind><Var>X</Var></slot>
+        </Atom>
+      </then>
+
+</Rule>

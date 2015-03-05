@@ -20,9 +20,10 @@ Spatial_formula-node.choice |= Spatial_formula.def
 Spatial_term-node.choice |= Spatial_term.def
 
 #   *** Spatial ***
-Spatial_term.attlist &= term-interface.attlist?
+Spatial_term.attlist &= type-att.choice?
 Spatial_term.attlist &= commonNode.attlist?
 Spatial_formula.attlist &= formula-interface.attlist?
+Spatial_formula.attlist &= type-att.choice?
 Spatial_formula.attlist &= commonNode.attlist?
 Spatial_term.content |= Spatial_term.header, argumentsForSpatial.sequence
 Spatial_formula.content |= Spatial_formula.header, argumentsForSpatial.sequence

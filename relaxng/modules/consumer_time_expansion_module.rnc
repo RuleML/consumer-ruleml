@@ -32,12 +32,13 @@ Time_term.def =
   element Time { Time_term.type.def }
 Time_term.type.def = Time_term.content, Time_term.attlist
 Time_term.attlist &= commonNode.attlist?
-Time_term.attlist &= term-interface.attlist?
+Time_term.attlist &= type-att.choice?
 #
 Time_formula.def = element Time { Time_formula.type.def }
 Time_formula.type.def = Time_formula.content, Time_formula.attlist
 Time_formula.attlist &= commonNode.attlist?
 Time_formula.attlist &= formula-interface.attlist?
+Time_formula.attlist &= type-att.choice?
 #
 Time_term.content |= Time_term.header, argumentsForTime.sequence
 Time_formula.content |= Time_formula.header, argumentsForTime.sequence

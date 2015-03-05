@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
+<And xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1"
+  xmlns:owltime="http://www.w3.org/2006/time"
+  xmlns:this="http://consumer.ruleml.org/exa/consumer-reaction/TemporalExample2#"
+  xmlns:ex="http://reaction.ruleml.org/exa/dr/TemporalExample2#" closure="universal">
+
+  <!-- time -->
+  <Time>
+    <!--  slotted -->
+    <slot>
+      <Ind>year</Ind>
+      <Var>Y</Var>
+    </slot>
+    <slot>
+      <Ind>month</Ind>
+      <Var>M</Var>
+    </slot>
+    <slot>
+      <Ind>day</Ind>
+      <Var>D</Var>
+    </slot>
+  </Time>
+  <Time>
+    <!-- frame representation -->
+    <oid>
+      <Var type="ex:DatetimeClass1">X</Var>
+    </oid>
+    <slot>
+      <Ind>date</Ind>
+      <Var>Date</Var>
+    </slot>
+    <slot>
+      <Ind>time</Ind>
+      <Var>Time</Var>
+    </slot>
+  </Time>
+  <Time>
+    <!-- frame representation -->
+    <oid>
+      <Ind type="ex:DatetimeClass2">datetime2</Ind>
+    </oid>
+    <slot>
+      <Ind>datetime</Ind>
+      <Var>DT</Var>
+    </slot>
+  </Time>
+  <Time>
+    <!-- frame representation -->
+    <oid>
+      <Ind type="ex:TimeIntervalClass">interval1</Ind>
+    </oid>
+    <slot>
+      <Ind>start</Ind>
+      <Time>
+        <arg>
+          <Var>T1</Var>
+        </arg>
+      </Time>
+    </slot>
+    <slot>
+      <Ind>end</Ind>
+      <Time>
+        <arg>
+          <Var>T2</Var>
+        </arg>
+      </Time>
+    </slot>
+  </Time>
+  <Time>
+    <!-- after(2 years) -> Y -->
+    <slot>
+      <Time>
+        <arg>
+          <After>
+            <arg>
+              <Data xsi:type="xs:duration">P2Y</Data>
+            </arg>
+          </After>
+        </arg>
+      </Time>
+      <Var>Y</Var>
+    </slot>
+  </Time>
+  <Time keyref="this:time1"/>
+  <Time>
+    <content>
+      <!-- xs:any content -->
+      <owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
+    </content>
+  </Time>
+  <Atom>
+    <op>
+      <Rel iri="dc:date"/>
+    </op>
+    <!-- Dublin Core date -->
+    <arg index="1">
+      <Time>
+        <arg>
+          <Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data>
+        </arg>
+      </Time>
+    </arg>
+  </Atom>
+
+  <!-- interval -->
+  <Interval>
+    <arg index="1">
+      <Time>
+        <arg>
+          <Ind>t1</Ind>
+        </arg>
+      </Time>
+    </arg>
+    <arg index="2">
+      <Time>
+        <arg>
+          <Ind>t2</Ind>
+        </arg>
+      </Time>
+    </arg>
+  </Interval>
+  <Interval>
+    <arg index="1">
+      <Var>Y</Var>
+    </arg>
+  </Interval>
+  <Interval>
+    <arg index="1">
+      <Time>
+        <arg>
+          <Var>Y1</Var>
+        </arg>
+      </Time>
+    </arg>
+    <arg index="2">
+      <Time>
+        <arg>
+          <Var>Y2</Var>
+        </arg>
+      </Time>
+    </arg>
+  </Interval>
+
+  <!-- different interval algebra definitions -->
+
+  <!-- [t2,t3] during [t1,4] -->
+  <Interval>
+    <arg index="1">
+      <During>
+        <arg index="1">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t3</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg index="2">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </During>
+    </arg>
+  </Interval>
+
+  <!-- [t1,t3] overlaps with [t2,t4] -->
+  <Interval>
+    <arg index="1">
+      <Overlaps>
+        <arg index="1">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t3</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg index="2">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </Overlaps>
+    </arg>
+  </Interval>
+
+  <!-- [t1,t2] starts [t1,t4] -->
+  <Interval>
+    <arg index="1">
+      <Starts>
+        <arg index="1">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg index="2">
+          <Interval>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </Starts>
+    </arg>
+  </Interval>
+
+  <!-- [t1,t2] precedes [t3,t4] -->
+  <Interval>
+    <arg index="1">
+      <Precedes>
+        <arg index="1">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg index="2">
+          <Interval>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t3</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </Precedes>
+    </arg>
+  </Interval>
+
+  <!-- [t3,t4] succeeds [t1,t2] -->
+  <Interval>
+    <arg>
+      <Succeeds>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t3</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </Succeeds>
+    </arg>
+  </Interval>
+
+  <!-- [t1,t2] meets [t2,t4] -->
+  <Interval>
+    <arg>
+      <Meets>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </Meets>
+    </arg>
+  </Interval>
+
+  <!-- [t1,t2] equals [t1,t2] -->
+  <Interval>
+    <arg>
+      <Equal>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </Equal>
+    </arg>
+  </Interval>
+
+  <!-- [t1,t4] finishes [t3,t4] -->
+  <Interval>
+    <arg>
+      <Finishes>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg>
+          <Interval>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t3</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg>
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </Finishes>
+    </arg>
+  </Interval>
+
+
+</And>

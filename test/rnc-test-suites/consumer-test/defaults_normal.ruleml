@@ -12,7 +12,7 @@
         <Var>X</Var>
       </arg>
       <arg index="2">
-        <Expr>
+        <Expr style=":per-Value">
           <op>
             <Fun>F</Fun>
           </op>

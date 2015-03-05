@@ -34,12 +34,15 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/expr_expansion_modu
   start |= notAllowed
 }
 # 
-# RESTRICTIONS ON COMPOUNDING CLASSICAL FORMULAS REMOVED 
-#   FULL FIRST-ORDER EXPRESSIVITY (INCLUDING NEGATION) IS AVAILABLE 
+# RESTRICTIONS ON COMPOUNDING CLASSICAL FORMULAS KEPT
+# BUT IMPLICIT CLOSURE ALLOWED EVERYWHERE
 #
 #include "http://deliberation.ruleml.org/1.02/relaxng/modules/folog_cl_expansion_module.rnc" inherit = ruleml {
 #  start |= notAllowed
 #}
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/folog_closure_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 # 
 # ATTRIBUTES WITH DEFAULT VALUES ARE INITIALIZED
 #
