@@ -12,23 +12,12 @@ dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
 start |= notAllowed
 # This module declares the following Consumer RuleML attributes:
-#    * @meta (reference to meta knowledge)
 #    * @style (reference to a profile definition)	
 #    * @type for operators
 #
-# *** @meta ***
-meta-att.choice |= meta.attrib.def
-meta.attrib.def =
-  
-  ## @meta: an attribute referencing meta knowledge. See
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@meta
-  attribute meta { meta.value }?
-meta.value |= PrefixedCURIE.datatype
-meta.value |= AbsIRI.datatype
 #
 # *** @style ***
-#  when absent, equivalent to: reasoning (in DR Reaction RuleML), active 
-# (in PR and ECA RuleML), and messaging (in CEP RuleML)
+#  when absent, equivalent to: reasoning
 style.attrib = style-att.choice
 style-att.choice |= style.attrib.def
 style.attrib.def =
