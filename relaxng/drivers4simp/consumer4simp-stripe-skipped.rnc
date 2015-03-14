@@ -40,6 +40,9 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/expr_expansion_modu
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/folog_cl_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/folog_closure_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 # 
 # ATTRIBUTES WITH DEFAULT VALUES ARE INITIALIZED
 #
@@ -261,23 +264,6 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/plex_expansion_modu
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/val_absence_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-# INTERPRETED EXPRESSION ATTRIBUTE IS INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/per_attrib_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-# 
-# NON-DEFAULT VALUES OF EXPRESSION INTERPRETATION INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/per_non-default_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
-# 
-# DEFAULT VALUE OF EXPRESSION INTERPRETATION INCLUDED
-#
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/per_default_expansion_module.rnc" inherit = ruleml {
-  start |= notAllowed
-}
 #
 # INITIALIZATION MODULES INCLUDED
 #
@@ -288,7 +274,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/init_expansion_modu
 #  start |= notAllowed
 #}
 #
-# INCLUDE GENERIC ANY OPERATOR
+# INCLUDE CONTENT EDGE FOR FOREIGN NAMESPACE CONTENT
 #
 include "../modules/consumer_any_content_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
