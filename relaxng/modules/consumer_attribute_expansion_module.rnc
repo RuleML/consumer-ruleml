@@ -25,14 +25,11 @@ style.attrib.def =
   ## @style: defines a reference to a corresponding unique key. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style
   attribute style { style.value }
-style.value |= "reasoning"
+style.value |= "reasoning/single-valued"
+style.value |= "reasoning/multi-valued"
 style.value |= PrefixedCURIE.datatype
 style.value |= AbsIRI.datatype
 
-# 
-# @meta is interleaved with the group of attributes for all Nodes
-#
-commonNode.attlist &= meta-att.choice?
 # 
 # a group of attributes for generic Nodes
 #
