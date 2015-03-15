@@ -3,7 +3,8 @@
 <And xmlns="http://ruleml.org/spec"
   xmlns:this="http://example.org/fologeq.ruleml"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  >
   <!-- a syntactic example rulebase for testing the fologeq (first-order logic with equations) RuleML sublanguage -->
 
 
@@ -264,7 +265,7 @@
     <Equal>
       <Expr>
         <op>
-          <Fun per="value">some function</Fun>
+          <Fun>some function</Fun>
         </op>
         <Ind>arg1</Ind>
         <Ind>arg2</Ind>
@@ -272,7 +273,7 @@
       </Expr>
       <Expr>
         <op>
-          <Fun per="value">some other function</Fun>
+          <Fun>some other function</Fun>
         </op>
         <Ind>arg4</Ind>
         <Ind>arg5</Ind>
@@ -297,7 +298,7 @@
   
   <Equal closure="universal">
       <Expr>
-        <Fun per="value">fac</Fun>
+        <Fun>fac</Fun>
         <Data xsi:type="xs:integer">0</Data>
       </Expr>
       <Data xsi:type="xs:integer">1</Data>

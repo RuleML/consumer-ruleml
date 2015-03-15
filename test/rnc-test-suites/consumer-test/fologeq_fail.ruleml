@@ -264,7 +264,7 @@
     <Equal>
       <Expr>
         <op>
-          <Fun>some function</Fun>
+          <Fun per="value">some function</Fun>
         </op>
         <Ind>arg1</Ind>
         <Ind>arg2</Ind>
@@ -272,7 +272,7 @@
       </Expr>
       <Expr>
         <op>
-          <Fun>some other function</Fun>
+          <Fun per="value">some other function</Fun>
         </op>
         <Ind>arg4</Ind>
         <Ind>arg5</Ind>
@@ -297,7 +297,7 @@
   
   <Equal closure="universal">
       <Expr>
-        <Fun>fac</Fun>
+        <Fun per="value">fac</Fun>
         <Data xsi:type="xs:integer">0</Data>
       </Expr>
       <Data xsi:type="xs:integer">1</Data>

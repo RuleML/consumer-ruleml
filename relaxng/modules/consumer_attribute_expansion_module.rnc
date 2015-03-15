@@ -17,7 +17,6 @@ start |= notAllowed
 #
 #
 # *** @style ***
-#  when absent, equivalent to: reasoning
 style.attrib = style-att.choice
 style-att.choice |= style.attrib.def
 style.attrib.def =

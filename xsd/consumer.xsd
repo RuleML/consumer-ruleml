@@ -62,7 +62,6 @@
       <xs:group ref="ruleml:arg.edge.def"/>
       <xs:element ref="ruleml:resl"/>
       <xs:element ref="ruleml:repo"/>
-      <xs:group ref="ruleml:profile_anycontent"/>
       <xs:group ref="ruleml:arg_interval.def"/>
       <xs:group ref="ruleml:formula-negation"/>
       <xs:group ref="ruleml:if_Rule.edge.def"/>
@@ -253,6 +252,7 @@
       <xs:documentation>The attribute list of the conjunction element will accept a scoped closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -359,6 +359,7 @@
       <xs:documentation>The attribute list of the disjunction element will accept a (scoped) closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -690,6 +691,7 @@
       <xs:documentation>The attribute list of the universal quantification formula  will accept a
         scoped closure attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -747,6 +749,7 @@
       <xs:documentation>The attribute list of the existential quantification formula  will accept a
         scoped closure attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -927,7 +930,6 @@
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="ruleml:Expr.main">
-          <xs:attributeGroup ref="ruleml:Expr-datt.choice"/>
           <xs:attributeGroup ref="ruleml:reExpr.attlist"/>
         </xs:extension>
       </xs:complexContent>
@@ -987,7 +989,6 @@
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="ruleml:Fun.content">
-          <xs:attributeGroup ref="ruleml:Fun-datt.choice"/>
           <xs:attributeGroup ref="ruleml:reFun.attlist"/>
         </xs:extension>
       </xs:simpleContent>
@@ -1047,20 +1048,11 @@
   </xs:group>
   
   
-  <xs:attributeGroup name="Expr-datt.choice">
-    <xs:annotation>
-      <xs:documentation>expressions have interpretation attribute as an attribute with default
-        values.</xs:documentation>
-    </xs:annotation>
-    <xs:attributeGroup ref="ruleml:interpretation-att-inf.choice"/>
+  <xs:attributeGroup name="closure-att-fo.choice">
+    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
   </xs:attributeGroup>
-  <xs:attributeGroup name="Fun-datt.choice">
-    <xs:annotation>
-      <xs:documentation>functors have interpretation and single-valuedness as an attribute with
-        default values.</xs:documentation>
-    </xs:annotation>
-    <xs:attributeGroup ref="ruleml:interpretation-att-inf.choice"/>
-  </xs:attributeGroup>
+  
+  
   <xs:attributeGroup name="Implies-datt.choice">
     <xs:annotation>
       <xs:documentation>implications have inference direction and material implication as an
@@ -1074,9 +1066,6 @@
   
   <xs:attributeGroup name="material-att-inf.choice">
     <xs:attributeGroup ref="ruleml:material-att.choice"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="interpretation-att-inf.choice">
-    <xs:attributeGroup ref="ruleml:interpretation-att.choice"/>
   </xs:attributeGroup>
   
   
@@ -1532,6 +1521,7 @@
   </xs:element>
   
   <xs:attributeGroup name="reNeg.attlist">
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -1613,6 +1603,7 @@
   </xs:element>
   
   <xs:attributeGroup name="reNaf.attlist">
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -1983,6 +1974,7 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="reEqual.attlist">
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -2639,56 +2631,6 @@
   
   
   
-  <xs:attributeGroup name="interpretation-att.choice">
-    <xs:annotation>
-      <xs:documentation>an extension point for specializations of the interpretation attribute name.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:attribute name="per" type="ruleml:interpretation.value">
-      <xs:annotation>
-        <xs:documentation>   An attribute for specifying interpretation properties of functions.
-          See http://ruleml.org/1.02/glossary/#gloss-@per</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="per.attrib.def">
-    <xs:attribute name="per" type="ruleml:interpretation.value" use="required">
-      <xs:annotation>
-        <xs:documentation>   An attribute for specifying interpretation properties of functions.
-          See http://ruleml.org/1.02/glossary/#gloss-@per</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:simpleType name="interpretation.value">
-    <xs:union memberTypes="ruleml:interpretation_default.value ruleml:interpretation_non-default.value"/>
-  </xs:simpleType>
-  <xs:simpleType name="interpretation_default.value">
-    <xs:annotation>
-      <xs:documentation>FIXME: move all such statements into initialization
-        module.</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:token">
-      <xs:enumeration value="copy"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="interpretation_non-default.value">
-    <xs:union memberTypes="ruleml:PrefixedCURIE.datatype ruleml:AbsIRI.datatype">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="value"/>
-          <xs:enumeration value="open"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:union>
-  </xs:simpleType>
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2853,7 +2795,6 @@
   </xs:attributeGroup>
   <xs:attributeGroup name="commonNode.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-    <xs:attributeGroup ref="ruleml:meta-att.choice"/>
   </xs:attributeGroup>
   
   
@@ -2874,38 +2815,6 @@
   
   
   
-  
-  <xs:group name="formula_Profile-edge.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:profile_anycontent"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="profile_anycontent">
-    <xs:sequence>
-      <xs:element form="qualified" name="content" type="ruleml:profile_anycontent.type">
-        <xs:annotation>
-          <xs:documentation>&lt;content&gt;: predicate or function arguments expressed in other syntaxes,
-            especially non-RuleML XML markup. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-content</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:complexType name="profile_anycontent.type">
-    <xs:complexContent>
-      <xs:extension base="ruleml:profile_anycontent.content">
-        <xs:attributeGroup ref="ruleml:profile_anycontent.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="profile_anycontent.content">
-    <xs:complexContent>
-      <xs:extension base="ruleml:anycontent.content"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:attributeGroup name="profile_anycontent.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
   
   <xs:group name="time_anycontent">
     <xs:sequence>
@@ -2986,21 +2895,6 @@
   </xs:attributeGroup>
   
   
-  <xs:attributeGroup name="meta-att.choice">
-    <xs:attributeGroup ref="ruleml:meta.attrib.def"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="meta.attrib.def">
-    <xs:attribute name="meta" type="ruleml:meta.value">
-      <xs:annotation>
-        <xs:documentation>@meta: an attribute referencing meta knowledge. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@meta</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:simpleType name="meta.value">
-    <xs:union memberTypes="ruleml:PrefixedCURIE.datatype ruleml:AbsIRI.datatype"/>
-  </xs:simpleType>
-  
   <xs:attributeGroup name="style.attrib">
     <xs:attributeGroup ref="ruleml:style-att.choice"/>
   </xs:attributeGroup>
@@ -3019,12 +2913,16 @@
     <xs:union memberTypes="ruleml:PrefixedCURIE.datatype ruleml:AbsIRI.datatype">
       <xs:simpleType>
         <xs:restriction base="xs:token">
-          <xs:enumeration value="reasoning"/>
+          <xs:enumeration value="reasoning/single-valued"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="reasoning/multi-valued"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:union>
   </xs:simpleType>
-  
   
   <xs:attributeGroup name="generic-Node.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
@@ -3736,9 +3634,6 @@
       <xs:group ref="ruleml:spatial_temporal_algebra_group.content"/>
     </xs:choice>
   </xs:group>
-  
-  
-  
   
   
   
