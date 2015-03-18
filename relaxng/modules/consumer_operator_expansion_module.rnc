@@ -1,0 +1,48 @@
+namespace dc = "http://purl.org/dc/elements/1.1/"
+namespace dcterms = "http://purl.org/dc/terms/"
+
+dc:title [ "COnsumer RuleML Generic Operator" ]
+dc:version [ "1.02" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:creator [ "Adrian Paschke" ]
+dc:subject [ "RuleML, Consumer, Operator" ]
+dc:description [
+  "The expansion module for generic operator (logical or modal connective)."
+]
+dc:language [ "en" ]
+dcterms:rights [ "TBD" ]
+start |= Operator
+
+# This module declares the following Reaction RuleML elements:
+# * Operator		generic polymorphig Operator
+
+# *** Operator ***
+
+## the Operator attribute list
+Operator.attlist &= generic-Node.attlist?
+Operator.content |= Node.header, formula-Operator.choice*
+formula-Operator.choice |= formula-Operator
+Operator.type.def = Operator.content, Operator.attlist
+Operator =
+  
+  ## <Operator>: a generic polymorphic Operator, which is interpreted by the intended semantics (i.e. semantic profile). See
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Operator
+  element Operator { Operator.type.def }
+Node.choice |= Operator
+Operator-node.choice |= Operator
+#
+formula-Operator.attlist &= commonInit.attlist?
+formula_Operator.content |= AndFormula.choice
+formula-Operator.type.def = formula_Operator.content, formula-Operator.attlist
+formula-Operator = element formula { formula-Operator.type.def }
+edge.choice |= formula-Operator
+
+#
+AndFormula.choice |= Operator-node.choice
+OrFormula.choice |= Operator-node.choice
+NegFormula.choice |= Operator-node.choice
+PremiseFormula.choice |= Operator-node.choice
+ConclusionFormula.choice |= Operator-node.choice
+ForallFormula.choice |= Operator-node.choice
+ExistsFormula.choice |= Operator-node.choice
+

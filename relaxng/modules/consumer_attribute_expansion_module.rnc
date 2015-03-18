@@ -33,8 +33,9 @@ style.value |= AbsIRI.datatype
 # a group of attributes for generic Nodes
 #
 generic-Node.attlist &= commonNode.attlist?
-#generic-Node.attlist &= type-formula-att.choice?
+generic-Node.attlist &= type-att.choice?
 generic-Node.attlist &= iri-att.choice?
+generic-Node.attlist &= style-att.choice?
 # 
 # a group of attributes for the meta knowledge interface of knowledge formulas
 # that may have implicit closure

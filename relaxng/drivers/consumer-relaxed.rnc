@@ -300,7 +300,13 @@ include "../modules/consumer_interval_expansion_module.rnc" inherit = ruleml {
 #
 # INCLUDE GENERIC NEGATION OPERATOR
 #
-include "http://reaction.ruleml.org/1.02/relaxng/modules/negation_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_negation_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
+#
+# INCLUDE GENERIC OPERATOR
+#
+include "../modules/consumer_operator_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #

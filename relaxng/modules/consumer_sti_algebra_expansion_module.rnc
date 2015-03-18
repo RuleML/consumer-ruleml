@@ -47,10 +47,10 @@ interval_algebra_group.content |=
   | Meets
   | IntervalAlgebraEqual
   | Finishes
-  | IntervalAlgebraOperator
+#  | IntervalAlgebraOperator
 Node.choice |= IntervalAlgebraEqual
 IntervalAlgebraEqual = element Equal { IntervalAlgebraOperator.type.def }
-IntervalAlgebraOperator = element Operator { IntervalAlgebraOperator.type.def }
+# IntervalAlgebraOperator = element Operator { IntervalAlgebraOperator.type.def }
 IntervalAlgebraOperator.attlist &= operator-interface.attlist?
 IntervalAlgebraOperator.attlist &= commonNode.attlist?
 # *** After / Before***

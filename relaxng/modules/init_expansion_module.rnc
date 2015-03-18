@@ -33,6 +33,7 @@ Rule.main |= notAllowed
 #spatial
 spatial_temporal_algebra_group.content |= notAllowed
 argumentsForSpatial.sequence |= notAllowed
+formula_Operator.content |= notAllowed
 
 #time
 argumentsForTime.sequence |= notAllowed
@@ -50,3 +51,10 @@ Interval_term.content |= notAllowed
 
 #algebra
 arg_interval.choice |= notAllowed
+
+# negation
+NegFormula.choice |= notAllowed
+generic-Node.attlist &= empty
+
+# operator
+AndFormula.choice |= notAllowed

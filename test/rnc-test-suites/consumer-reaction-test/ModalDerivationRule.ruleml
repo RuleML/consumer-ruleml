@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-model href="http://reaction.ruleml.org/1.02/relaxng/dr/dr-nafneghornlogeq_relaxed.rnc" type="application/relax-ng-compact-syntax"?>
-<RuleML xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd">
+<?xml-model href="../../../relaxng/drivers/consumer-relaxed.rnc" type="application/relax-ng-compact-syntax"?>
+<And xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:ruleml = "http://ruleml.org/spec"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- 
 This example shows how the generic Operator is used as modal connective in modal logic programs
 
@@ -11,12 +11,11 @@ This example shows how the generic Operator is used as modal connective in modal
 
   <!-- assert knowledge -->
 
-  <Assert>
     
     <!-- it is possible that -->
     <Operator type="ruleml:AlethicOperator" iri="ruleml:Possible">
       <Atom>
-        <Rel per="modal">p</Rel>
+        <Rel>p</Rel>
       </Atom>
     </Operator>
 
@@ -25,7 +24,7 @@ This example shows how the generic Operator is used as modal connective in modal
       <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
         <Neg>
           <Atom>
-            <Rel per="modal">p</Rel>
+            <Rel>p</Rel>
           </Atom>
         </Neg>
       </Operator>
@@ -36,7 +35,7 @@ This example shows how the generic Operator is used as modal connective in modal
       <Neg>
         <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
           <Atom>
-            <Rel per="modal">p</Rel>
+            <Rel>p</Rel>
           </Atom>
         </Operator>
       </Neg>
@@ -44,7 +43,7 @@ This example shows how the generic Operator is used as modal connective in modal
       <Operator type="ruleml:AlethicOperator" iri="ruleml:Possible">        
         <Neg>
           <Atom>
-            <Rel per="modal">p</Rel>
+            <Rel>p</Rel>
           </Atom>
         </Neg>
       </Operator>
@@ -55,7 +54,7 @@ This example shows how the generic Operator is used as modal connective in modal
       <Var>X</Var>
       <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
         <Atom>
-          <Rel per="modal">p</Rel>
+          <Rel>p</Rel>
           <Var>X</Var>
         </Atom>
       </Operator>
@@ -63,22 +62,19 @@ This example shows how the generic Operator is used as modal connective in modal
 
     <!-- Barcan formulae: it is necessary that for all X it is p(X) (= For all X it is necessary that p(X)) -->
     <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
-      <Atom>
-        <quantification>
-          <Forall><Var>X</Var></Forall>
-        </quantification>
-        <Rel per="modal">p</Rel>
+      <Atom closure="universal">
+        <Rel>p</Rel>
         <Var>X</Var>
       </Atom>
     </Operator>  
        
        
     <!-- modal rule: "if obliged(p(X)) then permitted(p(X))" -->    
-    <Rule>
+    <Implies>
       <if>
         <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">            
           <Atom>
-            <Rel per="modal">p</Rel>
+            <Rel>p</Rel>
             <Var>X</Var>
           </Atom>
         </Operator>
@@ -86,40 +82,40 @@ This example shows how the generic Operator is used as modal connective in modal
       <then>
         <Operator type="ruleml:DeonticOperator" iri="ruleml:Permitted"> 
           <Atom>
-            <Rel per="modal">p</Rel>
+            <Rel>p</Rel>
             <Var>X</Var>
           </Atom>
         </Operator>   
       </then>
-    </Rule>
+    </Implies>
     
     
     <!-- modal rule: "obliged(if p(X) then q(X))" -->
     
     <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">
-      <Rule>
+      <Implies>
         <if>
           <Atom>
-              <Rel per="modal">p</Rel>
+              <Rel>p</Rel>
               <Var>X</Var>
           </Atom>
         </if>
         <then>
           <Atom>
-              <Rel per="modal">q</Rel>
+              <Rel>q</Rel>
               <Var>X</Var>
           </Atom>
         </then>
-      </Rule>
+      </Implies>
     </Operator>
 
     <!-- modal rule: "if obliged(p(X)) then obliged(q(X))" -->
     
-   <Rule>
+   <Implies>
         <if>
           <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">            
               <Atom>
-                <Rel per="modal">p</Rel>
+                <Rel>p</Rel>
                 <Var>X</Var>
               </Atom>
           </Operator>  
@@ -127,29 +123,29 @@ This example shows how the generic Operator is used as modal connective in modal
         <then>
           <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged"> 
             <Atom>
-              <Rel per="modal">q</Rel>
+              <Rel>q</Rel>
               <Var>X</Var>
             </Atom>
           </Operator>   
         </then>
-   </Rule>
+   </Implies>
 
     <!-- modal rule: "if obliged(neg(p(X))) and p(X) then obliged(q(X))" (Contrary-to-duty obligation) -->
     
-    <Rule>
+    <Implies>
       <if>
         <And>
           <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">
             <Neg>            
               <Atom>
-                <Rel per="modal">p</Rel>
+                <Rel>p</Rel>
                 <Var>X</Var>
               </Atom>
             </Neg>  
           </Operator>
 
           <Atom>
-            <Rel per="value">p</Rel>
+            <Rel>p</Rel>
             <Var>X</Var>
           </Atom>
           
@@ -158,73 +154,49 @@ This example shows how the generic Operator is used as modal connective in modal
       <then>
         <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged"> 
           <Atom>
-            <Rel per="modal">q</Rel>
+            <Rel>q</Rel>
             <Var>X</Var>
           </Atom>
         </Operator>   
       </then>
-    </Rule>
+    </Implies>
 
 
     <!-- reified modal rule: "if happens(p(X),T) and holds(forbidden(p(X)),T) then initiates(p(X),obliged(q(X)),T)" 
         (note: in KR Reaction RuleML this Event Calculus formalization is directly supported)  -->
     
-    <Rule>
+    <Implies>
       <if>
         <Operator type="ruleml:Connective" iri="ruleml:And"> <!-- operator connective And -->
           
           <Atom>
-            <Rel per="value" iri="ruleml:Happens"/>
-            <Expr><Fun per="value">p</Fun><Var>X</Var></Expr>
+            <Rel iri="ruleml:Happens"/>
+            <Expr><Fun>p</Fun><Var>X</Var></Expr>
             <Time><Var>T</Var></Time>
           </Atom>
           
           <Atom>
-            <Rel per="value" iri="ruleml:Holds"/>
+            <Rel iri="ruleml:Holds"/>
             <Expr>
-              <Fun per="value" iri="ruleml:Forbidden"/>
-              <Expr><Fun per="modal">p</Fun><Var>X</Var></Expr>
+              <Fun iri="ruleml:Forbidden"/>
+              <Expr><Fun>p</Fun><Var>X</Var></Expr>
             </Expr>
-            <Time><Var mode="+">T</Var></Time>
+            <Time><Var>T</Var></Time>
           </Atom>  
           
         </Operator>  
       </if>
       <then>
         <Atom>
-          <Rel per="value" iri="ruleml:Initiates"/>
-          <Expr><Fun per="value">p</Fun><Var>X</Var></Expr>
+          <Rel iri="ruleml:Initiates"/>
+          <Expr><Fun>p</Fun><Var>X</Var></Expr>
           <Expr>
-            <Fun per="value" iri="ruleml:Obliged"/>
-            <Expr><Fun per="modal">q</Fun><Var>X</Var></Expr>
+            <Fun iri="ruleml:Obliged"/>
+            <Expr><Fun>q</Fun><Var>X</Var></Expr>
           </Expr>
-          <Time><Var mode="+">T</Var></Time>
+          <Time><Var>T</Var></Time>
         </Atom> 
       </then>
-    </Rule>
+    </Implies>
 
-  </Assert>
-
-  <!-- query knowledge base -->
-
-  <Query>
-    <Neg>
-      <Operator type="ruleml:AlethicOperator" iri="ruleml:necessary">
-        <Atom>
-          <Rel per="modal">p</Rel>
-        </Atom>
-      </Operator>
-    </Neg>
-  </Query>
-  
-  <Query>
-    <Operator type="ruleml:AlethicOperator" iri="ruleml:possible">        
-      <Neg>
-        <Atom>
-          <Rel per="modal">p</Rel>
-        </Atom>
-      </Neg>
-    </Operator>
-  </Query>
-  
-</RuleML>
+</And>

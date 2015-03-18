@@ -2,10 +2,19 @@
   
   <xs:group name="Node.choice">
     <xs:choice>
-      <xs:group ref="ruleml:atom.Node.defs"/>
-      <xs:group ref="ruleml:andor.Node.defs"/>
+      <xs:choice>
+        <xs:element ref="ruleml:Atom"/>
+        <xs:element ref="ruleml:Rel"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:element ref="ruleml:And"/>
+        <xs:element ref="ruleml:Or"/>
+      </xs:choice>
       <xs:element ref="ruleml:Implies"/>
-      <xs:group ref="ruleml:quantification.Node.defs"/>
+      <xs:choice>
+        <xs:element ref="ruleml:Forall"/>
+        <xs:element ref="ruleml:Exists"/>
+      </xs:choice>
       <xs:choice>
         <xs:element ref="ruleml:Expr"/>
         <xs:element ref="ruleml:Fun"/>
@@ -41,13 +50,20 @@
   </xs:group>
   <xs:group name="edge.choice">
     <xs:choice>
-      <xs:group ref="ruleml:atom.edge.defs"/>
-      <xs:group ref="ruleml:andor.edge.defs"/>
+      <xs:group ref="ruleml:op_Atom.edge.def"/>
+      <xs:choice>
+        <xs:group ref="ruleml:formula_And.edge.def"/>
+        <xs:group ref="ruleml:formula_Or.edge.def"/>
+      </xs:choice>
       <xs:choice>
         <xs:group ref="ruleml:head_Implies.edge.def"/>
         <xs:group ref="ruleml:body_Implies.edge.def"/>
       </xs:choice>
-      <xs:group ref="ruleml:quantification.edge.defs"/>
+      <xs:choice>
+        <xs:element ref="ruleml:declare"/>
+        <xs:group ref="ruleml:formula_Forall.edge.def"/>
+        <xs:group ref="ruleml:formula_Exists.edge.def"/>
+      </xs:choice>
       <xs:group ref="ruleml:op_Expr.edge.def"/>
       <xs:element ref="ruleml:degree"/>
       <xs:element ref="ruleml:strong"/>
@@ -71,17 +87,6 @@
     </xs:choice>
   </xs:group>
   
-  <xs:group name="atom.Node.defs">
-    <xs:choice>
-      <xs:element ref="ruleml:Atom"/>
-      <xs:element ref="ruleml:Rel"/>
-    </xs:choice>
-  </xs:group>
-  <xs:group name="atom.edge.defs">
-    <xs:sequence>
-      <xs:group ref="ruleml:op_Atom.edge.def"/>
-    </xs:sequence>
-  </xs:group>
   <xs:group name="SimpleFormula-node.choice">
     <xs:annotation>
       <xs:documentation>atomic formulas are a kind of simple formula</xs:documentation>
@@ -211,21 +216,6 @@
   </xs:simpleType>
   
   
-  <xs:group name="andor.Node.defs">
-    <xs:annotation>
-      <xs:documentation/>
-    </xs:annotation>
-    <xs:choice>
-      <xs:element ref="ruleml:And"/>
-      <xs:element ref="ruleml:Or"/>
-    </xs:choice>
-  </xs:group>
-  <xs:group name="andor.edge.defs">
-    <xs:choice>
-      <xs:group ref="ruleml:formula_And.edge.def"/>
-      <xs:group ref="ruleml:formula_Or.edge.def"/>
-    </xs:choice>
-  </xs:group>
   <xs:group name="And-node.choice">
     <xs:annotation>
       <xs:documentation/>
@@ -648,19 +638,6 @@
     </xs:sequence>
   </xs:group>
   
-  <xs:group name="quantification.Node.defs">
-    <xs:choice>
-      <xs:element ref="ruleml:Forall"/>
-      <xs:element ref="ruleml:Exists"/>
-    </xs:choice>
-  </xs:group>
-  <xs:group name="quantification.edge.defs">
-    <xs:choice>
-      <xs:element ref="ruleml:declare"/>
-      <xs:group ref="ruleml:formula_Forall.edge.def"/>
-      <xs:group ref="ruleml:formula_Exists.edge.def"/>
-    </xs:choice>
-  </xs:group>
   
   <xs:group name="Forall-node.choice">
     <xs:annotation>
@@ -2930,6 +2907,12 @@
       <xs:annotation>
         <xs:documentation>An attribute for referring to a IRI.     See
           http://ruleml.org/1.02/glossary/#gloss-@iri</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
