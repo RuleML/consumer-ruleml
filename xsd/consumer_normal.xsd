@@ -30,6 +30,7 @@
       <xs:group ref="ruleml:Plex_Any.Node.def"/>
       <xs:group ref="ruleml:Interval_formula.def"/>
       <xs:element ref="ruleml:Negation"/>
+      <xs:element ref="ruleml:Operation"/>
       <xs:element ref="ruleml:Rule"/>
       <xs:group ref="ruleml:Spatial_formula.def"/>
       <xs:group ref="ruleml:IntervalAlgebraEqual"/>
@@ -80,6 +81,7 @@
       <xs:element ref="ruleml:repo"/>
       <xs:group ref="ruleml:arg_interval.def"/>
       <xs:group ref="ruleml:formula-negation"/>
+      <xs:group ref="ruleml:formula-Operation"/>
       <xs:group ref="ruleml:if_Rule.edge.def"/>
       <xs:group ref="ruleml:then_Rule.edge.def"/>
       <xs:group ref="ruleml:arg_spatial"/>
@@ -315,14 +317,17 @@
       <xs:documentation>formulas allowed to participate in conjunctions. </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-      <xs:group ref="ruleml:And-node.choice"/>
-      <xs:group ref="ruleml:Or-node.choice"/>
-      <xs:group ref="ruleml:Negation-node.choice"/>
-      <xs:group ref="ruleml:NegationAsFailure-node.choice"/>
-      <xs:group ref="ruleml:Implication-fo-node.choice"/>
-      <xs:group ref="ruleml:Forall-fo-node.choice"/>
-      <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+        <xs:group ref="ruleml:And-node.choice"/>
+        <xs:group ref="ruleml:Or-node.choice"/>
+        <xs:group ref="ruleml:Negation-node.choice"/>
+        <xs:group ref="ruleml:NegationAsFailure-node.choice"/>
+        <xs:group ref="ruleml:Implication-fo-node.choice"/>
+        <xs:group ref="ruleml:Forall-fo-node.choice"/>
+        <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:complexType>
   
@@ -422,14 +427,17 @@
       <xs:documentation>formulas allowed to participate in disjunctions. </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-      <xs:group ref="ruleml:And-node.choice"/>
-      <xs:group ref="ruleml:Or-node.choice"/>
-      <xs:group ref="ruleml:Negation-node.choice"/>
-      <xs:group ref="ruleml:NegationAsFailure-node.choice"/>
-      <xs:group ref="ruleml:Implication-fo-node.choice"/>
-      <xs:group ref="ruleml:Forall-fo-node.choice"/>
-      <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+        <xs:group ref="ruleml:And-node.choice"/>
+        <xs:group ref="ruleml:Or-node.choice"/>
+        <xs:group ref="ruleml:Negation-node.choice"/>
+        <xs:group ref="ruleml:NegationAsFailure-node.choice"/>
+        <xs:group ref="ruleml:Implication-fo-node.choice"/>
+        <xs:group ref="ruleml:Forall-fo-node.choice"/>
+        <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:complexType>
   
@@ -539,14 +547,17 @@
       <xs:documentation>formulas allowed to be premises. </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-      <xs:group ref="ruleml:And-node.choice"/>
-      <xs:group ref="ruleml:Or-node.choice"/>
-      <xs:group ref="ruleml:Negation-node.choice"/>
-      <xs:group ref="ruleml:NegationAsFailure-node.choice"/>
-      <xs:group ref="ruleml:Implication-fo-node.choice"/>
-      <xs:group ref="ruleml:Forall-fo-node.choice"/>
-      <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+        <xs:group ref="ruleml:And-node.choice"/>
+        <xs:group ref="ruleml:Or-node.choice"/>
+        <xs:group ref="ruleml:Negation-node.choice"/>
+        <xs:group ref="ruleml:NegationAsFailure-node.choice"/>
+        <xs:group ref="ruleml:Implication-fo-node.choice"/>
+        <xs:group ref="ruleml:Forall-fo-node.choice"/>
+        <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:complexType>
   
@@ -596,14 +607,17 @@
       </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:Atom-head-node.choice"/>
-      <xs:group ref="ruleml:Equal-head-node.choice"/>
-      <xs:group ref="ruleml:And-head-node.choice"/>
-      <xs:group ref="ruleml:Or-head-node.choice"/>
-      <xs:group ref="ruleml:Negation-head-node.choice"/>
-      <xs:group ref="ruleml:Implication-head-node.choice"/>
-      <xs:group ref="ruleml:Forall-head-node.choice"/>
-      <xs:group ref="ruleml:Exists-head-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:Atom-head-node.choice"/>
+        <xs:group ref="ruleml:Equal-head-node.choice"/>
+        <xs:group ref="ruleml:And-head-node.choice"/>
+        <xs:group ref="ruleml:Or-head-node.choice"/>
+        <xs:group ref="ruleml:Negation-head-node.choice"/>
+        <xs:group ref="ruleml:Implication-head-node.choice"/>
+        <xs:group ref="ruleml:Forall-head-node.choice"/>
+        <xs:group ref="ruleml:Exists-head-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:complexType>
   <xs:group name="Atom-head-node.choice">
@@ -844,13 +858,16 @@
       <xs:documentation>formulas allowed to be universally quantified.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-      <xs:group ref="ruleml:And-fo-node.choice"/>
-      <xs:group ref="ruleml:Or-fo-node.choice"/>
-      <xs:group ref="ruleml:Negation-node.choice"/>
-      <xs:group ref="ruleml:Implication-node.choice"/>
-      <xs:group ref="ruleml:Forall-node.choice"/>
-      <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+        <xs:group ref="ruleml:And-fo-node.choice"/>
+        <xs:group ref="ruleml:Or-fo-node.choice"/>
+        <xs:group ref="ruleml:Negation-node.choice"/>
+        <xs:group ref="ruleml:Implication-node.choice"/>
+        <xs:group ref="ruleml:Forall-node.choice"/>
+        <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:complexType>
   
@@ -895,13 +912,16 @@
       <xs:documentation>formulas allowed to be existentially quantified.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-      <xs:group ref="ruleml:And-node.choice"/>
-      <xs:group ref="ruleml:Or-node.choice"/>
-      <xs:group ref="ruleml:Negation-node.choice"/>
-      <xs:group ref="ruleml:Implication-fo-node.choice"/>
-      <xs:group ref="ruleml:Forall-fo-node.choice"/>
-      <xs:group ref="ruleml:Exists-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+        <xs:group ref="ruleml:And-node.choice"/>
+        <xs:group ref="ruleml:Or-node.choice"/>
+        <xs:group ref="ruleml:Negation-node.choice"/>
+        <xs:group ref="ruleml:Implication-fo-node.choice"/>
+        <xs:group ref="ruleml:Forall-fo-node.choice"/>
+        <xs:group ref="ruleml:Exists-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:complexType>
   
@@ -1422,13 +1442,16 @@
         formulas. </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-      <xs:group ref="ruleml:And-fo-node.choice"/>
-      <xs:group ref="ruleml:Or-fo-node.choice"/>
-      <xs:group ref="ruleml:Negation-fo-node.choice"/>
-      <xs:group ref="ruleml:Implication-fo-node.choice"/>
-      <xs:group ref="ruleml:Forall-fo-node.choice"/>
-      <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+        <xs:group ref="ruleml:And-fo-node.choice"/>
+        <xs:group ref="ruleml:Or-fo-node.choice"/>
+        <xs:group ref="ruleml:Negation-fo-node.choice"/>
+        <xs:group ref="ruleml:Implication-fo-node.choice"/>
+        <xs:group ref="ruleml:Forall-fo-node.choice"/>
+        <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:complexType>
   
@@ -2831,6 +2854,12 @@
   
   <xs:attributeGroup name="generic-Node.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="iri" type="ruleml:iri.value">
       <xs:annotation>
         <xs:documentation>An attribute for referring to a IRI.     See
@@ -2844,7 +2873,6 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
-  
   
   <xs:attributeGroup name="formula-interface-ext.attlist">
     <xs:attribute name="style" type="ruleml:style.value">
@@ -3063,6 +3091,64 @@
       <xs:element form="qualified" name="formula" type="ruleml:formula-negation.type.def"/>
     </xs:sequence>
   </xs:group>
+  
+  
+  
+  <xs:attributeGroup name="Operation.attlist">
+    <xs:annotation>
+      <xs:documentation>the Operation attribute list</xs:documentation>
+    </xs:annotation>
+    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="Operation.content">
+    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula-Operation.choice"/>
+  </xs:complexType>
+  <xs:group name="formula-Operation.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:formula-Operation"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="Operation.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Operation.content">
+        <xs:attributeGroup ref="ruleml:Operation.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Operation" type="ruleml:Operation.type.def">
+    <xs:annotation>
+      <xs:documentation>&lt;Operation&gt;: a generic polymorphic Operation, which is interpreted by the
+        intended semantics (i.e. semantic profile). See
+        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Operation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:group name="Operation-node.choice">
+    <xs:sequence>
+      <xs:element ref="ruleml:Operation"/>
+    </xs:sequence>
+  </xs:group>
+  
+  <xs:attributeGroup name="formula-Operation.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="formula_Operation.content">
+    <xs:complexContent>
+      <xs:extension base="ruleml:AndFormula.choice"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="formula-Operation.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula_Operation.content">
+        <xs:attributeGroup ref="ruleml:formula-Operation.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:group name="formula-Operation">
+    <xs:sequence>
+      <xs:element form="qualified" name="formula" type="ruleml:formula-Operation.type.def"/>
+    </xs:sequence>
+  </xs:group>
+  
   
   <xs:group name="Rule-node.choice">
     <xs:sequence>
@@ -3297,22 +3383,22 @@
       <xs:element ref="ruleml:Meets"/>
       <xs:group ref="ruleml:IntervalAlgebraEqual"/>
       <xs:element ref="ruleml:Finishes"/>
-      <xs:element ref="ruleml:Operator"/>
     </xs:choice>
   </xs:group>
+  
   <xs:group name="IntervalAlgebraEqual">
     <xs:sequence>
-      <xs:element form="qualified" name="Equal" type="ruleml:IntervalAlgebraOperator.type.def"/>
+      <xs:element form="qualified" name="Equal" type="ruleml:IntervalAlgebraOperation.type.def"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Operator" type="ruleml:IntervalAlgebraOperator.type.def"/>
-  <xs:attributeGroup name="IntervalAlgebraOperator.attlist">
+  
+  <xs:attributeGroup name="IntervalAlgebraOperation.attlist">
     <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
   
   <xs:attributeGroup name="After.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperator.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="After.content">
     <xs:complexContent>
@@ -3340,7 +3426,7 @@
   </xs:element>
   
   <xs:attributeGroup name="Every.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperator.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Every.content">
     <xs:group minOccurs="0" ref="ruleml:arg_interval.choice"/>
@@ -3360,7 +3446,7 @@
   </xs:element>
   
   <xs:attributeGroup name="Any.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperator.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Any.content">
     <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_interval.choice"/>
@@ -3380,7 +3466,7 @@
   </xs:element>
   
   <xs:attributeGroup name="Timer.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperator.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Timer.content">
     <xs:complexContent>
@@ -3401,56 +3487,56 @@
     </xs:annotation>
   </xs:element>
   
-  <xs:complexType name="IntervalAlgebraOperator.content">
+  <xs:complexType name="IntervalAlgebraOperation.content">
     <xs:sequence>
       <xs:group ref="ruleml:arg_interval.choice"/>
       <xs:group ref="ruleml:arg_interval.choice"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="IntervalAlgebraOperator.type.def">
+  <xs:complexType name="IntervalAlgebraOperation.type.def">
     <xs:complexContent>
-      <xs:extension base="ruleml:IntervalAlgebraOperator.content">
-        <xs:attributeGroup ref="ruleml:IntervalAlgebraOperator.attlist"/>
+      <xs:extension base="ruleml:IntervalAlgebraOperation.content">
+        <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="During" type="ruleml:IntervalAlgebraOperator.type.def">
+  <xs:element name="During" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;During&gt;: an interval operator. See
         http://www.reaction.ruleml.org/1.02/glossary/#gloss-During</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Overlaps" type="ruleml:IntervalAlgebraOperator.type.def">
+  <xs:element name="Overlaps" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Overlaps&gt;: an interval operator. See
         http://www.reaction.ruleml.org/1.02/glossary/#gloss-Overlaps</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Starts" type="ruleml:IntervalAlgebraOperator.type.def">
+  <xs:element name="Starts" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Starts&gt;: an interval operator. See
         http://www.reaction.ruleml.org/1.02/glossary/#gloss-Starts</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Precedes" type="ruleml:IntervalAlgebraOperator.type.def">
+  <xs:element name="Precedes" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Precedes&gt;: an interval operator. See
         http://www.reaction.ruleml.org/1.02/glossary/#gloss-Precedes</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Succeeds" type="ruleml:IntervalAlgebraOperator.type.def">
+  <xs:element name="Succeeds" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Succeeds&gt;: an interval operator. See
         http://www.reaction.ruleml.org/1.02/glossary/#gloss-Succeeds</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Meets" type="ruleml:IntervalAlgebraOperator.type.def">
+  <xs:element name="Meets" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Meets&gt;: an interval operator. See
         http://www.reaction.ruleml.org/1.02/glossary/#gloss-Meets</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Finishes" type="ruleml:IntervalAlgebraOperator.type.def">
+  <xs:element name="Finishes" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Finishes&gt;: an interval operator. See
         http://www.reaction.ruleml.org/1.02/glossary/#gloss-Finishes</xs:documentation>
@@ -3618,6 +3704,7 @@
       <xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
     </xs:sequence>
   </xs:complexType>
+  
   
   
   

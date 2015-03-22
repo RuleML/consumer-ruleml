@@ -28,7 +28,7 @@ arg_time.choice |= time_primitives.content
 arg_spatial.choice |= spatial_primitives.content
 formula-quant.choice |= formula_Forall.content
 formula-quant.choice |= formula_Forall.content
-formula-Operator.choice |= formula_Operator.content
+formula-Operation.choice |= formula_Operation.content
 #
 # a dummy element to assist in XSD conversion
 #

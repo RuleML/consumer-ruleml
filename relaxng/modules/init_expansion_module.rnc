@@ -33,7 +33,7 @@ Rule.main |= notAllowed
 #spatial
 spatial_temporal_algebra_group.content |= notAllowed
 argumentsForSpatial.sequence |= notAllowed
-formula_Operator.content |= notAllowed
+formula_Operation.content |= notAllowed
 
 #time
 argumentsForTime.sequence |= notAllowed

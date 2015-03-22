@@ -47,14 +47,14 @@ interval_algebra_group.content |=
   | Meets
   | IntervalAlgebraEqual
   | Finishes
-#  | IntervalAlgebraOperator
+#  | IntervalAlgebraOperation
 Node.choice |= IntervalAlgebraEqual
-IntervalAlgebraEqual = element Equal { IntervalAlgebraOperator.type.def }
-# IntervalAlgebraOperator = element Operator { IntervalAlgebraOperator.type.def }
-IntervalAlgebraOperator.attlist &= operator-interface.attlist?
-IntervalAlgebraOperator.attlist &= commonNode.attlist?
+IntervalAlgebraEqual = element Equal { IntervalAlgebraOperation.type.def }
+# IntervalAlgebraOperation = element Operation { IntervalAlgebraOperation.type.def }
+IntervalAlgebraOperation.attlist &= operator-interface.attlist?
+IntervalAlgebraOperation.attlist &= commonNode.attlist?
 # *** After / Before***
-After.attlist &= IntervalAlgebraOperator.attlist?
+After.attlist &= IntervalAlgebraOperation.attlist?
 After.content |= Interval_term.content
 After.type.def = After.content, After.attlist
 Node.choice |= After
@@ -70,7 +70,7 @@ Before =
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-After
   element Before { After.type.def }
 # *** Every ***
-Every.attlist &= IntervalAlgebraOperator.attlist?
+Every.attlist &= IntervalAlgebraOperation.attlist?
 Every.content |= Node.header, arg_interval.choice?
 Every.type.def = Every.content, Every.attlist
 Node.choice |= Every
@@ -80,7 +80,7 @@ Every =
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Every
   element Every { Every.type.def }
 # *** Any ***
-Any.attlist &= IntervalAlgebraOperator.attlist?
+Any.attlist &= IntervalAlgebraOperation.attlist?
 Any.content |= Node.header, arg_interval.choice*
 Any.type.def = Any.content, Any.attlist
 Node.choice |= Any
@@ -90,7 +90,7 @@ Any =
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Any
   element Any { Any.type.def }
 # *** (Recurring) Timer ***
-Timer.attlist &= IntervalAlgebraOperator.attlist?
+Timer.attlist &= IntervalAlgebraOperation.attlist?
 Timer.content |= Interval_term.content
 Timer.type.def = Timer.content, Timer.attlist
 Node.choice |= Timer
@@ -100,47 +100,47 @@ Timer =
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Timer
   element Timer { Timer.type.def }
 # *** (During | Overlaps | Starts | Precedes | Succeeds | Meets | Equals | Finishes) ***
-IntervalAlgebraOperator.content |= Node.header, arg_interval.choice, arg_interval.choice
-IntervalAlgebraOperator.type.def = IntervalAlgebraOperator.content, IntervalAlgebraOperator.attlist
+IntervalAlgebraOperation.content |= Node.header, arg_interval.choice, arg_interval.choice
+IntervalAlgebraOperation.type.def = IntervalAlgebraOperation.content, IntervalAlgebraOperation.attlist
 Node.choice |= During
 During =
   
   ## <During>: an interval operator. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-During
-  element During { IntervalAlgebraOperator.type.def }
+  element During { IntervalAlgebraOperation.type.def }
 Node.choice |= Overlaps
 Overlaps =
   
   ## <Overlaps>: an interval operator. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Overlaps
-  element Overlaps { IntervalAlgebraOperator.type.def }
+  element Overlaps { IntervalAlgebraOperation.type.def }
 Node.choice |= Starts
 Starts =
   
   ## <Starts>: an interval operator. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Starts
-  element Starts { IntervalAlgebraOperator.type.def }
+  element Starts { IntervalAlgebraOperation.type.def }
 Node.choice |= Precedes
 Precedes =
   
   ## <Precedes>: an interval operator. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Precedes
-  element Precedes { IntervalAlgebraOperator.type.def }
+  element Precedes { IntervalAlgebraOperation.type.def }
 Node.choice |= Succeeds
 Succeeds =
   
   ## <Succeeds>: an interval operator. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Succeeds
-  element Succeeds { IntervalAlgebraOperator.type.def }
+  element Succeeds { IntervalAlgebraOperation.type.def }
 Node.choice |= Meets
 Meets =
   
   ## <Meets>: an interval operator. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Meets
-  element Meets { IntervalAlgebraOperator.type.def }
+  element Meets { IntervalAlgebraOperation.type.def }
 Node.choice |= Finishes
 Finishes =
   
   ## <Finishes>: an interval operator. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Finishes
-  element Finishes { IntervalAlgebraOperator.type.def }
+  element Finishes { IntervalAlgebraOperation.type.def }

@@ -5,7 +5,7 @@
   xmlns:ruleml = "http://ruleml.org/spec"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- 
-This example shows how the generic Operator is used as modal connective in modal logic programs
+This example shows how the generic Operation is used as modal connective in modal logic programs
 
 -->
 
@@ -13,86 +13,86 @@ This example shows how the generic Operator is used as modal connective in modal
 
     
     <!-- it is possible that -->
-    <Operator type="ruleml:AlethicOperator" iri="ruleml:Possible">
+    <Operation type="ruleml:AlethicOperation" iri="ruleml:Possible">
       <Atom>
         <Rel>p</Rel>
       </Atom>
-    </Operator>
+    </Operation>
 
     <!-- it is not necessary that not  (= it is possible that) -->
     <Neg>
-      <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
+      <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
         <Neg>
           <Atom>
             <Rel>p</Rel>
           </Atom>
         </Neg>
-      </Operator>
+      </Operation>
     </Neg>
 
     <Equivalent>
       <!-- it is not necessary that -->
       <Neg>
-        <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
+        <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
           <Atom>
             <Rel>p</Rel>
           </Atom>
-        </Operator>
+        </Operation>
       </Neg>
       <!-- it is possible that not -->
-      <Operator type="ruleml:AlethicOperator" iri="ruleml:Possible">        
+      <Operation type="ruleml:AlethicOperation" iri="ruleml:Possible">        
         <Neg>
           <Atom>
             <Rel>p</Rel>
           </Atom>
         </Neg>
-      </Operator>
+      </Operation>
     </Equivalent>
  
     <!-- For all X it is necessary that p(X) -->
     <Forall>
       <Var>X</Var>
-      <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
+      <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
         <Atom>
           <Rel>p</Rel>
           <Var>X</Var>
         </Atom>
-      </Operator>
+      </Operation>
     </Forall>
 
     <!-- Barcan formulae: it is necessary that for all X it is p(X) (= For all X it is necessary that p(X)) -->
-    <Operator type="ruleml:AlethicOperator" iri="ruleml:Necessary">
+    <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
       <Atom closure="universal">
         <Rel>p</Rel>
         <Var>X</Var>
       </Atom>
-    </Operator>  
+    </Operation>  
        
        
     <!-- modal rule: "if obliged(p(X)) then permitted(p(X))" -->    
     <Implies>
       <if>
-        <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">            
+        <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">            
           <Atom>
             <Rel>p</Rel>
             <Var>X</Var>
           </Atom>
-        </Operator>
+        </Operation>
       </if>
       <then>
-        <Operator type="ruleml:DeonticOperator" iri="ruleml:Permitted"> 
+        <Operation type="ruleml:DeonticOperation" iri="ruleml:Permitted"> 
           <Atom>
             <Rel>p</Rel>
             <Var>X</Var>
           </Atom>
-        </Operator>   
+        </Operation>   
       </then>
     </Implies>
     
     
     <!-- modal rule: "obliged(if p(X) then q(X))" -->
     
-    <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">
+    <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">
       <Implies>
         <if>
           <Atom>
@@ -107,26 +107,26 @@ This example shows how the generic Operator is used as modal connective in modal
           </Atom>
         </then>
       </Implies>
-    </Operator>
+    </Operation>
 
     <!-- modal rule: "if obliged(p(X)) then obliged(q(X))" -->
     
    <Implies>
         <if>
-          <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">            
+          <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">            
               <Atom>
                 <Rel>p</Rel>
                 <Var>X</Var>
               </Atom>
-          </Operator>  
+          </Operation>  
         </if>
         <then>
-          <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged"> 
+          <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged"> 
             <Atom>
               <Rel>q</Rel>
               <Var>X</Var>
             </Atom>
-          </Operator>   
+          </Operation>   
         </then>
    </Implies>
 
@@ -135,14 +135,14 @@ This example shows how the generic Operator is used as modal connective in modal
     <Implies>
       <if>
         <And>
-          <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged">
+          <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">
             <Neg>            
               <Atom>
                 <Rel>p</Rel>
                 <Var>X</Var>
               </Atom>
             </Neg>  
-          </Operator>
+          </Operation>
 
           <Atom>
             <Rel>p</Rel>
@@ -152,12 +152,12 @@ This example shows how the generic Operator is used as modal connective in modal
         </And>  
       </if>
       <then>
-        <Operator type="ruleml:DeonticOperator" iri="ruleml:Obliged"> 
+        <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged"> 
           <Atom>
             <Rel>q</Rel>
             <Var>X</Var>
           </Atom>
-        </Operator>   
+        </Operation>   
       </then>
     </Implies>
 
@@ -167,7 +167,7 @@ This example shows how the generic Operator is used as modal connective in modal
     
     <Implies>
       <if>
-        <Operator type="ruleml:Connective" iri="ruleml:And"> <!-- operator connective And -->
+        <Operation type="ruleml:Connective" iri="ruleml:And"> <!-- operator connective And -->
           
           <Atom>
             <Rel iri="ruleml:Happens"/>
@@ -184,7 +184,7 @@ This example shows how the generic Operator is used as modal connective in modal
             <Time><Var>T</Var></Time>
           </Atom>  
           
-        </Operator>  
+        </Operation>  
       </if>
       <then>
         <Atom>

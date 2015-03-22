@@ -309,7 +309,7 @@ include "../modules/consumer_negation_expansion_module.rnc" inherit = ruleml {
 #
 # INCLUDE GENERIC OPERATOR
 #
-include "../modules/consumer_operator_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_operation_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #

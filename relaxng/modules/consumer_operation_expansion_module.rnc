@@ -1,0 +1,48 @@
+namespace dc = "http://purl.org/dc/elements/1.1/"
+namespace dcterms = "http://purl.org/dc/terms/"
+
+dc:title [ "COnsumer RuleML Generic Operation" ]
+dc:version [ "1.02" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:creator [ "Adrian Paschke" ]
+dc:subject [ "RuleML, Consumer, Operation" ]
+dc:description [
+  "The expansion module for generic operator (logical or modal connective)."
+]
+dc:language [ "en" ]
+dcterms:rights [ "TBD" ]
+start |= Operation
+
+# This module declares the following Reaction RuleML elements:
+# * Operation		generic polymorphig Operation
+
+# *** Operation ***
+
+## the Operation attribute list
+Operation.attlist &= generic-Node.attlist?
+Operation.content |= Node.header, formula-Operation.choice*
+formula-Operation.choice |= formula-Operation
+Operation.type.def = Operation.content, Operation.attlist
+Operation =
+  
+  ## <Operation>: a generic polymorphic Operation, which is interpreted by the intended semantics (i.e. semantic profile). See
+  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Operation
+  element Operation { Operation.type.def }
+Node.choice |= Operation
+Operation-node.choice |= Operation
+#
+formula-Operation.attlist &= commonInit.attlist?
+formula_Operation.content |= AndFormula.choice
+formula-Operation.type.def = formula_Operation.content, formula-Operation.attlist
+formula-Operation = element formula { formula-Operation.type.def }
+edge.choice |= formula-Operation
+
+#
+AndFormula.choice |= Operation-node.choice
+OrFormula.choice |= Operation-node.choice
+NegFormula.choice |= Operation-node.choice
+PremiseFormula.choice |= Operation-node.choice
+ConclusionFormula.choice |= Operation-node.choice
+ForallFormula.choice |= Operation-node.choice
+ExistsFormula.choice |= Operation-node.choice
+
