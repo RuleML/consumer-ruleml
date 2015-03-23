@@ -3,8 +3,9 @@
 <Rule xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1"
   xmlns:owltime="http://www.w3.org/2006/time"
-  xmlns:this="http://consumer.ruleml.org/exa/consumer-reaction/TemporalExample2#"
-  xmlns:ex="http://reaction.ruleml.org/exa/dr/TemporalExample2#"
+  xmlns:this="http://consumer.ruleml.org/exa/Temporal/TemporalExample2.html#"
+  xmlns:exa="http://consumer.ruleml.org/1.02/exa/"
+  xmlns:ruleml="http://ruleml.org/metamodel/"
   xsi:schemaLocation="http://ruleml.org/spec http://consumer.ruleml.org/1.02/xsd/consumer.xsd"
   material="yes" closure="universal">
   <if>
@@ -54,7 +55,7 @@
         <Time>
           <!-- frame representation -->
           <oid>
-            <Var type="ex:DatetimeClass1">X</Var>
+            <Var type="exa:DatetimeClass1">X</Var>
           </oid>
           <slot>
             <Ind>date</Ind>
@@ -70,7 +71,7 @@
         <Time>
           <!-- frame representation -->
           <oid>
-            <Ind type="ex:DatetimeClass2">datetime2</Ind>
+            <Ind type="exa:DatetimeClass2">datetime2</Ind>
           </oid>
           <slot>
             <Ind>datetime</Ind>
@@ -82,7 +83,7 @@
         <Time>
           <!-- frame representation -->
           <oid>
-            <Ind type="ex:TimeIntervalClass">interval1</Ind>
+            <Ind type="exa:TimeIntervalClass">interval1</Ind>
           </oid>
           <slot>
             <Ind>start</Ind>

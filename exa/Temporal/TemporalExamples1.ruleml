@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://consumer.ruleml.org/1.02/relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
+<And xmlns="http://ruleml.org/spec"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dc="http://purl.org/dc/elements/1.1"
+	xmlns:owltime="http://www.w3.org/2006/time"
+	xmlns:exa="http://consumer.ruleml.org/1.02/exa/"
+	xmlns:this="http://consumer.ruleml.org/1.02/exa/Temporal/TemporalExample1.ruleml#"
+	xmlns:ruleml="http://ruleml.org/metamodel/"
+	xsi:schemaLocation="http://ruleml.org/spec http://consumer.ruleml.org/1.02/xsd/consumer.xsd"
+  >	
+		<!-- different time definitions -->
+		
+		<!-- a simple time "t1" definition -->
+		<formula><Time><arg><Ind>t1</Ind></arg></Time></formula>
+		
+		<!-- a discrete time point defining an XML schema datatype "dateTime" -->
+		<formula><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></formula>
+				
+		<!-- definition of a time instant (for a linear continous time model) with unpositional slot properties  --> 
+		<formula><Time key="this:time1" type="ruleml:TimeInstant">
+			<slot><Ind>year</Ind><Ind>2011</Ind></slot>
+			<slot><Ind>month</Ind><Ind>03</Ind></slot>
+			<slot><Ind>day</Ind><Ind>21</Ind></slot>
+		</Time></formula>		
+
+		<!-- definition of a time instant as frame   --> 
+			<formula><Time type="ruleml:TimeInstant">
+				<oid><Ind>time1</Ind></oid>
+				<slot><Ind>year</Ind><Ind>2011</Ind></slot>
+				<slot><Ind>month</Ind><Ind>03</Ind></slot>
+				<slot><Ind>day</Ind><Ind>21</Ind></slot>
+			</Time></formula>		
+			
+			<formula><Time>
+				<oid><Ind type="exa:DatetimeClass1">datetime1</Ind></oid>
+				<slot><Ind>date</Ind><Data>2011-03-21</Data></slot>
+				<slot><Ind>time</Ind><Data>10:00:00-04:00</Data></slot>
+			</Time></formula>	
+			
+			<formula><Time>
+				<oid><Ind type="exa:DatetimeClass2">datetime2</Ind></oid>
+				<slot><Ind>datetime</Ind><Plex><arg index="1"><Data>2011-03-21</Data></arg><arg index="2"><Data>10:00:00-04:00</Data></arg></Plex></slot>
+			</Time></formula>	
+			
+			<formula><Time>
+				<oid><Ind type="exa:TimeIntervalClass">interval1</Ind></oid>
+				<slot><Ind>start</Ind><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></slot>
+				<slot><Ind>end</Ind><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2012-03-21T10:00:00-04:00</Data></arg></Time></slot>
+			</Time></formula>
+
+		<!-- time definition using the xs:any content model to define the time as OWL time instant --> 
+		<formula><Time>	
+			<content> <!-- xs:any content -->
+				<owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
+			</content>				
+		</Time></formula>
+
+		<!-- time definition as RuleML atom -->
+		<formula><Atom>
+			<op><Rel iri="dc:date"/></op> <!-- Dublin Core date -->		
+			<arg index="1"><Time><arg index="1"><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>  			 
+		</Atom></formula>
+
+		<!-- a user-defined functional time definition defining a time function "datetime" -->
+		<formula><Time>
+			<arg><Expr>
+				<op><Fun>datetime</Fun></op>
+				<arg index="1"><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg>
+			</Expr></arg>
+		</Time></formula>
+
+
+
+		<!-- functional time definition using the temporal algebra -->
+		
+		<!-- five years, two months, and 10 days after 2011-03-21T10:00:00-04:00  -->
+		<formula><Time>			
+			<arg><After>
+				<arg index="1"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>
+				<arg index="2"><Time type="ruleml:TimeInterval"><arg><Data xsi:type="xs:duration">P5Y2M10D</Data></arg></Time></arg>
+			</After></arg>
+		</Time></formula>
+		
+		<!-- five years, two months, and 10 days before 2011-03-21T10:00:00-04:00  -->
+		<formula><Time>			
+			<arg><Before>
+				<arg index="1"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>
+				<arg index="2"><Time type="ruleml:TimeInterval"><arg><Data xsi:type="xs:duration">P5Y2M10D</Data></arg></Time></arg>
+			</Before></arg>
+		</Time></formula>
+		
+		<!-- every Monday -->
+		<formula><Time>
+			<arg><Every> 
+				<arg index="1"><Time><arg><Ind>Monday</Ind></arg></Time></arg>
+			</Every></arg>
+		</Time></formula>
+
+		<!-- "at any Friday, Saturday, and Sunday" -->
+		<formula><Time>
+			<arg><Any>
+			  <arg index="1"><Time><arg><Ind>Friday</Ind></arg></Time></arg>
+				<arg index="2"><Time><arg><Ind>Saturday</Ind></arg></Time></arg>
+				<arg index="3"><Time><arg><Ind>Sunday</Ind></arg></Time></arg>
+			</Any></arg>     
+		</Time></formula>
+
+		<!-- after 7 days every day (recurring timer) -->
+		<formula><Time>
+			<arg><Timer>
+				<arg index="1"><Time><arg><Data xsi:type="xs:duration">P7D</Data></arg></Time></arg>
+				<arg index="2"><Time><arg><Data xsi:type="xs:duration">P1D</Data></arg></Time></arg>
+			</Timer></arg>
+		</Time></formula>
+		
+		
+
+		<!-- different interval definitions -->
+		
+		<!-- Interval from  2011-03-21T10:00:00-04:00 to 2012-03-21T10:00:00-04:00 -->
+		<formula><Interval>
+			<arg index="1"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>
+			<arg index="2"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2012-03-21T10:00:00-04:00</Data></arg></Time></arg>
+		</Interval></formula>
+		
+		<!-- relative interval from 2011-03-21T10:00:00-04:00 to five years, two months, and 10 days after -->  
+		<formula><Interval type="ruleml:TimeInterval"> 
+			<arg index="1"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>
+			<arg index="2"><Time type="ruleml:TimePoint">
+				<!-- after a period of  five years, two months, and 10 days -->
+				<arg><After><arg><Time type="ruleml:TimeInterval"><arg><Data xsi:type="xs:duration">P5Y2M10D</Data></arg></Time></arg></After></arg>
+			</Time></arg>
+		</Interval></formula>
+		
+		<!-- left closed, right open interval [2011-03-21T10:00:00-04:00, 2012-03-21T10:00:00-04:00) -->
+		<formula><Interval type="ruleml:LeftClosedRightOpenInterval">
+			<arg index="1"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>
+			<arg index="2"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2012-03-21T10:00:00-04:00</Data></arg></Time></arg>
+		</Interval></formula>
+		
+		<!-- left closed, right unbounded interval [2011-03-21T10:00:00-04:00, _ ) -->
+		<formula><Interval type="ruleml:LeftClosedInterval">
+			<arg index="1"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>
+		</Interval></formula>
+				 
+ 
+ 
+</And>
