@@ -165,6 +165,9 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="op_Atom.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="op_Atom.content">
     <xs:annotation>
       <xs:documentation>The operator role in the context of an atomic formula is filled by a
@@ -244,8 +247,8 @@
       <xs:documentation>The attribute list of the conjunction element will accept a scoped closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -300,6 +303,9 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="formula_And.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="formula_And.content">
     <xs:annotation>
       <xs:documentation>Formulas within conjunctions consist of a single formula</xs:documentation>
@@ -354,8 +360,8 @@
       <xs:documentation>The attribute list of the disjunction element will accept a (scoped) closure
         attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -408,6 +414,9 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="formula_Or.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="formula_Or.content">
     <xs:annotation>
       <xs:documentation>Formulas within disjunctions consist of a single formula</xs:documentation>
@@ -475,8 +484,8 @@
       <xs:documentation>Implications may have an optional closure attribute  and will accept a
         scoped closure attribute at full first-order logic.</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -524,6 +533,9 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="body_Implies.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="body_Implies.content">
     <xs:annotation>
       <xs:documentation>The premise of an implication consists of a single
@@ -580,6 +592,9 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="head_Implies.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="head_Implies.content">
     <xs:annotation>
       <xs:documentation>The conclusion of an implication consists of a single
@@ -909,6 +924,16 @@
     </xs:choice>
   </xs:group>
   
+  <xs:attributeGroup name="declare.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="formula_Forall.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="formula_Exists.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  
   
   <xs:group name="Expression-node.choice">
     <xs:annotation>
@@ -932,6 +957,15 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="reExpr.attlist">
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
   <xs:group name="operatorForExpressions-edge.choice">
     <xs:annotation>
       <xs:documentation>an extension point for stripe skipping as well as specializations of the
@@ -960,6 +994,9 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="op_Expr.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="op_Expr.content">
     <xs:annotation>
       <xs:documentation>The operator role of an expression is filled by a
@@ -1454,15 +1491,7 @@
     <xs:union memberTypes="ruleml:PrefixedCURIE.datatype ruleml:AbsIRI.datatype"/>
   </xs:simpleType>
   
-  <xs:element name="iri">
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="ruleml:iri.content">
-          <xs:attributeGroup ref="ruleml:iri.attlist"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="iri" type="ruleml:iri.content"/>
   <xs:simpleType name="iri.content">
     <xs:restriction base="ruleml:iri.value"/>
   </xs:simpleType>
@@ -1486,6 +1515,9 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="degree.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:complexType name="degree.content">
     <xs:annotation>
       <xs:documentation>The degree edge element contains a single data term.</xs:documentation>
@@ -1525,8 +1557,8 @@
   </xs:element>
   
   <xs:attributeGroup name="reNeg.attlist">
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -1562,6 +1594,9 @@
       <xs:attributeGroup ref="ruleml:strong.attlist"/>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="strong.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="strong.content">
     <xs:annotation>
       <xs:documentation>The negation role contains a single formula. </xs:documentation>
@@ -1610,8 +1645,8 @@
   </xs:element>
   
   <xs:attributeGroup name="reNaf.attlist">
-    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -1643,6 +1678,9 @@
       <xs:attributeGroup ref="ruleml:weak.attlist"/>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="weak.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="weak.content">
     <xs:annotation>
       <xs:documentation>The negation role contains a single formula. </xs:documentation>
@@ -1748,6 +1786,9 @@
       <xs:attributeGroup ref="ruleml:torso.attlist"/>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="torso.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="torso.content">
     <xs:annotation>
       <xs:documentation>An equivalance is syntactic sugar for two implications. In all RuleML
@@ -1760,6 +1801,7 @@
       <xs:group ref="ruleml:ConclusionFormula.choice"/>
     </xs:sequence>
   </xs:group>
+  
   
   
   <xs:attributeGroup name="material-att.choice">
@@ -1831,6 +1873,9 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="oid.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:complexType name="oid.content">
     <xs:annotation>
       <xs:documentation>The object descriptor content model consists of any single term. Note: this
@@ -1918,6 +1963,7 @@
       <xs:group ref="ruleml:AnyTerm.choice"/>
     </xs:sequence>
   </xs:group>
+  
   
   
   <xs:attributeGroup name="cardinality-att.choice">
@@ -2019,6 +2065,9 @@
       <xs:attributeGroup ref="ruleml:left.attlist"/>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="left.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="left.content">
     <xs:annotation>
       <xs:documentation>The left-hand side role in an equation is filled by a
@@ -2038,6 +2087,9 @@
       <xs:attributeGroup ref="ruleml:right.attlist"/>
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="right.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="right.content">
     <xs:annotation>
       <xs:documentation>The right-hand side role in an equation is filled by a
@@ -2119,6 +2171,9 @@
     </xs:sequence>
   </xs:group>
   <xs:element name="Data" type="xs:anyType"/>
+  <xs:attributeGroup name="reData.attlist">
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+  </xs:attributeGroup>
   <xs:group name="anyElement.choice">
     <xs:annotation>
       <xs:documentation/>
@@ -2194,6 +2249,9 @@
   </xs:group>
   <xs:attributeGroup name="arg-datt.choice">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="rearg.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="index-attrib.choice">
     <xs:annotation>
@@ -2465,6 +2523,9 @@
     </xs:sequence>
   </xs:group>
   
+  <xs:attributeGroup name="resl.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   
   
   <xs:group name="restOfPositionalArguments-edge.choice">
@@ -2519,6 +2580,10 @@
     </xs:sequence>
   </xs:group>
   
+  <xs:attributeGroup name="repo.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  
   
   <xs:group name="Plex_Any-node.choice">
     <xs:annotation>
@@ -2549,6 +2614,15 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="rePlex.attlist">
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+    <xs:attribute name="style" type="ruleml:style.value">
+      <xs:annotation>
+        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
   
   <xs:complexType name="Plex_Any.main">
     <xs:annotation>
@@ -2641,165 +2715,13 @@
   
   
   
-  <xs:attributeGroup name="reAnd-Query.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="formula_And.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reOr-Query.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="formula_Or.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="op_Atom.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="card.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="closure.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="id.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="oid.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="direction.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reData.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="left.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="right.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="torso.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reExpr.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attribute name="style" type="ruleml:style.value">
-      <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="op_Expr.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="degree.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="body_Implies.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="head_Implies.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="rearg.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="iri.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="material.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reEntails.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="body_Entails.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="head_Entails.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="strong.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="weak.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reRuleML.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="react.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reAssertRetract.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reQuery.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="formula_AssertRetract.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="formula_Query.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="rePlex.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-    <xs:attribute name="style" type="ruleml:style.value">
-      <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="declare.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="formula_Forall.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="formula_Exists.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="Reify-any.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="Reify.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="Reify-node.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="reRulebase.attlist">
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="formula_Rulebase.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="repo.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="resl.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="oriented.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="interpretation.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="type.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="val.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="weight.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
+  
+  
+  
+  
+  
+  
+  
   <xs:attributeGroup name="commonNode.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>

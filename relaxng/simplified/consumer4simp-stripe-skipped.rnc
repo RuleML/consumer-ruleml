@@ -178,17 +178,7 @@ Rel =
   }
 And =
   element And {
-    (attribute closure {
-       "universal"
-       | "existential"
-       | xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns2:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -205,6 +195,16 @@ And =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
@@ -237,17 +237,7 @@ And =
   }
 Or =
   element Or {
-    (attribute closure {
-       "universal"
-       | "existential"
-       | xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns2:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -264,6 +254,16 @@ Or =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
@@ -306,16 +306,6 @@ Implies =
          }
        | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
      }?
-     & attribute closure {
-         "universal"
-         | "existential"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
      & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -333,6 +323,16 @@ Implies =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
@@ -595,17 +595,7 @@ Fun =
   }
 Neg =
   element Neg {
-    (attribute closure {
-       "universal"
-       | "existential"
-       | xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns2:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -622,6 +612,16 @@ Neg =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
@@ -653,17 +653,7 @@ Neg =
   }
 Naf =
   element Naf {
-    (attribute closure {
-       "universal"
-       | "existential"
-       | xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns2:schemaLocation { text }?
+    (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
      & attribute key {
@@ -680,6 +670,16 @@ Naf =
              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
            minLength = "1"
          }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute closure {
+         "universal"
+         | "existential"
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
