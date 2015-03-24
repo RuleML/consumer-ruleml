@@ -12,12 +12,21 @@
   >	
 		<!-- different time definitions -->
 		
-		<!-- a simple time "t1" definition -->
+		<!-- a simple time "t1" definition
+		     "The individual denoted by 't1' is a temporal entity."-->
+		  <!-- (normalised) -->
 		<formula><Time><arg><Ind>t1</Ind></arg></Time></formula>
-		
+    <!-- (compact) -->
+  <Time><Ind>t1</Ind></Time>
+  
 		<!-- a discrete time point defining an XML schema datatype "dateTime" -->
-		<formula><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></formula>
-				
+  <!-- (normalised) -->
+  <formula><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></formula>
+  <!-- (compact) -->
+  <Time type="ruleml:TimePoint">
+    <Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data>
+  </Time>
+  
 		<!-- definition of a time instant (for a linear continous time model) with unpositional slot properties  --> 
 		<formula><Time key="this:time1" type="ruleml:TimeInstant">
 			<slot><Ind>year</Ind><Ind>2011</Ind></slot>
