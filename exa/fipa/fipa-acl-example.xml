@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<!-- This is a syntactic example of the embedding of Consumer RuleML inside a FIPA-ACL envelope.-->
 <fipa-message act="inform">
   <sender>
     <agent-identifier>
@@ -12,6 +13,7 @@
     </agent-identifier>
   </receiver>
   <content xmlns:ruleml="http://ruleml.org/spec">
+    <!-- The Consumer RuleML content starts here.-->
     <ruleml:Atom>
       <ruleml:Rel>P</ruleml:Rel>
     </ruleml:Atom>
