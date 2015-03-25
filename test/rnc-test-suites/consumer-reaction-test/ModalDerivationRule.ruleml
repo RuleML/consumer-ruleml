@@ -2,7 +2,7 @@
 
 <?xml-model href="../../../relaxng/drivers/consumer-relaxed.rnc" type="application/relax-ng-compact-syntax"?>
 <And xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:ruleml = "http://ruleml.org/spec"
+  xmlns:ruleml = "http://ruleml.org/metamodel/"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- 
 This example shows how the generic Operation is used as modal connective in modal logic programs
@@ -13,13 +13,23 @@ This example shows how the generic Operation is used as modal connective in moda
 
     
     <!-- it is possible that -->
+    <!-- normalized -->
     <Operation type="ruleml:AlethicOperation" iri="ruleml:Possible">
-      <Atom>
-        <Rel>p</Rel>
-      </Atom>
+      <formula index="1">        
+        <Atom>
+          <Rel>p</Rel>
+        </Atom>
+      </formula>
     </Operation>
 
-    <!-- it is not necessary that not  (= it is possible that) -->
+  <!-- compact -->
+  <Operation type="ruleml:AlethicOperation" iri="ruleml:Possible">
+    <Atom>
+      <Rel>p</Rel>
+    </Atom>
+  </Operation>
+  
+  <!-- it is not necessary that not  (= it is possible that) -->
     <Neg>
       <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
         <Neg>

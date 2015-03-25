@@ -3118,6 +3118,7 @@
   
   <xs:attributeGroup name="formula-Operation.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
   <xs:group name="formula_Operation.content">
     <xs:sequence>

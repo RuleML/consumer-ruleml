@@ -3191,7 +3191,8 @@ formula_6 =
            minLength = "1"
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
+       }?
+     & attribute index { xsd:positiveInteger }?)
   }
 if_2 =
   element if {
