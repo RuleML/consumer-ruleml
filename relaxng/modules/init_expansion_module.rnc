@@ -12,6 +12,7 @@ term-interface.attlist &= empty
 
 #interval
 interval_algebra_group.content |= notAllowed
+wrapped_interval_algebra_group.content |= notAllowed
 
 #ordered_groups
 arg_spatial.choice |= notAllowed
@@ -48,9 +49,14 @@ interval_primitives.content |= notAllowed
 spatial_primitives.content |= notAllowed
 time_primitives.content |= notAllowed
 Interval_term.content |= notAllowed
+arg_interval_term.content |= notAllowed
+arg_interval_formula.content |= notAllowed
+formula_interval.content |= notAllowed
 
 #algebra
-arg_interval.choice |= notAllowed
+arg_interval_formula.choice |= notAllowed
+arg_interval_term.choice |= notAllowed
+formula_interval.choice |= notAllowed
 
 # negation
 NegFormula.choice |= notAllowed

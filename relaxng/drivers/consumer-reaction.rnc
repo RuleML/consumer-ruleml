@@ -270,9 +270,9 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/val_absence_expansi
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/init_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
-#include "../modules/init_expansion_module.rnc" inherit = ruleml {
-#  start |= notAllowed
-#}
+include "../modules/init_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 #
 # INCLUDE CONTENT EDGE FOR FOREIGN NAMESPACE CONTENT
 #

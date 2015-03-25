@@ -46,6 +46,7 @@
   <xsl:template match="xs:element[@name='Key']"></xsl:template>
   <xsl:template match="xs:element[@name='Material']"></xsl:template>
   <xsl:template match="xs:element[@name='Per']"></xsl:template>
+  <xsl:template match="xs:element[@name='Skip']"></xsl:template>
   
     
   <!-- Copies everything to the transformation output -->

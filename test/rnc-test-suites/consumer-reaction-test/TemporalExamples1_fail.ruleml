@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="../../../relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
 <And xmlns="http://ruleml.org/spec"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:dc="http://purl.org/dc/elements/1.1"
-	xmlns:owltime="http://www.w3.org/2006/time"
-	xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd">
+	xmlns:owltime="http://www.w3.org/2006/time">
 
 	
 		<!-- different time definitions -->
@@ -50,7 +49,7 @@
 
 		<!-- time definition using the xs:any content model to define the time as OWL time instant --> 
 		<formula><Time>	
-			<content> <!-- xs:any content -->
+			<content in> <!-- xs:any content -->
 				<owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
 			</content>				
 		</Time></formula>

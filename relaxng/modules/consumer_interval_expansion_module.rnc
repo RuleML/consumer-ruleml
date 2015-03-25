@@ -14,41 +14,60 @@ dcterms:rights [ "TBD" ]
 dc:relation [ "http://reaction.ruleml.org" ]
 start |= notAllowed
 Node.choice |= Interval_formula.def
-edge.choice |= arg_interval.def
+edge.choice |= arg_interval_term.def
 
 # This module declares the following Reaction RuleML elements:
 # * Interval
+#
+Interval_term-node.choice |= Interval_term.def
+Interval_formula-node.choice |= Interval_formula.def
+arg_interval_term.choice |= arg_interval_term.def
+arg_interval_formula.choice |= arg_interval_formula.def
+formula_interval.choice |= formula_interval.def
 
 #   *** Interval ***
-Interval_term.attlist &= type-att.choice?
-Interval_term.attlist &= commonNode.attlist?
-Interval_formula.attlist &= formula-interface.attlist?
-Interval_formula.attlist &= type-att.choice?
-Interval_formula.attlist &= commonNode.attlist?
-arg_interval.choice |= arg_interval.def
-Interval_term.content |= Interval_term.header, (arg_interval.choice, arg_interval.choice?)?
-Interval_formula.content |= Interval_formula.header, (arg_interval.choice, arg_interval.choice?)?
-Interval_term.header &= Expr.header?
-Interval_formula.header &= Atom.header?
-#
-Interval_term.type.def = Interval_term.content, Interval_term.attlist
-Interval_formula.type.def = Interval_formula.content, Interval_formula.attlist
 Interval_term.def =
   
   ## <Interval>: generic Interval element. See
   ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Interval
   element Interval { Interval_term.type.def }
+Interval_term.type.def = Interval_term.content, Interval_term.attlist
+Interval_term.content |= Interval_term.header, (arg_interval_term.choice, arg_interval_term.choice?)?
+Interval_term.header &= Expr.header?
+Interval_term.attlist &= type-att.choice?
+Interval_term.attlist &= commonNode.attlist?
+#
 Interval_formula.def = element Interval { Interval_formula.type.def }
+Interval_formula.type.def = Interval_formula.content, Interval_formula.attlist
+Interval_formula.content |= Interval_formula.header, ((arg_interval_formula.choice, arg_interval_formula.choice?)? | formula_interval.choice )
+Interval_formula.header &= Atom.header?
+Interval_formula.attlist &= formula-interface.attlist?
+Interval_formula.attlist &= type-att.choice?
+Interval_formula.attlist &= commonNode.attlist?
+#
 # *** arg ***
-arg_interval.attlist &= index-attrib.choice?
-arg_interval.attlist &= commonInit.attlist?
-arg_interval.content |= interval_primitives.content
-arg_interval.type.def = arg_interval.content, arg_interval.attlist
-arg_interval.def = element arg { arg_interval.type.def }
+arg_interval_term.def = element arg { arg_interval_term.type.def }
+arg_interval_term.type.def = arg_interval_term.content, arg_interval_term.attlist
+arg_interval_term.content |= arg.content
+arg_interval_term.attlist &= index-attrib.choice?
+arg_interval_term.attlist &= commonInit.attlist?
+#
+arg_interval_formula.def = element arg { arg_interval_formula.type.def }
+arg_interval_formula.type.def = arg_interval_formula.content, arg_interval_formula.attlist
+arg_interval_formula.content |= arg.content
+arg_interval_formula.attlist &= index-attrib.choice?
+arg_interval_formula.attlist &= commonInit.attlist?
+#
+# This pattern is needed only for the use of Interval as a wrapper around an Allen Interval operator
+formula_interval.def = element formula { formula_interval.type.def }
+formula_interval.type.def = formula_interval.content, formula_interval.attlist
+formula_interval.content |= wrapped_interval_algebra_group.content
+formula_interval.attlist &= index-attrib.choice?
+formula_interval.attlist &= commonInit.attlist?
 
 # in interval module
-SimpleKeyTerm.choice |= Interval_term.def
-Atom-node.choice |= Interval_formula.def
+SimpleKeyTerm.choice |= Interval_term-node.choice
+Atom-node.choice |= Interval_formula-node.choice
 
-## Interval primitives
-interval_primitives.content |= arg.content | interval_algebra_group.content
+# Interval primitives
+#interval_primitives.content |= arg.content | interval_algebra_group.content

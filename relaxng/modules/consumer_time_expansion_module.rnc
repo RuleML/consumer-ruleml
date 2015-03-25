@@ -58,4 +58,5 @@ arg_time.attlist &= index-attrib.choice?
 arg_time.content |= time_primitives.content
 
 ## An internal group for the time primitives for interpretation as time
-time_primitives.content |= arg.content | spatial_temporal_algebra_group.content
+time_primitives.content |= arg.content
+#time_primitives.content |= spatial_temporal_algebra_group.content

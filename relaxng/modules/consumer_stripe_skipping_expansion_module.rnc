@@ -23,7 +23,9 @@ start |= notAllowed
 if_Rule-ss.content |= if_Rule.content
 then_Rule-ss.content |= then_Rule.content
 formula-negation.choice |= formula-negation.content
-arg_interval.choice |= interval_primitives.content
+arg_interval_term.choice |= arg_interval_term.content
+arg_interval_formula.choice |= arg_interval_formula.content
+#formula_interval.choice |= formula_interval.content
 arg_time.choice |= time_primitives.content
 arg_spatial.choice |= spatial_primitives.content
 formula-quant.choice |= formula_Forall.content
@@ -32,4 +34,4 @@ formula-Operation.choice |= formula_Operation.content
 #
 # a dummy element to assist in XSD conversion
 #
-DummySkipElement.def = element Skip { interval_primitives.content }
+DummySkipElement.def = element Skip { text }

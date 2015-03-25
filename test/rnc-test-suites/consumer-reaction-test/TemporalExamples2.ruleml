@@ -5,7 +5,6 @@
   xmlns:owltime="http://www.w3.org/2006/time"
   xmlns:this="http://consumer.ruleml.org/exa/consumer-reaction/TemporalExample2#"
   xmlns:ex="http://reaction.ruleml.org/exa/dr/TemporalExample2#"
-  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd"
   material="yes" closure="universal">
   <if>
     <!-- rule body using different times-->
@@ -124,7 +123,7 @@
       </formula>
       <formula>
         <Time>
-          <content>
+          <content index="1">
             <!-- xs:any content -->
             <owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
           </content>
@@ -196,7 +195,7 @@
       <!-- [t2,t3] during [t1,4] -->
       <formula>
         <Interval>
-          <arg index="1">
+          <formula>
             <During>
               <arg index="1">
                 <Interval>
@@ -235,14 +234,14 @@
                 </Interval>
               </arg>
             </During>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 
       <!-- [t1,t3] overlaps with [t2,t4] -->
       <formula>
         <Interval>
-          <arg index="1">
+          <formula>
             <Overlaps>
               <arg index="1">
                 <Interval>
@@ -281,14 +280,14 @@
                 </Interval>
               </arg>
             </Overlaps>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 
       <!-- [t1,t2] starts [t1,t4] -->
       <formula>
         <Interval>
-          <arg index="1">
+          <formula>
             <Starts>
               <arg index="1">
                 <Interval>
@@ -327,14 +326,14 @@
                 </Interval>
               </arg>
             </Starts>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 
       <!-- [t1,t2] precedes [t3,t4] -->
       <formula>
         <Interval>
-          <arg index="1">
+          <formula>
             <Precedes>
               <arg index="1">
                 <Interval>
@@ -373,14 +372,14 @@
                 </Interval>
               </arg>
             </Precedes>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 
       <!-- [t3,t4] succeeds [t1,t2] -->
       <formula>
         <Interval>
-          <arg>
+          <formula>
             <Succeeds>
               <arg>
                 <Interval>
@@ -419,14 +418,14 @@
                 </Interval>
               </arg>
             </Succeeds>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 
       <!-- [t1,t2] meets [t2,t4] -->
       <formula>
         <Interval>
-          <arg>
+          <formula>
             <Meets>
               <arg>
                 <Interval>
@@ -465,14 +464,14 @@
                 </Interval>
               </arg>
             </Meets>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 
       <!-- [t1,t2] equals [t1,t2] -->
       <formula>
         <Interval>
-          <arg>
+          <formula>
             <Equal>
               <arg>
                 <Interval>
@@ -511,14 +510,14 @@
                 </Interval>
               </arg>
             </Equal>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 
       <!-- [t1,t4] finishes [t3,t4] -->
       <formula>
         <Interval>
-          <arg>
+          <formula>
             <Finishes>
               <arg>
                 <Interval>
@@ -557,7 +556,7 @@
                 </Interval>
               </arg>
             </Finishes>
-          </arg>
+          </formula>
         </Interval>
       </formula>
 

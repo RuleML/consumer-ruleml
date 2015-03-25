@@ -20,19 +20,20 @@ start |= notAllowed
 # 
 argumentsForTime.sequence |= time_anycontent*
 time_anycontent = element content { time_anycontent.type }
-time_anycontent.type = time_anycontent.content, time_anycontent.attlist
+time_anycontent.type = time_anycontent.content, time_anycontent.attlist, index-attrib.choice
 time_anycontent.content |= anycontent.content
 time_anycontent.attlist &= commonInit.attlist?
 #
 argumentsForSpatial.sequence |= spatial_anycontent*
 spatial_anycontent = element content { spatial_anycontent.type }
-spatial_anycontent.type = spatial_anycontent.content, spatial_anycontent.attlist
+spatial_anycontent.type = spatial_anycontent.content, spatial_anycontent.attlist, index-attrib.choice
+
 spatial_anycontent.content |= anycontent.content
 spatial_anycontent.attlist &= commonInit.attlist?
 #
 arg_interval.choice |=  interval_anycontent
 interval_anycontent = element content { interval_anycontent.type }
-interval_anycontent.type = interval_anycontent.attlist, interval_anycontent.content
+interval_anycontent.type = interval_anycontent.content, interval_anycontent.attlist, index-attrib.choice
 interval_anycontent.content |= anycontent.content
 interval_anycontent.attlist &= commonInit.attlist?
 

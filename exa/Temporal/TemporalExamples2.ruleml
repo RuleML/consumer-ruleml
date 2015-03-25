@@ -473,7 +473,7 @@
       <!-- [t1,t2] equals [t1,t2] -->
       <formula>
         <Interval>
-          <arg>
+          <fornula>
             <Equal>
               <arg>
                 <Interval>
@@ -512,7 +512,7 @@
                 </Interval>
               </arg>
             </Equal>
-          </arg>
+          </fornula>
         </Interval>
       </formula>
 

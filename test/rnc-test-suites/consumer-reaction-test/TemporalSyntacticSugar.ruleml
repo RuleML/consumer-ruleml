@@ -85,7 +85,7 @@
   </Time>
   <Time keyref="this:time1"/>
   <Time>
-    <content>
+    <content index="1">
       <!-- xs:any content -->
       <owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
     </content>
@@ -122,32 +122,22 @@
     </arg>
   </Interval>
   <Interval>
-    <arg index="1">
       <Var>Y</Var>
-    </arg>
   </Interval>
   <Interval>
-    <arg index="1">
       <Time>
-        <arg>
           <Var>Y1</Var>
-        </arg>
       </Time>
-    </arg>
-    <arg index="2">
       <Time>
-        <arg>
           <Var>Y2</Var>
-        </arg>
       </Time>
-    </arg>
   </Interval>
 
   <!-- different interval algebra definitions -->
 
   <!-- [t2,t3] during [t1,4] -->
   <Interval>
-    <arg index="1">
+    <formula>
       <During>
         <arg index="1">
           <Interval>
@@ -186,13 +176,12 @@
           </Interval>
         </arg>
       </During>
-    </arg>
+    </formula>
   </Interval>
 
   <!-- [t1,t3] overlaps with [t2,t4] -->
   <Interval>
-    <arg index="1">
-      <Overlaps>
+      <formula><Overlaps>
         <arg index="1">
           <Interval>
             <arg index="1">
@@ -229,14 +218,12 @@
             </arg>
           </Interval>
         </arg>
-      </Overlaps>
-    </arg>
+      </Overlaps></formula>
   </Interval>
 
   <!-- [t1,t2] starts [t1,t4] -->
   <Interval>
-    <arg index="1">
-      <Starts>
+      <formula><Starts>
         <arg index="1">
           <Interval>
             <arg index="1">
@@ -273,14 +260,12 @@
             </arg>
           </Interval>
         </arg>
-      </Starts>
-    </arg>
+      </Starts></formula>
   </Interval>
 
   <!-- [t1,t2] precedes [t3,t4] -->
   <Interval>
-    <arg index="1">
-      <Precedes>
+      <formula><Precedes>
         <arg index="1">
           <Interval>
             <arg index="1">
@@ -317,14 +302,12 @@
             </arg>
           </Interval>
         </arg>
-      </Precedes>
-    </arg>
+      </Precedes></formula>
   </Interval>
 
   <!-- [t3,t4] succeeds [t1,t2] -->
   <Interval>
-    <arg>
-      <Succeeds>
+      <formula><Succeeds>
         <arg>
           <Interval>
             <arg>
@@ -361,14 +344,12 @@
             </arg>
           </Interval>
         </arg>
-      </Succeeds>
-    </arg>
+      </Succeeds></formula>
   </Interval>
 
   <!-- [t1,t2] meets [t2,t4] -->
   <Interval>
-    <arg>
-      <Meets>
+      <formula><Meets>
         <arg>
           <Interval>
             <arg>
@@ -405,14 +386,12 @@
             </arg>
           </Interval>
         </arg>
-      </Meets>
-    </arg>
+      </Meets></formula>
   </Interval>
 
   <!-- [t1,t2] equals [t1,t2] -->
   <Interval>
-    <arg>
-      <Equal>
+      <formula><Equal>
         <arg>
           <Interval>
             <arg>
@@ -449,14 +428,12 @@
             </arg>
           </Interval>
         </arg>
-      </Equal>
-    </arg>
+      </Equal></formula>
   </Interval>
 
   <!-- [t1,t4] finishes [t3,t4] -->
   <Interval>
-    <arg>
-      <Finishes>
+      <formula><Finishes>
         <arg>
           <Interval>
             <arg>
@@ -493,8 +470,7 @@
             </arg>
           </Interval>
         </arg>
-      </Finishes>
-    </arg>
+      </Finishes></formula>
   </Interval>
 
 

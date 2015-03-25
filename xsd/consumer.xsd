@@ -33,7 +33,6 @@
       <xs:element ref="ruleml:Operation"/>
       <xs:element ref="ruleml:Rule"/>
       <xs:group ref="ruleml:Spatial_formula.def"/>
-      <xs:group ref="ruleml:IntervalAlgebraEqual"/>
       <xs:element ref="ruleml:After"/>
       <xs:element ref="ruleml:Before"/>
       <xs:element ref="ruleml:Every"/>
@@ -79,7 +78,7 @@
       <xs:group ref="ruleml:arg.edge.def"/>
       <xs:element ref="ruleml:resl"/>
       <xs:element ref="ruleml:repo"/>
-      <xs:group ref="ruleml:arg_interval.def"/>
+      <xs:group ref="ruleml:arg_interval_term.def"/>
       <xs:group ref="ruleml:formula-negation"/>
       <xs:group ref="ruleml:formula-Operation"/>
       <xs:group ref="ruleml:if_Rule.edge.def"/>
@@ -105,8 +104,9 @@
     </xs:annotation>
     <xs:choice>
       <xs:element ref="ruleml:Atom"/>
-      <xs:group ref="ruleml:Interval_formula.def"/>
+      <xs:group ref="ruleml:Interval_formula-node.choice"/>
       <xs:group ref="ruleml:Spatial_formula.def"/>
+      <xs:group ref="ruleml:interval_algebra_group.content"/>
       <xs:group ref="ruleml:Time_formula.def"/>
     </xs:choice>
   </xs:group>
@@ -940,9 +940,10 @@
       <xs:documentation>an extension point for specializations of the expression tag name.
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
+    <xs:choice>
       <xs:element ref="ruleml:Expr"/>
-    </xs:sequence>
+      <xs:group ref="ruleml:spatial_temporal_algebra_group.content"/>
+    </xs:choice>
   </xs:group>
   <xs:element name="Expr">
     <xs:annotation>
@@ -1408,13 +1409,19 @@
       <xs:group ref="ruleml:formula-negation"/>
     </xs:choice>
   </xs:complexType>
-  <xs:group name="arg_interval.choice">
+  <xs:group name="arg_interval_term.choice">
     <xs:choice>
-      <xs:group ref="ruleml:interval_primitives.content"/>
-      <xs:group ref="ruleml:interval_anycontent"/>
-      <xs:group ref="ruleml:arg_interval.def"/>
+      <xs:group ref="ruleml:arg_interval_term.content"/>
+      <xs:group ref="ruleml:arg_interval_term.def"/>
     </xs:choice>
   </xs:group>
+  <xs:group name="arg_interval_formula.choice">
+    <xs:choice>
+      <xs:group ref="ruleml:arg_interval_formula.content"/>
+      <xs:group ref="ruleml:arg_interval_formula.def"/>
+    </xs:choice>
+  </xs:group>
+  
   <xs:group name="arg_time.choice">
     <xs:choice>
       <xs:group ref="ruleml:time_primitives.content"/>
@@ -1440,11 +1447,7 @@
     </xs:choice>
   </xs:group>
   
-  <xs:element name="Skip">
-    <xs:complexType>
-      <xs:group ref="ruleml:interval_primitives.content"/>
-    </xs:complexType>
-  </xs:element>
+  
   
   
   <xs:simpleType name="AbsIRI.datatype">
@@ -2035,6 +2038,18 @@
           http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="iri" type="ruleml:iri.value">
+      <xs:annotation>
+        <xs:documentation>An attribute for referring to a IRI.     See
+          http://ruleml.org/1.02/glossary/#gloss-@iri</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:group name="Equal.header">
     <xs:annotation>
@@ -2320,7 +2335,7 @@
         <xs:group ref="ruleml:Individual-node.choice"/>
         <xs:group ref="ruleml:DataTerm.choice"/>
       </xs:choice>
-      <xs:group ref="ruleml:Interval_term.def"/>
+      <xs:group ref="ruleml:Interval_term-node.choice"/>
       <xs:group ref="ruleml:Spatial_term.def"/>
       <xs:group ref="ruleml:Time_term.def"/>
     </xs:choice>
@@ -2754,6 +2769,7 @@
     <xs:complexContent>
       <xs:extension base="ruleml:time_anycontent.content">
         <xs:attributeGroup ref="ruleml:time_anycontent.attlist"/>
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -2775,6 +2791,7 @@
     <xs:complexContent>
       <xs:extension base="ruleml:spatial_anycontent.content">
         <xs:attributeGroup ref="ruleml:spatial_anycontent.attlist"/>
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -2787,6 +2804,11 @@
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   
+  <xs:group name="arg_interval.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:interval_anycontent"/>
+    </xs:sequence>
+  </xs:group>
   <xs:group name="interval_anycontent">
     <xs:sequence>
       <xs:element form="qualified" name="content" type="ruleml:interval_anycontent.type"/>
@@ -2796,6 +2818,7 @@
     <xs:complexContent>
       <xs:extension base="ruleml:interval_anycontent.content">
         <xs:attributeGroup ref="ruleml:interval_anycontent.attlist"/>
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -2938,61 +2961,22 @@
   
   
   
-  
-  <xs:attributeGroup name="Interval_term.attlist">
-    <xs:attribute name="type" type="ruleml:type.value">
-      <xs:annotation>
-        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
-          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="Interval_formula.attlist">
-    <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
-    <xs:attribute name="type" type="ruleml:type.value">
-      <xs:annotation>
-        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
-          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Interval_term.content">
-    <xs:sequence minOccurs="0">
-      <xs:group ref="ruleml:arg_interval.choice"/>
-      <xs:group minOccurs="0" ref="ruleml:arg_interval.choice"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Interval_formula.content">
+  <xs:group name="Interval_term-node.choice">
     <xs:sequence>
-      <xs:group ref="ruleml:Interval_formula.header"/>
-      <xs:sequence minOccurs="0">
-        <xs:group ref="ruleml:arg_interval.choice"/>
-        <xs:group minOccurs="0" ref="ruleml:arg_interval.choice"/>
-      </xs:sequence>
+      <xs:group ref="ruleml:Interval_term.def"/>
     </xs:sequence>
-  </xs:complexType>
-  <xs:group name="Interval_formula.header">
+  </xs:group>
+  <xs:group name="Interval_formula-node.choice">
     <xs:sequence>
-      <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
+      <xs:group ref="ruleml:Interval_formula.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="formula_interval.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:formula_interval.def"/>
     </xs:sequence>
   </xs:group>
   
-  <xs:complexType name="Interval_term.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:Interval_term.content">
-        <xs:attributeGroup ref="ruleml:Interval_term.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Interval_formula.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:Interval_formula.content">
-        <xs:attributeGroup ref="ruleml:Interval_formula.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:group name="Interval_term.def">
     <xs:sequence>
       <xs:element form="qualified" name="Interval" type="ruleml:Interval_term.type.def">
@@ -3003,41 +2987,129 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="Interval_term.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Interval_term.content">
+        <xs:attributeGroup ref="ruleml:Interval_term.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Interval_term.content">
+    <xs:sequence minOccurs="0">
+      <xs:group ref="ruleml:arg_interval_term.choice"/>
+      <xs:group minOccurs="0" ref="ruleml:arg_interval_term.choice"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:attributeGroup name="Interval_term.attlist">
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+  </xs:attributeGroup>
+  
   <xs:group name="Interval_formula.def">
     <xs:sequence>
       <xs:element form="qualified" name="Interval" type="ruleml:Interval_formula.type.def"/>
     </xs:sequence>
   </xs:group>
-  
-  <xs:attributeGroup name="arg_interval.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="arg_interval.content">
-    <xs:group ref="ruleml:interval_primitives.content"/>
-  </xs:complexType>
-  <xs:complexType name="arg_interval.type.def">
+  <xs:complexType name="Interval_formula.type.def">
     <xs:complexContent>
-      <xs:extension base="ruleml:arg_interval.content">
-        <xs:attributeGroup ref="ruleml:arg_interval.attlist"/>
+      <xs:extension base="ruleml:Interval_formula.content">
+        <xs:attributeGroup ref="ruleml:Interval_formula.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:group name="arg_interval.def">
+  <xs:complexType name="Interval_formula.content">
     <xs:sequence>
-      <xs:element form="qualified" name="arg" type="ruleml:arg_interval.type.def"/>
+      <xs:group ref="ruleml:Interval_formula.header"/>
+      <xs:choice>
+        <xs:sequence minOccurs="0">
+          <xs:group ref="ruleml:arg_interval_formula.choice"/>
+          <xs:group minOccurs="0" ref="ruleml:arg_interval_formula.choice"/>
+        </xs:sequence>
+        <xs:group ref="ruleml:formula_interval.choice"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="Interval_formula.header">
+    <xs:sequence>
+      <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
     </xs:sequence>
   </xs:group>
+  <xs:attributeGroup name="Interval_formula.attlist">
+    <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+  </xs:attributeGroup>
   
-  <xs:group name="interval_primitives.content">
-    <xs:annotation>
-      <xs:documentation>Interval primitives</xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:group ref="ruleml:arg.content"/>
-      <xs:group ref="ruleml:interval_algebra_group.content"/>
-    </xs:choice>
+  <xs:group name="arg_interval_term.def">
+    <xs:sequence>
+      <xs:element form="qualified" name="arg" type="ruleml:arg_interval_term.type.def"/>
+    </xs:sequence>
   </xs:group>
+  <xs:complexType name="arg_interval_term.type.def">
+    <xs:group ref="ruleml:arg_interval_term.content"/>
+    <xs:attributeGroup ref="ruleml:arg_interval_term.attlist"/>
+  </xs:complexType>
+  <xs:group name="arg_interval_term.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:arg.content"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="arg_interval_term.attlist">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  
+  <xs:group name="arg_interval_formula.def">
+    <xs:sequence>
+      <xs:element form="qualified" name="arg" type="ruleml:arg_interval_formula.type.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="arg_interval_formula.type.def">
+    <xs:group ref="ruleml:arg_interval_formula.content"/>
+    <xs:attributeGroup ref="ruleml:arg_interval_formula.attlist"/>
+  </xs:complexType>
+  <xs:group name="arg_interval_formula.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:arg.content"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="arg_interval_formula.attlist">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  
+  <xs:group name="formula_interval.def">
+    <xs:sequence>
+      <xs:element form="qualified" name="formula" type="ruleml:formula_interval.type.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="formula_interval.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula_interval.content">
+        <xs:attributeGroup ref="ruleml:formula_interval.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="formula_interval.content">
+    <xs:complexContent>
+      <xs:extension base="ruleml:wrapped_interval_algebra_group.content"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:attributeGroup name="formula_interval.attlist">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  
   
   
   
@@ -3329,10 +3401,9 @@
       <xs:documentation>An internal group for the spatial primitives for interpretation as
         spatial</xs:documentation>
     </xs:annotation>
-    <xs:choice>
+    <xs:sequence>
       <xs:group ref="ruleml:arg.content"/>
-      <xs:group ref="ruleml:spatial_temporal_algebra_group.content"/>
-    </xs:choice>
+    </xs:sequence>
   </xs:group>
   
   
@@ -3354,10 +3425,15 @@
       <xs:element ref="ruleml:Precedes"/>
       <xs:element ref="ruleml:Succeeds"/>
       <xs:element ref="ruleml:Meets"/>
-      <xs:group ref="ruleml:IntervalAlgebraEqual"/>
       <xs:element ref="ruleml:Finishes"/>
     </xs:choice>
   </xs:group>
+  <xs:complexType name="wrapped_interval_algebra_group.content">
+    <xs:choice>
+      <xs:group ref="ruleml:interval_algebra_group.content"/>
+      <xs:group ref="ruleml:IntervalAlgebraEqual"/>
+    </xs:choice>
+  </xs:complexType>
   
   <xs:group name="IntervalAlgebraEqual">
     <xs:sequence>
@@ -3370,8 +3446,20 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
   
+  <xs:group name="IntervalAlgebraFormula.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:IntervalAlgebraOperation.content"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="IntervalAlgebraFormula.type.def">
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="IntervalAlgebraFormula.attlist">
+    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+  </xs:attributeGroup>
+  
   <xs:attributeGroup name="After.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="After.content">
     <xs:complexContent>
@@ -3399,10 +3487,10 @@
   </xs:element>
   
   <xs:attributeGroup name="Every.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Every.content">
-    <xs:group minOccurs="0" ref="ruleml:arg_interval.choice"/>
+    <xs:group minOccurs="0" ref="ruleml:arg_interval_term.choice"/>
   </xs:complexType>
   <xs:complexType name="Every.type.def">
     <xs:complexContent>
@@ -3419,10 +3507,10 @@
   </xs:element>
   
   <xs:attributeGroup name="Any.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Any.content">
-    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_interval.choice"/>
+    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_interval_term.choice"/>
   </xs:complexType>
   <xs:complexType name="Any.type.def">
     <xs:complexContent>
@@ -3439,7 +3527,7 @@
   </xs:element>
   
   <xs:attributeGroup name="Timer.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Timer.content">
     <xs:complexContent>
@@ -3460,18 +3548,15 @@
     </xs:annotation>
   </xs:element>
   
-  <xs:complexType name="IntervalAlgebraOperation.content">
+  <xs:group name="IntervalAlgebraOperation.content">
     <xs:sequence>
-      <xs:group ref="ruleml:arg_interval.choice"/>
-      <xs:group ref="ruleml:arg_interval.choice"/>
+      <xs:group ref="ruleml:arg_interval_term.choice"/>
+      <xs:group ref="ruleml:arg_interval_term.choice"/>
     </xs:sequence>
-  </xs:complexType>
+  </xs:group>
   <xs:complexType name="IntervalAlgebraOperation.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:IntervalAlgebraOperation.content">
-        <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
+    <xs:group ref="ruleml:IntervalAlgebraOperation.content"/>
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
   </xs:complexType>
   <xs:element name="During" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
@@ -3620,10 +3705,9 @@
       <xs:documentation>An internal group for the time primitives for interpretation as
         time</xs:documentation>
     </xs:annotation>
-    <xs:choice>
+    <xs:sequence>
       <xs:group ref="ruleml:arg.content"/>
-      <xs:group ref="ruleml:spatial_temporal_algebra_group.content"/>
-    </xs:choice>
+    </xs:sequence>
   </xs:group>
   
   
