@@ -1421,7 +1421,12 @@
       <xs:group ref="ruleml:arg_interval_formula.def"/>
     </xs:choice>
   </xs:group>
-  
+  <xs:group name="formula_interval.choice">
+    <xs:choice>
+      <xs:group ref="ruleml:formula_interval.content"/>
+      <xs:group ref="ruleml:formula_interval.def"/>
+    </xs:choice>
+  </xs:group>
   <xs:group name="arg_time.choice">
     <xs:choice>
       <xs:group ref="ruleml:time_primitives.content"/>
@@ -2898,6 +2903,11 @@
     </xs:attribute>
   </xs:attributeGroup>
   
+  <xs:attributeGroup name="generic-Formula.attlist">
+    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
+  </xs:attributeGroup>
+  
   <xs:attributeGroup name="formula-interface-ext.attlist">
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -2969,11 +2979,6 @@
   <xs:group name="Interval_formula-node.choice">
     <xs:sequence>
       <xs:group ref="ruleml:Interval_formula.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="formula_interval.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:formula_interval.def"/>
     </xs:sequence>
   </xs:group>
   
@@ -3094,17 +3099,14 @@
     </xs:sequence>
   </xs:group>
   <xs:complexType name="formula_interval.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:formula_interval.content">
-        <xs:attributeGroup ref="ruleml:formula_interval.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
+    <xs:group ref="ruleml:formula_interval.content"/>
+    <xs:attributeGroup ref="ruleml:formula_interval.attlist"/>
   </xs:complexType>
-  <xs:complexType name="formula_interval.content">
-    <xs:complexContent>
-      <xs:extension base="ruleml:wrapped_interval_algebra_group.content"/>
-    </xs:complexContent>
-  </xs:complexType>
+  <xs:group name="formula_interval.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:wrapped_interval_algebra_group.content"/>
+    </xs:sequence>
+  </xs:group>
   <xs:attributeGroup name="formula_interval.attlist">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
@@ -3117,7 +3119,7 @@
     <xs:annotation>
       <xs:documentation>the Negation attribute list</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Negation.content">
     <xs:complexContent>
@@ -3163,7 +3165,7 @@
     <xs:annotation>
       <xs:documentation>the Operation attribute list</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Operation.content">
     <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula-Operation.choice"/>
@@ -3428,12 +3430,13 @@
       <xs:element ref="ruleml:Finishes"/>
     </xs:choice>
   </xs:group>
-  <xs:complexType name="wrapped_interval_algebra_group.content">
+  <xs:group name="wrapped_interval_algebra_group.content">
     <xs:choice>
       <xs:group ref="ruleml:interval_algebra_group.content"/>
       <xs:group ref="ruleml:IntervalAlgebraEqual"/>
     </xs:choice>
-  </xs:complexType>
+  </xs:group>
+  
   
   <xs:group name="IntervalAlgebraEqual">
     <xs:sequence>

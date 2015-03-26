@@ -2812,6 +2812,11 @@
     </xs:attribute>
   </xs:attributeGroup>
   
+  <xs:attributeGroup name="generic-Formula.attlist">
+    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+    <xs:attributeGroup ref="ruleml:closure-att.choice"/>
+  </xs:attributeGroup>
+  
   <xs:attributeGroup name="formula-interface-ext.attlist">
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
@@ -2893,11 +2898,6 @@
   <xs:group name="arg_interval_formula.choice">
     <xs:sequence>
       <xs:group ref="ruleml:arg_interval_formula.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="formula_interval.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:formula_interval.def"/>
     </xs:sequence>
   </xs:group>
   
@@ -3018,6 +3018,11 @@
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   
+  <xs:group name="formula_interval.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:formula_interval.def"/>
+    </xs:sequence>
+  </xs:group>
   <xs:group name="formula_interval.def">
     <xs:sequence>
       <xs:element form="qualified" name="formula" type="ruleml:formula_interval.type.def"/>
@@ -3047,7 +3052,7 @@
     <xs:annotation>
       <xs:documentation>the Negation attribute list</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Negation.content">
     <xs:complexContent>
@@ -3099,7 +3104,7 @@
     <xs:annotation>
       <xs:documentation>the Operation attribute list</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="Operation.content">
     <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula-Operation.choice"/>
@@ -3391,6 +3396,7 @@
       <xs:group ref="ruleml:IntervalAlgebraEqual"/>
     </xs:choice>
   </xs:complexType>
+  
   
   <xs:group name="IntervalAlgebraEqual">
     <xs:sequence>

@@ -36,6 +36,9 @@ generic-Node.attlist &= commonNode.attlist?
 generic-Node.attlist &= type-att.choice?
 generic-Node.attlist &= iri-att.choice?
 generic-Node.attlist &= style-att.choice?
+#
+generic-Formula.attlist &= generic-Node.attlist?
+generic-Formula.attlist &= closure-att.choice?
 # 
 # a group of attributes for the meta knowledge interface of knowledge formulas
 # that may have implicit closure

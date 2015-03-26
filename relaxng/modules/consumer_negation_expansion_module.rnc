@@ -19,7 +19,7 @@ start |= Negation
 # *** Negation ***
 
 ## the Negation attribute list
-Negation.attlist &= generic-Node.attlist?
+Negation.attlist &= generic-Formula.attlist?
 Negation.content |= Node.header, formula-negation.choice
 formula-negation.choice |= formula-negation
 Negation.type.def = Negation.content, Negation.attlist

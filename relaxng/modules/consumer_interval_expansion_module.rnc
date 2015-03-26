@@ -23,7 +23,6 @@ Interval_term-node.choice |= Interval_term.def
 Interval_formula-node.choice |= Interval_formula.def
 arg_interval_term.choice |= arg_interval_term.def
 arg_interval_formula.choice |= arg_interval_formula.def
-formula_interval.choice |= formula_interval.def
 
 #   *** Interval ***
 Interval_term.def =
@@ -59,6 +58,8 @@ arg_interval_formula.attlist &= index-attrib.choice?
 arg_interval_formula.attlist &= commonInit.attlist?
 #
 # This pattern is needed only for the use of Interval as a wrapper around an Allen Interval operator
+# This could be put into a separate module so that is optional.
+formula_interval.choice |= formula_interval.def
 formula_interval.def = element formula { formula_interval.type.def }
 formula_interval.type.def = formula_interval.content, formula_interval.attlist
 formula_interval.content |= wrapped_interval_algebra_group.content

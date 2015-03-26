@@ -61,6 +61,7 @@ formula_interval.choice |= notAllowed
 # negation
 NegFormula.choice |= notAllowed
 generic-Node.attlist &= empty
+generic-Formula.attlist &= empty
 
 # operator
 AndFormula.choice |= notAllowed

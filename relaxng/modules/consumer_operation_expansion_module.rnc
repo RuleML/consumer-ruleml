@@ -14,12 +14,12 @@ dcterms:rights [ "TBD" ]
 start |= Operation
 
 # This module declares the following Reaction RuleML elements:
-# * Operation		generic polymorphig Operation
+# * Operation		generic polymorphic formula
 
 # *** Operation ***
 
 ## the Operation attribute list
-Operation.attlist &= generic-Node.attlist?
+Operation.attlist &= generic-Formula.attlist?
 Operation.content |= Node.header, formula-Operation.choice*
 formula-Operation.choice |= formula-Operation
 Operation.type.def = Operation.content, Operation.attlist
