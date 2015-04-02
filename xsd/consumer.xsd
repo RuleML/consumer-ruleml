@@ -1695,13 +1695,16 @@
         forumulas. </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:group ref="ruleml:SimpleFormula-node.choice"/>
-      <xs:group ref="ruleml:And-fo-node.choice"/>
-      <xs:group ref="ruleml:Or-fo-node.choice"/>
-      <xs:group ref="ruleml:Negation-node.choice"/>
-      <xs:group ref="ruleml:Implication-fo-node.choice"/>
-      <xs:group ref="ruleml:Forall-fo-node.choice"/>
-      <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      <xs:choice>
+        <xs:group ref="ruleml:SimpleFormula-node.choice"/>
+        <xs:group ref="ruleml:And-fo-node.choice"/>
+        <xs:group ref="ruleml:Or-fo-node.choice"/>
+        <xs:group ref="ruleml:Negation-node.choice"/>
+        <xs:group ref="ruleml:Implication-fo-node.choice"/>
+        <xs:group ref="ruleml:Forall-fo-node.choice"/>
+        <xs:group ref="ruleml:Exists-fo-node.choice"/>
+      </xs:choice>
+      <xs:group ref="ruleml:Operation-node.choice"/>
     </xs:choice>
   </xs:group>
   

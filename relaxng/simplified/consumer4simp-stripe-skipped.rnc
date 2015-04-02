@@ -706,6 +706,7 @@ Naf =
      | Equivalent
      | Forall
      | Exists
+     | Operation
      | weak)
   }
 Equivalent =
@@ -2838,7 +2839,8 @@ weak =
        | Implies
        | Equivalent
        | Forall
-       | Exists)
+       | Exists
+       | Operation)
   }
 torso =
   element torso {
