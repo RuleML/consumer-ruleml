@@ -46,6 +46,10 @@
   <xsl:template match="xs:element[@name='Key']"></xsl:template>
   <xsl:template match="xs:element[@name='Material']"></xsl:template>
   <xsl:template match="xs:element[@name='Per']"></xsl:template>
+
+  <!-- Remove unused Node.choice and edge.choice -->
+  <xsl:template match="xs:group[@name='Node.choice']"></xsl:template>
+  <xsl:template match="xs:group[@name='edge.choice']"></xsl:template>
   
     
   <!-- Copies everything to the transformation output -->

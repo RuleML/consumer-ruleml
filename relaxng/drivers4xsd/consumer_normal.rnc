@@ -1,8 +1,8 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
-start |= Node.choice
-start |= edge.choice
+#start |= Node.choice
+#start |= edge.choice
 # 
 # ATOMIC FORMULAS INCLUDED
 #
