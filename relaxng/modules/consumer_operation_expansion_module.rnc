@@ -42,6 +42,7 @@ edge.choice |= formula-Operation
 AndFormula.choice |= Operation-node.choice
 OrFormula.choice |= Operation-node.choice
 NegFormula.choice |= Operation-node.choice
+NafFormula.choice |= Operation-node.choice
 PremiseFormula.choice |= Operation-node.choice
 ConclusionFormula.choice |= Operation-node.choice
 ForallFormula.choice |= Operation-node.choice

@@ -14,6 +14,8 @@ dcterms:rights [ "TBD" ]
 dc:relation [ "http://reaction.ruleml.org" ]
 start |= notAllowed
 Node.choice |= Interval_formula.def
+Node.choice |= Interval_term.def
+edge.choice |= arg_interval_formula.def
 edge.choice |= arg_interval_term.def
 
 # This module declares the following Reaction RuleML elements:

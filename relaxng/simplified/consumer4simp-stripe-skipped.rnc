@@ -21,6 +21,7 @@ start =
   | Var
   | Plex
   | Interval
+  | Interval_2
   | Negation
   | Operation
   | Rule
@@ -58,13 +59,17 @@ start =
   | arg
   | resl
   | repo
+  | content
+  | content_2
+  | content_3
   | arg_2
+  | arg_3
   | formula_5
   | formula_6
   | if_2
   | then_2
-  | arg_3
   | arg_4
+  | arg_5
 Atom =
   element Atom {
     (attribute closure {
@@ -781,6 +786,7 @@ Naf =
      | Equivalent
      | Forall
      | Exists
+     | Operation
      | weak)
   }
 Equivalent =
@@ -1152,7 +1158,7 @@ Interval =
        | Any
        | Timer
        | Plex
-       | arg_5),
+       | arg_2),
       (Skolem
        | Ind
        | Data
@@ -1167,7 +1173,7 @@ Interval =
        | Any
        | Timer
        | Plex
-       | arg_5)?)?
+       | arg_2)?)?
      | During
      | Overlaps
      | Starts
@@ -1205,6 +1211,66 @@ Interval =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
+     & attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?)
+  }
+Interval_2 =
+  element Interval {
+    ((Skolem
+      | Ind
+      | Data
+      | Interval_2
+      | Spatial_2
+      | Time_2
+      | Var
+      | Expr
+      | After
+      | Before
+      | Every
+      | Any
+      | Timer
+      | Plex
+      | arg_3),
+     (Skolem
+      | Ind
+      | Data
+      | Interval_2
+      | Spatial_2
+      | Time_2
+      | Var
+      | Expr
+      | After
+      | Before
+      | Every
+      | Any
+      | Timer
+      | Plex
+      | arg_3)?)?,
+    (attribute type {
+       xsd:string {
+         pattern =
+           "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+         minLength = "1"
+       }
+       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+     }?
      & attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1501,11 +1567,11 @@ Spatial =
        | Any
        | Timer
        | Plex
-       | arg_3)*,
+       | arg_4)*,
       repo?,
       slot*,
       resl?)
-     | content*),
+     | content_2*),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -1570,7 +1636,7 @@ After =
       | Any
       | Timer
       | Plex
-      | arg_2),
+      | arg_3),
      (Skolem
       | Ind
       | Data
@@ -1585,7 +1651,7 @@ After =
       | Any
       | Timer
       | Plex
-      | arg_2)?)?,
+      | arg_3)?)?,
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1648,7 +1714,7 @@ Before =
       | Any
       | Timer
       | Plex
-      | arg_2),
+      | arg_3),
      (Skolem
       | Ind
       | Data
@@ -1663,7 +1729,7 @@ Before =
       | Any
       | Timer
       | Plex
-      | arg_2)?)?,
+      | arg_3)?)?,
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1726,7 +1792,7 @@ Every =
      | Any
      | Timer
      | Plex
-     | arg_2)?,
+     | arg_3)?,
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1789,7 +1855,7 @@ Any =
      | Any
      | Timer
      | Plex
-     | arg_2)*,
+     | arg_3)*,
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1852,7 +1918,7 @@ Timer =
       | Any
       | Timer
       | Plex
-      | arg_2),
+      | arg_3),
      (Skolem
       | Ind
       | Data
@@ -1867,7 +1933,7 @@ Timer =
       | Any
       | Timer
       | Plex
-      | arg_2)?)?,
+      | arg_3)?)?,
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -1930,7 +1996,7 @@ During =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -1945,7 +2011,7 @@ During =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -2002,7 +2068,7 @@ Overlaps =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -2017,7 +2083,7 @@ Overlaps =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -2074,7 +2140,7 @@ Starts =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -2089,7 +2155,7 @@ Starts =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -2146,7 +2212,7 @@ Precedes =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -2161,7 +2227,7 @@ Precedes =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -2218,7 +2284,7 @@ Succeeds =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -2233,7 +2299,7 @@ Succeeds =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -2290,7 +2356,7 @@ Meets =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -2305,7 +2371,7 @@ Meets =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -2362,7 +2428,7 @@ Finishes =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -2377,7 +2443,7 @@ Finishes =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -2436,11 +2502,11 @@ Time =
        | Any
        | Timer
        | Plex
-       | arg_4)*,
+       | arg_5)*,
       repo?,
       slot*,
       resl?)
-     | content_2*),
+     | content*),
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -2925,7 +2991,8 @@ weak =
        | Implies
        | Equivalent
        | Forall
-       | Exists)
+       | Exists
+       | Operation)
   }
 torso =
   element torso {
@@ -3210,7 +3277,320 @@ repo =
       }?
     & (Var | Plex_3)
   }
+content =
+  element content {
+    ((text & _2*)
+     | Atom
+     | Rel
+     | And
+     | Or
+     | Implies
+     | Forall
+     | Exists
+     | Expr
+     | Fun
+     | Neg
+     | Naf
+     | Equivalent
+     | Equal
+     | Data
+     | Skolem
+     | Ind
+     | Var
+     | Plex
+     | Interval
+     | Interval_2
+     | Negation
+     | Operation
+     | Rule
+     | Spatial
+     | After
+     | Before
+     | Every
+     | Any
+     | Timer
+     | During
+     | Overlaps
+     | Starts
+     | Precedes
+     | Succeeds
+     | Meets
+     | Finishes
+     | Time
+     | op
+     | formula
+     | formula_2
+     | then
+     | if
+     | declare
+     | formula_3
+     | formula_4
+     | op_2
+     | degree
+     | strong
+     | weak
+     | torso
+     | oid
+     | slot
+     | left
+     | right
+     | arg
+     | resl
+     | repo
+     | content
+     | content_2
+     | content_3
+     | arg_2
+     | arg_3
+     | formula_5
+     | formula_6
+     | if_2
+     | then_2
+     | arg_4
+     | arg_5),
+    (attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?),
+    attribute index { xsd:positiveInteger }
+  }
+content_2 =
+  element content {
+    ((text & _2*)
+     | Atom
+     | Rel
+     | And
+     | Or
+     | Implies
+     | Forall
+     | Exists
+     | Expr
+     | Fun
+     | Neg
+     | Naf
+     | Equivalent
+     | Equal
+     | Data
+     | Skolem
+     | Ind
+     | Var
+     | Plex
+     | Interval
+     | Interval_2
+     | Negation
+     | Operation
+     | Rule
+     | Spatial
+     | After
+     | Before
+     | Every
+     | Any
+     | Timer
+     | During
+     | Overlaps
+     | Starts
+     | Precedes
+     | Succeeds
+     | Meets
+     | Finishes
+     | Time
+     | op
+     | formula
+     | formula_2
+     | then
+     | if
+     | declare
+     | formula_3
+     | formula_4
+     | op_2
+     | degree
+     | strong
+     | weak
+     | torso
+     | oid
+     | slot
+     | left
+     | right
+     | arg
+     | resl
+     | repo
+     | content
+     | content_2
+     | content_3
+     | arg_2
+     | arg_3
+     | formula_5
+     | formula_6
+     | if_2
+     | then_2
+     | arg_4
+     | arg_5),
+    (attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?),
+    attribute index { xsd:positiveInteger }
+  }
+content_3 =
+  element content {
+    ((text & _2*)
+     | Atom
+     | Rel
+     | And
+     | Or
+     | Implies
+     | Forall
+     | Exists
+     | Expr
+     | Fun
+     | Neg
+     | Naf
+     | Equivalent
+     | Equal
+     | Data
+     | Skolem
+     | Ind
+     | Var
+     | Plex
+     | Interval
+     | Interval_2
+     | Negation
+     | Operation
+     | Rule
+     | Spatial
+     | After
+     | Before
+     | Every
+     | Any
+     | Timer
+     | During
+     | Overlaps
+     | Starts
+     | Precedes
+     | Succeeds
+     | Meets
+     | Finishes
+     | Time
+     | op
+     | formula
+     | formula_2
+     | then
+     | if
+     | declare
+     | formula_3
+     | formula_4
+     | op_2
+     | degree
+     | strong
+     | weak
+     | torso
+     | oid
+     | slot
+     | left
+     | right
+     | arg
+     | resl
+     | repo
+     | content
+     | content_2
+     | content_3
+     | arg_2
+     | arg_3
+     | formula_5
+     | formula_6
+     | if_2
+     | then_2
+     | arg_4
+     | arg_5),
+    (attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?),
+    attribute index { xsd:positiveInteger }
+  }
 arg_2 =
+  element arg {
+    (Skolem
+     | Ind
+     | Data
+     | Interval_2
+     | Spatial_2
+     | Time_2
+     | Var
+     | Expr
+     | After
+     | Before
+     | Every
+     | Any
+     | Timer
+     | Plex),
+    (attribute index { xsd:positiveInteger }?
+     & attribute ns2:schemaLocation { text }?
+     & attribute xml:base { xsd:anyURI }?
+     & attribute xml:id { xsd:NCName }?
+     & attribute key {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?
+     & attribute keyref {
+         xsd:string {
+           pattern =
+             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+           minLength = "1"
+         }
+         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
+       }?)
+  }
+arg_3 =
   element arg {
     (Skolem
      | Ind
@@ -3422,7 +3802,7 @@ then_2 =
        | Exists
        | Operation)
   }
-arg_3 =
+arg_4 =
   element arg {
     (Skolem
      | Ind
@@ -3459,7 +3839,7 @@ arg_3 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
   }
-arg_4 =
+arg_5 =
   element arg {
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
@@ -3496,66 +3876,6 @@ arg_4 =
      | Timer
      | Plex)
   }
-Interval_2 =
-  element Interval {
-    ((Skolem
-      | Ind
-      | Data
-      | Interval_2
-      | Spatial_2
-      | Time_2
-      | Var
-      | Expr
-      | After
-      | Before
-      | Every
-      | Any
-      | Timer
-      | Plex
-      | arg_2),
-     (Skolem
-      | Ind
-      | Data
-      | Interval_2
-      | Spatial_2
-      | Time_2
-      | Var
-      | Expr
-      | After
-      | Before
-      | Every
-      | Any
-      | Timer
-      | Plex
-      | arg_2)?)?,
-    (attribute type {
-       xsd:string {
-         pattern =
-           "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-         minLength = "1"
-       }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
-  }
 Spatial_2 =
   element Spatial {
     (((Skolem
@@ -3572,11 +3892,11 @@ Spatial_2 =
        | Any
        | Timer
        | Plex
-       | arg_3)*,
+       | arg_4)*,
       repo?,
       slot*,
       resl?)
-     | content*),
+     | content_2*),
     (attribute type {
        xsd:string {
          pattern =
@@ -3621,11 +3941,11 @@ Time_2 =
        | Any
        | Timer
        | Plex
-       | arg_4)*,
+       | arg_5)*,
       repo?,
       slot*,
       resl?)
-     | content_2*),
+     | content*),
     (attribute ns2:schemaLocation { text }?
      & attribute xml:base { xsd:anyURI }?
      & attribute xml:id { xsd:NCName }?
@@ -3659,43 +3979,6 @@ _1 =
     attribute * { text }*,
     (text & _1*)
   }
-arg_5 =
-  element arg {
-    (Skolem
-     | Ind
-     | Data
-     | Interval_2
-     | Spatial_2
-     | Time_2
-     | Var
-     | Expr
-     | After
-     | Before
-     | Every
-     | Any
-     | Timer
-     | Plex),
-    (attribute index { xsd:positiveInteger }?
-     & attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
-  }
 Equal_2 =
   element Equal {
     (Skolem
@@ -3712,7 +3995,7 @@ Equal_2 =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (Skolem
      | Ind
      | Data
@@ -3727,7 +4010,7 @@ Equal_2 =
      | Any
      | Timer
      | Plex
-     | arg_2),
+     | arg_3),
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -3798,180 +4081,6 @@ formula_7 =
          }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
-  }
-content =
-  element content {
-    ((text & _2*)
-     | Atom
-     | Rel
-     | And
-     | Or
-     | Implies
-     | Forall
-     | Exists
-     | Expr
-     | Fun
-     | Neg
-     | Naf
-     | Equivalent
-     | Equal
-     | Data
-     | Skolem
-     | Ind
-     | Var
-     | Plex
-     | Interval
-     | Negation
-     | Operation
-     | Rule
-     | Spatial
-     | After
-     | Before
-     | Every
-     | Any
-     | Timer
-     | During
-     | Overlaps
-     | Starts
-     | Precedes
-     | Succeeds
-     | Meets
-     | Finishes
-     | Time
-     | op
-     | formula
-     | formula_2
-     | then
-     | if
-     | declare
-     | formula_3
-     | formula_4
-     | op_2
-     | degree
-     | strong
-     | weak
-     | torso
-     | oid
-     | slot
-     | left
-     | right
-     | arg
-     | resl
-     | repo
-     | arg_2
-     | formula_5
-     | formula_6
-     | if_2
-     | then_2
-     | arg_3
-     | arg_4),
-    (attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?),
-    attribute index { xsd:positiveInteger }
-  }
-content_2 =
-  element content {
-    ((text & _2*)
-     | Atom
-     | Rel
-     | And
-     | Or
-     | Implies
-     | Forall
-     | Exists
-     | Expr
-     | Fun
-     | Neg
-     | Naf
-     | Equivalent
-     | Equal
-     | Data
-     | Skolem
-     | Ind
-     | Var
-     | Plex
-     | Interval
-     | Negation
-     | Operation
-     | Rule
-     | Spatial
-     | After
-     | Before
-     | Every
-     | Any
-     | Timer
-     | During
-     | Overlaps
-     | Starts
-     | Precedes
-     | Succeeds
-     | Meets
-     | Finishes
-     | Time
-     | op
-     | formula
-     | formula_2
-     | then
-     | if
-     | declare
-     | formula_3
-     | formula_4
-     | op_2
-     | degree
-     | strong
-     | weak
-     | torso
-     | oid
-     | slot
-     | left
-     | right
-     | arg
-     | resl
-     | repo
-     | arg_2
-     | formula_5
-     | formula_6
-     | if_2
-     | then_2
-     | arg_3
-     | arg_4),
-    (attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?),
-    attribute index { xsd:positiveInteger }
   }
 Plex_2 =
   element Plex {
