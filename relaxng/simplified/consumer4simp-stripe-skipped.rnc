@@ -1144,45 +1144,36 @@ Interval =
   element Interval {
     oid?,
     degree?,
-    (((Skolem
-       | Ind
-       | Data
-       | Interval_2
-       | Spatial_2
-       | Time_2
-       | Var
-       | Expr
-       | After
-       | Before
-       | Every
-       | Any
-       | Timer
-       | Plex
-       | arg_2),
-      (Skolem
-       | Ind
-       | Data
-       | Interval_2
-       | Spatial_2
-       | Time_2
-       | Var
-       | Expr
-       | After
-       | Before
-       | Every
-       | Any
-       | Timer
-       | Plex
-       | arg_2)?)?
-     | During
-     | Overlaps
-     | Starts
-     | Precedes
-     | Succeeds
-     | Meets
-     | Finishes
-     | Equal_2
-     | formula_7),
+    ((Skolem
+      | Ind
+      | Data
+      | Interval_2
+      | Spatial_2
+      | Time_2
+      | Var
+      | Expr
+      | After
+      | Before
+      | Every
+      | Any
+      | Timer
+      | Plex
+      | arg_2),
+     (Skolem
+      | Ind
+      | Data
+      | Interval_2
+      | Spatial_2
+      | Time_2
+      | Var
+      | Expr
+      | After
+      | Before
+      | Every
+      | Any
+      | Timer
+      | Plex
+      | arg_2)?)?,
     (attribute style {
        "reasoning/single-valued"
        | "reasoning/multi-valued"
@@ -3978,109 +3969,6 @@ _1 =
   element * {
     attribute * { text }*,
     (text & _1*)
-  }
-Equal_2 =
-  element Equal {
-    (Skolem
-     | Ind
-     | Data
-     | Interval_2
-     | Spatial_2
-     | Time_2
-     | Var
-     | Expr
-     | After
-     | Before
-     | Every
-     | Any
-     | Timer
-     | Plex
-     | arg_3),
-    (Skolem
-     | Ind
-     | Data
-     | Interval_2
-     | Spatial_2
-     | Time_2
-     | Var
-     | Expr
-     | After
-     | Before
-     | Every
-     | Any
-     | Timer
-     | Plex
-     | arg_3),
-    (attribute style {
-       "reasoning/single-valued"
-       | "reasoning/multi-valued"
-       | xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-     }?
-     & attribute closure {
-         "universal"
-         | "existential"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
-  }
-formula_7 =
-  element formula {
-    (During
-     | Overlaps
-     | Starts
-     | Precedes
-     | Succeeds
-     | Meets
-     | Finishes
-     | Equal_2),
-    (attribute index { xsd:positiveInteger }?
-     & attribute ns2:schemaLocation { text }?
-     & attribute xml:base { xsd:anyURI }?
-     & attribute xml:id { xsd:NCName }?
-     & attribute key {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?
-     & attribute keyref {
-         xsd:string {
-           pattern =
-             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-           minLength = "1"
-         }
-         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
-       }?)
   }
 Plex_2 =
   element Plex {

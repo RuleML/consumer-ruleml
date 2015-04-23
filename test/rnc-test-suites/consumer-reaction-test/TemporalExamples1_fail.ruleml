@@ -16,7 +16,7 @@
 		<formula><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></formula>
 				
 		<!-- definition of a time instant (for a linear continous time model) with unpositional slot properties  --> 
-		<formula><Time key="time1" type="ruleml:TimeInstant">
+		<formula><Time key=":time1" type="ruleml:TimeInstant">
 			<slot><Ind>year</Ind><Ind>2011</Ind></slot>
 			<slot><Ind>month</Ind><Ind>03</Ind></slot>
 			<slot><Ind>day</Ind><Ind>21</Ind></slot>
@@ -31,25 +31,25 @@
 			</Time></formula>		
 			
 			<formula><Time>
-				<oid><Ind type="DatetimeClass1">datetime1</Ind></oid>
+				<oid><Ind type=":DatetimeClass1">datetime1</Ind></oid>
 				<slot><Ind>date</Ind><Data>2011-03-21</Data></slot>
 				<slot><Ind>time</Ind><Data>10:00:00-04:00</Data></slot>
 			</Time></formula>	
 			
 			<formula><Time>
-				<oid><Ind type="DatetimeClass2">datetime2</Ind></oid>
+				<oid><Ind type=":DatetimeClass2">datetime2</Ind></oid>
 				<slot><Ind>datetime</Ind><Plex><arg index="1"><Data>2011-03-21</Data></arg><arg index="2"><Data>10:00:00-04:00</Data></arg></Plex></slot>
 			</Time></formula>	
 			
 			<formula><Time>
-				<oid><Ind type="TimeIntervalClass">interval1</Ind></oid>
+				<oid><Ind type=":TimeIntervalClass">interval1</Ind></oid>
 				<slot><Ind>start</Ind><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></slot>
 				<slot><Ind>end</Ind><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2012-03-21T10:00:00-04:00</Data></arg></Time></slot>
 			</Time></formula>
 
 		<!-- time definition using the xs:any content model to define the time as OWL time instant --> 
 		<formula><Time>	
-			<content in> <!-- xs:any content -->
+			<content index="1"> <!-- xs:any content -->
 				<owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
 			</content>				
 		</Time></formula>
@@ -62,8 +62,8 @@
 
 		<!-- a user-defined functional time definition defining a time function "datetime" -->
 		<formula><Time>
-			<arg><Expr per="copy">
-				<op><Fun per="copy">datetime</Fun></op>
+			<arg><Expr>
+				<op><Fun>datetime</Fun></op>
 				<arg index="1"><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg>
 			</Expr></arg>
 		</Time></formula>
@@ -141,6 +141,97 @@
 		<formula><Interval type="ruleml:LeftClosedInterval">
 			<arg index="1"><Time type="ruleml:TimePoint"><arg><Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data></arg></Time></arg>
 		</Interval></formula>
+  
+  <!-- Interval wrapper around Allen operators is disallowed, whether with <arg> or <formula> -->
+  <!-- FAIL (arg incomplete, During not allowed here -->
+  <formula>
+    <Interval>
+      <arg><During>
+        <arg index="1">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t3</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg index="2">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </During></arg>
+    </Interval>
+  </formula>
+  <!-- FAIL (formula not allowed here -->
+  
+  <formula>
+    <Interval>
+      <formula><During>
+        <arg index="1">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t2</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t3</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+        <arg index="2">
+          <Interval>
+            <arg index="1">
+              <Time>
+                <arg>
+                  <Ind>t1</Ind>
+                </arg>
+              </Time>
+            </arg>
+            <arg index="2">
+              <Time>
+                <arg>
+                  <Ind>t4</Ind>
+                </arg>
+              </Time>
+            </arg>
+          </Interval>
+        </arg>
+      </During></formula>
+    </Interval>
+  </formula>
+  
+  
 				 
  
  

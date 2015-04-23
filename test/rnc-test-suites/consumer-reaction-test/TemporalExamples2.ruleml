@@ -194,8 +194,6 @@
 
       <!-- [t2,t3] during [t1,4] -->
       <formula>
-        <Interval>
-          <formula>
             <During>
               <arg index="1">
                 <Interval>
@@ -234,14 +232,10 @@
                 </Interval>
               </arg>
             </During>
-          </formula>
-        </Interval>
       </formula>
 
       <!-- [t1,t3] overlaps with [t2,t4] -->
       <formula>
-        <Interval>
-          <formula>
             <Overlaps>
               <arg index="1">
                 <Interval>
@@ -280,14 +274,10 @@
                 </Interval>
               </arg>
             </Overlaps>
-          </formula>
-        </Interval>
       </formula>
 
       <!-- [t1,t2] starts [t1,t4] -->
       <formula>
-        <Interval>
-          <formula>
             <Starts>
               <arg index="1">
                 <Interval>
@@ -326,14 +316,10 @@
                 </Interval>
               </arg>
             </Starts>
-          </formula>
-        </Interval>
       </formula>
 
       <!-- [t1,t2] precedes [t3,t4] -->
       <formula>
-        <Interval>
-          <formula>
             <Precedes>
               <arg index="1">
                 <Interval>
@@ -372,14 +358,10 @@
                 </Interval>
               </arg>
             </Precedes>
-          </formula>
-        </Interval>
       </formula>
 
       <!-- [t3,t4] succeeds [t1,t2] -->
       <formula>
-        <Interval>
-          <formula>
             <Succeeds>
               <arg>
                 <Interval>
@@ -418,14 +400,10 @@
                 </Interval>
               </arg>
             </Succeeds>
-          </formula>
-        </Interval>
       </formula>
 
       <!-- [t1,t2] meets [t2,t4] -->
       <formula>
-        <Interval>
-          <formula>
             <Meets>
               <arg>
                 <Interval>
@@ -464,16 +442,12 @@
                 </Interval>
               </arg>
             </Meets>
-          </formula>
-        </Interval>
       </formula>
 
       <!-- [t1,t2] equals [t1,t2] -->
       <formula>
-        <Interval>
-          <formula>
-            <Equal>
-              <arg>
+            <Equal type="rulemm:AllenOperator" style=":deep-equality">
+              <left>
                 <Interval>
                   <arg>
                     <Time>
@@ -490,8 +464,8 @@
                     </Time>
                   </arg>
                 </Interval>
-              </arg>
-              <arg>
+              </left>
+              <right>
                 <Interval>
                   <arg>
                     <Time>
@@ -508,16 +482,12 @@
                     </Time>
                   </arg>
                 </Interval>
-              </arg>
+              </right>
             </Equal>
-          </formula>
-        </Interval>
       </formula>
 
       <!-- [t1,t4] finishes [t3,t4] -->
       <formula>
-        <Interval>
-          <formula>
             <Finishes>
               <arg>
                 <Interval>
@@ -556,8 +526,6 @@
                 </Interval>
               </arg>
             </Finishes>
-          </formula>
-        </Interval>
       </formula>
 
 

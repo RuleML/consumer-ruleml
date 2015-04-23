@@ -37,6 +37,7 @@ start |= notAllowed
 #                  * Finishes
 
 spatial_temporal_algebra_group.content |= After | Before | Every | Any | Timer
+
 #
 interval_algebra_group.content |=
   During
@@ -46,15 +47,11 @@ interval_algebra_group.content |=
   | Succeeds
   | Meets
   | Finishes
-wrapped_interval_algebra_group.content |= interval_algebra_group.content
-  | IntervalAlgebraEqual
-#  | IntervalAlgebraOperation
-#Node.choice |= IntervalAlgebraEqual
+
 # Extend the attributes of the usual Equal element to make it generic
 reEqual.attlist &= type-att.choice?
 reEqual.attlist &= iri-att.choice?
-# This element is used only within an <Interval> wrapper
-IntervalAlgebraEqual = element Equal { IntervalAlgebraOperation.type.def }
+
 # IntervalAlgebraOperation = element Operation { IntervalAlgebraOperation.type.def }
 IntervalAlgebraOperation.attlist &= operator-interface.attlist?
 IntervalAlgebraOperation.attlist &= commonNode.attlist?

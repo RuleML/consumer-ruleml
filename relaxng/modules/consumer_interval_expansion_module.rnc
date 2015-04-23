@@ -40,7 +40,7 @@ Interval_term.attlist &= commonNode.attlist?
 #
 Interval_formula.def = element Interval { Interval_formula.type.def }
 Interval_formula.type.def = Interval_formula.content, Interval_formula.attlist
-Interval_formula.content |= Interval_formula.header, ((arg_interval_formula.choice, arg_interval_formula.choice?)? | formula_interval.choice )
+Interval_formula.content |= Interval_formula.header, (arg_interval_formula.choice, arg_interval_formula.choice?)? 
 Interval_formula.header &= Atom.header?
 Interval_formula.attlist &= formula-interface.attlist?
 Interval_formula.attlist &= type-att.choice?
@@ -58,15 +58,6 @@ arg_interval_formula.type.def = arg_interval_formula.content, arg_interval_formu
 arg_interval_formula.content |= arg.content
 arg_interval_formula.attlist &= index-attrib.choice?
 arg_interval_formula.attlist &= commonInit.attlist?
-#
-# This pattern is needed only for the use of Interval as a wrapper around an Allen Interval operator
-# This could be put into a separate module so that is optional.
-formula_interval.choice |= formula_interval.def
-formula_interval.def = element formula { formula_interval.type.def }
-formula_interval.type.def = formula_interval.content, formula_interval.attlist
-formula_interval.content |= wrapped_interval_algebra_group.content
-formula_interval.attlist &= index-attrib.choice?
-formula_interval.attlist &= commonInit.attlist?
 
 # in interval module
 SimpleKeyTerm.choice |= Interval_term-node.choice

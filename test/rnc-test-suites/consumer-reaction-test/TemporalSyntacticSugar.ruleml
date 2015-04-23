@@ -136,8 +136,6 @@
   <!-- different interval algebra definitions -->
 
   <!-- [t2,t3] during [t1,4] -->
-  <Interval>
-    <formula>
       <During>
         <arg index="1">
           <Interval>
@@ -176,12 +174,9 @@
           </Interval>
         </arg>
       </During>
-    </formula>
-  </Interval>
 
   <!-- [t1,t3] overlaps with [t2,t4] -->
-  <Interval>
-      <formula><Overlaps>
+        <Overlaps>
         <arg index="1">
           <Interval>
             <arg index="1">
@@ -218,12 +213,10 @@
             </arg>
           </Interval>
         </arg>
-      </Overlaps></formula>
-  </Interval>
+      </Overlaps>
 
   <!-- [t1,t2] starts [t1,t4] -->
-  <Interval>
-      <formula><Starts>
+        <Starts>
         <arg index="1">
           <Interval>
             <arg index="1">
@@ -260,12 +253,10 @@
             </arg>
           </Interval>
         </arg>
-      </Starts></formula>
-  </Interval>
+      </Starts>
 
   <!-- [t1,t2] precedes [t3,t4] -->
-  <Interval>
-      <formula><Precedes>
+        <Precedes>
         <arg index="1">
           <Interval>
             <arg index="1">
@@ -302,12 +293,10 @@
             </arg>
           </Interval>
         </arg>
-      </Precedes></formula>
-  </Interval>
+      </Precedes>
 
   <!-- [t3,t4] succeeds [t1,t2] -->
-  <Interval>
-      <formula><Succeeds>
+      <Succeeds>
         <arg>
           <Interval>
             <arg>
@@ -344,12 +333,12 @@
             </arg>
           </Interval>
         </arg>
-      </Succeeds></formula>
-  </Interval>
-
+      </Succeeds>
   <!-- [t1,t2] meets [t2,t4] -->
-  <Interval>
-      <formula><Meets>
+      <Meets>
+        
+        
+        
         <arg>
           <Interval>
             <arg>
@@ -386,13 +375,11 @@
             </arg>
           </Interval>
         </arg>
-      </Meets></formula>
-  </Interval>
+      </Meets>
 
   <!-- [t1,t2] equals [t1,t2] -->
-  <Interval>
-      <formula><Equal>
-        <arg>
+     <Equal>
+        <left>
           <Interval>
             <arg>
               <Time>
@@ -409,8 +396,8 @@
               </Time>
             </arg>
           </Interval>
-        </arg>
-        <arg>
+        </left>
+        <right>
           <Interval>
             <arg>
               <Time>
@@ -427,13 +414,11 @@
               </Time>
             </arg>
           </Interval>
-        </arg>
-      </Equal></formula>
-  </Interval>
+        </right>
+      </Equal>
 
   <!-- [t1,t4] finishes [t3,t4] -->
-  <Interval>
-      <formula><Finishes>
+     <Finishes>
         <arg>
           <Interval>
             <arg>
@@ -470,8 +455,7 @@
             </arg>
           </Interval>
         </arg>
-      </Finishes></formula>
-  </Interval>
+      </Finishes>
 
 
 </And>
