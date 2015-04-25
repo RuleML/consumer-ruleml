@@ -91,6 +91,10 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ift
 include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
+#
+# ASYNCHRONOUS ATTRIBUTE-SKIPPING MODE ENABLED
+#
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/attribute_skipping_expansion_module.rnc" inherit = ruleml {start |= notAllowed}
 # 
 # EXPLICIT DATATYPING ENABLED (include in RNC, not in 4simp or 4xsd)
 #

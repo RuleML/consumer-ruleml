@@ -2571,7 +2571,8 @@ op =
   }
 formula =
   element formula {
-    attribute ns2:schemaLocation { text }?
+    attribute index { xsd:positiveInteger }?
+    & attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
@@ -2615,7 +2616,8 @@ formula =
   }
 formula_2 =
   element formula {
-    attribute ns2:schemaLocation { text }?
+    attribute index { xsd:positiveInteger }?
+    & attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
     & attribute key {
