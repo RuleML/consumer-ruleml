@@ -30,7 +30,7 @@ assume classical negation, for classical production rules it would assume inflat
         <!-- we are using negation as failure in the condition, i.e. if the goal can be proofen positively from the closed knowledge base
            the condition fails -->
 
-        <Negation type="ruleml:NegationAsFailure" >
+        <Negation style="ruleml:NegationAsFailure" >
           <!-- note: we could also use the shortcut notation <Naf> -->
           <Atom>
             <op>
@@ -51,7 +51,7 @@ assume classical negation, for classical production rules it would assume inflat
         <!-- in the head we use strong classical negation , to explicitly state that John dislikes persons who do not like wine -->
 
 
-        <Negation type="ruleml:ClassicalNegation">
+        <Negation type="ruleml:ClassicalNegationType" style="ruleml:ClassicalNegation">
           <!-- note: we could also use the shortcut notation <Neg> -->
           <Atom>
             <op>
@@ -69,7 +69,7 @@ assume classical negation, for classical production rules it would assume inflat
 
     <!-- we explicitly state that Mary dislikes wine. -->
 
-    <Negation type="ruleml:ClassicalNegation">
+  <Negation style="ruleml:ClassicalNegation">
       <!-- note: we could also use the shortcut notation <Neg> -->
       <Atom>
         <op>

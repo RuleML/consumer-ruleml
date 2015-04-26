@@ -213,13 +213,13 @@
         </xs:annotation>
         <xs:complexType>
           <xs:group ref="ruleml:formula_And.content"/>
-          <xs:attributeGroup ref="ruleml:formulat_And-datt.choice"/>
+          <xs:attributeGroup ref="ruleml:formula_And-datt.choice"/>
           <xs:attributeGroup ref="ruleml:formula_And.attlist"/>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
-  <xs:attributeGroup name="formulat_And-datt.choice">
+  <xs:attributeGroup name="formula_And-datt.choice">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="formula_And.attlist">
@@ -328,13 +328,13 @@
         </xs:annotation>
         <xs:complexType>
           <xs:group ref="ruleml:formula_Or.content"/>
-          <xs:attributeGroup ref="ruleml:formulat_Or-datt.choice"/>
+          <xs:attributeGroup ref="ruleml:formula_Or-datt.choice"/>
           <xs:attributeGroup ref="ruleml:formula_Or.attlist"/>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
-  <xs:attributeGroup name="formulat_Or-datt.choice">
+  <xs:attributeGroup name="formula_Or-datt.choice">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="formula_Or.attlist">
@@ -1368,6 +1368,10 @@
       <xs:group ref="ruleml:formula-Operation"/>
     </xs:choice>
   </xs:group>
+  
+  <xs:attributeGroup name="formulat_Operation-datt.choice">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+  </xs:attributeGroup>
   
   
   
@@ -2802,12 +2806,6 @@
           http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="iri" type="ruleml:iri.value">
-      <xs:annotation>
-        <xs:documentation>An attribute for referring to a IRI.     See
-          http://ruleml.org/1.02/glossary/#gloss-@iri</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
@@ -3083,7 +3081,6 @@
   
   <xs:attributeGroup name="formula-Operation.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
   <xs:group name="formula_Operation.content">
     <xs:sequence>
@@ -3096,7 +3093,15 @@
   </xs:complexType>
   <xs:group name="formula-Operation">
     <xs:sequence>
-      <xs:element form="qualified" name="formula" type="ruleml:formula-Operation.type.def"/>
+      <xs:element form="qualified" name="formula">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ruleml:formula-Operation.type.def">
+              <xs:attributeGroup ref="ruleml:formulat_Operation-datt.choice"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:group>
   

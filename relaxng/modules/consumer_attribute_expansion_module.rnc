@@ -34,7 +34,6 @@ style.value |= AbsIRI.datatype
 #
 generic-Node.attlist &= commonNode.attlist?
 generic-Node.attlist &= type-att.choice?
-generic-Node.attlist &= iri-att.choice?
 generic-Node.attlist &= style-att.choice?
 #
 generic-Formula.attlist &= generic-Node.attlist?

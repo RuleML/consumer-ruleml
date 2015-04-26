@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/soap-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <soap:Header>
+  </soap:Header>
+  <soap:Body  xmlns:ruleml="http://ruleml.org/spec">
+  <!-- Following http://plato.stanford.edu/entries/logic-temporal/#1 subsection 1.1 -->
+      <!-- "It has at some time been the case that Adrian worked." -->
+      <!-- A-->
+      <ruleml:Operation style="http://example.org/tense/Past">
+        <ruleml:Atom>
+          <ruleml:Rel>works</ruleml:Rel>
+          <ruleml:Ind>Adrian</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:Operation>
+  </soap:Body>
+</soap:Envelope>

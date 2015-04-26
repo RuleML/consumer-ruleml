@@ -32,10 +32,10 @@ Node.choice |= Operation
 Operation-node.choice |= Operation
 #
 formula-Operation.attlist &= commonInit.attlist?
-formula-Operation.attlist &= index-attrib.choice?
 formula_Operation.content |= AndFormula.choice
 formula-Operation.type.def = formula_Operation.content, formula-Operation.attlist
-formula-Operation = element formula { formula-Operation.type.def }
+formula-Operation = element formula { formulat_Operation-datt.choice & formula-Operation.type.def }
+formulat_Operation-datt.choice |= index-attrib.choice
 edge.choice |= formula-Operation
 
 #

@@ -14,7 +14,7 @@ This example shows how the generic Operation is used as modal connective in moda
     
     <!-- it is possible that -->
     <!-- normalized -->
-    <Operation type="ruleml:AlethicOperation" iri="ruleml:Possible">
+    <Operation type="ruleml:AlethicOperation" style="ruleml:Possible">
       <formula index="1">        
         <Atom>
           <Rel>p</Rel>
@@ -23,7 +23,7 @@ This example shows how the generic Operation is used as modal connective in moda
     </Operation>
 
   <!-- compact -->
-  <Operation type="ruleml:AlethicOperation" iri="ruleml:Possible">
+  <Operation type="ruleml:AlethicOperation" style="ruleml:Possible">
     <Atom>
       <Rel>p</Rel>
     </Atom>
@@ -31,7 +31,7 @@ This example shows how the generic Operation is used as modal connective in moda
   
   <!-- it is not necessary that not  (= it is possible that) -->
     <Neg>
-      <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
+      <Operation type="ruleml:AlethicOperation" style="ruleml:Necessary">
         <Neg>
           <Atom>
             <Rel>p</Rel>
@@ -43,14 +43,14 @@ This example shows how the generic Operation is used as modal connective in moda
     <Equivalent>
       <!-- it is not necessary that -->
       <Neg>
-        <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
+        <Operation type="ruleml:AlethicOperation" style="ruleml:Necessary">
           <Atom>
             <Rel>p</Rel>
           </Atom>
         </Operation>
       </Neg>
       <!-- it is possible that not -->
-      <Operation type="ruleml:AlethicOperation" iri="ruleml:Possible">        
+      <Operation type="ruleml:AlethicOperation" style="ruleml:Possible">        
         <Neg>
           <Atom>
             <Rel>p</Rel>
@@ -62,7 +62,7 @@ This example shows how the generic Operation is used as modal connective in moda
     <!-- For all X it is necessary that p(X) -->
     <Forall>
       <Var>X</Var>
-      <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
+      <Operation type="ruleml:AlethicOperation" style="ruleml:Necessary">
         <Atom>
           <Rel>p</Rel>
           <Var>X</Var>
@@ -71,7 +71,7 @@ This example shows how the generic Operation is used as modal connective in moda
     </Forall>
 
     <!-- Barcan formulae: it is necessary that for all X it is p(X) (= For all X it is necessary that p(X)) -->
-    <Operation type="ruleml:AlethicOperation" iri="ruleml:Necessary">
+    <Operation type="ruleml:AlethicOperation" style="ruleml:Necessary">
       <Atom closure="universal">
         <Rel>p</Rel>
         <Var>X</Var>
@@ -82,7 +82,7 @@ This example shows how the generic Operation is used as modal connective in moda
     <!-- modal rule: "if obliged(p(X)) then permitted(p(X))" -->    
     <Implies>
       <if>
-        <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">            
+        <Operation type="ruleml:DeonticOperation" style="ruleml:Obliged">            
           <Atom>
             <Rel>p</Rel>
             <Var>X</Var>
@@ -90,7 +90,7 @@ This example shows how the generic Operation is used as modal connective in moda
         </Operation>
       </if>
       <then>
-        <Operation type="ruleml:DeonticOperation" iri="ruleml:Permitted"> 
+        <Operation type="ruleml:DeonticOperation" style="ruleml:Permitted"> 
           <Atom>
             <Rel>p</Rel>
             <Var>X</Var>
@@ -102,7 +102,7 @@ This example shows how the generic Operation is used as modal connective in moda
     
     <!-- modal rule: "obliged(if p(X) then q(X))" -->
     
-    <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">
+    <Operation type="ruleml:DeonticOperation" style="ruleml:Obliged">
       <Implies>
         <if>
           <Atom>
@@ -123,7 +123,7 @@ This example shows how the generic Operation is used as modal connective in moda
     
    <Implies>
         <if>
-          <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">            
+          <Operation type="ruleml:DeonticOperation" style="ruleml:Obliged">            
               <Atom>
                 <Rel>p</Rel>
                 <Var>X</Var>
@@ -131,7 +131,7 @@ This example shows how the generic Operation is used as modal connective in moda
           </Operation>  
         </if>
         <then>
-          <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged"> 
+          <Operation type="ruleml:DeonticOperation" style="ruleml:Obliged"> 
             <Atom>
               <Rel>q</Rel>
               <Var>X</Var>
@@ -145,7 +145,7 @@ This example shows how the generic Operation is used as modal connective in moda
     <Implies>
       <if>
         <And>
-          <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged">
+          <Operation type="ruleml:DeonticOperation" style="ruleml:Obliged">
             <Neg>            
               <Atom>
                 <Rel>p</Rel>
@@ -162,7 +162,7 @@ This example shows how the generic Operation is used as modal connective in moda
         </And>  
       </if>
       <then>
-        <Operation type="ruleml:DeonticOperation" iri="ruleml:Obliged"> 
+        <Operation type="ruleml:DeonticOperation" style="ruleml:Obliged"> 
           <Atom>
             <Rel>q</Rel>
             <Var>X</Var>
@@ -177,7 +177,7 @@ This example shows how the generic Operation is used as modal connective in moda
     
     <Implies>
       <if>
-        <Operation type="ruleml:Connective" iri="ruleml:And"> <!-- operator connective And -->
+        <Operation type="ruleml:Connective" style="ruleml:And"> <!-- operator connective And -->
           
           <Atom>
             <Rel iri="ruleml:Happens"/>
