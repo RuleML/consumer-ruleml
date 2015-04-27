@@ -113,7 +113,7 @@
       ><stop offset="0%" stop-color="rgb(249,250,254)" stop-opacity="1"
         /><stop offset="100%" stop-color="rgb(241,242,246)" stop-opacity="1"
       /></linearGradient
-      ><linearGradient gradientUnits="userSpaceOnUse" id="linearGradient28" spreadMethod="pad" x1="371" x2="787" y1="72" y2="72"
+      ><linearGradient gradientUnits="userSpaceOnUse" id="linearGradient28" spreadMethod="pad" x1="371" x2="732" y1="72" y2="72"
       ><stop offset="0%" stop-color="silver" stop-opacity="1"
         /><stop offset="100%" stop-color="rgb(249,250,254)" stop-opacity="1"
       /></linearGradient
@@ -125,7 +125,7 @@
       ><stop offset="0%" stop-color="rgb(253,250,202)" stop-opacity="1"
         /><stop offset="100%" stop-color="rgb(253,250,202)" stop-opacity="1"
       /></linearGradient
-      ><linearGradient gradientUnits="userSpaceOnUse" id="linearGradient31" spreadMethod="pad" x1="456" x2="802" y1="116" y2="116"
+      ><linearGradient gradientUnits="userSpaceOnUse" id="linearGradient31" spreadMethod="pad" x1="456" x2="747" y1="116" y2="116"
       ><stop offset="0%" stop-color="silver" stop-opacity="1"
         /><stop offset="100%" stop-color="rgb(249,250,254)" stop-opacity="1"
       /></linearGradient
@@ -541,9 +541,9 @@
       /><line clip-path="url(#clipPath1)" fill="none" stroke="silver" stroke-width="1" x1="284" x2="284" y1="316" y2="474"
       /><line clip-path="url(#clipPath1)" fill="none" stroke="silver" stroke-width="1" x1="296" x2="323" y1="486" y2="486"
       /><path clip-path="url(#clipPath1)" d="M284 474 A12 12 0 0 0 296 486" fill="none" stroke="silver" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="rgb(249,250,254)" points=" 309 40 937 40 938 41 939 41 940 42 941 43 942 44 942 45 943 46 943 221 942 222 942 223 941 224 940 225 939 226 938 226 937 227 309 227" shape-rendering="crispEdges" stroke="none"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 309 40 937 40 938 41 939 41 940 42 941 43 942 44 942 45 943 46 943 221 942 222 942 223 941 224 940 225 939 226 938 226 937 227 309 227" shape-rendering="crispEdges" stroke="silver"
-      /><rect clip-path="url(#clipPath1)" fill="url(#linearGradient28)" height="2" shape-rendering="crispEdges" stroke="none" width="416" x="371" y="72"
+      /><polygon clip-path="url(#clipPath1)" fill="rgb(249,250,254)" points=" 309 40 863 40 864 41 865 41 866 42 867 43 868 44 868 45 869 46 869 221 868 222 868 223 867 224 866 225 865 226 864 226 863 227 309 227" shape-rendering="crispEdges" stroke="none"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 309 40 863 40 864 41 865 41 866 42 867 43 868 44 868 45 869 46 869 221 868 222 868 223 867 224 866 225 865 226 864 226 863 227 309 227" shape-rendering="crispEdges" stroke="silver"
+      /><rect clip-path="url(#clipPath1)" fill="url(#linearGradient28)" height="2" shape-rendering="crispEdges" stroke="none" width="361" x="371" y="72"
       /><rect clip-path="url(#clipPath1)" fill="url(#linearGradient29)" height="2" shape-rendering="crispEdges" stroke="none" width="60" x="311" y="72"
     /></g
     ><g fill="rgb(25,101,179)" font-family="sans-serif" font-size="11" shape-rendering="crispEdges" stroke="rgb(25,101,179)" stroke-linecap="butt" text-rendering="geometricPrecision"
@@ -585,9 +585,9 @@
       /><rect clip-path="url(#clipPath1)" fill="black" height="3" stroke="none" width="2" x="327" y="149"
       /><circle clip-path="url(#clipPath1)" cx="360" cy="147" fill="none" r="5" shape-rendering="auto" stroke="black"
       /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="358" x2="362" y1="147" y2="147"
-      /><polygon clip-path="url(#clipPath1)" fill="rgb(249,250,254)" points=" 394 84 929 84 930 85 931 85 932 86 933 87 934 88 934 89 935 90 935 214 934 215 934 216 933 217 932 218 931 219 930 219 929 220 394 220" stroke="none" stroke-width="2"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 394 84 929 84 930 85 931 85 932 86 933 87 934 88 934 89 935 90 935 214 934 215 934 216 933 217 932 218 931 219 930 219 929 220 394 220" stroke="silver" stroke-width="2"
-      /><rect clip-path="url(#clipPath1)" fill="url(#linearGradient31)" height="2" stroke="none" stroke-width="2" width="346" x="456" y="116"
+      /><polygon clip-path="url(#clipPath1)" fill="rgb(249,250,254)" points=" 394 84 855 84 856 85 857 85 858 86 859 87 860 88 860 89 861 90 861 214 860 215 860 216 859 217 858 218 857 219 856 219 855 220 394 220" stroke="none" stroke-width="2"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 394 84 855 84 856 85 857 85 858 86 859 87 860 88 860 89 861 90 861 214 860 215 860 216 859 217 858 218 857 219 856 219 855 220 394 220" stroke="silver" stroke-width="2"
+      /><rect clip-path="url(#clipPath1)" fill="url(#linearGradient31)" height="2" stroke="none" stroke-width="2" width="291" x="456" y="116"
       /><rect clip-path="url(#clipPath1)" fill="url(#linearGradient32)" height="2" stroke="none" stroke-width="2" width="60" x="396" y="116"
       /><rect clip-path="url(#clipPath1)" height="5" stroke="none" width="5" x="418" y="93"
       /><rect clip-path="url(#clipPath1)" height="5" stroke="none" width="5" x="418" y="100"
@@ -627,34 +627,34 @@
       /><rect clip-path="url(#clipPath1)" fill="black" height="3" stroke="none" width="2" x="412" y="149"
       /><circle clip-path="url(#clipPath1)" cx="445" cy="147" fill="none" r="5" shape-rendering="auto" stroke="black"
       /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="443" x2="447" y1="147" y2="147"
-      /><polygon clip-path="url(#clipPath1)" fill="rgb(224,225,228)" points=" 483 138 484 137 484 136 485 135 486 134 487 133 488 133 489 132 721 132 722 133 723 133 724 134 725 135 726 136 726 137 727 138 727 164 726 165 726 166 725 167 724 168 723 169 722 169 721 170 489 170 488 169 487 169 486 168 485 167 484 166 484 165 483 164" shape-rendering="auto" stroke="none"
-      /><polygon clip-path="url(#clipPath1)" fill="rgb(199,200,203)" points=" 482 137 483 136 483 135 484 134 485 133 486 132 487 132 488 131 720 131 721 132 722 132 723 133 724 134 725 135 725 136 726 137 726 163 725 164 725 165 724 166 723 167 722 168 721 168 720 169 488 169 487 168 486 168 485 167 484 166 483 165 483 164 482 163" shape-rendering="auto" stroke="none"
-      /><polygon clip-path="url(#clipPath1)" fill="rgb(149,150,152)" points=" 481 136 482 135 482 134 483 133 484 132 485 131 486 131 487 130 719 130 720 131 721 131 722 132 723 133 724 134 724 135 725 136 725 162 724 163 724 164 723 165 722 166 721 167 720 167 719 168 487 168 486 167 485 167 484 166 483 165 482 164 482 163 481 162" shape-rendering="auto" stroke="none"
-      /><polygon clip-path="url(#clipPath1)" fill="url(#linearGradient34)" points=" 479 134 480 133 480 132 481 131 482 130 483 129 484 129 485 128 717 128 718 129 719 129 720 130 721 131 722 132 722 133 723 134 723 148 722 148 722 148 721 148 720 148 719 148 718 148 717 148 485 148 484 148 483 148 482 148 481 148 480 148 480 148 479 148" stroke="none"
+      /><polygon clip-path="url(#clipPath1)" fill="rgb(224,225,228)" points=" 483 138 484 137 484 136 485 135 486 134 487 133 488 133 489 132 647 132 648 133 649 133 650 134 651 135 652 136 652 137 653 138 653 164 652 165 652 166 651 167 650 168 649 169 648 169 647 170 489 170 488 169 487 169 486 168 485 167 484 166 484 165 483 164" shape-rendering="auto" stroke="none"
+      /><polygon clip-path="url(#clipPath1)" fill="rgb(199,200,203)" points=" 482 137 483 136 483 135 484 134 485 133 486 132 487 132 488 131 646 131 647 132 648 132 649 133 650 134 651 135 651 136 652 137 652 163 651 164 651 165 650 166 649 167 648 168 647 168 646 169 488 169 487 168 486 168 485 167 484 166 483 165 483 164 482 163" shape-rendering="auto" stroke="none"
+      /><polygon clip-path="url(#clipPath1)" fill="rgb(149,150,152)" points=" 481 136 482 135 482 134 483 133 484 132 485 131 486 131 487 130 645 130 646 131 647 131 648 132 649 133 650 134 650 135 651 136 651 162 650 163 650 164 649 165 648 166 647 167 646 167 645 168 487 168 486 167 485 167 484 166 483 165 482 164 482 163 481 162" shape-rendering="auto" stroke="none"
+      /><polygon clip-path="url(#clipPath1)" fill="url(#linearGradient34)" points=" 479 134 480 133 480 132 481 131 482 130 483 129 484 129 485 128 643 128 644 129 645 129 646 130 647 131 648 132 648 133 649 134 649 148 648 148 648 148 647 148 646 148 645 148 644 148 643 148 485 148 484 148 483 148 482 148 481 148 480 148 480 148 479 148" stroke="none"
       /><polygon clip-path="url(#clipPath1)" fill="rgb(230,230,230)" points=" 479 148 480 148 480 148 481 148 482 148 483 148 484 148 485 148 517 148 517 148 517 148 517 148 517 148 517 148 517 148 517 148 517 160 517 161 517 162 517 163 517 164 517 165 517 165 517 166 485 166 484 165 483 165 482 164 481 163 480 162 480 161 479 160" stroke="none"
-      /><polygon clip-path="url(#clipPath1)" fill="rgb(242,242,242)" points=" 517 148 517 148 517 148 517 148 517 148 517 148 517 148 517 148 717 148 718 148 719 148 720 148 721 148 722 148 722 148 723 148 723 160 722 161 722 162 721 163 720 164 719 165 718 165 717 166 517 166 517 165 517 165 517 164 517 163 517 162 517 161 517 160" stroke="none"
-      /><line clip-path="url(#clipPath1)" fill="none" stroke="white" x1="479" x2="722" y1="148" y2="148"
+      /><polygon clip-path="url(#clipPath1)" fill="rgb(242,242,242)" points=" 517 148 517 148 517 148 517 148 517 148 517 148 517 148 517 148 643 148 644 148 645 148 646 148 647 148 648 148 648 148 649 148 649 160 648 161 648 162 647 163 646 164 645 165 644 165 643 166 517 166 517 165 517 165 517 164 517 163 517 162 517 161 517 160" stroke="none"
+      /><line clip-path="url(#clipPath1)" fill="none" stroke="white" x1="479" x2="648" y1="148" y2="148"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" x="485" xml:space="preserve" y="161"
       >Type</text
       ><text clip-path="url(#clipPath1)" fill="black" stroke="none" x="523" xml:space="preserve" y="161"
-      >Extension of 'ruleml:degree.content'</text
+      >ruleml:degree.type.def</text
       ><line clip-path="url(#clipPath1)" fill="none" stroke="white" x1="517" x2="517" y1="148" y2="165"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 479 134 480 133 480 132 481 131 482 130 483 129 484 129 485 128 717 128 718 129 719 129 720 130 721 131 722 132 722 133 723 134 723 160 722 161 722 162 721 163 720 164 719 165 718 165 717 166 485 166 484 165 483 165 482 164 481 163 480 162 480 161 479 160" shape-rendering="auto" stroke="black"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 479 134 480 133 480 132 481 131 482 130 483 129 484 129 485 128 643 128 644 129 645 129 646 130 647 131 648 132 648 133 649 134 649 160 648 161 648 162 647 163 646 164 645 165 644 165 643 166 485 166 484 165 483 165 482 164 481 163 480 162 480 161 479 160" shape-rendering="auto" stroke="black"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" x="487" xml:space="preserve" y="142"
       >ruleml:degree</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" width="10" x="717" y="160"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 719 168 719 167 722 164 722 163 721 162 725 162 725 166 724 165 723 165 720 168" stroke="black"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 719 168 719 167 722 164 722 163 721 162 725 162 725 166 724 165 723 165 720 168" stroke="none"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" width="10" x="717" y="160"
-      /><circle clip-path="url(#clipPath1)" cx="732" cy="147" fill="none" r="5" shape-rendering="auto" stroke="black"
-      /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="730" x2="734" y1="147" y2="147"
-      /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="732" x2="732" y1="145" y2="149"
-      /><polygon clip-path="url(#clipPath1)" fill="url(#linearGradient35)" points=" 479 185 480 184 480 183 481 182 482 181 483 180 484 180 485 179 492 179 499 172 506 179 915 179 916 180 917 180 918 181 919 182 920 183 920 184 921 185 921 205 920 206 920 207 919 208 918 209 917 210 916 210 915 211 485 211 484 210 483 210 482 209 481 208 480 207 480 206 479 205" stroke="none"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 479 185 480 184 480 183 481 182 482 181 483 180 484 180 485 179 492 179 499 172 506 179 915 179 916 180 917 180 918 181 919 182 920 183 920 184 921 185 921 205 920 206 920 207 919 208 918 209 917 210 916 210 915 211 485 211 484 210 483 210 482 209 481 208 480 207 480 206 479 205" shape-rendering="auto" stroke="rgb(224,225,228)"
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" width="10" x="643" y="160"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 645 168 645 167 648 164 648 163 647 162 651 162 651 166 650 165 649 165 646 168" stroke="black"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 645 168 645 167 648 164 648 163 647 162 651 162 651 166 650 165 649 165 646 168" stroke="none"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" width="10" x="643" y="160"
+      /><circle clip-path="url(#clipPath1)" cx="658" cy="147" fill="none" r="5" shape-rendering="auto" stroke="black"
+      /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="656" x2="660" y1="147" y2="147"
+      /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="658" x2="658" y1="145" y2="149"
+      /><polygon clip-path="url(#clipPath1)" fill="url(#linearGradient35)" points=" 479 185 480 184 480 183 481 182 482 181 483 180 484 180 485 179 492 179 499 172 506 179 841 179 842 180 843 180 844 181 845 182 846 183 846 184 847 185 847 205 846 206 846 207 845 208 844 209 843 210 842 210 841 211 485 211 484 210 483 210 482 209 481 208 480 207 480 206 479 205" stroke="none"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 479 185 480 184 480 183 481 182 482 181 483 180 484 180 485 179 492 179 499 172 506 179 841 179 842 180 843 180 844 181 845 182 846 183 846 184 847 185 847 205 846 206 846 207 845 208 844 209 843 210 842 210 841 211 485 211 484 210 483 210 482 209 481 208 480 207 480 206 479 205" shape-rendering="auto" stroke="rgb(224,225,228)"
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="482" xml:space="preserve" y="192"
-      >An optional uncertainty value (between 0.0 and 1.0) that may be assigned to simple </text
+      >An optional uncertainty value (between 0.0 and 1.0) that may be assigned </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="482" xml:space="preserve" y="205"
-      >formulas. See...</text
+      >to simple formulas. See...</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="451" x2="454" y1="147" y2="147"

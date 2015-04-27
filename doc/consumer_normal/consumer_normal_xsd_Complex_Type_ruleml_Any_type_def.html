@@ -352,13 +352,12 @@
                         <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Any.type.def" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Any.type.def');" class="control" /></div>
                         </td>
                         <td>
-                           <div id="model_Any.type.def" style="display:block">(<b><a href="consumer_normal_xsd_Element_Group_ruleml_interval_anycontent.html#interval_anycontent_content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:content')">ruleml:content</a></b>) | (<b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_def.html#arg_interval.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b>)
-                           </div>
+                           <div id="model_Any.type.def" style="display:block"><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_def.html#arg_interval_term.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Children</b></td>
-                        <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_def.html#arg_interval.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b>, <b><a href="consumer_normal_xsd_Element_Group_ruleml_interval_anycontent.html#interval_anycontent_content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:content')">ruleml:content</a></b></td>
+                        <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_def.html#arg_interval_term.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -377,22 +376,6 @@
                                     </tr>
                                  </thead>
                                  <tr>
-                                    <td class="firstColumn"><b><a href="consumer_normal_xsd_Attribute_Group_ruleml_closure-att_choice.html#closure-att.choice_closure" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component closure')">closure</a></b></td>
-                                    <td><b><a href="consumer_normal_xsd_Simple_Type_ruleml_closure_value.html#closure.value" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:closure.value')">ruleml:closure.value</a></b></td>
-                                    <td>optional</td>
-                                    <td>
-                                       <div class="annotation">
-                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
-                                             <tr>
-                                                <td width="100%"><pre><span class="tT">An attribute indicating how the contained free variables are quantified.</span><span class="tI">
-</span><span class="tT">Allowed values are "universal" and "existential". See</span><span class="tI">
-</span><span class="tT">http://ruleml.org/1.02/glossary/#gloss-@closure</span></pre></td>
-                                             </tr>
-                                          </table>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
                                     <td class="firstColumn"><b><a href="consumer_normal_xsd_Attribute_Group_ruleml_commonInit_attlist.html#commonInit.attlist_key" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component key')">key</a></b></td>
                                     <td><b><a href="consumer_normal_xsd_Simple_Type_ruleml_key_value.html#key.value" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:key.value')">ruleml:key.value</a></b></td>
                                     <td>optional</td>
@@ -409,7 +392,7 @@
                                     </td>
                                  </tr>
                                  <tr>
-                                    <td class="firstColumn"><b><a href="consumer_normal_xsd_Attribute_Group_ruleml_operator-interface-ext_attlist.html#operator-interface-ext.attlist_style" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component style')">style</a></b></td>
+                                    <td class="firstColumn"><b><a href="consumer_normal_xsd_Attribute_Group_ruleml_generic-Node_attlist.html#generic-Node.attlist_style" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component style')">style</a></b></td>
                                     <td><b><a href="consumer_normal_xsd_Simple_Type_ruleml_style_value.html#style.value" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:style.value')">ruleml:style.value</a></b></td>
                                     <td>optional</td>
                                     <td>
@@ -418,6 +401,21 @@
                                              <tr>
                                                 <td width="100%"><pre><span class="tT">@style: defines a reference to a corresponding unique key. See</span><span class="tI">
 </span><span class="tT">http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="consumer_normal_xsd_Attribute_Group_ruleml_generic-Node_attlist.html#generic-Node.attlist_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component type')">type</a></b></td>
+                                    <td><b><a href="consumer_normal_xsd_Simple_Type_ruleml_type_value.html#type.value" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:type.value')">ruleml:type.value</a></b></td>
+                                    <td>optional</td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">A role for optionally specifying a term's (user-defined) type. See</span><span class="tI">
+</span><span class="tT">http://ruleml.org/1.02/glossary/#gloss-type</span></pre></td>
                                              </tr>
                                           </table>
                                        </div>

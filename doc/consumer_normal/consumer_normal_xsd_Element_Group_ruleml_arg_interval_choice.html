@@ -9,8 +9,7 @@
         
         
         
-        var usedByBoxes= new Array('usedBy_arg_interval.choice');
-
+        
         var sourceBoxes= new Array('source_arg_interval.choice');
 
         
@@ -274,9 +273,6 @@
                      <tr>
                         <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
                      </tr>
-                     <tr>
-                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
-                     </tr>
                   </table>
                   <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
                </td>
@@ -314,32 +310,15 @@
                         </td>
                      </tr>
                      <tr>
-                        <td class="firstColumn">
-                           <div class="floatLeft"><b>Used by</b></div>
-                           <div class="floatRight"><input id="button_usedBy_arg_interval.choice" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_arg_interval.choice');" class="control" /></div>
-                        </td>
-                        <td>
-                           <div id="usedBy_arg_interval.choice" style="display:block">
-                              <table class="usedByTable">
-                                 <tr>
-                                    <td class="firstColumn">Complex Types </td>
-                                    <td><b><a href="consumer_normal_xsd_Complex_Type_ruleml_After_content.html#After.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:After.content')">ruleml:After.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_After_type_def.html#After.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:After.type.def')">ruleml:After.type.def</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Any_content.html#Any.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Any.content')">ruleml:Any.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Any_type_def.html#Any.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Any.type.def')">ruleml:Any.type.def</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Every_content.html#Every.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Every.content')">ruleml:Every.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Every_type_def.html#Every.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Every.type.def')">ruleml:Every.type.def</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_IntervalAlgebraOperation_content.html#IntervalAlgebraOperation.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:IntervalAlgebraOperation.content')">ruleml:IntervalAlgebraOperation.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_IntervalAlgebraOperation_type_def.html#IntervalAlgebraOperation.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:IntervalAlgebraOperation.type.def')">ruleml:IntervalAlgebraOperation.type.def</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Interval_formula_content.html#Interval_formula.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Interval_formula.content')">ruleml:Interval_formula.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Interval_formula_type_def.html#Interval_formula.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Interval_formula.type.def')">ruleml:Interval_formula.type.def</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Interval_term_content.html#Interval_term.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Interval_term.content')">ruleml:Interval_term.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Interval_term_type_def.html#Interval_term.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Interval_term.type.def')">ruleml:Interval_term.type.def</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Timer_content.html#Timer.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Timer.content')">ruleml:Timer.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Timer_type_def.html#Timer.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Timer.type.def')">ruleml:Timer.type.def</a></b></td>
-                                 </tr>
-                              </table>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
                         <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_arg_interval.choice" type="image" src="img/btM.gif" value="-" onclick="switchState('model_arg_interval.choice');" class="control" /></div>
                         </td>
                         <td>
-                           <div id="model_arg_interval.choice" style="display:block">(<b><a href="consumer_normal_xsd_Element_Group_ruleml_interval_anycontent.html#interval_anycontent_content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:content')">ruleml:content</a></b>) | (<b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_def.html#arg_interval.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b>)
-                           </div>
+                           <div id="model_arg_interval.choice" style="display:block"><b><a href="consumer_normal_xsd_Element_Group_ruleml_interval_anycontent.html#interval_anycontent_content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:content')">ruleml:content</a></b></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Children</b></td>
-                        <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_def.html#arg_interval.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b>, <b><a href="consumer_normal_xsd_Element_Group_ruleml_interval_anycontent.html#interval_anycontent_content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:content')">ruleml:content</a></b></td>
+                        <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_interval_anycontent.html#interval_anycontent_content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:content')">ruleml:content</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -351,10 +330,9 @@
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
                                     <td width="100%"><pre><span class="tEl">&lt;xs:group</span><span class="tAN"> name=</span><span class="tAV">"arg_interval.choice"</span><span class="tEl">&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:choice</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:group</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:interval_anycontent"</span><span class="tEl">/&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:group</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:arg_interval.def"</span><span class="tEl">/&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;/xs:choice&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:group&gt;</span></pre></td>
                                  </tr>
                               </table>

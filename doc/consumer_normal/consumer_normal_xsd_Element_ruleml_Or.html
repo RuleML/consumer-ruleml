@@ -348,6 +348,10 @@
                         </td>
                      </tr>
                      <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Or_type_def.html#Or.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Or.type.def')">ruleml:Or.type.def</a></b></td>
+                     </tr>
+                     <tr>
                         <td class="firstColumn">
                            <div class="floatLeft"><b>Properties</b></div>
                            <div class="floatRight"><input id="button_properties_Or" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Or');" class="control" /></div>
@@ -372,8 +376,8 @@
                            <div id="usedBy_Or" style="display:block">
                               <table class="usedByTable">
                                  <tr>
-                                    <td class="firstColumn">Element Groups </td>
-                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_Node_choice.html#Node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Node.choice')">ruleml:Node.choice</a></b>, <b><a href="consumer_normal_xsd_Element_Group_ruleml_Or-node_choice.html#Or-node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Or-node.choice')">ruleml:Or-node.choice</a></b></td>
+                                    <td class="firstColumn">Element Group </td>
+                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_Or-node_choice.html#Or-node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Or-node.choice')">ruleml:Or-node.choice</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -401,7 +405,7 @@
                                  <tr>
                                     <td width="100%"><pre><span class="tEl">&lt;ruleml:Or</span><span class="tT"> </span><span class="tAN">xml:base=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">closure=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xml:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">key=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">keyref=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">style=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xmlns:ruleml=</span><span class="tAV">"http://ruleml.org/spec"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;ruleml:degree</span><span class="tT"> </span><span class="tAN">xml:base=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xml:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">key=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">keyref=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/ruleml:degree&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;ruleml:formula</span><span class="tT"> </span><span class="tAN">xml:base=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xml:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">key=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">keyref=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/ruleml:formula&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;ruleml:formula</span><span class="tT"> </span><span class="tAN">xml:base=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xml:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">index=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">key=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">keyref=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/ruleml:formula&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/ruleml:Or&gt;</span></pre></td>
                                  </tr>
                               </table>
@@ -514,17 +518,10 @@
                            <div id="source_Or" style="display:block">
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Or"</span><span class="tEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Or"</span><span class="tAN"> type=</span><span class="tAV">"ruleml:Or.type.def"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">&lt;Or&gt;: polyadic disjunction where &lt;Or/&gt; is false. See http://ruleml.org/1.02/glossary/#gloss-Or</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:group</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:Or.header"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:group</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:Or.main"</span><span class="tEl">/&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:reOr.attlist"</span><span class="tEl">/&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
                                  </tr>
                               </table>

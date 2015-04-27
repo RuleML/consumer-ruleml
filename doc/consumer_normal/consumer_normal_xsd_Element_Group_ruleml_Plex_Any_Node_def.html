@@ -350,18 +350,21 @@
                            <div class="floatRight"><input id="button_diagram_Plex_Any.Node.def_Plex" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Plex_Any.Node.def_Plex');" class="control" /></div>
                         </td>
                         <td class="diagram">
-                           <div id="diagram_Plex_Any.Node.def_Plex" style="display:block"><object border="0" data="img/consumer_normal_xsd_Element_ruleml_Plex_1.svg" type="image/svg+xml"></object></div>
+                           <div id="diagram_Plex_Any.Node.def_Plex" style="display:block"><object border="0" data="img/consumer_normal_xsd_Element_ruleml_Plex.svg" type="image/svg+xml"></object></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td>extension of <b><a href="consumer_normal_xsd_Complex_Type_ruleml_Plex_Any_main.html#Plex_Any.main" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Plex_Any.main')">ruleml:Plex_Any.main</a></b></td>
+                        <td><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Plex_Any_type_def.html#Plex_Any.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Plex_Any.type.def')">ruleml:Plex_Any.type.def</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type hierarchy</b></td>
                         <td>
                            <ul>
-                              <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Plex_Any_main.html#Plex_Any.main" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Plex_Any.main')">ruleml:Plex_Any.main</a></b></li>
+                              <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Plex_Any_main.html#Plex_Any.main" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Plex_Any.main')">ruleml:Plex_Any.main</a></b><ul>
+                                    <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Plex_Any_type_def.html#Plex_Any.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Plex_Any.type.def')">ruleml:Plex_Any.type.def</a></b></li>
+                                 </ul>
+                              </li>
                            </ul>
                         </td>
                      </tr>
@@ -502,17 +505,10 @@
                            <div id="source_Plex_Any.Node.def_Plex" style="display:block">
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> form=</span><span class="tAV">"qualified"</span><span class="tAN"> name=</span><span class="tAV">"Plex"</span><span class="tEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> form=</span><span class="tAV">"qualified"</span><span class="tAN"> name=</span><span class="tAV">"Plex"</span><span class="tAN"> type=</span><span class="tAV">"ruleml:Plex_Any.type.def"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A collection of (ordered) arguments (optionally enclosed by &lt;arg&gt;) and/or (unordered) user-defined slots (&lt;slot&gt;), identical to an uninterpreted expression (&lt;Expr in="no"&gt;) except not having a user-specified function name (equivalent to having a system-specified constructor 'Plex'). Rest variables (&lt;repo&gt; and &lt;resl&gt;) are also permitted. See http://ruleml.org/1.02/glossary/#gloss-Plex within Atom</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:complexContent</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"ruleml:Plex_Any.main"</span><span class="tEl">&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:rePlex.attlist"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/xs:complexContent&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
                                  </tr>
                               </table>
@@ -563,8 +559,8 @@
                            <div id="usedBy_Plex_Any.Node.def" style="display:block">
                               <table class="usedByTable">
                                  <tr>
-                                    <td class="firstColumn">Element Groups </td>
-                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_Node_choice.html#Node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Node.choice')">ruleml:Node.choice</a></b>, <b><a href="consumer_normal_xsd_Element_Group_ruleml_Plex_Any-node_choice.html#Plex_Any-node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Plex_Any-node.choice')">ruleml:Plex_Any-node.choice</a></b></td>
+                                    <td class="firstColumn">Element Group </td>
+                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_Plex_Any-node_choice.html#Plex_Any-node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Plex_Any-node.choice')">ruleml:Plex_Any-node.choice</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -592,17 +588,10 @@
                                  <tr>
                                     <td width="100%"><pre><span class="tEl">&lt;xs:group</span><span class="tAN"> name=</span><span class="tAV">"Plex_Any.Node.def"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> form=</span><span class="tAV">"qualified"</span><span class="tAN"> name=</span><span class="tAV">"Plex"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> form=</span><span class="tAV">"qualified"</span><span class="tAN"> name=</span><span class="tAV">"Plex"</span><span class="tAN"> type=</span><span class="tAV">"ruleml:Plex_Any.type.def"</span><span class="tEl">&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
         </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">A collection of (ordered) arguments (optionally enclosed by &lt;arg&gt;) and/or (unordered) user-defined slots (&lt;slot&gt;), identical to an uninterpreted expression (&lt;Expr in="no"&gt;) except not having a user-specified function name (equivalent to having a system-specified constructor 'Plex'). Rest variables (&lt;repo&gt; and &lt;resl&gt;) are also permitted. See http://ruleml.org/1.02/glossary/#gloss-Plex within Atom</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
       </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;xs:complexContent</span><span class="tEl">&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"ruleml:Plex_Any.main"</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:rePlex.attlist"</span><span class="tEl">/&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;/xs:complexContent&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
     </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:group&gt;</span></pre></td>

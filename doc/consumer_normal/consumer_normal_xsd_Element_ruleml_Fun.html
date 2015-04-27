@@ -341,14 +341,17 @@
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td>extension of <b><a href="consumer_normal_xsd_Simple_Type_ruleml_Fun_content.html#Fun.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Fun.content')">ruleml:Fun.content</a></b></td>
+                        <td><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Fun_type_def.html#Fun.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Fun.type.def')">ruleml:Fun.type.def</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type hierarchy</b></td>
                         <td>
                            <ul>
                               <li><b>xs:token</b><ul>
-                                    <li><b><a href="consumer_normal_xsd_Simple_Type_ruleml_Fun_content.html#Fun.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Fun.content')">ruleml:Fun.content</a></b></li>
+                                    <li><b><a href="consumer_normal_xsd_Simple_Type_ruleml_Fun_content.html#Fun.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Fun.content')">ruleml:Fun.content</a></b><ul>
+                                          <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Fun_type_def.html#Fun.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Fun.type.def')">ruleml:Fun.type.def</a></b></li>
+                                       </ul>
+                                    </li>
                                  </ul>
                               </li>
                            </ul>
@@ -380,15 +383,7 @@
                               <table class="usedByTable">
                                  <tr>
                                     <td class="firstColumn">Complex Types </td>
-                                    <td><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Function-node_choice.html#Function-node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Function-node.choice')">ruleml:Function-node.choice</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_op_Expr_content.html#op_Expr.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:op_Expr.content')">ruleml:op_Expr.content</a></b></td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">Element </td>
-                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_op_Expr_edge_def.html#op_Expr.edge.def_op" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:op_Expr.edge.def/ruleml:op')">ruleml:op_Expr.edge.def/ruleml:op</a></b></td>
-                                 </tr>
-                                 <tr>
-                                    <td class="firstColumn">Element Group </td>
-                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_Node_choice.html#Node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Node.choice')">ruleml:Node.choice</a></b></td>
+                                    <td><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Function-node_choice.html#Function-node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Function-node.choice')">ruleml:Function-node.choice</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_op_Expr_content.html#op_Expr.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:op_Expr.content')">ruleml:op_Expr.content</a></b>, <b><a href="consumer_normal_xsd_Complex_Type_ruleml_op_Expr_type_def.html#op_Expr.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:op_Expr.type.def')">ruleml:op_Expr.type.def</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -499,17 +494,10 @@
                            <div id="source_Fun" style="display:block">
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Fun"</span><span class="tEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Fun"</span><span class="tAN"> type=</span><span class="tAV">"ruleml:Fun.type.def"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">&lt;Fun&gt;: a type of name for functional operators. See http://ruleml.org/1.02/glossary/#gloss-Fun</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"ruleml:Fun.content"</span><span class="tEl">&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:reFun.attlist"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
                                  </tr>
                               </table>

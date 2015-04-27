@@ -349,14 +349,17 @@
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type</b></td>
-                        <td>extension of <b><a href="consumer_normal_xsd_Complex_Type_ruleml_degree_content.html#degree.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:degree.content')">ruleml:degree.content</a></b></td>
+                        <td><b><a href="consumer_normal_xsd_Complex_Type_ruleml_degree_type_def.html#degree.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:degree.type.def')">ruleml:degree.type.def</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Type hierarchy</b></td>
                         <td>
                            <ul>
                               <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_Data_degree-node_choice.html#Data_degree-node.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:Data_degree-node.choice')">ruleml:Data_degree-node.choice</a></b><ul>
-                                    <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_degree_content.html#degree.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:degree.content')">ruleml:degree.content</a></b></li>
+                                    <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_degree_content.html#degree.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:degree.content')">ruleml:degree.content</a></b><ul>
+                                          <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_degree_type_def.html#degree.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:degree.type.def')">ruleml:degree.type.def</a></b></li>
+                                       </ul>
+                                    </li>
                                  </ul>
                               </li>
                            </ul>
@@ -387,8 +390,8 @@
                            <div id="usedBy_degree" style="display:block">
                               <table class="usedByTable">
                                  <tr>
-                                    <td class="firstColumn">Element Groups </td>
-                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_degree-edge_choice.html#degree-edge.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:degree-edge.choice')">ruleml:degree-edge.choice</a></b>, <b><a href="consumer_normal_xsd_Element_Group_ruleml_edge_choice.html#edge.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:edge.choice')">ruleml:edge.choice</a></b></td>
+                                    <td class="firstColumn">Element Group </td>
+                                    <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_degree-edge_choice.html#degree-edge.choice" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:degree-edge.choice')">ruleml:degree-edge.choice</a></b></td>
                                  </tr>
                               </table>
                            </div>
@@ -497,17 +500,10 @@
                            <div id="source_degree" style="display:block">
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"degree"</span><span class="tEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"degree"</span><span class="tAN"> type=</span><span class="tAV">"ruleml:degree.type.def"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">An optional uncertainty value (between 0.0 and 1.0) that may be assigned to simple formulas. See http://ruleml.org/1.02/glossary/#gloss-degree</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;xs:complexContent</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"ruleml:degree.content"</span><span class="tEl">&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:degree.attlist"</span><span class="tEl">/&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/xs:complexContent&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
                                  </tr>
                               </table>
