@@ -67,21 +67,21 @@
         expression including a relation (&lt;Rel&gt;) of an atom (&lt;Atom&gt;).</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element form="qualified" name="op">
+      <xs:element form="qualified" name="op" type="ruleml:op.type.def">
         <xs:annotation>
           <xs:documentation>&lt;op&gt;: edge (role) element for the predicate of an atomic formula. See
             http://ruleml.org/1.02/glossary/#gloss-op</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:op_Atom.content">
-              <xs:attributeGroup ref="ruleml:op_Atom.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="op.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:op_Atom.content">
+        <xs:attributeGroup ref="ruleml:op_Atom.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="op_Atom.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -102,19 +102,19 @@
       <xs:element ref="ruleml:Rel"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Rel">
+  <xs:element name="Rel" type="ruleml:Rel.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Rel&gt;: a category of name used as the predicate of an atomic formula. See
         http://ruleml.org/1.02/glossary/#gloss-Rel</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="ruleml:Rel.content">
-          <xs:attributeGroup ref="ruleml:reRel.attlist"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Rel.type.def">
+    <xs:simpleContent>
+      <xs:extension base="ruleml:Rel.content">
+        <xs:attributeGroup ref="ruleml:reRel.attlist"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:attributeGroup name="reRel.attlist">
     <xs:annotation>
       <xs:documentation>Relations accept the optional attribute pattern of
@@ -146,19 +146,19 @@
       <xs:element ref="ruleml:And"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="And">
+  <xs:element name="And" type="ruleml:And.type.def">
     <xs:annotation>
       <xs:documentation>&lt;And&gt;: polyadic conjunction where &lt;And/&gt; is true. See
         http://ruleml.org/1.02/glossary/#gloss-And</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:And.header"/>
-        <xs:group ref="ruleml:And.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reAnd.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="And.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:And.header"/>
+      <xs:group ref="ruleml:And.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reAnd.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reAnd.attlist">
     <xs:annotation>
       <xs:documentation>The attribute list of the conjunction element will accept a scoped closure
@@ -207,22 +207,22 @@
         ...</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element form="qualified" name="formula">
+      <xs:element form="qualified" name="formula" type="ruleml:formula_And.type.def">
         <xs:annotation>
           <xs:documentation>&lt;formula&gt;: contains a single formula. See
             http://ruleml.org/1.02/glossary/#gloss-formula</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:formula_And.content">
-              <xs:attributeGroup ref="ruleml:formula_And-datt.choice"/>
-              <xs:attributeGroup ref="ruleml:formula_And.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="formula_And.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula_And.content">
+        <xs:attributeGroup ref="ruleml:formula_And-datt.choice"/>
+        <xs:attributeGroup ref="ruleml:formula_And.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="formula_And-datt.choice">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
@@ -265,19 +265,19 @@
       <xs:element ref="ruleml:Or"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Or">
+  <xs:element name="Or" type="ruleml:Or.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Or&gt;: polyadic disjunction where &lt;Or/&gt; is false. See
         http://ruleml.org/1.02/glossary/#gloss-Or</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Or.header"/>
-        <xs:group ref="ruleml:Or.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reOr.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Or.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Or.header"/>
+      <xs:group ref="ruleml:Or.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reOr.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reOr.attlist">
     <xs:annotation>
       <xs:documentation>The attribute list of the disjunction element will accept a (scoped) closure
@@ -325,21 +325,21 @@
       <xs:documentation>The formula role of a disjunctive (&lt;Or&gt;) expression, </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element form="qualified" name="formula">
+      <xs:element form="qualified" name="formula" type="ruleml:formula_Or.type.def">
         <xs:annotation>
           <xs:documentation/>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:formula_Or.content">
-              <xs:attributeGroup ref="ruleml:formula_Or-datt.choice"/>
-              <xs:attributeGroup ref="ruleml:formula_Or.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="formula_Or.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula_Or.content">
+        <xs:attributeGroup ref="ruleml:formula_Or-datt.choice"/>
+        <xs:attributeGroup ref="ruleml:formula_Or.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="formula_Or-datt.choice">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
@@ -394,20 +394,20 @@
       <xs:element ref="ruleml:Implies"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Implies">
+  <xs:element name="Implies" type="ruleml:Implies.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Implies&gt;: an implication between two formulas, a premise and a conclusion.
         See  http://ruleml.org/1.02/glossary/#gloss-Implies</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Implies.header"/>
-        <xs:group ref="ruleml:Implies.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:Implies-datt.choice"/>
-      <xs:attributeGroup ref="ruleml:reImplies.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Implies.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Implies.header"/>
+      <xs:group ref="ruleml:Implies.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:Implies-datt.choice"/>
+    <xs:attributeGroup ref="ruleml:reImplies.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reImplies.attlist">
     <xs:annotation>
       <xs:documentation>Implications may have an optional closure attribute  and will accept a
@@ -449,22 +449,22 @@
         entailment (&lt;Entails&gt;). Within Implies...</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element form="qualified" name="if">
+      <xs:element form="qualified" name="if" type="ruleml:body_Implies.type.def">
         <xs:annotation>
           <xs:documentation>&lt;if&gt;: contains the premise of the implication. See
             http://ruleml.org/1.02/glossary/#gloss-if FIXME: replace body_ with if_ and head_ with
             then_</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:body_Implies.content">
-              <xs:attributeGroup ref="ruleml:body_Implies.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="body_Implies.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:body_Implies.content">
+        <xs:attributeGroup ref="ruleml:body_Implies.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="body_Implies.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -512,21 +512,21 @@
         an entailment (&lt;Entails&gt;). Within Implies...</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element form="qualified" name="then">
+      <xs:element form="qualified" name="then" type="ruleml:head_Implies.type.def">
         <xs:annotation>
           <xs:documentation>&lt;then&gt;: contains the conclusion of the implication. See
             http://ruleml.org/1.02/glossary/#gloss-then</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:head_Implies.content">
-              <xs:attributeGroup ref="ruleml:head_Implies.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="head_Implies.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:head_Implies.content">
+        <xs:attributeGroup ref="ruleml:head_Implies.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="head_Implies.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -612,21 +612,21 @@
       <xs:element ref="ruleml:Forall"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Forall">
+  <xs:element name="Forall" type="ruleml:Forall.type.def">
     <xs:annotation>
       <xs:documentation>Explicit universal quantifier. It consists of a sequence of one or more
         variables (&lt;Var&gt;), each optionally surrounded by a &lt;declare&gt; role, and a logical formula
         (optionally surrounded by a &lt;formula&gt; role). See
         http://ruleml.org/1.02/glossary/#gloss-Forall</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Forall.header"/>
-        <xs:group ref="ruleml:Forall.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reForall.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Forall.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Forall.header"/>
+      <xs:group ref="ruleml:Forall.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reForall.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reForall.attlist">
     <xs:annotation>
       <xs:documentation>The attribute list of the universal quantification formula  will accept a
@@ -670,21 +670,21 @@
       <xs:element ref="ruleml:Exists"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Exists">
+  <xs:element name="Exists" type="ruleml:Exists.type.def">
     <xs:annotation>
       <xs:documentation>Explicit existential quantifier. It consists of one or more variables (&lt;Var&gt;),
         each optionally surrounded by a &lt;declare&gt; role, followed by a logical formula  (optionally
         surrounded by a &lt;formula&gt; role). See
         http://ruleml.org/1.02/glossary/#gloss-Exists</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Exists.header"/>
-        <xs:group ref="ruleml:Exists.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reExists.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Exists.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Exists.header"/>
+      <xs:group ref="ruleml:Exists.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reExists.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reExists.attlist">
     <xs:annotation>
       <xs:documentation>The attribute list of the existential quantification formula  will accept a
@@ -736,19 +736,19 @@
       <xs:element ref="ruleml:declare"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="declare">
+  <xs:element name="declare" type="ruleml:declare.type.def">
     <xs:annotation>
       <xs:documentation>A role used for variables (&lt;Var&gt;) declared within a quantifier (&lt;Forall&gt; or
         &lt;Exists&gt;). See http://ruleml.org/1.02/glossary/#gloss-declare</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:declare.content">
-          <xs:attributeGroup ref="ruleml:declare.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="declare.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:declare.content">
+        <xs:attributeGroup ref="ruleml:declare.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="declare.content">
     <xs:annotation>
       <xs:documentation>a declaration element contains a single quantifiable term</xs:documentation>
@@ -766,22 +766,22 @@
   </xs:group>
   <xs:group name="formula_Forall.edge.def">
     <xs:sequence>
-      <xs:element form="qualified" name="formula">
+      <xs:element form="qualified" name="formula" type="ruleml:formula_Forall.type.def">
         <xs:annotation>
           <xs:documentation>The formula role of a conjunctive (&lt;And&gt;) or disjunctive (&lt;Or&gt;) expression,
             quantifier (&lt;Forall&gt; or &lt;Exists&gt;), or performative (&lt;Assert&gt;, &lt;Query&gt; or &lt;Retract&gt;). See
             http://ruleml.org/1.02/glossary/#gloss-formula within Forall...</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:formula_Forall.content">
-              <xs:attributeGroup ref="ruleml:formula_Forall.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="formula_Forall.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula_Forall.content">
+        <xs:attributeGroup ref="ruleml:formula_Forall.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="formula_Forall.content">
     <xs:annotation>
       <xs:documentation>The formula role of universal quantifications contains a single formula.
@@ -820,22 +820,22 @@
   </xs:group>
   <xs:group name="formula_Exists.edge.def">
     <xs:sequence>
-      <xs:element form="qualified" name="formula">
+      <xs:element form="qualified" name="formula" type="ruleml:formula_Exists.type.def">
         <xs:annotation>
           <xs:documentation>The formula role of a conjunctive (&lt;And&gt;) or disjunctive (&lt;Or&gt;) expression,
             quantifier (&lt;Forall&gt; or &lt;Exists&gt;), or performative (&lt;Assert&gt;, &lt;Query&gt; or &lt;Retract&gt;). See
             http://ruleml.org/1.02/glossary/#gloss-formula Within Exists...</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:formula_Exists.content">
-              <xs:attributeGroup ref="ruleml:formula_Exists.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="formula_Exists.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula_Exists.content">
+        <xs:attributeGroup ref="ruleml:formula_Exists.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="formula_Exists.content">
     <xs:annotation>
       <xs:documentation>The formula role of existential quantifications contains a single
@@ -884,19 +884,19 @@
       <xs:group ref="ruleml:spatial_temporal_algebra_group.content"/>
     </xs:choice>
   </xs:group>
-  <xs:element name="Expr">
+  <xs:element name="Expr" type="ruleml:Expr.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Expr&gt;: a functional expression. See
         http://ruleml.org/1.02/glossary/#gloss-Expr</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:Expr.main">
-          <xs:attributeGroup ref="ruleml:reExpr.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Expr.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Expr.main">
+        <xs:attributeGroup ref="ruleml:reExpr.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="reExpr.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
@@ -922,20 +922,20 @@
         http://ruleml.org/1.02/glossary/#gloss-op</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element form="qualified" name="op">
+      <xs:element form="qualified" name="op" type="ruleml:op_Expr.type.def">
         <xs:annotation>
           <xs:documentation>Also an operator in functional expressions.</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:op_Expr.content">
-              <xs:attributeGroup ref="ruleml:op_Expr.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="op_Expr.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:op_Expr.content">
+        <xs:attributeGroup ref="ruleml:op_Expr.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="op_Expr.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -957,19 +957,19 @@
       <xs:element ref="ruleml:Fun"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Fun">
+  <xs:element name="Fun" type="ruleml:Fun.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Fun&gt;: a type of name for functional operators. See
         http://ruleml.org/1.02/glossary/#gloss-Fun</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="ruleml:Fun.content">
-          <xs:attributeGroup ref="ruleml:reFun.attlist"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Fun.type.def">
+    <xs:simpleContent>
+      <xs:extension base="ruleml:Fun.content">
+        <xs:attributeGroup ref="ruleml:reFun.attlist"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:attributeGroup name="reFun.attlist">
     <xs:annotation>
       <xs:documentation>functors accept the resource attribute list</xs:documentation>
@@ -1280,19 +1280,19 @@
       <xs:element ref="ruleml:degree"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="degree">
+  <xs:element name="degree" type="ruleml:degree.type.def">
     <xs:annotation>
       <xs:documentation>An optional uncertainty value (between 0.0 and 1.0) that may be assigned to
         simple formulas. See http://ruleml.org/1.02/glossary/#gloss-degree</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:degree.content">
-          <xs:attributeGroup ref="ruleml:degree.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="degree.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:degree.content">
+        <xs:attributeGroup ref="ruleml:degree.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="degree.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -1319,20 +1319,20 @@
       <xs:element ref="ruleml:Negation"/>
     </xs:choice>
   </xs:group>
-  <xs:element name="Neg">
+  <xs:element name="Neg" type="ruleml:Neg.type.def">
     <xs:annotation>
       <xs:documentation>A classical negation of a logical atom (&lt;Atom&gt;) (i.e. classical or "strong"
         negation).  The negated atom may be optionally surrounded by a &lt;strong&gt; role.        See
         http://ruleml.org/1.02/glossary/#gloss-Neg</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Neg.header"/>
-        <xs:group ref="ruleml:Neg.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reNeg.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Neg.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Neg.header"/>
+      <xs:group ref="ruleml:Neg.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reNeg.attlist"/>
+  </xs:complexType>
   
   <xs:attributeGroup name="reNeg.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
@@ -1371,19 +1371,19 @@
       <xs:element ref="ruleml:strong"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="strong">
+  <xs:element name="strong" type="ruleml:strong.type.def">
     <xs:annotation>
       <xs:documentation>A role used for logical negation (&lt;Neg&gt;).        See
         http://ruleml.org/1.02/glossary/#gloss-strong</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:strong.content">
-          <xs:attributeGroup ref="ruleml:strong.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="strong.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:strong.content">
+        <xs:attributeGroup ref="ruleml:strong.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="strong.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -1424,15 +1424,14 @@
       <xs:element ref="ruleml:Naf"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Naf">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Naf.header"/>
-        <xs:group ref="ruleml:Naf.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reNaf.attlist"/>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="Naf" type="ruleml:Naf.type.def"/>
+  <xs:complexType name="Naf.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Naf.header"/>
+      <xs:group ref="ruleml:Naf.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reNaf.attlist"/>
+  </xs:complexType>
   
   <xs:attributeGroup name="reNaf.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
@@ -1471,15 +1470,14 @@
       <xs:element ref="ruleml:weak"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="weak">
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:weak.content">
-          <xs:attributeGroup ref="ruleml:weak.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="weak" type="ruleml:weak.type.def"/>
+  <xs:complexType name="weak.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:weak.content">
+        <xs:attributeGroup ref="ruleml:weak.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="weak.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -1533,19 +1531,19 @@
       <xs:element ref="ruleml:Equivalent"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Equivalent">
+  <xs:element name="Equivalent" type="ruleml:Equivalent.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Equivalent&gt;: Syntactic sugar for two implications. See
         http://ruleml.org/1.02/glossary/#gloss-Equivalent </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Equivalent.header"/>
-        <xs:group ref="ruleml:Equivalent.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reEquivalent.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Equivalent.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Equivalent.header"/>
+      <xs:group ref="ruleml:Equivalent.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reEquivalent.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reEquivalent.attlist">
     <xs:annotation>
       <xs:documentation>Equivalences may have an optional closure attribute  and will accept a
@@ -1590,19 +1588,19 @@
       <xs:element ref="ruleml:torso"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="torso">
+  <xs:element name="torso" type="ruleml:torso.type.def">
     <xs:annotation>
       <xs:documentation>&lt;torso&gt;: contains one formula within an equivalence. See
         http://ruleml.org/1.02/glossary/#gloss-torso </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:torso.content">
-          <xs:attributeGroup ref="ruleml:torso.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="torso.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:torso.content">
+        <xs:attributeGroup ref="ruleml:torso.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="torso.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -1677,19 +1675,19 @@
       <xs:element ref="ruleml:oid"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="oid">
+  <xs:element name="oid" type="ruleml:oid.type.def">
     <xs:annotation>
       <xs:documentation>&lt;oid&gt;: a label for Node elements. See
         http://ruleml.org/1.02/glossary/#gloss-oid</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:oid.content">
-          <xs:attributeGroup ref="ruleml:oid.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="oid.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:oid.content">
+        <xs:attributeGroup ref="ruleml:oid.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="oid.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -1729,19 +1727,19 @@
       <xs:element ref="ruleml:slot"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="slot">
+  <xs:element name="slot" type="ruleml:slot.type.def">
     <xs:annotation>
       <xs:documentation>A user-defined slot (property). See
         http://ruleml.org/1.02/glossary/#gloss-slot</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:slot.content">
-          <xs:attributeGroup ref="ruleml:reslot.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="slot.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:slot.content">
+        <xs:attributeGroup ref="ruleml:reslot.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="reslot.attlist">
     <xs:annotation>
       <xs:documentation>The slot element accepts optional cardinality and  weight attributes.
@@ -1821,19 +1819,19 @@
       <xs:element ref="ruleml:Equal"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Equal">
+  <xs:element name="Equal" type="ruleml:Equal.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Equal&gt;: an equation between two terms. See
         http://ruleml.org/1.02/glossary/#gloss-Equal</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:group ref="ruleml:Equal.header"/>
-        <xs:group ref="ruleml:Equal.main"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="ruleml:reEqual.attlist"/>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Equal.type.def">
+    <xs:sequence>
+      <xs:group ref="ruleml:Equal.header"/>
+      <xs:group ref="ruleml:Equal.main"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ruleml:reEqual.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reEqual.attlist">
     <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
@@ -1884,19 +1882,19 @@
       <xs:element ref="ruleml:left"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="left">
+  <xs:element name="left" type="ruleml:left.type.def">
     <xs:annotation>
       <xs:documentation>&lt;left&gt;: The left-hand side of an equation. See
         http://ruleml.org/1.02/glossary/#gloss-left</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:left.content">
-          <xs:attributeGroup ref="ruleml:left.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="left.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:left.content">
+        <xs:attributeGroup ref="ruleml:left.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="left.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -1918,19 +1916,19 @@
       <xs:element ref="ruleml:right"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="right">
+  <xs:element name="right" type="ruleml:right.type.def">
     <xs:annotation>
       <xs:documentation>&lt;right&gt;: The right-hand side of an equation. See
         http://ruleml.org/1.02/glossary/#gloss-right</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:right.content">
-          <xs:attributeGroup ref="ruleml:right.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="right.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:right.content">
+        <xs:attributeGroup ref="ruleml:right.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="right.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -2011,6 +2009,10 @@
     </xs:sequence>
   </xs:group>
   <xs:element name="Data" type="xs:anyType"/>
+  <xs:complexType mixed="true" name="Data_any.type.def">
+    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:anyElement.def"/>
+    <xs:attributeGroup ref="ruleml:reData.attlist"/>
+  </xs:complexType>
   <xs:attributeGroup name="reData.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
@@ -2038,19 +2040,19 @@
       <xs:element ref="ruleml:Skolem"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Skolem">
+  <xs:element name="Skolem" type="ruleml:Skolem.type.def">
     <xs:annotation>
       <xs:documentation>A Skolem individual constant, like RDF's blank nodes. See
         http://ruleml.org/1.02/glossary/#gloss-Skolem</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="ruleml:Skolem.content">
-          <xs:attributeGroup ref="ruleml:reSkolem.attlist"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Skolem.type.def">
+    <xs:simpleContent>
+      <xs:extension base="ruleml:Skolem.content">
+        <xs:attributeGroup ref="ruleml:reSkolem.attlist"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:attributeGroup name="reSkolem.attlist">
     <xs:annotation>
       <xs:documentation>Skolems optionally accept the attribute pattern of objects with user-defined
@@ -2083,22 +2085,26 @@
         sublanguages).</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element form="qualified" name="arg">
+      <xs:element form="qualified" name="arg" type="ruleml:arg.type.def">
         <xs:annotation>
           <xs:documentation>&lt;arg&gt;: one argument of an atomic formula. See
             http://ruleml.org/1.02/glossary/#gloss-arg</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:arg.content">
-              <xs:attributeGroup ref="ruleml:arg-datt.choice"/>
-              <xs:attributeGroup ref="ruleml:rearg.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="arg.type.def">
+    <xs:annotation>
+      <xs:documentation>The attribute @index is required for the positional argument role
+        (property).</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ruleml:arg.content">
+        <xs:attributeGroup ref="ruleml:arg-datt.choice"/>
+        <xs:attributeGroup ref="ruleml:rearg.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="arg-datt.choice">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
@@ -2196,19 +2202,19 @@
       <xs:element ref="ruleml:Ind"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Ind">
+  <xs:element name="Ind" type="ruleml:Ind.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Ind&gt;: an individual constant. See
         http://ruleml.org/1.02/glossary/#gloss-Ind</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="ruleml:Ind.content">
-          <xs:attributeGroup ref="ruleml:reInd.attlist"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Ind.type.def">
+    <xs:simpleContent>
+      <xs:extension base="ruleml:Ind.content">
+        <xs:attributeGroup ref="ruleml:reInd.attlist"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:attributeGroup name="reInd.attlist">
     <xs:annotation>
       <xs:documentation>Individuals optionally accept the attribute patterns of resources, and
@@ -2256,19 +2262,19 @@
       <xs:element ref="ruleml:Var"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="Var">
+  <xs:element name="Var" type="ruleml:Var.type.def">
     <xs:annotation>
       <xs:documentation>A logical variable, as in logic programming. See
         http://ruleml.org/1.02/glossary/#gloss-Var</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="ruleml:Var.content">
-          <xs:attributeGroup ref="ruleml:reVar.attlist"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="Var.type.def">
+    <xs:simpleContent>
+      <xs:extension base="ruleml:Var.content">
+        <xs:attributeGroup ref="ruleml:reVar.attlist"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:attributeGroup name="reVar.attlist">
     <xs:annotation>
       <xs:documentation>Variables optionally accept the attribute pattern of objects with
@@ -2331,20 +2337,20 @@
       <xs:element ref="ruleml:resl"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="resl">
+  <xs:element name="resl" type="ruleml:resl.type.def">
     <xs:annotation>
       <xs:documentation>A slotted rest variable used in &lt;Atom&gt;s, &lt;Expr&gt;s and &lt;Plex&gt;s.  Note that &lt;Plex&gt;s are
         generated, so &lt;resl&gt;s are only available above the Datalog sublanguage. See
         http://ruleml.org/1.02/glossary/#gloss-resl</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:resl.content">
-          <xs:attributeGroup ref="ruleml:resl.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="resl.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:resl.content">
+        <xs:attributeGroup ref="ruleml:resl.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="resl.content">
     <xs:annotation>
       <xs:documentation>The content model of a slotted rest variable is a single
@@ -2387,20 +2393,20 @@
       <xs:element ref="ruleml:repo"/>
     </xs:sequence>
   </xs:group>
-  <xs:element name="repo">
+  <xs:element name="repo" type="ruleml:repo.type.def">
     <xs:annotation>
       <xs:documentation>A positional rest variable used in &lt;Atom&gt;s, &lt;Expr&gt;s and &lt;Plex&gt;s.  Note that &lt;Plex&gt;s
         are generated, so &lt;repo&gt;s are only available above the Datalog sublanguage.        See
         http://www.ruleml.org/0.9/glossary/#gloss-repo</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="ruleml:repo.content">
-          <xs:attributeGroup ref="ruleml:repo.attlist"/>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
   </xs:element>
+  <xs:complexType name="repo.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:repo.content">
+        <xs:attributeGroup ref="ruleml:repo.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="repo.content">
     <xs:annotation>
       <xs:documentation>The content model of a positional rest variable is a single
@@ -2446,7 +2452,7 @@
   </xs:group>
   <xs:group name="Plex_Any.Node.def">
     <xs:sequence>
-      <xs:element form="qualified" name="Plex">
+      <xs:element form="qualified" name="Plex" type="ruleml:Plex_Any.type.def">
         <xs:annotation>
           <xs:documentation>A collection of (ordered) arguments (optionally enclosed by &lt;arg&gt;) and/or
             (unordered) user-defined slots (&lt;slot&gt;),  identical to an uninterpreted expression (&lt;Expr
@@ -2454,16 +2460,16 @@
             system-specified constructor 'Plex'). Rest variables (&lt;repo&gt; and &lt;resl&gt;) are also permitted.
             See http://ruleml.org/1.02/glossary/#gloss-Plex within Atom</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:Plex_Any.main">
-              <xs:attributeGroup ref="ruleml:rePlex.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="Plex_Any.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Plex_Any.main">
+        <xs:attributeGroup ref="ruleml:rePlex.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="rePlex.attlist">
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
@@ -2493,7 +2499,7 @@
   </xs:group>
   <xs:group name="Plex_repo.Node.def">
     <xs:sequence>
-      <xs:element form="qualified" name="Plex">
+      <xs:element form="qualified" name="Plex" type="ruleml:Plex_repo.type.def">
         <xs:annotation>
           <xs:documentation>A collection of (ordered) arguments (optionally enclosed by &lt;arg&gt;) and/or
             (unordered) user-defined slots (&lt;slot&gt;),  identical to an uninterpreted expression (&lt;Expr
@@ -2501,16 +2507,16 @@
             system-specified constructor 'Plex'). Rest variables (&lt;repo&gt; and &lt;resl&gt;) are also permitted.
             See http://ruleml.org/1.02/glossary/#gloss-Plex within repo</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:Plex_repo.main">
-              <xs:attributeGroup ref="ruleml:rePlex.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="Plex_repo.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Plex_repo.main">
+        <xs:attributeGroup ref="ruleml:rePlex.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Plex_repo.main">
     <xs:annotation>
       <xs:documentation>A generalized list within a positional rest variable contains a positional
@@ -2530,7 +2536,7 @@
   </xs:group>
   <xs:group name="Plex_resl.Node.def">
     <xs:sequence>
-      <xs:element form="qualified" name="Plex">
+      <xs:element form="qualified" name="Plex" type="ruleml:Plex_resl.type.def">
         <xs:annotation>
           <xs:documentation>A collection of (ordered) arguments (optionally enclosed by &lt;arg&gt;) and/or
             (unordered) user-defined slots (&lt;slot&gt;),  identical to an uninterpreted expression (&lt;Expr
@@ -2538,16 +2544,16 @@
             system-specified constructor 'Plex'). Rest variables (&lt;repo&gt; and &lt;resl&gt;) are also permitted.
             See http://ruleml.org/1.02/glossary/#gloss-Plex within resl</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:Plex_resl.main">
-              <xs:attributeGroup ref="ruleml:rePlex.attlist"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="Plex_resl.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Plex_resl.main">
+        <xs:attributeGroup ref="ruleml:rePlex.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Plex_resl.main">
     <xs:annotation>
       <xs:documentation>A generalized list within a slotted rest variable contains a slotted

@@ -13,9 +13,17 @@ if [ "$?" -ne "0" ]; then
      exit 1
 fi
    
-# Validate Examples in XSD Test Suites
+# Validate Examples in Test Suites
 ${BASH_HOME}batch_xsd-test-suite.sh  >> /dev/null 2>&1
 if [ "$?" -ne "0" ]; then
-     echo "Local Testing of XSD Schemas Failed"
+     echo "Local Testing of XSD Schema Failed"
+     exit 1
+fi
+
+# Normalized and Validate Examples Test Suites
+#${BASH_HOME}batch_xsd-normal-suite.sh  >> /dev/null 2>&1
+${BASH_HOME}batch_xsd-normal-suite.sh
+if [ "$?" -ne "0" ]; then
+     echo "Local Testing of XSD Normal Schema Failed"
      exit 1
 fi
