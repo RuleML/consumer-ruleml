@@ -6,51 +6,54 @@ dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
 dc:subject [ "RuleML, Consumer, Spatial" ]
-dc:description [
-  "The expansion module for spatial entities and relations."
-]
+dc:description [ "The expansion module for spatial entities and relations." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-
-start |= notAllowed
-Node.choice |= Spatial_formula.def
-edge.choice |= arg_spatial
+dc:relation [ "http://consumer.ruleml.org" ]
+start |= Spatial_term.Node.def | Spatial_formula.Node.def
+Node.choice |= Spatial_term.Node.def
+Node.choice |= Spatial_formula.Node.def
+edge.choice |= arg_spatial.edge.def
 #
-Spatial_formula-node.choice |= Spatial_formula.def
-Spatial_term-node.choice |= Spatial_term.def
 
-#   *** Spatial ***
+##
+Spatial_term-node.choice |= Spatial_term.Node.def
+
+##
+Spatial_term.Node.def =
+  
+  ## <Spatial>: generic Spatial element. See
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Spatial
+  element Spatial { Spatial_term.type.def }
+Spatial_term.type.def = Spatial_term.attlist & Spatial_term.content
 Spatial_term.attlist &= type-att.choice?
 Spatial_term.attlist &= commonNode.attlist?
+Spatial_term.content |= Spatial_term.header, argumentsForSpatial.sequence
+Spatial_term.header &= Expr.header?
+
+##
+Spatial_formula-node.choice |= Spatial_formula.Node.def
+
+##
+Spatial_formula.Node.def = element Spatial { Spatial_formula.type.def }
+Spatial_formula.type.def = Spatial_formula.attlist & Spatial_formula.content
 Spatial_formula.attlist &= formula-interface.attlist?
 Spatial_formula.attlist &= type-att.choice?
 Spatial_formula.attlist &= commonNode.attlist?
-Spatial_term.content |= Spatial_term.header, argumentsForSpatial.sequence
 Spatial_formula.content |= Spatial_formula.header, argumentsForSpatial.sequence
-Spatial_term.header &= Expr.header?
 Spatial_formula.header &= Atom.header?
-arg_spatial.choice |= arg_spatial
-Spatial_term.type.def = Spatial_term.content, Spatial_term.attlist
-Spatial_formula.type.def = Spatial_formula.content, Spatial_formula.attlist
-Spatial_term.def =
-  
-  ## <Spatial>: generic Spatial element. See
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Spatial
-  element Spatial { Spatial_term.type.def }
-Spatial_formula.def = element Spatial { Spatial_formula.type.def }
-# *** arg ***
+
+##
+arg_spatial-edge.choice |= arg_spatial.edge.def
+arg_spatial.edge.def = element arg { arg_spatial.type.def }
+arg_spatial.type.def = arg_spatial.attlist & arg_spatial.content
 arg_spatial.attlist &= index-attrib.choice?
 arg_spatial.attlist &= commonInit.attlist?
 arg_spatial.content |= spatial_primitives.content
-arg_spatial.type.def = arg_spatial.content, arg_spatial.attlist
-arg_spatial = element arg { arg_spatial.type.def }
 
-
-# in spatial module
-SimpleKeyTerm.choice |= Spatial_term.def
-Atom-node.choice |= Spatial_formula.def
+## Usage
+SimpleKeyTerm.choice |= Spatial_term-node.choice
+Atom-node.choice |= Spatial_formula-node.choice
 
 ## An internal group for the spatial primitives for interpretation as spatial
 spatial_primitives.content |= arg.content
-#spatial_primitives.content |= spatial_temporal_algebra_group.content
-

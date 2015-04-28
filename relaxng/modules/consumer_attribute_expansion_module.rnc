@@ -10,19 +10,17 @@ dc:subject [ "RuleML, Consumer, attributes" ]
 dc:description [ "The expansion module for Consumer RuleML attributes beyond Deliberation RuleML." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
+dc:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
 # This module declares the following Consumer RuleML attributes:
 #    * @style (reference to a profile definition)	
-#    * @type for operators
 #
 #
-# *** @style ***
-style.attrib = style-att.choice
 style-att.choice |= style.attrib.def
 style.attrib.def =
   
   ## @style: defines a reference to a corresponding unique key. See
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-@style
   attribute style { style.value }
 style.value |= "reasoning/single-valued"
 style.value |= "reasoning/multi-valued"
@@ -46,7 +44,7 @@ formula-interface-ext.attlist &= style-att.choice?
 formula-interface.attlist &= formula-interface-ext.attlist?
 formula-interface.attlist &= closure-att.choice?
 # 
-# a group of attributes for the meta knowledge interface of all connectives/operators in Reaction RuleML
+# a group of attributes for the meta knowledge interface of all connectives/operators in Consumer RuleML
 #
 operator-interface-ext.attlist &= style-att.choice?
 operator-interface.attlist &= operator-interface-ext.attlist?

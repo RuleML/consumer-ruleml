@@ -1,16 +1,17 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "Reaction RuleML Positional Dependence" ]
+dc:title [ "Consumer RuleML Positional Independence" ]
 dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Consumer, positional dependence" ]
+dc:subject [ "RuleML, Consumer, positional independence" ]
 dc:description [
   "The expansion module for positional dependence."
 ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
+dc:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
 # 
 # ORDER MODE - UNORDERED GROUPS DISABLED
@@ -22,8 +23,8 @@ start |= notAllowed
   Expr.main |= argumentsForExpressions.sequence
   
 # adding patterns for spatial-temporal individuals
-argumentsForTime.sequence |= arg_time.choice* & restOfPositionalArguments-edge.choice? & slot-edge.choice* & restOfSlots-edge.choice?
-argumentsForSpatial.sequence |= arg_spatial.choice* & restOfPositionalArguments-edge.choice? & slot-edge.choice* & restOfSlots-edge.choice?
+argumentsForTime.sequence |= arg_time-edge.choice* & restOfPositionalArguments-edge.choice? & slot-edge.choice* & restOfSlots-edge.choice?
+argumentsForSpatial.sequence |= arg_spatial-edge.choice* & restOfPositionalArguments-edge.choice? & slot-edge.choice* & restOfSlots-edge.choice?
 #
 # *** Derivation Rule content model ***
 Rule.main |= if_Rule-edge.choice & then_Rule-edge.choice

@@ -2,7 +2,7 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
 
-dc:title [ "Stripe-skipping in Reaction RuleML" ]
+dc:title [ "Stripe-skipping in Consumer RuleML" ]
 dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
@@ -10,6 +10,7 @@ dc:subject [ "RuleML, Consumer, stripe-skipping" ]
 dc:description [ "The expansion module for stripe-skipping." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
+dc:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
 # 
 # STRIPE-SKIPPING MODE ENABLED
@@ -22,18 +23,16 @@ start |= notAllowed
 
 if_Rule-ss.content |= if_Rule.content
 then_Rule-ss.content |= then_Rule.content
-formula-negation.choice |= formula-negation.content
-arg_interval_term.choice |= arg_interval_term.content
-arg_interval_formula.choice |= arg_interval_formula.content
-arg_time.choice |= time_primitives.content
-arg_spatial.choice |= spatial_primitives.content
-formula-quant.choice |= formula_Forall.content
-formula-quant.choice |= formula_Forall.content
-formula-Operation.choice |= formula_Operation.content
+formula-negation-edge.choice |= formula-negation.content
+arg_interval_term-edge.choice |= arg_interval_term.content
+arg_interval_formula-edge.choice |= arg_interval_formula.content
+arg_time-edge.choice |= time_primitives.content
+arg_spatial-edge.choice |= spatial_primitives.content
+formula-Operation-edge.choice |= formula_Operation.content
 #
 # Also attribute skipping is enabled by this module.
 #
-formulat_Operation-datt.choice |= empty
+formula_Operation-datt.choice |= empty
 #
 # a dummy element to assist in XSD conversion
 #

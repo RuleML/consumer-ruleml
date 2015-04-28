@@ -260,11 +260,11 @@
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="364" y="326"
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="371" y="326"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" stroke-width="1" x="386" xml:space="preserve" y="328"
-      >ruleml:arg_interval_term.choice</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="558" y="329"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 560 337 560 336 563 333 563 332 562 331 566 331 566 335 565 334 564 334 561 337" stroke="black" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 560 337 560 336 563 333 563 332 562 331 566 331 566 335 565 334 564 334 561 337" stroke="none" stroke-width="1"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="558" y="329"
+      >ruleml:arg_interval_term-edge.choice</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="590" y="329"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 592 337 592 336 595 333 595 332 594 331 598 331 598 335 597 334 596 334 593 337" stroke="black" stroke-width="1"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 592 337 592 336 595 333 595 332 594 331 598 331 598 335 597 334 596 334 593 337" stroke="none" stroke-width="1"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="590" y="329"
     /></g
     ><g font-family="sans-serif" font-size="11" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><circle clip-path="url(#clipPath1)" cx="348" cy="324" fill="none" r="5"
@@ -306,11 +306,11 @@
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="449" y="370"
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="456" y="370"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" stroke-width="1" x="471" xml:space="preserve" y="372"
-      >ruleml:arg_interval_term.def</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="625" y="373"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 627 381 627 380 630 377 630 376 629 375 633 375 633 379 632 378 631 378 628 381" stroke="black" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 627 381 627 380 630 377 630 376 629 375 633 375 633 379 632 378 631 378 628 381" stroke="none" stroke-width="1"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="625" y="373"
+      >ruleml:arg_interval_term.edge.def</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="654" y="373"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 656 381 656 380 659 377 659 376 658 375 662 375 662 379 661 378 660 378 657 381" stroke="black" stroke-width="1"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 656 381 656 380 659 377 659 376 658 375 662 375 662 379 661 378 660 378 657 381" stroke="none" stroke-width="1"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="654" y="373"
     /></g
     ><g font-family="sans-serif" font-size="11" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><circle clip-path="url(#clipPath1)" cx="433" cy="368" fill="none" r="5"
@@ -380,11 +380,11 @@
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="364" y="172"
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="371" y="172"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" stroke-width="1" x="386" xml:space="preserve" y="174"
-      >ruleml:arg_interval_term.choice</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="558" y="175"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 560 183 560 182 563 179 563 178 562 177 566 177 566 181 565 180 564 180 561 183" stroke="black" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 560 183 560 182 563 179 563 178 562 177 566 177 566 181 565 180 564 180 561 183" stroke="none" stroke-width="1"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="558" y="175"
+      >ruleml:arg_interval_term-edge.choice</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="590" y="175"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 592 183 592 182 595 179 595 178 594 177 598 177 598 181 597 180 596 180 593 183" stroke="black" stroke-width="1"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 592 183 592 182 595 179 595 178 594 177 598 177 598 181 597 180 596 180 593 183" stroke="none" stroke-width="1"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="590" y="175"
     /></g
     ><g font-family="sans-serif" font-size="11" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><circle clip-path="url(#clipPath1)" cx="348" cy="170" fill="none" r="5"
@@ -426,11 +426,11 @@
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="449" y="216"
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="456" y="216"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" stroke-width="1" x="471" xml:space="preserve" y="218"
-      >ruleml:arg_interval_term.def</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="625" y="219"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 627 227 627 226 630 223 630 222 629 221 633 221 633 225 632 224 631 224 628 227" stroke="black" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 627 227 627 226 630 223 630 222 629 221 633 221 633 225 632 224 631 224 628 227" stroke="none" stroke-width="1"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="625" y="219"
+      >ruleml:arg_interval_term.edge.def</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="654" y="219"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 656 227 656 226 659 223 659 222 658 221 662 221 662 225 661 224 660 224 657 227" stroke="black" stroke-width="1"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 656 227 656 226 659 223 659 222 658 221 662 221 662 225 661 224 660 224 657 227" stroke="none" stroke-width="1"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="654" y="219"
     /></g
     ><g font-family="sans-serif" font-size="11" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><circle clip-path="url(#clipPath1)" cx="433" cy="214" fill="none" r="5"
@@ -535,13 +535,13 @@
     /></g
     ><g fill="rgb(51,51,51)" font-family="sans-serif" font-size="10" shape-rendering="crispEdges" stroke="rgb(51,51,51)" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="438"
-      >&lt;Timer&gt;: a temporal operator "After t </text
+      >&lt;Timer&gt;: an interval constructor </text
       ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="451"
-      >Every tx". See </text
+      >"After t Every d". See </text
       ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="464"
-      >http://www.reaction.ruleml.org/1.02/g</text
+      >http://consumer.ruleml.org/1.02/gloss</text
       ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="477"
-      >lossary/#gloss-Timer</text
+      >ary/#gloss-Timer</text
     ></g
   ></g
 ></svg

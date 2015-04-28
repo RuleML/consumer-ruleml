@@ -160,11 +160,11 @@
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="290" y="114"
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="297" y="114"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" stroke-width="1" x="312" xml:space="preserve" y="116"
-      >ruleml:arg_interval_term.choice</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="484" y="117"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 486 125 486 124 489 121 489 120 488 119 492 119 492 123 491 122 490 122 487 125" stroke="black" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 486 125 486 124 489 121 489 120 488 119 492 119 492 123 491 122 490 122 487 125" stroke="none" stroke-width="1"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="484" y="117"
+      >ruleml:arg_interval_term-edge.choice</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="516" y="117"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 518 125 518 124 521 121 521 120 520 119 524 119 524 123 523 122 522 122 519 125" stroke="black" stroke-width="1"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 518 125 518 124 521 121 521 120 520 119 524 119 524 123 523 122 522 122 519 125" stroke="none" stroke-width="1"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="516" y="117"
     /></g
     ><g font-family="sans-serif" font-size="11" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><circle clip-path="url(#clipPath1)" cx="274" cy="112" fill="none" r="5"
@@ -206,11 +206,11 @@
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="375" y="158"
       /><rect clip-path="url(#clipPath1)" fill="rgb(25,101,179)" height="5" stroke="none" stroke-width="1" width="5" x="382" y="158"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" stroke-width="1" x="397" xml:space="preserve" y="160"
-      >ruleml:arg_interval_term.def</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="551" y="161"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 553 169 553 168 556 165 556 164 555 163 559 163 559 167 558 166 557 166 554 169" stroke="black" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 553 169 553 168 556 165 556 164 555 163 559 163 559 167 558 166 557 166 554 169" stroke="none" stroke-width="1"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="551" y="161"
+      >ruleml:arg_interval_term.edge.def</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="580" y="161"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 582 169 582 168 585 165 585 164 584 163 588 163 588 167 587 166 586 166 583 169" stroke="black" stroke-width="1"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 582 169 582 168 585 165 585 164 584 163 588 163 588 167 587 166 586 166 583 169" stroke="none" stroke-width="1"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="580" y="161"
     /></g
     ><g font-family="sans-serif" font-size="11" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><circle clip-path="url(#clipPath1)" cx="359" cy="156" fill="none" r="5"
@@ -313,13 +313,13 @@
     /></g
     ><g fill="rgb(51,51,51)" font-family="sans-serif" font-size="10" shape-rendering="crispEdges" stroke="rgb(51,51,51)" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="273"
-      >&lt;Any&gt;: a temporal operator "any </text
+      >&lt;Any&gt;: an interval constructor "any </text
       ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="286"
       >t1, .., tn". See </text
       ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="299"
-      >http://www.reaction.ruleml.org/1.02</text
+      >http://consumer.ruleml.org/1.02/glo</text
       ><text clip-path="url(#clipPath1)" stroke="none" x="3" xml:space="preserve" y="312"
-      >/glossary/#gloss-Any</text
+      >ssary/#gloss-Any</text
     ></g
   ></g
 ></svg

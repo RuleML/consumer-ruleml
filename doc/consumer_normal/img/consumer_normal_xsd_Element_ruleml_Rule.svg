@@ -428,7 +428,7 @@
     ><text clip-path="url(#clipPath1)" stroke="none" x="576" xml:space="preserve" y="491"
       >&lt;if&gt;: contains the premises of the rule. See </text
       ><text clip-path="url(#clipPath1)" stroke="none" x="576" xml:space="preserve" y="504"
-      >http://www.reaction.ruleml.org/1.02/glossary/#gloss-if</text
+      >http://consumer.ruleml.org/1.02/glossary/#gloss-if</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="545" x2="548" y1="446" y2="446"
@@ -550,7 +550,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="576" xml:space="preserve" y="688"
       >&lt;then&gt;: contains the conclusion of the rule. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="576" xml:space="preserve" y="701"
-      >http://www.reaction.ruleml.org/1.02/glossary/#gloss-then</text
+      >http://consumer.ruleml.org/1.02/glossary/#gloss-then</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="545" x2="548" y1="643" y2="643"
@@ -752,9 +752,9 @@
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="663"
       >RuleML. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="676"
-      >http://www.reaction.ruleml.org/1.02</text
+      >http://consumer.ruleml.org/1.02/glo</text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="689"
-      >/glossary/#gloss-Rule</text
+      >ssary/#gloss-Rule</text
     ></g
   ></g
 ></svg

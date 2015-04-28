@@ -90,11 +90,11 @@
       /><rect clip-path="url(#clipPath1)" height="5" stroke="none" width="5" x="320" y="16"
       /><rect clip-path="url(#clipPath1)" height="5" stroke="none" width="5" x="327" y="16"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" x="342" xml:space="preserve" y="18"
-      >ruleml:Interval_term.def</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" width="10" x="472" y="19"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 474 27 474 26 477 23 477 22 476 21 480 21 480 25 479 24 478 24 475 27" stroke="black"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 474 27 474 26 477 23 477 22 476 21 480 21 480 25 479 24 478 24 475 27" stroke="none"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" width="10" x="472" y="19"
+      >ruleml:Interval_term.Node.def</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" width="10" x="503" y="19"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 505 27 505 26 508 23 508 22 507 21 511 21 511 25 510 24 509 24 506 27" stroke="black"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 505 27 505 26 508 23 508 22 507 21 511 21 511 25 510 24 509 24 506 27" stroke="none"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" width="10" x="503" y="19"
       /><circle clip-path="url(#clipPath1)" cx="304" cy="14" fill="none" r="5" shape-rendering="auto" stroke="black"
       /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="302" x2="306" y1="14" y2="14"
       /><circle clip-path="url(#clipPath1)" cx="328" cy="67" fill="rgb(224,225,228)" r="14" shape-rendering="auto" stroke="none"
@@ -147,7 +147,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="384" xml:space="preserve" y="108"
       >&lt;Interval&gt;: generic Interval element. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="384" xml:space="preserve" y="121"
-      >http://www.reaction.ruleml.org/1.02/glossary/#gloss-Interval</text
+      >http://consumer.ruleml.org/1.02/glossary/#gloss-Interval</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="353" x2="356" y1="63" y2="63"

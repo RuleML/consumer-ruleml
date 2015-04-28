@@ -9,44 +9,44 @@ dc:subject [ "RuleML, Consumer, Rule" ]
 dc:description [ "The expansion module for rules in Consumer RuleML." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
+dc:relation [ "http://consumer.ruleml.org" ]
 
 ##
-start |= Rule.def
-Node.choice |= Rule.def
+start |= Rule.Node.def
+Node.choice |= Rule.Node.def
 edge.choice |= if_Rule.edge.def
 edge.choice |= then_Rule.edge.def
+Rule-node.choice |= Rule.Node.def
 
-Rule-node.choice |= Rule.def
 ##
-Rule.def =
+Rule.Node.def =
   
   ## <Rule>: defines a rule in Consumer RuleML. See
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Rule
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Rule
   element Rule { Rule.type.def }
-Rule.type.def = Rule.content, (Rule-datt.choice & reRule.attlist)
+Rule.type.def = (Rule-datt.choice & reRule.attlist) & Rule.content
 Rule-datt.choice |= direction-att-inf.choice & material-att-inf.choice
 reRule.attlist &= operator-interface.attlist?
 reRule.attlist &= commonNode.attlist?
 Rule.content |= Rule.header, Rule.main?
 
 ##
-#ForallFormula.choice |= Rule.def
-
-# *** if ***
 if_Rule-edge.choice |= if_Rule.edge.def
 if_Rule.edge.def =
+  
   ## <if>: contains the premises of the rule. See 
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-if
-  element if {if_Rule.type.def}
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-if
+  element if { if_Rule.type.def }
 if_Rule.type.def = if_Rule.attlist? & if_Rule.content
-if_Rule.content |= PremiseFormula.choice
 if_Rule.attlist &= commonInit.attlist?
-# *** then ***
+if_Rule.content |= PremiseFormula.choice
+##
 then_Rule-edge.choice |= then_Rule.edge.def
 then_Rule.edge.def =
+  
   ## <then>: contains the conclusion of the rule. See 
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-then
-  element then {then_Rule.type.def}
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-then
+  element then { then_Rule.type.def }
 then_Rule.type.def = then_Rule.attlist? & then_Rule.content
-then_Rule.content |= ConclusionFormula.choice
 then_Rule.attlist &= commonInit.attlist?
+then_Rule.content |= ConclusionFormula.choice

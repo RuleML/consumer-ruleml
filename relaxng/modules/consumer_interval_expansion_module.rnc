@@ -1,67 +1,65 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "Reaction RuleML for DR Intervals" ]
-dc:version [ "1.0" ]
+dc:title [ "Consumer RuleML for Intervals" ]
+dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Reaction, Deliberation, Interval" ]
-dc:description [
-  "The expansion module for intervals."
-]
+dc:subject [ "RuleML, Consumer, Interval" ]
+dc:description [ "The expansion module for intervals." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-dc:relation [ "http://reaction.ruleml.org" ]
-start |= notAllowed
-Node.choice |= Interval_formula.def
-Node.choice |= Interval_term.def
-edge.choice |= arg_interval_formula.def
-edge.choice |= arg_interval_term.def
-
-# This module declares the following Reaction RuleML elements:
+dc:relation [ "http://consumer.ruleml.org" ]
+start |= Interval_formula.Node.def | Interval_term.Node.def
+Node.choice |= Interval_formula.Node.def
+Node.choice |= Interval_term.Node.def
+edge.choice |= arg_interval_formula.edge.def
+edge.choice |= arg_interval_term.edge.def
+# This module declares the following Consumer RuleML elements:
 # * Interval
 #
-Interval_term-node.choice |= Interval_term.def
-Interval_formula-node.choice |= Interval_formula.def
-arg_interval_term.choice |= arg_interval_term.def
-arg_interval_formula.choice |= arg_interval_formula.def
 
-#   *** Interval ***
-Interval_term.def =
+##
+Interval_term-node.choice |= Interval_term.Node.def
+Interval_term.Node.def =
   
   ## <Interval>: generic Interval element. See
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Interval
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Interval
   element Interval { Interval_term.type.def }
-Interval_term.type.def = Interval_term.content, Interval_term.attlist
-Interval_term.content |= Interval_term.header, (arg_interval_term.choice, arg_interval_term.choice?)?
-Interval_term.header &= Expr.header?
+Interval_term.type.def = Interval_term.attlist & Interval_term.content
 Interval_term.attlist &= type-att.choice?
 Interval_term.attlist &= commonNode.attlist?
-#
-Interval_formula.def = element Interval { Interval_formula.type.def }
-Interval_formula.type.def = Interval_formula.content, Interval_formula.attlist
-Interval_formula.content |= Interval_formula.header, (arg_interval_formula.choice, arg_interval_formula.choice?)? 
-Interval_formula.header &= Atom.header?
+Interval_term.content |=
+  Interval_term.header, (arg_interval_term-edge.choice, arg_interval_term-edge.choice?)?
+Interval_term.header &= Expr.header?
+
+##
+Interval_formula-node.choice |= Interval_formula.Node.def
+Interval_formula.Node.def = element Interval { Interval_formula.type.def }
+Interval_formula.type.def = Interval_formula.attlist & Interval_formula.content
 Interval_formula.attlist &= formula-interface.attlist?
 Interval_formula.attlist &= type-att.choice?
 Interval_formula.attlist &= commonNode.attlist?
-#
-# *** arg ***
-arg_interval_term.def = element arg { arg_interval_term.type.def }
-arg_interval_term.type.def = arg_interval_term.content, arg_interval_term.attlist
+Interval_formula.content |=
+  Interval_formula.header, (arg_interval_formula-edge.choice, arg_interval_formula-edge.choice?)?
+Interval_formula.header &= Atom.header?
+
+##
+arg_interval_term-edge.choice |= arg_interval_term.edge.def
+arg_interval_term.edge.def = element arg { arg_interval_term.type.def }
+arg_interval_term.type.def = arg_interval_term.attlist & arg_interval_term.content
 arg_interval_term.content |= arg.content
 arg_interval_term.attlist &= index-attrib.choice?
 arg_interval_term.attlist &= commonInit.attlist?
-#
-arg_interval_formula.def = element arg { arg_interval_formula.type.def }
-arg_interval_formula.type.def = arg_interval_formula.content, arg_interval_formula.attlist
+
+##
+arg_interval_formula-edge.choice |= arg_interval_formula.edge.def
+arg_interval_formula.edge.def = element arg { arg_interval_formula.type.def }
+arg_interval_formula.type.def = arg_interval_formula.attlist & arg_interval_formula.content
 arg_interval_formula.content |= arg.content
 arg_interval_formula.attlist &= index-attrib.choice?
 arg_interval_formula.attlist &= commonInit.attlist?
 
-# in interval module
+## Usage
 SimpleKeyTerm.choice |= Interval_term-node.choice
 Atom-node.choice |= Interval_formula-node.choice
-
-# Interval primitives
-#interval_primitives.content |= arg.content | interval_algebra_group.content

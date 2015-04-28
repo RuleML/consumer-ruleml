@@ -86,11 +86,11 @@
       /><rect clip-path="url(#clipPath1)" height="5" stroke="none" width="5" x="323" y="16"
       /><rect clip-path="url(#clipPath1)" height="5" stroke="none" width="5" x="330" y="16"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" x="345" xml:space="preserve" y="18"
-      >ruleml:Time_formula.def</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" width="10" x="478" y="19"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 480 27 480 26 483 23 483 22 482 21 486 21 486 25 485 24 484 24 481 27" stroke="black"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 480 27 480 26 483 23 483 22 482 21 486 21 486 25 485 24 484 24 481 27" stroke="none"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" width="10" x="478" y="19"
+      >ruleml:Time_formula.Node.def</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" width="10" x="509" y="19"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 511 27 511 26 514 23 514 22 513 21 517 21 517 25 516 24 515 24 512 27" stroke="black"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 511 27 511 26 514 23 514 22 513 21 517 21 517 25 516 24 515 24 512 27" stroke="none"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" width="10" x="509" y="19"
       /><circle clip-path="url(#clipPath1)" cx="307" cy="14" fill="none" r="5" shape-rendering="auto" stroke="black"
       /><line clip-path="url(#clipPath1)" fill="none" shape-rendering="auto" stroke="black" x1="305" x2="309" y1="14" y2="14"
       /><circle clip-path="url(#clipPath1)" cx="331" cy="67" fill="rgb(224,225,228)" r="14" shape-rendering="auto" stroke="none"

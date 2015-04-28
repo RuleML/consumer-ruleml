@@ -1,39 +1,36 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "COnsumer RuleML Generic Negation" ]
+dc:title [ "Consumer RuleML Generic Negation" ]
 dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
 dc:subject [ "RuleML, Consumer, Negation" ]
-dc:description [
-  "The expansion module for generic negation."
-]
+dc:description [ "The expansion module for generic negation." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-start |= Negation
-
-# This module declares the following Reaction RuleML elements:
-# * Negation		generic polymorphig negation
-
-# *** Negation ***
+dc:relation [ "http://consumer.ruleml.org" ]
+start |= Negation.Node.def
+Node.choice |= Negation.Node.def
+edge.choice |= formula-negation.edge.def
+# This module declares the following Consumer RuleML elements:
+#             * Negation generic polymorphic negation
+#             * formula
 
 ## the Negation attribute list
-Negation.attlist &= generic-Formula.attlist?
-Negation.content |= Node.header, formula-negation.choice
-formula-negation.choice |= formula-negation
-Negation.type.def = Negation.content, Negation.attlist
-Negation =
+Negation-node.choice |= Negation.Node.def
+Negation.Node.def =
   
   ## <Negation>: a generic polymorphic negation, which is interpreted by the intended semantics (i.e. semantic profile). See
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Negation
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Negation
   element Negation { Negation.type.def }
-Node.choice |= Negation
-Negation-node.choice |= Negation
-#
+Negation.type.def = Negation.attlist & Negation.content
+Negation.attlist &= generic-Formula.attlist?
+Negation.content |= Node.header, formula-negation-edge.choice
+
+##
+formula-negation-edge.choice |= formula-negation.edge.def
+formula-negation.edge.def = element formula { formula-negation.type.def }
+formula-negation.type.def = formula-negation.attlist & formula-negation.content
 formula-negation.attlist &= commonInit.attlist?
 formula-negation.content |= NegFormula.choice
-formula-negation.type.def = formula-negation.content, formula-negation.attlist
-formula-negation = element formula { formula-negation.type.def }
-edge.choice |= formula-negation
-

@@ -2,47 +2,48 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 namespace this = inherit
 
-dc:title [ "Foreign Namespace content in Reaction RuleML" ]
-dc:version [ "1.0" ]
+dc:title [ "Foreign Namespace content in Consumer RuleML" ]
+dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
-dc:subject [ "RuleML, Reaction, Deliberation" ]
+dc:subject [ "RuleML, Consumer, foreign" ]
 dc:description [
   "The expansion module for foreign namespace content."
 ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-dc:relation [ "http://reaction.ruleml.org" ]
+dc:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
-edge.choice |= time_anycontent
-edge.choice |= spatial_anycontent
-edge.choice |= interval_anycontent
+edge.choice |= time_anycontent.edge.def
+edge.choice |= spatial_anycontent.edge.def
+edge.choice |= interval_anycontent.edge.def
 
 # *** content ***
 # 
 # 
-argumentsForTime.sequence |= time_anycontent*
-time_anycontent = element content { time_anycontent.type }
-time_anycontent.type = time_anycontent.content, time_anycontent.attlist, index-attrib.choice
+argumentsForTime.sequence |= time_anycontent-edge.choice*
+time_anycontent-edge.choice |= time_anycontent.edge.def
+time_anycontent.edge.def = element content { time_anycontent.type }
+time_anycontent.type = time_anycontent.attlist & index-attrib.choice & time_anycontent.content
 time_anycontent.content |= anycontent.content
 time_anycontent.attlist &= commonInit.attlist?
 #
-argumentsForSpatial.sequence |= spatial_anycontent*
-spatial_anycontent = element content { spatial_anycontent.type }
-spatial_anycontent.type = spatial_anycontent.content, spatial_anycontent.attlist, index-attrib.choice
+argumentsForSpatial.sequence |= spatial_anycontent-edge.choice*
+spatial_anycontent-edge.choice |= spatial_anycontent.edge.def
+spatial_anycontent.edge.def = element content { spatial_anycontent.type }
+spatial_anycontent.type = spatial_anycontent.attlist & index-attrib.choice & spatial_anycontent.content
 
 spatial_anycontent.content |= anycontent.content
 spatial_anycontent.attlist &= commonInit.attlist?
 #
-arg_interval.choice |=  interval_anycontent
-interval_anycontent = element content { interval_anycontent.type }
-interval_anycontent.type = interval_anycontent.content, interval_anycontent.attlist, index-attrib.choice
+arg_interval.choice |=  interval_anycontent-edge.choice
+interval_anycontent-edge.choice |= interval_anycontent.edge.def
+interval_anycontent.edge.def = element content { interval_anycontent.type }
+interval_anycontent.type = interval_anycontent.attlist & index-attrib.choice & interval_anycontent.content
 interval_anycontent.content |= anycontent.content
 interval_anycontent.attlist &= commonInit.attlist?
-
-# In XSD, redefine to anycontent.content |= (text & any-element*)
-#any-element = element * { anything }
+#
 anycontent.content |= (text & foreign-element*) | Node.choice | edge.choice
-
+#
 foreign-element = element * - (this:*) { anything }
 anything = ( element * { anything } | attribute * { text } | text )*

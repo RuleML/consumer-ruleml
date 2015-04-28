@@ -20,9 +20,9 @@
     <xs:choice>
       <xs:element ref="ruleml:Atom"/>
       <xs:group ref="ruleml:Interval_formula-node.choice"/>
-      <xs:group ref="ruleml:Spatial_formula.def"/>
+      <xs:group ref="ruleml:Spatial_formula-node.choice"/>
       <xs:group ref="ruleml:interval_algebra_group.content"/>
-      <xs:group ref="ruleml:Time_formula.def"/>
+      <xs:group ref="ruleml:Time_formula.Node.def"/>
     </xs:choice>
   </xs:group>
   <xs:element name="Atom" type="ruleml:Atom.type.def">
@@ -47,7 +47,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -169,7 +169,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -288,7 +288,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -418,7 +418,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -637,7 +637,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -695,7 +695,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -902,7 +902,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -1191,23 +1191,23 @@
   <xs:group name="argumentsForTime.sequence">
     <xs:choice>
       <xs:sequence>
-        <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_time.choice"/>
+        <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_time-edge.choice"/>
         <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
         <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
         <xs:group minOccurs="0" ref="ruleml:restOfSlots-edge.choice"/>
       </xs:sequence>
-      <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:time_anycontent"/>
+      <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:time_anycontent-edge.choice"/>
     </xs:choice>
   </xs:group>
   <xs:group name="argumentsForSpatial.sequence">
     <xs:choice>
       <xs:sequence>
-        <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_spatial.choice"/>
+        <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_spatial-edge.choice"/>
         <xs:group minOccurs="0" ref="ruleml:restOfPositionalArguments-edge.choice"/>
         <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:slot-edge.choice"/>
         <xs:group minOccurs="0" ref="ruleml:restOfSlots-edge.choice"/>
       </xs:sequence>
-      <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:spatial_anycontent"/>
+      <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:spatial_anycontent-edge.choice"/>
     </xs:choice>
   </xs:group>
   
@@ -1340,7 +1340,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -1439,7 +1439,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -1554,7 +1554,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -1838,19 +1838,13 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="type" type="ruleml:type.value">
       <xs:annotation>
         <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
           http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="iri" type="ruleml:iri.value">
-      <xs:annotation>
-        <xs:documentation>An attribute for referring to a IRI.     See
-          http://ruleml.org/1.02/glossary/#gloss-@iri</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -2177,8 +2171,8 @@
         <xs:group ref="ruleml:DataTerm.choice"/>
       </xs:choice>
       <xs:group ref="ruleml:Interval_term-node.choice"/>
-      <xs:group ref="ruleml:Spatial_term.def"/>
-      <xs:group ref="ruleml:Time_term.def"/>
+      <xs:group ref="ruleml:Spatial_term-node.choice"/>
+      <xs:group ref="ruleml:Time_term.Node.def"/>
     </xs:choice>
   </xs:group>
   <xs:group name="CompoundTerm.choice">
@@ -2475,7 +2469,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -2598,7 +2592,12 @@
   
   
   
-  <xs:group name="time_anycontent">
+  <xs:group name="time_anycontent-edge.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:time_anycontent.edge.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="time_anycontent.edge.def">
     <xs:sequence>
       <xs:element form="qualified" name="content" type="ruleml:time_anycontent.type"/>
     </xs:sequence>
@@ -2620,7 +2619,12 @@
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   
-  <xs:group name="spatial_anycontent">
+  <xs:group name="spatial_anycontent-edge.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:spatial_anycontent.edge.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="spatial_anycontent.edge.def">
     <xs:sequence>
       <xs:element form="qualified" name="content" type="ruleml:spatial_anycontent.type"/>
     </xs:sequence>
@@ -2644,10 +2648,15 @@
   
   <xs:group name="arg_interval.choice">
     <xs:sequence>
-      <xs:group ref="ruleml:interval_anycontent"/>
+      <xs:group ref="ruleml:interval_anycontent-edge.choice"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="interval_anycontent">
+  <xs:group name="interval_anycontent-edge.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:interval_anycontent.edge.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="interval_anycontent.edge.def">
     <xs:sequence>
       <xs:element form="qualified" name="content" type="ruleml:interval_anycontent.type"/>
     </xs:sequence>
@@ -2669,6 +2678,7 @@
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   
+  
   <xs:group name="foreign-element">
     <xs:choice>
       <xs:any namespace="##other" processContents="lax"/>
@@ -2685,9 +2695,6 @@
   </xs:attributeGroup>
   
   
-  <xs:attributeGroup name="style.attrib">
-    <xs:attributeGroup ref="ruleml:style-att.choice"/>
-  </xs:attributeGroup>
   <xs:attributeGroup name="style-att.choice">
     <xs:attributeGroup ref="ruleml:style.attrib.def"/>
   </xs:attributeGroup>
@@ -2695,7 +2702,7 @@
     <xs:attribute name="style" type="ruleml:style.value" use="required">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -2725,7 +2732,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -2739,7 +2746,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -2752,7 +2759,7 @@
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
         <xs:documentation>@style: defines a reference to a corresponding unique key. See
-          http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
+          http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -2765,12 +2772,11 @@
   
   
   
-  
   <xs:attributeGroup name="key-att.choice">
     <xs:annotation>
       <xs:documentation>@key: defines a unique key attribute which can be used for distributed
         referencing from a keyref attribute. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-@key</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-@key</xs:documentation>
     </xs:annotation>
     <xs:attributeGroup ref="ruleml:key.attrib.def"/>
   </xs:attributeGroup>
@@ -2783,7 +2789,7 @@
   <xs:attributeGroup name="keyref-att.choice">
     <xs:annotation>
       <xs:documentation>@keyref: defines a reference to a corresponding unique key. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-@keyref</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-@keyref</xs:documentation>
     </xs:annotation>
     <xs:attributeGroup ref="ruleml:keyref.attrib.def"/>
   </xs:attributeGroup>
@@ -2799,32 +2805,19 @@
   
   
   <xs:group name="Interval_term-node.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:Interval_term.def"/>
+      <xs:group ref="ruleml:Interval_term.Node.def"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="Interval_formula-node.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:Interval_formula.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="arg_interval_term.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:arg_interval_term.def"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="arg_interval_formula.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:arg_interval_formula.def"/>
-    </xs:sequence>
-  </xs:group>
-  
-  <xs:group name="Interval_term.def">
+  <xs:group name="Interval_term.Node.def">
     <xs:sequence>
       <xs:element form="qualified" name="Interval" type="ruleml:Interval_term.type.def">
         <xs:annotation>
           <xs:documentation>&lt;Interval&gt;: generic Interval element. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-Interval</xs:documentation>
+            http://consumer.ruleml.org/1.02/glossary/#gloss-Interval</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -2836,12 +2829,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Interval_term.content">
-    <xs:sequence minOccurs="0">
-      <xs:group ref="ruleml:arg_interval_term.choice"/>
-      <xs:group minOccurs="0" ref="ruleml:arg_interval_term.choice"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:attributeGroup name="Interval_term.attlist">
     <xs:attribute name="type" type="ruleml:type.value">
       <xs:annotation>
@@ -2851,8 +2838,21 @@
     </xs:attribute>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
-  
-  <xs:group name="Interval_formula.def">
+  <xs:complexType name="Interval_term.content">
+    <xs:sequence minOccurs="0">
+      <xs:group ref="ruleml:arg_interval_term-edge.choice"/>
+      <xs:group minOccurs="0" ref="ruleml:arg_interval_term-edge.choice"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="Interval_formula-node.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ruleml:Interval_formula.Node.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="Interval_formula.Node.def">
     <xs:sequence>
       <xs:element form="qualified" name="Interval" type="ruleml:Interval_formula.type.def"/>
     </xs:sequence>
@@ -2864,20 +2864,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Interval_formula.content">
-    <xs:sequence>
-      <xs:group ref="ruleml:Interval_formula.header"/>
-      <xs:sequence minOccurs="0">
-        <xs:group ref="ruleml:arg_interval_formula.choice"/>
-        <xs:group minOccurs="0" ref="ruleml:arg_interval_formula.choice"/>
-      </xs:sequence>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:group name="Interval_formula.header">
-    <xs:sequence>
-      <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
-    </xs:sequence>
-  </xs:group>
   <xs:attributeGroup name="Interval_formula.attlist">
     <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
     <xs:attribute name="type" type="ruleml:type.value">
@@ -2888,8 +2874,29 @@
     </xs:attribute>
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
   </xs:attributeGroup>
-  
-  <xs:group name="arg_interval_term.def">
+  <xs:complexType name="Interval_formula.content">
+    <xs:sequence>
+      <xs:group ref="ruleml:Interval_formula.header"/>
+      <xs:sequence minOccurs="0">
+        <xs:group ref="ruleml:arg_interval_formula-edge.choice"/>
+        <xs:group minOccurs="0" ref="ruleml:arg_interval_formula-edge.choice"/>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="Interval_formula.header">
+    <xs:sequence>
+      <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="arg_interval_term-edge.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ruleml:arg_interval_term.edge.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="arg_interval_term.edge.def">
     <xs:sequence>
       <xs:element form="qualified" name="arg" type="ruleml:arg_interval_term.type.def"/>
     </xs:sequence>
@@ -2910,8 +2917,15 @@
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
-  
-  <xs:group name="arg_interval_formula.def">
+  <xs:group name="arg_interval_formula-edge.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ruleml:arg_interval_formula.edge.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="arg_interval_formula.edge.def">
     <xs:sequence>
       <xs:element form="qualified" name="arg" type="ruleml:arg_interval_formula.type.def"/>
     </xs:sequence>
@@ -2934,22 +2948,13 @@
   </xs:attributeGroup>
   
   
-  
-  
-  <xs:attributeGroup name="Negation.attlist">
+  <xs:element name="Negation" type="ruleml:Negation.type.def">
     <xs:annotation>
-      <xs:documentation>the Negation attribute list</xs:documentation>
+      <xs:documentation>&lt;Negation&gt;: a generic polymorphic negation, which is interpreted by the
+        intended semantics (i.e. semantic profile). See
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Negation</xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Negation.content">
-    <xs:complexContent>
-      <xs:extension base="ruleml:formula-negation.choice"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="formula-negation.choice">
-    <xs:group ref="ruleml:formula-negation"/>
-  </xs:complexType>
+  </xs:element>
   <xs:complexType name="Negation.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:Negation.content">
@@ -2957,14 +2962,32 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Negation" type="ruleml:Negation.type.def">
+  <xs:attributeGroup name="Negation.attlist">
+    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="Negation.content">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula-negation-edge.choice"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="formula-negation-edge.choice">
     <xs:annotation>
-      <xs:documentation>&lt;Negation&gt;: a generic polymorphic negation, which is interpreted by the
-        intended semantics (i.e. semantic profile). See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Negation</xs:documentation>
+      <xs:documentation/>
     </xs:annotation>
-  </xs:element>
-  
+    <xs:group ref="ruleml:formula-negation.edge.def"/>
+  </xs:complexType>
+  <xs:group name="formula-negation.edge.def">
+    <xs:sequence>
+      <xs:element form="qualified" name="formula" type="ruleml:formula-negation.type.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="formula-negation.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:formula-negation.content">
+        <xs:attributeGroup ref="ruleml:formula-negation.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="formula-negation.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
@@ -2973,35 +2996,23 @@
       <xs:extension base="ruleml:NegFormula.choice"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="formula-negation.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:formula-negation.content">
-        <xs:attributeGroup ref="ruleml:formula-negation.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:group name="formula-negation">
-    <xs:sequence>
-      <xs:element form="qualified" name="formula" type="ruleml:formula-negation.type.def"/>
-    </xs:sequence>
-  </xs:group>
   
   
-  
-  <xs:attributeGroup name="Operation.attlist">
+  <xs:group name="Operation-node.choice">
     <xs:annotation>
-      <xs:documentation>the Operation attribute list</xs:documentation>
+      <xs:documentation>an extension point for the generic operation category.  </xs:documentation>
     </xs:annotation>
-    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Operation.content">
-    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula-Operation.choice"/>
-  </xs:complexType>
-  <xs:group name="formula-Operation.choice">
     <xs:sequence>
-      <xs:group ref="ruleml:formula-Operation"/>
+      <xs:element ref="ruleml:Operation"/>
     </xs:sequence>
   </xs:group>
+  <xs:element name="Operation" type="ruleml:Operation.type.def">
+    <xs:annotation>
+      <xs:documentation>&lt;Operation&gt;: a generic polymorphic Operation, which is interpreted by the
+        intended semantics (i.e. semantic profile). See
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Operation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name="Operation.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:Operation.content">
@@ -3009,51 +3020,64 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Operation" type="ruleml:Operation.type.def">
+  <xs:attributeGroup name="Operation.attlist">
     <xs:annotation>
-      <xs:documentation>&lt;Operation&gt;: a generic polymorphic Operation, which is interpreted by the
-        intended semantics (i.e. semantic profile). See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Operation</xs:documentation>
+      <xs:documentation>the Operation attribute list follows the generic pattern</xs:documentation>
     </xs:annotation>
-  </xs:element>
-  <xs:group name="Operation-node.choice">
+    <xs:attributeGroup ref="ruleml:generic-Formula.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="Operation.content">
+    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:formula-Operation-edge.choice"/>
+  </xs:complexType>
+  <xs:group name="formula-Operation-edge.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for stripe skipping.  </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
-      <xs:element ref="ruleml:Operation"/>
+      <xs:group ref="ruleml:formula-Operation.edge.def"/>
     </xs:sequence>
   </xs:group>
-  
-  <xs:attributeGroup name="formula-Operation.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="formula_Operation.content">
-    <xs:complexContent>
-      <xs:extension base="ruleml:AndFormula.choice"/>
-    </xs:complexContent>
-  </xs:complexType>
+  <xs:group name="formula-Operation.edge.def">
+    <xs:annotation>
+      <xs:documentation>The formula role of a generic operation (&lt;Operation&gt;) expression,  Within
+        Operation ...</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element form="qualified" name="formula" type="ruleml:formula-Operation.type.def"/>
+    </xs:sequence>
+  </xs:group>
   <xs:complexType name="formula-Operation.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:formula_Operation.content">
+        <xs:attributeGroup ref="ruleml:formula_Operation-datt.choice"/>
         <xs:attributeGroup ref="ruleml:formula-Operation.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:group name="formula-Operation">
-    <xs:sequence>
-      <xs:element form="qualified" name="formula">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ruleml:formula-Operation.type.def">
-              <xs:attributeGroup ref="ruleml:formulat_Operation-datt.choice"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:attributeGroup name="formulat_Operation-datt.choice">
+  <xs:attributeGroup name="formula_Operation-datt.choice">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
   </xs:attributeGroup>
-  
+  <xs:attributeGroup name="formula-Operation.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="formula_Operation.content">
+    <xs:annotation>
+      <xs:documentation>Formulas within generic operations consist of a single
+        formula</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ruleml:OperationFormula.choice"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OperationFormula.choice">
+    <xs:annotation>
+      <xs:documentation>formulas allowed to participate in generic operations include all formulas
+        allowed in conjunctions. Typically, this will be all logical formulas. </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ruleml:AndFormula.choice"/>
+    </xs:complexContent>
+  </xs:complexType>
   
   <xs:group name="Rule-node.choice">
     <xs:sequence>
@@ -3063,7 +3087,7 @@
   <xs:element name="Rule" type="ruleml:Rule.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Rule&gt;: defines a rule in Consumer RuleML. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Rule</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Rule</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Rule.type.def">
@@ -3087,8 +3111,6 @@
       <xs:group minOccurs="0" ref="ruleml:Rule.main"/>
     </xs:sequence>
   </xs:complexType>
-  
-  
   <xs:group name="if_Rule-edge.choice">
     <xs:annotation>
       <xs:documentation/>
@@ -3102,7 +3124,7 @@
       <xs:element form="qualified" name="if" type="ruleml:if_Rule.type.def">
         <xs:annotation>
           <xs:documentation>&lt;if&gt;: contains the premises of the rule. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-if</xs:documentation>
+            http://consumer.ruleml.org/1.02/glossary/#gloss-if</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -3114,16 +3136,18 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:attributeGroup name="if_Rule.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:complexType name="if_Rule.content">
     <xs:complexContent>
       <xs:extension base="ruleml:PremiseFormula.choice"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:attributeGroup name="if_Rule.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
-  
   <xs:group name="then_Rule-edge.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
     <xs:sequence>
       <xs:group ref="ruleml:then_Rule.edge.def"/>
     </xs:sequence>
@@ -3133,7 +3157,7 @@
       <xs:element form="qualified" name="then" type="ruleml:then_Rule.type.def">
         <xs:annotation>
           <xs:documentation>&lt;then&gt;: contains the conclusion of the rule. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-then</xs:documentation>
+            http://consumer.ruleml.org/1.02/glossary/#gloss-then</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -3145,38 +3169,45 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:attributeGroup name="then_Rule.attlist">
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
+  </xs:attributeGroup>
   <xs:complexType name="then_Rule.content">
     <xs:complexContent>
       <xs:extension base="ruleml:ConclusionFormula.choice"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:attributeGroup name="then_Rule.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
-  </xs:attributeGroup>
   
   
-  <xs:group name="Spatial_formula-node.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:Spatial_formula.def"/>
-    </xs:sequence>
-  </xs:group>
   <xs:group name="Spatial_term-node.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:Spatial_term.def"/>
+      <xs:group ref="ruleml:Spatial_term.Node.def"/>
     </xs:sequence>
   </xs:group>
-  
+  <xs:group name="Spatial_term.Node.def">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element form="qualified" name="Spatial" type="ruleml:Spatial_term.type.def">
+        <xs:annotation>
+          <xs:documentation>&lt;Spatial&gt;: generic Spatial element. See
+            http://consumer.ruleml.org/1.02/glossary/#gloss-Spatial</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="Spatial_term.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Spatial_term.content">
+        <xs:attributeGroup ref="ruleml:Spatial_term.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:attributeGroup name="Spatial_term.attlist">
-    <xs:attribute name="type" type="ruleml:type.value">
-      <xs:annotation>
-        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
-          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="Spatial_formula.attlist">
-    <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
     <xs:attribute name="type" type="ruleml:type.value">
       <xs:annotation>
         <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
@@ -3188,6 +3219,39 @@
   <xs:complexType name="Spatial_term.content">
     <xs:group ref="ruleml:argumentsForSpatial.sequence"/>
   </xs:complexType>
+  <xs:group name="Spatial_formula-node.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ruleml:Spatial_formula.Node.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="Spatial_formula.Node.def">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element form="qualified" name="Spatial" type="ruleml:Spatial_formula.type.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="Spatial_formula.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Spatial_formula.content">
+        <xs:attributeGroup ref="ruleml:Spatial_formula.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:attributeGroup name="Spatial_formula.attlist">
+    <xs:attributeGroup ref="ruleml:formula-interface.attlist"/>
+    <xs:attribute name="type" type="ruleml:type.value">
+      <xs:annotation>
+        <xs:documentation>A role for optionally specifying a term's (user-defined) type. See
+          http://ruleml.org/1.02/glossary/#gloss-type</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+  </xs:attributeGroup>
   <xs:complexType name="Spatial_formula.content">
     <xs:sequence>
       <xs:group ref="ruleml:Spatial_formula.header"/>
@@ -3199,41 +3263,26 @@
       <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="arg_spatial.choice">
+  <xs:group name="arg_spatial-edge.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:arg_spatial"/>
+      <xs:group ref="ruleml:arg_spatial.edge.def"/>
     </xs:sequence>
   </xs:group>
-  <xs:complexType name="Spatial_term.type.def">
+  <xs:group name="arg_spatial.edge.def">
+    <xs:sequence>
+      <xs:element form="qualified" name="arg" type="ruleml:arg_spatial.type.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="arg_spatial.type.def">
     <xs:complexContent>
-      <xs:extension base="ruleml:Spatial_term.content">
-        <xs:attributeGroup ref="ruleml:Spatial_term.attlist"/>
+      <xs:extension base="ruleml:arg_spatial.content">
+        <xs:attributeGroup ref="ruleml:arg_spatial.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Spatial_formula.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:Spatial_formula.content">
-        <xs:attributeGroup ref="ruleml:Spatial_formula.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:group name="Spatial_term.def">
-    <xs:sequence>
-      <xs:element form="qualified" name="Spatial" type="ruleml:Spatial_term.type.def">
-        <xs:annotation>
-          <xs:documentation>&lt;Spatial&gt;: generic Spatial element. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-Spatial</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="Spatial_formula.def">
-    <xs:sequence>
-      <xs:element form="qualified" name="Spatial" type="ruleml:Spatial_formula.type.def"/>
-    </xs:sequence>
-  </xs:group>
-  
   <xs:attributeGroup name="arg_spatial.attlist">
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
@@ -3243,19 +3292,6 @@
       <xs:extension base="ruleml:spatial_primitives.content"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="arg_spatial.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:arg_spatial.content">
-        <xs:attributeGroup ref="ruleml:arg_spatial.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:group name="arg_spatial">
-    <xs:sequence>
-      <xs:element form="qualified" name="arg" type="ruleml:arg_spatial.type.def"/>
-    </xs:sequence>
-  </xs:group>
-  
   <xs:complexType name="spatial_primitives.content">
     <xs:annotation>
       <xs:documentation>An internal group for the spatial primitives for interpretation as
@@ -3269,78 +3305,83 @@
   
   <xs:group name="spatial_temporal_algebra_group.content">
     <xs:choice>
-      <xs:element ref="ruleml:After"/>
-      <xs:element ref="ruleml:Before"/>
-      <xs:element ref="ruleml:Every"/>
-      <xs:element ref="ruleml:Any"/>
-      <xs:element ref="ruleml:Timer"/>
+      <xs:group ref="ruleml:After-node.choice"/>
+      <xs:group ref="ruleml:Before-node.choice"/>
+      <xs:group ref="ruleml:Every-node.choice"/>
+      <xs:group ref="ruleml:Any-node.choice"/>
+      <xs:group ref="ruleml:Timer-node.choice"/>
     </xs:choice>
   </xs:group>
   
   <xs:group name="interval_algebra_group.content">
     <xs:choice>
-      <xs:element ref="ruleml:During"/>
-      <xs:element ref="ruleml:Overlaps"/>
-      <xs:element ref="ruleml:Starts"/>
-      <xs:element ref="ruleml:Precedes"/>
-      <xs:element ref="ruleml:Succeeds"/>
-      <xs:element ref="ruleml:Meets"/>
-      <xs:element ref="ruleml:Finishes"/>
+      <xs:group ref="ruleml:During-node.choice"/>
+      <xs:group ref="ruleml:Overlaps-node.choice"/>
+      <xs:group ref="ruleml:Starts-node.choice"/>
+      <xs:group ref="ruleml:Precedes-node.choice"/>
+      <xs:group ref="ruleml:Succeeds-node.choice"/>
+      <xs:group ref="ruleml:Meets-node.choice"/>
+      <xs:group ref="ruleml:Finishes-node.choice"/>
     </xs:choice>
   </xs:group>
   
-  
-  <xs:attributeGroup name="IntervalAlgebraOperation.attlist">
-    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
-    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
-  </xs:attributeGroup>
-  
-  <xs:group name="IntervalAlgebraFormula.type.def">
+  <xs:group name="Before-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the before constructor category.  </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:IntervalAlgebraOperation.content"/>
+      <xs:element ref="ruleml:Before"/>
     </xs:sequence>
   </xs:group>
-  <xs:attributeGroup name="IntervalAlgebraFormula.type.def">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
+  <xs:element name="Before" type="ruleml:BeforeAfter.type.def">
+    <xs:annotation>
+      <xs:documentation>&lt;Before&gt;: an interval constructor "d before (t)". See
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Before</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:group name="After-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the after constructor category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:After"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="After" type="ruleml:BeforeAfter.type.def">
+    <xs:annotation>
+      <xs:documentation>&lt;After&gt;: an interval constructor "d after (t)". See
+        http://consumer.ruleml.org/1.02/glossary/#gloss-After</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="BeforeAfter.type.def">
+    <xs:complexContent>
+      <xs:extension base="ruleml:BeforeAfter.content">
+        <xs:attributeGroup ref="ruleml:BeforeAfter.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:attributeGroup name="BeforeAfter.attlist">
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraConstructor.attlist"/>
   </xs:attributeGroup>
-  <xs:attributeGroup name="IntervalAlgebraFormula.attlist">
-    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
-  </xs:attributeGroup>
-  
-  <xs:attributeGroup name="After.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="After.content">
+  <xs:complexType name="BeforeAfter.content">
     <xs:complexContent>
       <xs:extension base="ruleml:Interval_term.content"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="After.type.def">
-    <xs:complexContent>
-      <xs:extension base="ruleml:After.content">
-        <xs:attributeGroup ref="ruleml:After.attlist"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="After" type="ruleml:After.type.def">
+  <xs:group name="Every-node.choice">
     <xs:annotation>
-      <xs:documentation>&lt;After&gt;: a temporal operator "t2 after t1". See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-After  </xs:documentation>
+      <xs:documentation>an extension point for the every constructor category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Every"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="Every" type="ruleml:Every.type.def">
+    <xs:annotation>
+      <xs:documentation>&lt;Every&gt;: an interval constructor "every d". See
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Every</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Before" type="ruleml:After.type.def">
-    <xs:annotation>
-      <xs:documentation>&lt;Before&gt;: a temporal operator "t1 before t2". See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-After</xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  
-  <xs:attributeGroup name="Every.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Every.content">
-    <xs:group minOccurs="0" ref="ruleml:arg_interval_term.choice"/>
-  </xs:complexType>
   <xs:complexType name="Every.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:Every.content">
@@ -3348,19 +3389,26 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Every" type="ruleml:Every.type.def">
+  <xs:attributeGroup name="Every.attlist">
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraConstructor.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="Every.content">
+    <xs:group minOccurs="0" ref="ruleml:arg_interval_term-edge.choice"/>
+  </xs:complexType>
+  <xs:group name="Any-node.choice">
     <xs:annotation>
-      <xs:documentation>&lt;Every&gt;: a temporal operator "every t". See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Every</xs:documentation>
+      <xs:documentation>an extension point for the every constructor category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Any"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="Any" type="ruleml:Any.type.def">
+    <xs:annotation>
+      <xs:documentation>&lt;Any&gt;: an interval constructor "any t1, .., tn". See
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Any</xs:documentation>
     </xs:annotation>
   </xs:element>
-  
-  <xs:attributeGroup name="Any.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Any.content">
-    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_interval_term.choice"/>
-  </xs:complexType>
   <xs:complexType name="Any.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:Any.content">
@@ -3368,21 +3416,26 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Any" type="ruleml:Any.type.def">
+  <xs:attributeGroup name="Any.attlist">
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraConstructor.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="Any.content">
+    <xs:group maxOccurs="unbounded" minOccurs="0" ref="ruleml:arg_interval_term-edge.choice"/>
+  </xs:complexType>
+  <xs:group name="Timer-node.choice">
     <xs:annotation>
-      <xs:documentation>&lt;Any&gt;: a temporal operator "any t1, .., tn". See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Any</xs:documentation>
+      <xs:documentation>an extension point for the every constructor category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Timer"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="Timer" type="ruleml:Timer.type.def">
+    <xs:annotation>
+      <xs:documentation>&lt;Timer&gt;: an interval constructor "After t Every d". See
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Timer</xs:documentation>
     </xs:annotation>
   </xs:element>
-  
-  <xs:attributeGroup name="Timer.attlist">
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraFormula.attlist"/>
-  </xs:attributeGroup>
-  <xs:complexType name="Timer.content">
-    <xs:complexContent>
-      <xs:extension base="ruleml:Interval_term.content"/>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="Timer.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:Timer.content">
@@ -3390,91 +3443,156 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Timer" type="ruleml:Timer.type.def">
+  <xs:attributeGroup name="Timer.attlist">
+    <xs:attributeGroup ref="ruleml:IntervalAlgebraConstructor.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="Timer.content">
+    <xs:complexContent>
+      <xs:extension base="ruleml:Interval_term.content"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:attributeGroup name="IntervalAlgebraConstructor.attlist">
     <xs:annotation>
-      <xs:documentation>&lt;Timer&gt;: a temporal operator "After t Every tx". See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Timer</xs:documentation>
+      <xs:documentation/>
     </xs:annotation>
-  </xs:element>
+    <xs:attributeGroup ref="ruleml:generic-Node.attlist"/>
+  </xs:attributeGroup>
   
-  <xs:group name="IntervalAlgebraOperation.content">
+  <xs:group name="During-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the during operator category.  </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:arg_interval_term.choice"/>
-      <xs:group ref="ruleml:arg_interval_term.choice"/>
+      <xs:element ref="ruleml:During"/>
     </xs:sequence>
   </xs:group>
-  <xs:complexType name="IntervalAlgebraOperation.type.def">
-    <xs:group ref="ruleml:IntervalAlgebraOperation.content"/>
-    <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
-  </xs:complexType>
   <xs:element name="During" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;During&gt;: an interval operator. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-During</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-During</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:group name="Overlaps-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the overlaps operator category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Overlaps"/>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="Overlaps" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Overlaps&gt;: an interval operator. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Overlaps</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Overlaps</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:group name="Starts-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the starts operator category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Starts"/>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="Starts" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Starts&gt;: an interval operator. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Starts</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Starts</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:group name="Precedes-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the preceds operator category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Precedes"/>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="Precedes" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Precedes&gt;: an interval operator. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Precedes</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Precedes</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:group name="Succeeds-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the succeeds operator category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Succeeds"/>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="Succeeds" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Succeeds&gt;: an interval operator. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Succeeds</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Succeeds</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:group name="Meets-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the meets operator category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Meets"/>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="Meets" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Meets&gt;: an interval operator. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Meets</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Meets</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:group name="Finishes-node.choice">
+    <xs:annotation>
+      <xs:documentation>an extension point for the finishes operator category.  </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ruleml:Finishes"/>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="Finishes" type="ruleml:IntervalAlgebraOperation.type.def">
     <xs:annotation>
       <xs:documentation>&lt;Finishes&gt;: an interval operator. See
-        http://www.reaction.ruleml.org/1.02/glossary/#gloss-Finishes</xs:documentation>
+        http://consumer.ruleml.org/1.02/glossary/#gloss-Finishes</xs:documentation>
     </xs:annotation>
   </xs:element>
-  
-  
-  
-  
-  <xs:group name="Time_formula-node.choice">
+  <xs:complexType name="IntervalAlgebraOperation.type.def">
+    <xs:annotation>
+      <xs:documentation>Common Patterns for Interval Algebra</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ruleml:IntervalAlgebraOperation.content">
+        <xs:attributeGroup ref="ruleml:IntervalAlgebraOperation.attlist"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:attributeGroup name="IntervalAlgebraOperation.attlist">
+    <xs:attributeGroup ref="ruleml:operator-interface.attlist"/>
+    <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
+  </xs:attributeGroup>
+  <xs:complexType name="IntervalAlgebraOperation.content">
     <xs:sequence>
-      <xs:group ref="ruleml:Time_formula.def"/>
+      <xs:group ref="ruleml:arg_interval_term-edge.choice"/>
+      <xs:group ref="ruleml:arg_interval_term-edge.choice"/>
     </xs:sequence>
-  </xs:group>
+  </xs:complexType>
+  
+  
+  
   <xs:group name="Time_term-node.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
     <xs:sequence>
-      <xs:group ref="ruleml:Time_term.def"/>
+      <xs:group ref="ruleml:Time_term.Node.def"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="arg_time.choice">
-    <xs:sequence>
-      <xs:group ref="ruleml:arg_time.def"/>
-    </xs:sequence>
-  </xs:group>
-  
-  <xs:group name="Time_term.def">
+  <xs:group name="Time_term.Node.def">
     <xs:sequence>
       <xs:element form="qualified" name="Time" type="ruleml:Time_term.type.def">
         <xs:annotation>
           <xs:documentation>&lt;Time&gt;: generic Time element. See
-            http://www.reaction.ruleml.org/1.02/glossary/#gloss-Time</xs:documentation>
+            http://consumer.ruleml.org/1.02/glossary/#gloss-Time</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -3495,8 +3613,16 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
+  <xs:complexType name="Time_term.content">
+    <xs:group ref="ruleml:argumentsForTime.sequence"/>
+  </xs:complexType>
   
-  <xs:group name="Time_formula.def">
+  <xs:group name="Time_formula-node.choice">
+    <xs:sequence>
+      <xs:group ref="ruleml:Time_formula.Node.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="Time_formula.Node.def">
     <xs:sequence>
       <xs:element form="qualified" name="Time" type="ruleml:Time_formula.type.def"/>
     </xs:sequence>
@@ -3519,9 +3645,6 @@
     </xs:attribute>
   </xs:attributeGroup>
   
-  <xs:complexType name="Time_term.content">
-    <xs:group ref="ruleml:argumentsForTime.sequence"/>
-  </xs:complexType>
   <xs:complexType name="Time_formula.content">
     <xs:sequence>
       <xs:group ref="ruleml:Time_formula.header"/>
@@ -3533,9 +3656,15 @@
       <xs:group minOccurs="0" ref="ruleml:Atom.header"/>
     </xs:sequence>
   </xs:group>
-  
-  
-  <xs:group name="arg_time.def">
+  <xs:group name="arg_time-edge.choice">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ruleml:arg_time.edge.def"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="arg_time.edge.def">
     <xs:sequence>
       <xs:element form="qualified" name="arg" type="ruleml:arg_time.type.def"/>
     </xs:sequence>
@@ -3548,8 +3677,8 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg_time.attlist">
-    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
     <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+    <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="arg_time.content">
     <xs:complexContent>

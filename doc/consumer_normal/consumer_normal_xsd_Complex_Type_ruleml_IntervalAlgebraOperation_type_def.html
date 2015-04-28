@@ -16,7 +16,8 @@
         
         var diagramBoxes= new Array('diagram_IntervalAlgebraOperation.type.def');
 
-        
+        var annotationBoxes= new Array('annotations_IntervalAlgebraOperation.type.def');
+
         var attributesBoxes= new Array('attributes_IntervalAlgebraOperation.type.def');
 
         
@@ -267,6 +268,9 @@
                   <h3>Showing:</h3>
                   <table>
                      <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control" /></span><span class="globalControlName">Annotations</span></td>
+                     </tr>
+                     <tr>
                         <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control" /></span><span class="globalControlName">Attributes </span></td>
                      </tr>
                      <tr>
@@ -310,11 +314,43 @@
                      </tr>
                      <tr>
                         <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_IntervalAlgebraOperation.type.def" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_IntervalAlgebraOperation.type.def');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_IntervalAlgebraOperation.type.def" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Common Patterns for Interval Algebra</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
                            <div class="floatLeft"><b>Diagram</b></div>
                            <div class="floatRight"><input id="button_diagram_IntervalAlgebraOperation.type.def" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_IntervalAlgebraOperation.type.def');" class="control" /></div>
                         </td>
                         <td class="diagram">
                            <div id="diagram_IntervalAlgebraOperation.type.def" style="display:block"><object border="0" data="img/consumer_normal_xsd_Complex_Type_ruleml_IntervalAlgebraOperation_type_def.svg" type="image/svg+xml"></object></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>extension of <b><a href="consumer_normal_xsd_Complex_Type_ruleml_IntervalAlgebraOperation_content.html#IntervalAlgebraOperation.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:IntervalAlgebraOperation.content')">ruleml:IntervalAlgebraOperation.content</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul>
+                              <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_IntervalAlgebraOperation_content.html#IntervalAlgebraOperation.content" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:IntervalAlgebraOperation.content')">ruleml:IntervalAlgebraOperation.content</a></b><ul>
+                                    <li><b><a href="consumer_normal_xsd_Complex_Type_ruleml_IntervalAlgebraOperation_type_def.html#IntervalAlgebraOperation.type.def" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:IntervalAlgebraOperation.type.def')">ruleml:IntervalAlgebraOperation.type.def</a></b></li>
+                                 </ul>
+                              </li>
+                           </ul>
                         </td>
                      </tr>
                      <tr>
@@ -337,12 +373,12 @@
                         <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_IntervalAlgebraOperation.type.def" type="image" src="img/btM.gif" value="-" onclick="switchState('model_IntervalAlgebraOperation.type.def');" class="control" /></div>
                         </td>
                         <td>
-                           <div id="model_IntervalAlgebraOperation.type.def" style="display:block"><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_def.html#arg_interval_term.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b> , <b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_def.html#arg_interval_term.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b></div>
+                           <div id="model_IntervalAlgebraOperation.type.def" style="display:block"><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_edge_def.html#arg_interval_term.edge.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b> , <b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_edge_def.html#arg_interval_term.edge.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b></div>
                         </td>
                      </tr>
                      <tr>
                         <td class="firstColumn"><b>Children</b></td>
-                        <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_def.html#arg_interval_term.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b></td>
+                        <td><b><a href="consumer_normal_xsd_Element_Group_ruleml_arg_interval_term_edge_def.html#arg_interval_term.edge.def_arg" target="mainFrame" title="http://ruleml.org/spec" onclick="updatePageTitle('Schema documentation for component ruleml:arg')">ruleml:arg</a></b></td>
                      </tr>
                      <tr>
                         <td class="firstColumn">
@@ -401,7 +437,7 @@
                                           <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                              <tr>
                                                 <td width="100%"><pre><span class="tT">@style: defines a reference to a corresponding unique key. See</span><span class="tI">
-</span><span class="tT">http://www.reaction.ruleml.org/1.02/glossary/#gloss-@style</span></pre></td>
+</span><span class="tT">http://consumer.ruleml.org/1.02/glossary/#gloss-@style</span></pre></td>
                                              </tr>
                                           </table>
                                        </div>
@@ -451,8 +487,14 @@
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
                                     <td width="100%"><pre><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"IntervalAlgebraOperation.type.def"</span><span class="tEl">&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:group</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:IntervalAlgebraOperation.content"</span><span class="tEl">/&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:IntervalAlgebraOperation.attlist"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Common Patterns for Interval Algebra</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexContent</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"ruleml:IntervalAlgebraOperation.content"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"ruleml:IntervalAlgebraOperation.attlist"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexContent&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:complexType&gt;</span></pre></td>
                                  </tr>
                               </table>

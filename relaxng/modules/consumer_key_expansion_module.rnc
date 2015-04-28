@@ -11,20 +11,18 @@ dc:description [
 ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-
+dc:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
 
-# *** @key ***
-
 ## @key: defines a unique key attribute which can be used for distributed referencing from a keyref attribute. See
-## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@key
+## http://consumer.ruleml.org/1.02/glossary/#gloss-@key
 key-att.choice |= key.attrib.def
 key.attrib.def = attribute key { key.value }
 key.value |= PrefixedCURIE.datatype
 key.value |= AbsIRI.datatype
 
 ## @keyref: defines a reference to a corresponding unique key. See
-## http://www.reaction.ruleml.org/1.02/glossary/#gloss-@keyref
+## http://consumer.ruleml.org/1.02/glossary/#gloss-@keyref
 keyref-att.choice |= keyref.attrib.def
 keyref.attrib.def = attribute keyref { keyref.value }
 keyref.value |= PrefixedCURIE.datatype

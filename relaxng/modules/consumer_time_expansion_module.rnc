@@ -6,57 +6,54 @@ dc:version [ "1.02" ]
 dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
 dc:subject [ "RuleML, Consumer, Deliberation, Time" ]
-dc:description [
-  "The expansion module for temporal entities in Consumer RuleML."
-]
+dc:description [ "The expansion module for temporal entities in Consumer RuleML." ]
 dc:language [ "en" ]
 dcterms:rights [ "TBD" ]
-# This module declares the following Reaction RuleML elements:
+dc:relation [ "http://consumer.ruleml.org" ]
+# This module declares the following Consumer RuleML elements:
 #   * arg
 #   * Time
-start |= Time_formula.def
-start |= Time_term.def
+start |= Time_formula.Node.def
+start |= Time_term.Node.def
 #
-Node.choice |= Time_formula.def
-edge.choice |= arg_time.def
-#
-Time_formula-node.choice |= Time_formula.def
-Time_term-node.choice |= Time_term.def
-arg_time.choice |= arg_time.def
-#
-# *** Time ***
-Time_term.def =
+Node.choice |= Time_formula.Node.def
+Node.choice |= Time_term.Node.def
+edge.choice |= arg_time.edge.def
+
+##
+Time_term-node.choice |= Time_term.Node.def
+Time_term.Node.def =
   
   ## <Time>: generic Time element. See
-  ## http://www.reaction.ruleml.org/1.02/glossary/#gloss-Time
+  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Time
   element Time { Time_term.type.def }
-Time_term.type.def = Time_term.content, Time_term.attlist
+Time_term.type.def = Time_term.attlist & Time_term.content
 Time_term.attlist &= commonNode.attlist?
 Time_term.attlist &= type-att.choice?
+Time_term.content |= Time_term.header, argumentsForTime.sequence
+Time_term.header &= Expr.header?
 #
-Time_formula.def = element Time { Time_formula.type.def }
-Time_formula.type.def = Time_formula.content, Time_formula.attlist
+Time_formula-node.choice |= Time_formula.Node.def
+Time_formula.Node.def = element Time { Time_formula.type.def }
+Time_formula.type.def = Time_formula.attlist & Time_formula.content
 Time_formula.attlist &= commonNode.attlist?
 Time_formula.attlist &= formula-interface.attlist?
 Time_formula.attlist &= type-att.choice?
 #
-Time_term.content |= Time_term.header, argumentsForTime.sequence
 Time_formula.content |= Time_formula.header, argumentsForTime.sequence
-Time_term.header &= Expr.header?
 Time_formula.header &= Atom.header?
-#
-# usage in choice patterns
-#
-SimpleKeyTerm.choice |= Time_term.def
-Atom-node.choice |= Time_formula.def
-#
-# *** arg ***
-arg_time.def = element arg { arg_time.type.def }
-arg_time.type.def = arg_time.attlist, arg_time.content
-arg_time.attlist &= commonInit.attlist?
+
+## Usage in choice patterns
+SimpleKeyTerm.choice |= Time_term.Node.def
+Atom-node.choice |= Time_formula.Node.def
+
+##
+arg_time-edge.choice |= arg_time.edge.def
+arg_time.edge.def = element arg { arg_time.type.def }
+arg_time.type.def = arg_time.attlist & arg_time.content
 arg_time.attlist &= index-attrib.choice?
+arg_time.attlist &= commonInit.attlist?
 arg_time.content |= time_primitives.content
 
 ## An internal group for the time primitives for interpretation as time
 time_primitives.content |= arg.content
-#time_primitives.content |= spatial_temporal_algebra_group.content
