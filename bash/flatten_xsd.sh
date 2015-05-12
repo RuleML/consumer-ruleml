@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # flatten
 # Instructions:
 # apply the XSLT transformation in xslt/rnc2xsd after flattening

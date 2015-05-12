@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Fully local test script for XSD
 # Dependencies
 # batch_rnc2xsd.sh

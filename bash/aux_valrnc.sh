@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Validate an RNC schema, and optionally an XML instance of it, using Jing
 # Prerequisites:
 #   Installation of Java and Jing. See https://code.google.com/p/jing-trang/

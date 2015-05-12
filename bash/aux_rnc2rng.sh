@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Convert RNC to RNG using Jing
 # Prerequisites:
 #   Installation of Java and Jing/Trang. See https://code.google.com/p/jing-trang/

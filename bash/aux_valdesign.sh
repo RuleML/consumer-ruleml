@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Validate an RNG schema against the design pattern
 # Prerequisites:
 #   Installation of Java and Jing. See https://code.google.com/p/jing-trang/

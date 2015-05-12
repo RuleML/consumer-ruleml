@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Fully local build script for RNC
 # Dependencies
 # indep_valid_modules/*.rnc

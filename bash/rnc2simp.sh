@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Auto-generate Simplified RNC from RNC
 #   - makes modular RNC monolothic
 #   - removes intermediate named patterns

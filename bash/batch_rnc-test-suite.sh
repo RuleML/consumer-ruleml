@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Prerequisites: batch_config2rnc.sh
 # Dependecies: 
 # aux_valrnc.sh

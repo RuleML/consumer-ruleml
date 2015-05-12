@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Prerequisites: batch_(web)config2rnc4xsd.sh 
 # Dependencies:
 # rnc2xsd.sh

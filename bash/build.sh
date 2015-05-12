@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Dependencies
 # build_rnc.sh
 # build_xsd.sh

@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Dependencies
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
@@ -15,6 +16,7 @@ zip -r9 ${ZIP_HOME}ConsumerRuleML1.02.zip consumer-ruleml/relaxng/driver4simp/*
 zip -r9 ${ZIP_HOME}ConsumerRuleML1.02.zip consumer-ruleml/relaxng/driver4xsd/*
 zip -r9 ${ZIP_HOME}ConsumerRuleML1.02.zip consumer-ruleml/test/*
 zip -r9 ${ZIP_HOME}ConsumerRuleML1.02.zip consumer-ruleml/xslt/*
+zip -r9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/datatypes/*
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/atom_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/andor_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/implication_expansion_module.rnc
@@ -31,6 +33,7 @@ zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/uno
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/ordered_groups_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/unordered_deterministic_groups_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/stripe_skipping_expansion_module.rnc
+zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/attribute_skipping_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/explicit_datatyping_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/dataterm_simple_expansion_module.rnc

@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Dependencies
 # aux_rnc2rng.sh
 # aux_valdesign.sh

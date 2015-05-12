@@ -1,6 +1,17 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
+dc:title [ "Consumer RuleML Driver for Relaxed Serialization" ]
+dc:version [ "1.02" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:creator [ "Adrian Paschke" ]
+dc:subject [ "RuleML, Consumer, driver" ]
+dc:description [
+  "The relaxed serialization driver schema that allows positional independence and stripe-skipping."
+]
+dc:language [ "en" ]
+dcterms:rights [ "TBD" ]
+dc:relation [ "http://consumer.ruleml.org" ]
 start |= Node.choice
 start |= edge.choice
 # 

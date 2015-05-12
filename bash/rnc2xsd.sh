@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Auto-generate XSD from RNC
 # Prerequisites:
 #   Installation of Java and Jing/Trang. See https://code.google.com/p/jing-trang/

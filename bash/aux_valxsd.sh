@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Validate an XSD schema, and optionally an XML instance of it
 # Prerequisites:
 #   Installation of Java, JAXB, xmllint

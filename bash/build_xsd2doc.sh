@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Auto-generate Schema Docs from XSD
 # FIXME use configuration script to set path variables
 # FIXME use a configuration text file to loop over doc creation

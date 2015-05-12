@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Batch generate Simplified RNC from MYNG RNC
 # Prerequisites:
 #  Installation of curl

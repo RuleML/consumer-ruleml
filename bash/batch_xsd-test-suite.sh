@@ -1,4 +1,5 @@
 #!/bin/bash
+# dcterms:rights [ "TBD" ]
 # Prerequisites: batch_rnc2xsd.sh
 # Dependecies: 
 # aux_valxsd.sh
