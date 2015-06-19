@@ -39,8 +39,8 @@ zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/exp
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/dataterm_simple_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/data_simple_content_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/xsi_schemalocation_expansion_module.rnc
-zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/web_expansion_expansion_module.rnc
-zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/iri_expansion_expansion_module.rnc
+zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/web_expansion_module.rnc
+zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/iri_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/fuzzy_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/neg_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/naf_expansion_module.rnc
