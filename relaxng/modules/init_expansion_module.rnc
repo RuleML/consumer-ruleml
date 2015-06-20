@@ -60,3 +60,7 @@ arg_interval_term-edge.choice |= notAllowed
 NegFormula.choice |= notAllowed
 generic-Node.attlist &= empty
 generic-Formula.attlist &= empty
+#
+# a dummy element to assist in XSD conversion
+#
+InitElement.def = element Init { text }
