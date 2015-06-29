@@ -61,9 +61,9 @@
 
 		<!-- time definition using the xs:any content model to define the time as OWL time instant --> 
 		<formula><Time>	
-			<content> <!-- xs:any content -->
+			<content index="1"> <!-- xs:any content -->
 				<owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
-			</content>				
+			</content>
 		</Time></formula>
 
 		<!-- time definition as RuleML atom -->

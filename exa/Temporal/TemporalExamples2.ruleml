@@ -125,7 +125,7 @@
       </formula>
       <formula>
         <Time>
-          <content>
+          <content index="1">
             <!-- xs:any content -->
             <owltime:inXSDDateTime>2003-01-09T12:39:09Z</owltime:inXSDDateTime>
           </content>
