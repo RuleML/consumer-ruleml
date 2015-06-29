@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<!-- This is an illustrative example of the embedding of Consumer RuleML inside a FIPA-ACL envelope, not an actual message from dbpedia.-->
+<fipa-message act="inform">
+  <sender>
+    <agent-identifier>
+      <name id="dbpedia"/>
+    </agent-identifier>
+  </sender>
+  <receiver>
+    <agent-identifier>
+      <name id="Tara-Athan"/>
+    </agent-identifier>
+  </receiver>
+  <content xmlns:ruleml="http://ruleml.org/spec"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- The Consumer RuleML content starts here.-->
+    <ruleml:Atom  style="ruleml:/psoa">
+      <ruleml:oid><ruleml:Ind iri="http://dbpedia.org/resource/Berlin"/></ruleml:oid>
+      <ruleml:Rel iri="http://ruleml.org/vocab/Top"/>
+      <ruleml:slot>
+        <ruleml:Ind iri="http://dbpedia.org/ontology/elevation"/>
+        <ruleml:Data xsi:type="xs:double">34.000000</ruleml:Data>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind iri="http://dbpedia.org/property/janMeanC"/>
+        <ruleml:Data xsi:type="xs:double">0.500000</ruleml:Data>
+      </ruleml:slot>
+    </ruleml:Atom>
+  </content>
+</fipa-message>
+

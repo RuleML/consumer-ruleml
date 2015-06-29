@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<!-- This is an illustrative example of the embedding of Consumer RuleML rule inside a FIPA-ACL envelope, not an actual message from RuleML.-->
+<fipa-message act="inform">
+  <sender>
+    <agent-identifier>
+      <name id="RuleML"/>
+    </agent-identifier>
+  </sender>
+  <receiver>
+    <agent-identifier>
+      <name id="Tara-Athan"/>
+    </agent-identifier>
+  </receiver>
+  <content xmlns:ruleml="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ex="http://example.org/">
+    <!-- The Consumer RuleML content starts here.-->
+    <ruleml:Rule closure="universal" style="ruleml:/psoa">
+      <ruleml:if>
+        <ruleml:Atom>
+          <!-- An assertion of January climate data using the http://dbpedia.org vocabulary
+             for some location "x" with a value of "y".-->
+          <ruleml:oid><ruleml:Var>x</ruleml:Var></ruleml:oid>
+          <ruleml:Rel iri="http://ruleml.org/vocab/Top"/>
+          <ruleml:slot>
+            <ruleml:Ind iri="http://dbpedia.org/property/janMeanC"/>
+            <ruleml:Var>y</ruleml:Var>
+          </ruleml:slot>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Operation  style="ex:WindowedRecurring">
+          <!-- An assertion of January climate data using the "ex" vocabulary
+             for some location "x" with a value of "y", bringing in the additional
+             knowledge that the homogenization period for German climate data is 1960-1990.-->
+          <ruleml:Atom>
+            <ruleml:Rel iri="ex:meanSurfaceAirTemperatureCelsius"/>
+            <ruleml:Var>x</ruleml:Var>
+            <ruleml:Var>y</ruleml:Var>            
+          </ruleml:Atom>
+          <ruleml:Interval>
+            <ruleml:Data xsi:type="xs:gYear">1960</ruleml:Data>
+            <ruleml:Data xsi:type="xs:gYear">1990</ruleml:Data>
+          </ruleml:Interval>
+          <ruleml:Time>
+            <ruleml:Data xsi:type="xs:gMonth">--01</ruleml:Data>
+          </ruleml:Time>
+          <ruleml:Time>
+          </ruleml:Time>
+        </ruleml:Operation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </content>
+</fipa-message>
