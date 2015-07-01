@@ -4,8 +4,8 @@ default namespace this = inherit
 
 dc:title [ "Consumer RuleML Attributes" ]
 dc:version [ "1.02" ]
-dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
-dc:creator [ "Adrian Paschke" ]
+dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
+dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Paschkea" ]
 dc:subject [ "RuleML, Consumer, attributes" ]
 dc:description [ "The expansion module for Consumer RuleML attributes beyond Deliberation RuleML." ]
 dc:language [ "en" ]
@@ -14,7 +14,7 @@ dc:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
 # This module declares the following Consumer RuleML attributes:
 #    * @style (reference to a profile definition)	
-#
+# 
 #
 style-att.choice |= style.attrib.def
 style.attrib.def =
@@ -26,7 +26,6 @@ style.value |= "reasoning/single-valued"
 style.value |= "reasoning/multi-valued"
 style.value |= PrefixedCURIE.datatype
 style.value |= AbsIRI.datatype
-
 # 
 # a group of attributes for generic Nodes
 #
@@ -69,8 +68,7 @@ reExpr.attlist &= style-att.choice?
 rePlex.attlist &= style-att.choice?
 reFun.attlist &= type-att.choice?
 reRel.attlist &= type-att.choice?
-#
+# 
 # a dummy element to assist in XSD conversion
 #
 DummyElement.def = element Dummy { formula-interface.attlist }
-

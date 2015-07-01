@@ -1316,6 +1316,9 @@
   
   
   
+  
+  
+  
   <xs:group name="if_Rule-ss.content">
     <xs:sequence>
       <xs:group ref="ruleml:if_Rule.content"/>

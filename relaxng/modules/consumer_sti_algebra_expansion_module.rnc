@@ -1,15 +1,19 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
-dc:title [ "Consumer RuleML Spatial-Temporal Algebra" ]
-dc:version [ "1.02" ]
-dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
-dc:creator [ "Adrian Paschke" ]
+dcterms:title [ "Consumer RuleML Spatial-Temporal Algebra" ]
+dcterms:identifier [ "http://consumer.ruleml.org/1.02/consumer_sti_algebra_expansion_module.rnc" ]
+dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
+dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
+dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Paschkea" ]
 dc:subject [ "RuleML, Consumer, spatial, temporal, algebra" ]
-dc:description [ "The expansion module for spatial-temporal algebra." ]
-dc:language [ "en" ]
-dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
-dc:relation [ "http://consumer.ruleml.org" ]
+dcterms:description [ "The expansion module for spatial-temporal algebra." ]
+dcterms:language [ "en" ]
+dc:rights [
+  'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.'
+]
+dcterms:rights [ "http://ruleml.org/licensing/RSL1.0-RuleML" ]
+dcterms:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
 Node.choice |= After.Node.def
 Node.choice |= Before.Node.def
@@ -202,7 +206,8 @@ IntervalAlgebraOperation.type.def =
   IntervalAlgebraOperation.attlist & IntervalAlgebraOperation.content
 IntervalAlgebraOperation.attlist &= operator-interface.attlist?
 IntervalAlgebraOperation.attlist &= commonNode.attlist?
-IntervalAlgebraOperation.content |= Node.header, arg_interval_term-edge.choice, arg_interval_term-edge.choice
+IntervalAlgebraOperation.content |=
+  Node.header, arg_interval_term-edge.choice, arg_interval_term-edge.choice
 
 ## Extend the attributes of the usual Equal element to make it generic
 reEqual.attlist &= type-att.choice?

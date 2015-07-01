@@ -34,6 +34,7 @@ zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/ord
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/unordered_deterministic_groups_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/stripe_skipping_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc
+zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/stripe_skipping_op_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/attribute_skipping_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/explicit_datatyping_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/explicit_datatyping_value_expansion_module.rnc

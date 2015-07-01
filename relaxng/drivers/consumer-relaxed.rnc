@@ -99,6 +99,9 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_exp
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_ifthen_expansion_module.rnc" inherit = ruleml {
   start |= notAllowed
 }
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/stripe_skipping_op_expansion_module.rnc" inherit = ruleml {
+  start |= notAllowed
+}
 include "../modules/consumer_stripe_skipping_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
