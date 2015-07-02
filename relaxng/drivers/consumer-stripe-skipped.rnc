@@ -1,17 +1,19 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
-dc:title [ "Consumer RuleML Driver for Striped-Skipped Serialization" ]
-dc:version [ "1.02" ]
-dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
-dc:creator [ "Adrian Paschke" ]
+dcterms:title [ "Consumer RuleML Driver for Striped-Skipped Serialization" ]
+dcterms:identifier [ "http://consumer.ruleml.org/1.02/relaxng/drivers/consumer-stripe-skipped.rnc" ]
+dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
+dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
+dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Paschkea" ]
 dc:subject [ "RuleML, Consumer, driver" ]
-dc:description [
+dcterms:description [
   "The driver schema that requires canonical order but allows stripe-skipping."
 ]
-dc:language [ "en" ]
+dcterms:language [ "en" ]
 dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
-dc:relation [ "http://consumer.ruleml.org" ]
+dcterms:rights [ "http://ruleml.org/licensing/RSL1.0-RuleML" ]
+dcterms:relation [ "http://consumer.ruleml.org" ]
 start |= Node.choice
 start |= edge.choice
 # 

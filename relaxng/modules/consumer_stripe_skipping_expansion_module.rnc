@@ -4,7 +4,7 @@ default namespace ruleml = "http://ruleml.org/spec"
 
 dcterms:title [ "Stripe-skipping in Consumer RuleML" ]
 dcterms:identifier [
-  "http://consumer.ruleml.org/1.02/consumer_stripe_skipping_expansion_module.rnc"
+  "http://consumer.ruleml.org/1.02/relaxng/modules/consumer_stripe_skipping_expansion_module.rnc"
 ]
 dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]

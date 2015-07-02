@@ -2,7 +2,7 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
 dcterms:title [ "Consumer RuleML Spatial-Temporal Algebra" ]
-dcterms:identifier [ "http://consumer.ruleml.org/1.02/consumer_sti_algebra_expansion_module.rnc" ]
+dcterms:identifier [ "http://consumer.ruleml.org/1.02/relaxng/modules/consumer_sti_algebra_expansion_module.rnc" ]
 dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Paschkea" ]
