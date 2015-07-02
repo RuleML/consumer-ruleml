@@ -5,3 +5,4 @@ xslt/normalizer
 xslt/upgrader
 test/normalizer-test-suites
 zip
+test/compactifier-test-suites

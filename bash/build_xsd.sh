@@ -21,10 +21,16 @@ if [ "$?" -ne "0" ]; then
      exit 1
 fi
 
-# Normalized and Validate Examples Test Suites
-#${BASH_HOME}batch_xsd-normal-suite.sh  >> /dev/null 2>&1
-${BASH_HOME}batch_xsd-normal-suite.sh
+# Normalize and Validate Examples Test Suites
+${BASH_HOME}batch_xsd-normal-suite.sh >> /dev/null 2>&1
 if [ "$?" -ne "0" ]; then
      echo "Local Testing of XSD Normal Schema Failed"
+     exit 1
+fi
+
+# Compactify and Validate Examples Test Suites
+${BASH_HOME}batch_xsd-compact-suite.sh  >> /dev/null 2>&1
+if [ "$?" -ne "0" ]; then
+     echo "Local Testing of RNC Compact Schema Failed"
      exit 1
 fi
