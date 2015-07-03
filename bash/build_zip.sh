@@ -70,4 +70,4 @@ zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/rep
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/plex_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/val_absence_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/init_expansion_module.rnc
-zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip oasis-intellectual_property_rights_ipr_policy-2013-07-31
+zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip oasis-intellectual_property_rights_ipr_policy-2013-07-31.pdf

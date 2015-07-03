@@ -21,6 +21,6 @@ fi
 # Build zip packaage
 ${BASH_HOME}build_zip.sh
 if [ "$?" -ne "0" ]; then
-     echo "Local Testing of XSD Schemas Failed"
+     echo "Zip Build Failed"
      exit 1
 fi
