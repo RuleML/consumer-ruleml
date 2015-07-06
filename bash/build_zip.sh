@@ -37,6 +37,7 @@ zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/str
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/stripe_skipping_op_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/attribute_skipping_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/explicit_datatyping_expansion_module.rnc
+zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/explicit_datatyping_annotation_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/explicit_datatyping_value_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/dataterm_simple_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/data_simple_content_expansion_module.rnc
@@ -71,3 +72,4 @@ zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/ple
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/val_absence_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip deliberation-ruleml/relaxng/modules/init_expansion_module.rnc
 zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip oasis-intellectual_property_rights_ipr_policy-2013-07-31.pdf
+zip -9 ${ZIP_HOME}ConsumerRuleML1.02.zip CopyrightLicense_AppendixB_RuleML.pdf
