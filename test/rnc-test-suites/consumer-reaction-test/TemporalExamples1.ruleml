@@ -33,7 +33,7 @@
   
   <formula><Time>
     <oid><Ind type=":DatetimeClass1">datetime1</Ind></oid>
-    <slot><Ind>date</Ind><Data xsi:type="ruleml:dateTime">xsix>2011-03-21</Data></slot>
+    <slot><Ind>date</Ind><Data xsi:type="ruleml:dateTime">2011-03-21T10:00:00-04:00</Data></slot>
     <slot><Ind>time</Ind><Data>10:00:00-04:00</Data></slot>
   </Time></formula>	
   

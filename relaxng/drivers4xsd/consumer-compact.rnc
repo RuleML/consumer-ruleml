@@ -94,10 +94,10 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/termseq_poly_expans
 #
 # INCLUDE CONTENT MODELS WITH CANONICAL ORDER
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/unordered_groups_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/ordered_groups_expansion_module.rnc" {
   start |= notAllowed
 }
-include "../modules/consumer_unordered_groups_expansion_module.rnc" inherit = ruleml { 
+include "../modules/consumer_ordered_groups_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
 #
@@ -318,6 +318,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/init_expansion_modu
 #
 include "../modules/consumer_any_content_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
+    anycontent.content |= (text & (element * { anything })*)
 }
 #
 # INCLUDE EXTENEDED ATTRIBUTES FOR SPECIFYING SEMANTIC VARIANTS AND ANNOTATIONS

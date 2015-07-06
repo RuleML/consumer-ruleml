@@ -177,7 +177,7 @@
       /><polygon clip-path="url(#clipPath1)" fill="url(#linearGradient10)" points=" 156 290 157 289 157 288 158 287 159 286 160 285 161 285 162 284 169 284 176 277 183 284 491 284 492 285 493 285 494 286 495 287 496 288 496 289 497 290 497 310 496 311 496 312 495 313 494 314 493 315 492 315 491 316 162 316 161 315 160 315 159 314 158 313 157 312 157 311 156 310" stroke="none"
       /><polygon clip-path="url(#clipPath1)" fill="none" points=" 156 290 157 289 157 288 158 287 159 286 160 285 161 285 162 284 169 284 176 277 183 284 491 284 492 285 493 285 494 286 495 287 496 288 496 289 497 290 497 310 496 311 496 312 495 313 494 314 493 315 492 315 491 316 162 316 161 315 160 315 159 314 158 313 157 312 157 311 156 310" shape-rendering="auto" stroke="rgb(229,229,229)"
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="159" xml:space="preserve" y="297"
-      >@style: defines a reference to a corresponding unique key. See </text
+      >@style: defines a reference to a semantic profile. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="159" xml:space="preserve" y="310"
       >http://consumer.ruleml.org/1.02/glossary/#gloss-@style</text
     ></g

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:ruleml="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ruleml.org/spec"><xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:ruleml="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ruleml.org/spec"><xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2009/01/xml.xsd"/><xs:include schemaLocation="http://deliberation.ruleml.org/1.02/datatypes/SimpleWithAttributes.xsd"/>
   
   
   
@@ -46,7 +46,7 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -166,7 +166,7 @@
     <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -283,7 +283,7 @@
     <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -411,7 +411,7 @@
     <xs:attributeGroup ref="ruleml:closure-att.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -624,7 +624,7 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -682,7 +682,7 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -885,7 +885,7 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1488,7 +1488,7 @@
     <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1575,7 +1575,7 @@
     <xs:attributeGroup ref="ruleml:closure-att-fo.choice"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1678,7 +1678,7 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -1950,7 +1950,7 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2551,7 +2551,7 @@
     <xs:attributeGroup ref="ruleml:commonNode.attlist"/>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2642,6 +2642,8 @@
       <xs:extension base="ruleml:slotsForExpressions.sequence"/>
     </xs:complexContent>
   </xs:complexType>
+  
+  
   
   
   
@@ -2788,7 +2790,7 @@
   <xs:attributeGroup name="style.attrib.def">
     <xs:attribute name="style" type="ruleml:style.value" use="required">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2818,7 +2820,7 @@
     </xs:attribute>
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2832,7 +2834,7 @@
   <xs:attributeGroup name="formula-interface-ext.attlist">
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -2845,7 +2847,7 @@
   <xs:attributeGroup name="operator-interface-ext.attlist">
     <xs:attribute name="style" type="ruleml:style.value">
       <xs:annotation>
-        <xs:documentation>@style: defines a reference to a corresponding unique key. See
+        <xs:documentation>@style: defines a reference to a semantic profile. See
           http://consumer.ruleml.org/1.02/glossary/#gloss-@style</xs:documentation>
       </xs:annotation>
     </xs:attribute>
