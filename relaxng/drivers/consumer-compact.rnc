@@ -125,6 +125,9 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/attribute_skipping_
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/explicit_datatyping_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }
+include "http://deliberation.ruleml.org/1.02/relaxng/modules/explicit_datatyping_annotation_expansion_module.rnc" inherit = ruleml { 
+  start |= notAllowed
+}
 include "http://deliberation.ruleml.org/1.02/relaxng/modules/explicit_datatyping_value_expansion_module.rnc" inherit = ruleml { 
   start |= notAllowed
 }

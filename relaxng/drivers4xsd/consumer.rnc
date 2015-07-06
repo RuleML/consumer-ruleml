@@ -1,6 +1,18 @@
 namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
+dc:title [ "Consumer RuleML Pivot Driver for Relaxed Serialization" ]
+dcterms:identifier [ "http://consumer.ruleml.org/1.02/relaxng/drivers4xsd/consumer.rnc" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:creator [ "Adrian Paschke" ]
+dc:subject [ "RuleML, Consumer, driver" ]
+dc:description [
+  "The relaxed serialization pivot driver schema that allows positional independence and stripe-skipping."
+]
+dc:language [ "en" ]
+dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
+dcterms:rights [ "http://ruleml.org/licensing/RSL1.0-RuleML" ]
+dcterms:relation [ "http://consumer.ruleml.org" ]
 #start |= Node.choice
 #start |= edge.choice
 # 
@@ -112,7 +124,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/attribute_skipping_
 #  start |= notAllowed
 #}
 # 
-# xsi:schemaLocation ALLOWED IN RuleML (include in RNC)
+# xsi:schemaLocation DISABLED (include in RNC and 4simp, not in 4xsd)
 #
 #include "http://deliberation.ruleml.org/1.02/relaxng/modules/xsi_schemalocation_expansion_module.rnc"
 #        inherit = ruleml {
