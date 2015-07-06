@@ -109,6 +109,19 @@
 
   <!-- Phase III: add required attributes -->
   <!-- Phase IV: sort by required attributes -->
+  <!-- Sorts by the required index attribute to the arg tag 
+        There are errors with the indexing when the argument is within a slot-->
+  
+  <xsl:template match="*[r:content]" mode="phase-sort">
+    <xsl:copy>
+      <xsl:apply-templates select="@*"  mode="phase-sort"/>
+      <xsl:apply-templates select="node()[not(self::r:content)]"  mode="phase-sort"/>
+      <xsl:apply-templates select="r:content"  mode="phase-sort">
+        <xsl:sort select="@index"  data-type="number"/>                
+      </xsl:apply-templates>
+    </xsl:copy>  
+  </xsl:template>
+  
   <!-- Pretty Print -->
   
 
