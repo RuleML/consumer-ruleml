@@ -104,8 +104,7 @@ Atom =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -224,8 +223,7 @@ And =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -290,8 +288,7 @@ Or =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -366,8 +363,7 @@ Implies =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -453,8 +449,7 @@ Forall =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -519,8 +514,7 @@ Exists =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -575,8 +569,7 @@ Expr =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -693,8 +686,7 @@ Neg =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -758,8 +750,7 @@ Naf =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -823,8 +814,7 @@ Equivalent =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -910,8 +900,7 @@ Equal =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1106,8 +1095,7 @@ Plex =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1137,8 +1125,7 @@ Plex =
 Interval =
   element Interval {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1306,8 +1293,7 @@ Negation =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
+        xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
         | xsd:string {
             pattern =
               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1401,8 +1387,7 @@ Operation =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1434,8 +1419,7 @@ Rule =
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
+        xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
         | xsd:string {
             pattern =
               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1570,8 +1554,7 @@ Spatial =
 Spatial_2 =
   element Spatial {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1668,8 +1651,7 @@ After =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
+        xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
         | xsd:string {
             pattern =
               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1738,8 +1720,7 @@ Before =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
+        xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
         | xsd:string {
             pattern =
               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1808,8 +1789,7 @@ Every =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
+        xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
         | xsd:string {
             pattern =
               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1878,8 +1858,7 @@ Any =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1918,8 +1897,7 @@ Timer =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
+        xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
         | xsd:string {
             pattern =
               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -1961,8 +1939,7 @@ Timer =
 During =
   element During {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -2033,8 +2010,7 @@ During =
 Overlaps =
   element Overlaps {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -2105,8 +2081,7 @@ Overlaps =
 Starts =
   element Starts {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -2177,8 +2152,7 @@ Starts =
 Precedes =
   element Precedes {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -2249,8 +2223,7 @@ Precedes =
 Succeeds =
   element Succeeds {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -2321,8 +2294,7 @@ Succeeds =
 Meets =
   element Meets {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -2393,8 +2365,7 @@ Meets =
 Finishes =
   element Finishes {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
+      xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
       | xsd:string {
           pattern =
             "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -2484,8 +2455,7 @@ Time =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
+        xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
         | xsd:string {
             pattern =
               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -3938,8 +3908,7 @@ Plex_2 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
@@ -3972,8 +3941,7 @@ Plex_3 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
+         xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
          | xsd:string {
              pattern =
                "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"

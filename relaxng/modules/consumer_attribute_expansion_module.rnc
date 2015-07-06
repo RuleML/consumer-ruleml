@@ -16,7 +16,7 @@ start |= notAllowed
 #    * @style (reference to a profile definition)	
 # 
 #
-term.datatype |= xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
+term.datatype |= xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
 
 style-att.choice |= style.attrib.def
 style.attrib.def =
