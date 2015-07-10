@@ -5,7 +5,7 @@
 # batch_rnc2xsd.sh
 # batch_xsd-test-suite.sh
 shopt -s nullglob
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # Generate XSD, and validate
 ${BASH_HOME}batch_rnc2xsd.sh

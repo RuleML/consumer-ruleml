@@ -11,16 +11,7 @@
 # globstar is only available in bash 4
 #shopt -s globstar
 shopt -s nullglob
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
-REPO_HOME="${BASH_HOME}../"
-RNC_TEST_HOME=${REPO_HOME}relaxng/drivers/
-XSD_HOME=${REPO_HOME}xsd/
-TEST_SUITE_HOME=${REPO_HOME}test/rnc-test-suites/
-COMPACT_SUITE_HOME=${REPO_HOME}test/compactifier-test-suites/
-XSLT_HOME=${REPO_HOME}xslt/
-COMPACT_XSLT_HOME=${XSLT_HOME}compactifier/
-OXY_HOME=/Applications/oxygen/
-SAX_HOME=${OXY_HOME}lib/
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # creates the xsd directory if they doesn't exist, and clears them, in case they already have contents
 mkdir -p ${COMPACT_SUITE_HOME}
@@ -28,7 +19,7 @@ rm ${COMPACT_SUITE_HOME}* >> /dev/null 2>&1
 
 
   schemaname=consumer-compact.rnc
-  sfile=${RNC_TEST_HOME}${schemaname}       
+  sfile=${DRIVER_HOME}${schemaname}       
   ${BASH_HOME}aux_valrnc.sh "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
@@ -41,11 +32,11 @@ rm ${COMPACT_SUITE_HOME}* >> /dev/null 2>&1
 # transform files in TEST_SUITE_HOME ending in .ruleml
 # output to COMPACT_SUITE_HOME
 # FIXME write an aux script for the xslt call
-for f in ${TEST_SUITE_HOME}*/*.ruleml
+for f in ${RNC_TEST_SUITE_HOME}*/*.ruleml
 do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
-  java -jar ${SAX_HOME}saxon9ee.jar -s:"${f}" -xsl:"${COMPACT_XSLT_HOME}1.02_compactifier.xslt"  -o:"${COMPACT_SUITE_HOME}${filename}"   >> /dev/null 2>&1
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${COMPACT_XSLT_HOME}1.02_compactifier.xslt"  -o:"${COMPACT_SUITE_HOME}${filename}"   >> /dev/null 2>&1
   if [ "$?" -ne "0" ]; then
      echo "XSLT Transformation Failed for " "${filename}"
      exit 1

@@ -14,11 +14,7 @@
 # Notes
 # due to problems in Jing with simplification of qualified names as content, the explicit datatyping feature is not included.
 shopt -s nullglob
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
-REPO_HOME="${BASH_HOME}../"
-RNC_HOME=${REPO_HOME}relaxng/
-RNC4SIMP_HOME=${RNC_HOME}drivers4simp/
-SIMP_HOME=${RNC_HOME}simplified/
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # 
 # creates the simplifed directory if it doesn't exist, and clears it, in case it already has contents

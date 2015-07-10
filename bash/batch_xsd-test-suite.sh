@@ -12,10 +12,7 @@
 # globstar is only available in bash 4
 #shopt -s globstar
 shopt -s nullglob
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
-REPO_HOME="${BASH_HOME}../"
-XSD_HOME=${REPO_HOME}xsd/
-TEST_SUITE_HOME=${REPO_HOME}test/rnc-test-suites/
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
   schemaname=consumer.xsd
   sfile=${XSD_HOME}${schemaname}       
@@ -27,7 +24,7 @@ TEST_SUITE_HOME=${REPO_HOME}test/rnc-test-suites/
        exit 1
    fi   
 
-for file in ${TEST_SUITE_HOME}*/*.ruleml ${TEST_SUITE_HOME}*/*/*.ruleml
+for file in ${RNC_TEST_SUITE_HOME}*/*.ruleml ${RNC_TEST_SUITE_HOME}*/*/*.ruleml
 do
   filename=$(basename "${file}")
   echo "File ${filename}"

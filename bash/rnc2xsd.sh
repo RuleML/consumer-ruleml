@@ -1,23 +1,7 @@
 #!/bin/bash
 # dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
 # Auto-generate XSD from RNC
-# Prerequisites:
-#   Installation of Java and Jing/Trang. See https://code.google.com/p/jing-trang/
-# Note: change the APP_HOME path according to your path to the Jing/Trang library
-# Caution: Jing simplification cannot handle specified qualified names in content
-# Dependencies:
-# Jing
-# Trang
-# FIXME use configuration script to set path variables
-APP_HOME=/Users/taraathan/Library/
-LIB=${APP_HOME}Java/Extensions/
-CP1=${LIB}jing-20091111/jing.jar
-CP2=${LIB}trang-20091111/trang.jar
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
-REPO_HOME="${BASH_HOME}../"
-RNC_HOME=${REPO_HOME}relaxng/
-TMP_HOME=${RNC_HOME}tmp/
-TMP_RNG=${TMP_HOME}tmp-std2xsd.rng
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # creates the temporary directory if they doesn't exist, and clears them, in case they already have contents
 mkdir -p ${TMP_HOME}
@@ -29,6 +13,7 @@ filename1=$(basename "$1")
 echo "Filename: " $filename1
 extension1="${filename1##*.}"
 #filenameNE="${filename1%.*}"
+outdir=$(dirname "$2")
 
 # Verifies that input schema name ends in ".rnc"
 if [ "${extension1}" != "rnc" ];then
@@ -51,7 +36,7 @@ outfile="${TMP_HOME}$filename2"
 echo "${infile}"
 if [ "$3" = true ]; then
     echo "Start simplification."
-    java -jar "${CP1}" -cs "$1" > ${TMP_RNG}
+    java -jar "${JING}" -cs "$1" > ${TMP_RNG}
     if [ "$?" != "0" ];then
       echo "Simplification Failed."
       exit 1
@@ -61,13 +46,13 @@ if [ "$3" = true ]; then
 fi  
 
 echo "Start conversion of " "$infile"
-java -jar "${CP2}" -o disable-abstract-elements -o any-process-contents=lax "${infile}" "${outfile}"
+java -jar "${TRANG}" -o disable-abstract-elements -o any-process-contents=lax "${infile}" "${outfile}"
 if [ "$?" != "0" ];then
    echo "Conversion to XSD Failed."
    exit 1
 fi
 if [ $3 != true ]; then
-  ${BASH_HOME}flatten_xsd.sh "${outfile}" "$2" 
+  "${BASH_HOME}flatten_xsd.sh" "${outfile}" "${outdir}" 
 fi
 if [ "$4" = true ]; then
   function finish {

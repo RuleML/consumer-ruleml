@@ -10,9 +10,7 @@
 # batch_rnc_test_suite.sh
 # batch_rnc2simp.sh
 shopt -s nullglob
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
-REPO_HOME="${BASH_HOME}../"
-RNC_HOME=${REPO_HOME}relaxng/
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 #
 # Validate modules individually
 for file in ${RNC_HOME}indep_valid_modules/*.rnc

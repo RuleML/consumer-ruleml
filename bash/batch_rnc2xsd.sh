@@ -9,14 +9,8 @@
 # saxon9ee.jar
 # FIXME use configuration script to set path variables
 shopt -s nullglob
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
-REPO_HOME="${BASH_HOME}../"
-RNC4XSD_HOME=${REPO_HOME}relaxng/drivers4xsd/
-XSD_HOME=${REPO_HOME}xsd/
-OXY_HOME=/Applications/oxygen/
-SAX_HOME=${OXY_HOME}lib/
-XSLT_HOME=${REPO_HOME}xslt/
-RNC2XSD_HOME=${XSLT_HOME}rnc2xsd/
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
+
 #
 # creates the xsd directory if they doesn't exist, and clears them, in case they already have contents
 mkdir -p ${XSD_HOME}
@@ -52,7 +46,7 @@ for f in ${XSD_HOME}*.xsd
 do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
-  java -jar ${SAX_HOME}saxon9ee.jar -s:"${f}" -xsl:"${RNC2XSD_HOME}rnc2xsd.xslt"  -o:"${f}"   >> /dev/null 2>&1
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT2_HOME}rnc2xsd.xslt"  -o:"${f}"   >> /dev/null 2>&1
   if [ "$?" -ne "0" ]; then
      echo "XSLT Transformation Failed for " "${filename}"
      exit 1

@@ -1,22 +1,13 @@
 #!/bin/bash
 # dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
-# Prerequisites: batch_config2rnc.sh
-# Dependecies: 
-# aux_valrnc.sh
-# test/rnc-test-suites/*.ruleml
-# relaxng/test/*.rnc
-#  Validate RuleML instances by RNC
 # Instructions:
 # run this script from the command line or another script after batch_config2rnc.sh
 # FIXME use configuration script to validate test files against multiple schemas, including fail tests
 # This will remove the fragile schema detection method now implemented.
 shopt -s nullglob
-BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
-REPO_HOME="${BASH_HOME}../"
-RNC_TEST_HOME=${REPO_HOME}relaxng/drivers/
-TEST_SUITE_HOME=${REPO_HOME}test/rnc-test-suites/
+BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
-for file in ${TEST_SUITE_HOME}*/*.ruleml ${TEST_SUITE_HOME}*/*/*.ruleml
+for file in ${RNC_TEST_SUITE_HOME}*/*.ruleml ${RNC_TEST_SUITE_HOME}*/*/*.ruleml
 do
   filename=$(basename "${file}")
   echo "File "${filename}
@@ -30,7 +21,7 @@ do
        #echo "URL ${url}"
        schemaname=${url##*/}
        #echo "Schema ${schemaname}"       
-       sfile=${RNC_TEST_HOME}${schemaname}       
+       sfile=${DRIVER_HOME}${schemaname}       
        ${BASH_HOME}aux_valrnc.sh "${sfile}"
        exitvalue=$?
        if [ "${exitvalue}" -ne "0" ]; then

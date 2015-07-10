@@ -6,7 +6,7 @@
 <Rule xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1"
   xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd" 
-  key=":rule1" style="reasoning/single-valued" closure="universal" material="yes">
+  key=":rule1" style=":reasoning/single-valued" closure="universal" material="yes">
 
   <!-- Clocksin/Mellish sample rule 
 
