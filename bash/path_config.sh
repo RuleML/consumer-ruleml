@@ -39,6 +39,7 @@ RNC4SIMP_HOME=${REPO_HOME}relaxng/drivers4simp/
 RNC4XSD_HOME=${REPO_HOME}relaxng/drivers4xsd/ 
 RNC_TEST_SUITE_HOME=${REPO_HOME}test/rnc-test-suites/
 TMP_MODULES=${RNC_HOME}tmp/modules/
+SIMP_HOME=${REPO_HOME}simplified/
 XSD_HOME="${REPO_HOME}xsd/"
 XSD_MIN_HOME="${REPO_HOME}xsd_min/"
 XSLT2_HOME=${REPO_HOME}xslt/rnc2xsd/

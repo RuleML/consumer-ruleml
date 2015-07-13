@@ -19,7 +19,7 @@ BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 # 
 # creates the simplifed directory if it doesn't exist, and clears it, in case it already has contents
 mkdir -p ${SIMP_HOME}
-rm ${SIMP_HOME}*.rnc
+rm ${SIMP_HOME}*.rnc  >> /dev/null 2>&1
 
 for file in ${RNC4SIMP_HOME}*.rnc
 do
@@ -34,7 +34,7 @@ done
 for file in ${SIMP_HOME}*.rnc
 do
   filename=$(basename "$file")
-  ${BASH_HOME}aux_valrnc.sh "${file}" >> /dev/null 2>&1
+  ${BASH_HOME}aux_valrnc.sh "${file}"
   if [ "$?" -ne "0" ]; then
      echo "Simplified RNC Validation Failed for " "${filename}"
      exit 1
