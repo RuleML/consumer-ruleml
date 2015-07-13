@@ -15,7 +15,7 @@ BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 # Validate modules individually
 for file in ${RNC_HOME}indep_valid_modules/*.rnc
 do
-  ${BASH_HOME}aux_valrnc.sh "${file}" >> /dev/null 2>&1
+  ${BASH_HOME}aux_valrnc.sh "${file}"
   if [ "$?" -ne "0" ]; then
      echo "Module Validation Failed"
      exit 1
@@ -24,7 +24,7 @@ done
 # Validate drivers
 for file in "${RNC_HOME}drivers/"*.rnc
 do
-  ${BASH_HOME}aux_valrnc.sh "${file}" >> /dev/null 2>&1
+  ${BASH_HOME}aux_valrnc.sh "${file}"
   if [ "$?" -ne "0" ]; then
      echo "Driver Validation Failed"
      exit 1

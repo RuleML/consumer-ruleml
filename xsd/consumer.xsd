@@ -2758,11 +2758,6 @@
         <xs:anyAttribute processContents="skip"/>
     </xs:attributeGroup>
     
-    <xs:simpleType name="term.datatype">
-        <xs:restriction base="xs:Name">
-            <xs:pattern value="[\i-[:]][/\c-[:]]*"/>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:attributeGroup name="style-att.choice">
         <xs:attributeGroup ref="ruleml:style.attrib.def"/>
     </xs:attributeGroup>
@@ -2775,7 +2770,7 @@
         </xs:attribute>
     </xs:attributeGroup>
     <xs:simpleType name="style.value">
-        <xs:union memberTypes="ruleml:term.datatype ruleml:PrefixedCURIE.datatype ruleml:AbsIRI.datatype"/>
+        <xs:union memberTypes="ruleml:PrefixedCURIE.datatype ruleml:AbsIRI.datatype"/>
     </xs:simpleType>
     
     <xs:attributeGroup name="generic-Node.attlist">

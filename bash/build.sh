@@ -7,19 +7,19 @@ shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # Download RNC and test
-${BASH_HOME}build_rnc.sh
+${BASH_HOME}build_rnc.sh  >> /dev/null 2>&1
 if [ "$?" -ne "0" ]; then
      echo "Local Testing of RNC Schemas Failed"
      exit 1
 fi
 # Download RNC and convert to XSD
-${BASH_HOME}build_xsd.sh
+${BASH_HOME}build_xsd.sh  >> /dev/null 2>&1
 if [ "$?" -ne "0" ]; then
      echo "Local Testing of XSD Schemas Failed"
      exit 1
 fi
 # Build zip packaage
-${BASH_HOME}build_zip.sh
+${BASH_HOME}build_zip.sh  >> /dev/null 2>&1
 if [ "$?" -ne "0" ]; then
      echo "Zip Build Failed"
      exit 1

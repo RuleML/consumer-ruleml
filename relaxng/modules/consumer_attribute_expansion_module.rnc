@@ -16,7 +16,6 @@ start |= notAllowed
 #    * @style (reference to a profile definition)	
 # 
 #
-term.datatype |= xsd:Name { pattern = "[\i-[:]][/\c-[:]]*" }
 
 style-att.choice |= style.attrib.def
 style.attrib.def =
@@ -24,7 +23,6 @@ style.attrib.def =
   ## @style: defines a reference to a semantic profile. See
   ## http://consumer.ruleml.org/1.02/glossary/#gloss-@style
   attribute style { style.value }
-style.value |= term.datatype
 style.value |= PrefixedCURIE.datatype
 style.value |= AbsIRI.datatype
 # 
