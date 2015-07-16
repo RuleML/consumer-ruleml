@@ -24,7 +24,7 @@ BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
        exit 1
    fi   
 
-for file in ${RNC_TEST_SUITE_HOME}*/*.ruleml ${RNC_TEST_SUITE_HOME}*/*/*.ruleml
+for file in ${XSD_TEST_SUITE_HOME}*/*.ruleml ${XSD_TEST_SUITE_HOME}*/*/*.ruleml
 do
   filename=$(basename "${file}")
   echo "File ${filename}"

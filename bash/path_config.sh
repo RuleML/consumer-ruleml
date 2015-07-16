@@ -20,6 +20,7 @@
 # Oxygen 17 installation and JAXB jar.
 OXY_HOME="/home/tara/Oxygen XML Editor 17/"
 FLATTEN_SCRIPT="${OXY_HOME}/flattenSchema.sh"
+GENERATE_SCRIPT="${OXY_HOME}/xmlGenerator.sh"
 DOC_SCRIPT="${OXY_HOME}/schemaDocumentation.sh"
 OXY_LIB="${OXY_HOME}lib/"
 SAX_HOME="${OXY_LIB}"
@@ -44,16 +45,19 @@ XSD_HOME="${REPO_HOME}xsd/"
 XSD_MIN_HOME="${REPO_HOME}xsd_min/"
 XSLT2_HOME=${REPO_HOME}xslt/rnc2xsd/
 XSD_HOME=${REPO_HOME}xsd/
-XSD_TEST_SUITE_HOME=${REPO_HOME}test/xsd-test-suites/
+XSD_TEST_SUITE_HOME=${REPO_HOME}test/rnc-test-suites/
 COMPACT_SUITE_HOME=${REPO_HOME}test/compactifier-test-suites/
 XSLT_HOME=${REPO_HOME}xslt/
-COMPACT_XSLT_HOME=${XSLT_HOME}compactifier/
-NORMAL_SUITE_HOME=${REPO_HOME}test/normalizer-test-suites/
-NORMAL_XSLT_HOME=${XSLT_HOME}normalizer/
-TMP_HOME=${RNC_HOME}tmp/
-TMP_RNG=${TMP_HOME}tmp-std2xsd.rng
+COMPACT_XSLT_HOME="${XSLT_HOME}compactifier/"
+NORMAL_SUITE_HOME="${REPO_HOME}test/normalizer-test-suites/"
+NORMAL_XSLT_HOME="${XSLT_HOME}normalizer/"
+TMP_HOME="${RNC_HOME}tmp/"
+TMP_RNG="${TMP_HOME}tmp-std2xsd.rng"
 MODULE_HOME="${REPO_HOME}relaxng/modules/"
-TMPDIR=${XSD_HOME}/tmp/
+TMPDIR="${XSD_HOME}/tmp/"
 ZIP_HOME="${REPO_HOME}zip/"
 GIT_HOME="${REPO_HOME}../"
+REACTION_CONFIG="${BASH_HOME}/settings/reaction-config.xml"
+INSTANCE_HOME="${REPO_HOME}test/reaction-test-suites/"
+REACTION_XSD_HOME="${REPO_HOME}../reaction-ruleml/xsd/"
 
