@@ -19,15 +19,18 @@
     xmlns:ex="http://example.org/">
     <!-- The Consumer RuleML content starts here.-->
     <ruleml:Rule closure="universal" style="rs:psoa">
+      <!-- The original wikipedia page for Berlin provides the provenance of the climate date
+      
+      -->
       <ruleml:if>
          <ruleml:Atom>
           <!-- An assertion of January climate data using the http://dbpedia.org vocabulary
-             for some location "x" with a value of "y".-->
-          <ruleml:oid><ruleml:Var>x</ruleml:Var></ruleml:oid>
+             for some location "location" with a value of "temp".-->
+          <ruleml:oid><ruleml:Var>location</ruleml:Var></ruleml:oid>
           <ruleml:Rel iri="http://ruleml.org/vocab/Top"/>
           <ruleml:slot>
             <ruleml:Ind iri="http://dbpedia.org/property/janMeanC"/>
-            <ruleml:Var>y</ruleml:Var>
+            <ruleml:Var>temp</ruleml:Var>
           </ruleml:slot>
            <ruleml:slot>
              <ruleml:Ind iri="http://dbpedia.org/ontology/country"/>
@@ -37,17 +40,24 @@
       </ruleml:if>
       <ruleml:then>
         <ruleml:Operation  style="ex:WindowedRecurring">
-          <!-- An assertion of January climate data using the "ex" vocabulary
-             for some location "x" with a value of "y", bringing in the additional
-             knowledge that the averaging period for German climate data is 1971-2000.-->
+          <!-- An assertion of January climate data using a demonstration "ex" vocabulary
+             for some location "location" with a value of "temp", bringing in the additional
+             knowledge that the most recent averaging period for German climate data is 1981-2010.
+             This knowledge is not directly available from dbpedia, but is from the Deutscher Wetterdienst, 
+             which is the provenance of most Wikipedia climate data for Germany.
+             The data is directly available here:
+             http://www.dwd.de/bvbw/generator/DWDWWW/Content/Oeffentlichkeit/KU/KU2/KU21/klimadaten/german/temp__8110__fest__html,templateId=raw,property=publicationFile.html/temp_8110_fest_html.html
+             An assumption is made that the dbpedia information is in agreement with the most recent data from this source.
+             This rule has validity until around 2020, when the next climatological dataset should become available.
+          -->
           <ruleml:Atom>
             <ruleml:Rel iri="ex:climateMeanSurfaceAirTemperatureCelsius"/>
-            <ruleml:Var>x</ruleml:Var>
-            <ruleml:Var>y</ruleml:Var>
+            <ruleml:Var>location</ruleml:Var>
+            <ruleml:Var>temp</ruleml:Var>
           </ruleml:Atom>
           <ruleml:Interval>
-            <ruleml:Data xsi:type="xs:gYear">1971</ruleml:Data>
-            <ruleml:Data xsi:type="xs:gYear">2000</ruleml:Data>
+            <ruleml:Data xsi:type="xs:gYear">1981</ruleml:Data>
+            <ruleml:Data xsi:type="xs:gYear">2010</ruleml:Data>
           </ruleml:Interval>
           <ruleml:Time>
             <ruleml:Data xsi:type="xs:gMonth">--01</ruleml:Data>
