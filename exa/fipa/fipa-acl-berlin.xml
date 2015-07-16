@@ -14,9 +14,11 @@
   </receiver>
   <content xmlns:ruleml="http://ruleml.org/spec"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="http://ruleml.org/1.02/profiles/">
     <!-- The Consumer RuleML content starts here.-->
-    <ruleml:Atom  style="ruleml:/psoa">
+    <ruleml:Atom  style="rs:psoa">
+      <!-- The source of this fact is http://dbpedia.org/page/Berlin . -->
       <ruleml:oid><ruleml:Ind iri="http://dbpedia.org/resource/Berlin"/></ruleml:oid>
       <ruleml:Rel iri="http://ruleml.org/vocab/Top"/>
       <ruleml:slot>
@@ -26,6 +28,10 @@
       <ruleml:slot>
         <ruleml:Ind iri="http://dbpedia.org/property/janMeanC"/>
         <ruleml:Data xsi:type="xs:double">0.500000</ruleml:Data>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind iri="http://dbpedia.org/ontology/country"/>
+        <ruleml:Ind iri="http://dbpedia.org/resource/Germany"/>
       </ruleml:slot>
     </ruleml:Atom>
   </content>
