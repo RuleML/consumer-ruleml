@@ -104,13 +104,14 @@ Atom =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     oid?,
@@ -224,13 +225,14 @@ And =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -290,13 +292,14 @@ Or =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -366,13 +369,14 @@ Implies =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -453,13 +457,14 @@ Forall =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -519,13 +524,14 @@ Exists =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -575,13 +581,14 @@ Expr =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     (((op_2 | Fun),
@@ -693,13 +700,14 @@ Neg =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -758,13 +766,14 @@ Naf =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -823,13 +832,14 @@ Equivalent =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     degree?,
@@ -910,13 +920,14 @@ Equal =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute type {
@@ -1106,13 +1117,14 @@ Plex =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     (Skolem
@@ -1137,13 +1149,14 @@ Plex =
 Interval =
   element Interval {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -1306,13 +1319,14 @@ Negation =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
-        | xsd:string {
-            pattern =
-              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-            minLength = "1"
-          }
+        list {
+          (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+               minLength = "1"
+             })+
+        }
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute closure {
@@ -1401,13 +1415,14 @@ Operation =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute closure {
@@ -1434,13 +1449,14 @@ Rule =
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
-        | xsd:string {
-            pattern =
-              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-            minLength = "1"
-          }
+        list {
+          (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+               minLength = "1"
+             })+
+        }
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute closure {
@@ -1570,13 +1586,14 @@ Spatial =
 Spatial_2 =
   element Spatial {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -1668,13 +1685,14 @@ After =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
-        | xsd:string {
-            pattern =
-              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-            minLength = "1"
-          }
+        list {
+          (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+               minLength = "1"
+             })+
+        }
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & ((Skolem
@@ -1738,13 +1756,14 @@ Before =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
-        | xsd:string {
-            pattern =
-              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-            minLength = "1"
-          }
+        list {
+          (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+               minLength = "1"
+             })+
+        }
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & ((Skolem
@@ -1808,13 +1827,14 @@ Every =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
-        | xsd:string {
-            pattern =
-              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-            minLength = "1"
-          }
+        list {
+          (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+               minLength = "1"
+             })+
+        }
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & (Skolem
@@ -1878,13 +1898,14 @@ Any =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?)
   }
@@ -1918,13 +1939,14 @@ Timer =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
-        | xsd:string {
-            pattern =
-              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-            minLength = "1"
-          }
+        list {
+          (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+               minLength = "1"
+             })+
+        }
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & ((Skolem
@@ -1961,13 +1983,14 @@ Timer =
 During =
   element During {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -2033,13 +2056,14 @@ During =
 Overlaps =
   element Overlaps {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -2105,13 +2129,14 @@ Overlaps =
 Starts =
   element Starts {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -2177,13 +2202,14 @@ Starts =
 Precedes =
   element Precedes {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -2249,13 +2275,14 @@ Precedes =
 Succeeds =
   element Succeeds {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -2321,13 +2348,14 @@ Succeeds =
 Meets =
   element Meets {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -2393,13 +2421,14 @@ Meets =
 Finishes =
   element Finishes {
     attribute style {
-      "reasoning/single-valued"
-      | "reasoning/multi-valued"
-      | xsd:string {
-          pattern =
-            "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-          minLength = "1"
-        }
+      list {
+        (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+         | xsd:string {
+             pattern =
+               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+             minLength = "1"
+           })+
+      }
       | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
     }?
     & attribute closure {
@@ -2484,13 +2513,14 @@ Time =
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute style {
-        "reasoning/single-valued"
-        | "reasoning/multi-valued"
-        | xsd:string {
-            pattern =
-              "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-            minLength = "1"
-          }
+        list {
+          (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+           | xsd:string {
+               pattern =
+                 "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+               minLength = "1"
+             })+
+        }
         | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
       }?
     & attribute closure {
@@ -3938,13 +3968,14 @@ Plex_2 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     slot*,
@@ -3972,13 +4003,14 @@ Plex_3 =
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?
      & attribute style {
-         "reasoning/single-valued"
-         | "reasoning/multi-valued"
-         | xsd:string {
-             pattern =
-               "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
-             minLength = "1"
-           }
+         list {
+           (xsd:token { pattern = "[\i-[:]][/\c-[:]]*" }
+            | xsd:string {
+                pattern =
+                  "(([\i-[:]][\c-[:]]*)?:)(/[^\s/][^\s]*|[^\s/][^\s]*|[^\s]?)"
+                minLength = "1"
+              })+
+         }
          | xsd:string { pattern = "[\i-[:]][\c-[:]]+:.+" }
        }?),
     (Skolem
