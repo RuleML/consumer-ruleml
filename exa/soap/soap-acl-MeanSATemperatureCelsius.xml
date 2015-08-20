@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/soap-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <soap:Body  xmlns="http://ruleml.org/spec"
+    xmlns:rp="http://ruleml.org/1.02/profiles/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dbp="http://dbpedia.org/"
+    xmlns:clim="http://example.org/climate/vocab#"
+    xmlns:aggregation="http://example.org/aggregation/">
+    <!-- The Consumer RuleML content starts here.-->
+    <Rule closure="universal" style="rp:/psoa">
+      <if>
+        <Atom>
+          <!-- An assertion of January climate data using the http://dbpedia.org vocabulary
+             for some location "location" with a temperature value of "temperature".-->
+          <oid><Var>location</Var></oid>
+          <Rel iri="dbp:ontology/Place"/>
+          <slot>
+            <Ind iri="dbp:property/janMeanC"/>
+            <Var>temperature</Var>
+          </slot>
+          <slot>
+            <Ind iri="dbp:ontology/country"/>
+            <Ind iri="dbp:resource/Germany"/>
+          </slot>
+        </Atom>
+      </if>
+      <then>
+        <Operation 
+          type="aggregation:WindowedRecurring"
+          style="aggregation:profile">
+          <!-- An assertion of January climate data using some "clim" climate vocabulary
+             for some location "location" with a value of "temperature", 
+             bringing in the additional knowledge that the homogenization period 
+             for German climate data is 1981-2010.
+             This knowledge is not directly available from dbpedia, but is from the Deutscher Wetterdienst, 
+             which is the provenance of most Wikipedia climate data for Germany.
+             An assumption is made that the dbpedia information is in agreement with the most recent 
+             climate data from this source. This rule has validity until around 2020, when the 
+             next climatological dataset shouldbecome available.
+          -->
+          <Atom>
+            <Rel iri="clim:meanSurfaceAirTemperatureCelsius"/>
+            <Var>location</Var>
+            <Var>temperature</Var>            
+          </Atom>
+          <Interval>
+            <Data xsi:type="xs:gYear">1981</Data>
+            <Data xsi:type="xs:gYear">2010</Data>
+          </Interval>
+          <Time>
+            <Data xsi:type="xs:gMonth">--01</Data>
+          </Time>
+        </Operation>
+      </then>
+    </Rule>
+  </soap:Body>
+</soap:Envelope>
