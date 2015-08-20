@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/soap-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <soap:Header>
+  </soap:Header>
+  <soap:Body  xmlns="http://ruleml.org/spec"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="http://ruleml.org/1.02/profiles/">
+    <!-- The Consumer RuleML content starts here.-->
+    <Atom  style="rs:psoa">
+      <!-- The source of this fact is http://dbpedia.org/page/Berlin . -->
+      <oid><Ind iri="http://dbpedia.org/resource/Berlin"/></oid>
+      <Rel iri="http://ruleml.org/vocab/Top"/>
+      <slot>
+        <Ind iri="http://dbpedia.org/ontology/elevation"/>
+        <Data xsi:type="xs:double">34.000000</Data>
+      </slot>
+      <slot>
+        <Ind iri="http://dbpedia.org/property/janMeanC"/>
+        <Data xsi:type="xs:double">0.500000</Data>
+      </slot>
+      <slot>
+        <Ind iri="http://dbpedia.org/ontology/country"/>
+        <Ind iri="http://dbpedia.org/resource/Germany"/>
+      </slot>
+    </Atom>
+  </soap:Body>
+</soap:Envelope>
