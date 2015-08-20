@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
-<!-- This is an illustrative example of the embedding of a Consumer RuleML rule inside a FIPA-ACL envelope, not an actual message from RuleML.-->
+<?xml-model 
+    href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl"
+    type="application/xml" 
+    schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<!-- This is an illustrative example of the embedding of Consumer RuleML rule inside a 
+     FIPA-ACL envelope, not an actual message from RuleML.-->
 <fipa-message act="inform">
   <sender>
     <agent-identifier>
@@ -13,43 +17,48 @@
     </agent-identifier>
   </receiver>
   <content xmlns:ruleml="http://ruleml.org/spec" 
-    xmlns:rs="http://ruleml.org/1.02/profiles/"
+    xmlns:rp="http://ruleml.org/1.02/profiles/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ex="http://example.org/">
+    xmlns:dbp="http://dbpedia.org/"
+    xmlns:clim="http://example.org/climate/vocab#"
+    xmlns:aggregation="http://example.org/aggregation/">
     <!-- The Consumer RuleML content starts here.-->
-    <ruleml:Rule closure="universal" style="rs:psoa">
+    <ruleml:Rule closure="universal" style="rp:/psoa">
       <ruleml:if>
-         <ruleml:Atom>
+        <ruleml:Atom>
           <!-- An assertion of January climate data using the http://dbpedia.org vocabulary
-             for some location "location" with a value of "temp".-->
+             for some location "location" with a temperature value of "temperature".-->
           <ruleml:oid><ruleml:Var>location</ruleml:Var></ruleml:oid>
-          <ruleml:Rel iri="http://ruleml.org/vocab/Top"/>
+          <ruleml:Rel iri="dbp:ontology/Place"/>
           <ruleml:slot>
-            <ruleml:Ind iri="http://dbpedia.org/property/janMeanC"/>
-            <ruleml:Var>temp</ruleml:Var>
+            <ruleml:Ind iri="dbp:property/janMeanC"/>
+            <ruleml:Var>temperature</ruleml:Var>
           </ruleml:slot>
-           <ruleml:slot>
-             <ruleml:Ind iri="http://dbpedia.org/ontology/country"/>
-             <ruleml:Ind iri="http://dbpedia.org/resource/Germany"/>
-           </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind iri="dbp:ontology/country"/>
+            <ruleml:Ind iri="dbp:resource/Germany"/>
+          </ruleml:slot>
         </ruleml:Atom>
       </ruleml:if>
       <ruleml:then>
-        <ruleml:Operation  style="ex:WindowedRecurring">
-          <!-- An assertion of January climate data using a demonstration "ex" vocabulary
-             for some location "location" with a value of "temp", bringing in the additional
-             knowledge that the most recent averaging period for German climate data is 1981-2010.
+        <ruleml:Operation 
+          type="aggregation:WindowedRecurring"
+          style="aggregation:profile">
+          <!-- An assertion of January climate data using some "clim" climate vocabulary
+             for some location "location" with a value of "temperature", 
+             bringing in the additional knowledge that the homogenization period 
+             for German climate data is 1981-2010.
              This knowledge is not directly available from dbpedia, but is from the Deutscher Wetterdienst, 
              which is the provenance of most Wikipedia climate data for Germany.
              An assumption is made that the dbpedia information is in agreement with the most recent 
              climate data from this source. This rule has validity until around 2020, when the 
-             next climatological dataset should become available.
+             next climatological dataset shouldbecome available.
           -->
           <ruleml:Atom>
-            <ruleml:Rel iri="ex:climateMeanSurfaceAirTemperatureCelsius"/>
+            <ruleml:Rel iri="clim:meanSurfaceAirTemperatureCelsius"/>
             <ruleml:Var>location</ruleml:Var>
-            <ruleml:Var>temp</ruleml:Var>
+            <ruleml:Var>temperature</ruleml:Var>            
           </ruleml:Atom>
           <ruleml:Interval>
             <ruleml:Data xsi:type="xs:gYear">1981</ruleml:Data>
@@ -57,8 +66,6 @@
           </ruleml:Interval>
           <ruleml:Time>
             <ruleml:Data xsi:type="xs:gMonth">--01</ruleml:Data>
-          </ruleml:Time>
-          <ruleml:Time>            
           </ruleml:Time>
         </ruleml:Operation>
       </ruleml:then>
