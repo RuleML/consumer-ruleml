@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl"
+    type="application/xml" 
+    schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?><!-- This is an illustrative example of the embedding of Consumer RuleML rule inside a 
+     FIPA-ACL envelope, not an actual message from RuleML.-->
+<fipa-message act="inform">
+  <sender>
+    <agent-identifier>
+      <name id="RuleML"/>
+    </agent-identifier>
+  </sender>
+  <receiver>
+    <agent-identifier>
+      <name id="Tara-Athan"/>
+    </agent-identifier>
+  </receiver>
+  <content xmlns:ruleml="http://ruleml.org/spec" xmlns:rp="http://ruleml.org/1.02/profiles/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dbp="http://dbpedia.org/" xmlns:clim="http://example.org/climate/vocab#" xmlns:aggregation="http://example.org/aggregation/">
+    <!-- The Consumer RuleML content starts here.-->
+    <ruleml:Rule closure="universal" style="rp:/psoa">
+      <ruleml:if>
+        <ruleml:Atom>
+          <!-- An assertion of January climate data using the http://dbpedia.org vocabulary
+             for some location "location" with a temperature value of "temperature".-->
+          <ruleml:oid>
+            <ruleml:Var>location</ruleml:Var>
+          </ruleml:oid>
+          <op xmlns="http://ruleml.org/spec"><ruleml:Rel iri="dbp:ontology/Place"/></op>
+          <ruleml:slot><ruleml:Ind iri="dbp:property/janMeanC"/><ruleml:Var>temperature</ruleml:Var></ruleml:slot>
+          <ruleml:slot><ruleml:Ind iri="dbp:ontology/country"/><ruleml:Ind iri="dbp:resource/Germany"/></ruleml:slot>
+        </ruleml:Atom>
+      </ruleml:if>
+      <ruleml:then>
+        <ruleml:Operation type="aggregation:WindowedRecurring" style="aggregation:profile">
+          <!-- An assertion of January climate data using some "clim" climate vocabulary
+             for some location "location" with a value of "temperature", 
+             bringing in the additional knowledge that the homogenization period 
+             for German climate data is 1981-2010.
+             This knowledge is not directly available from dbpedia, but is from the Deutscher Wetterdienst, 
+             which is the provenance of most Wikipedia climate data for Germany.
+             An assumption is made that the dbpedia information is in agreement with the most recent 
+             climate data from this source. This rule has validity until around 2020, when the 
+             next climatological dataset shouldbecome available.
+          -->
+          <formula xmlns="http://ruleml.org/spec">
+            <ruleml:Atom>
+              <op><ruleml:Rel iri="clim:meanSurfaceAirTemperatureCelsius"/></op>
+              <arg index="1"><ruleml:Var>location</ruleml:Var></arg>
+              <arg index="2"><ruleml:Var>temperature</ruleml:Var></arg>
+            </ruleml:Atom>
+          </formula>
+          <formula xmlns="http://ruleml.org/spec">
+            <ruleml:Interval>
+              <arg index="1"><ruleml:Data xsi:type="xs:gYear">1981</ruleml:Data></arg>
+              <arg index="2"><ruleml:Data xsi:type="xs:gYear">2010</ruleml:Data></arg>
+            </ruleml:Interval>
+          </formula>
+          <formula xmlns="http://ruleml.org/spec">
+            <ruleml:Time>
+              <arg index="1"><ruleml:Data xsi:type="xs:gMonth">--01</ruleml:Data></arg>
+            </ruleml:Time>
+          </formula>
+        </ruleml:Operation>
+      </ruleml:then>
+    </ruleml:Rule>
+  </content>
+</fipa-message>
