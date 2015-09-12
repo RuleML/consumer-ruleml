@@ -30,7 +30,7 @@ do
      exit 1
   fi
 done
-# Generate RNC and convert to RNG, and validate
+# Convert RNC to RNG, and validate against design
 ${BASH_HOME}batch_rnc2rng.sh  >> /dev/null 2>&1
 if [ "$?" -ne "0" ]; then
      echo "Validation Against Design Failed"

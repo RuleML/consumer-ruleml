@@ -7,3 +7,5 @@ zip
 test/compactifier-test-suites
 ConsumerRuleML1.02.zip
 /xsd/tmp
+path_config.sh
+reaction-config.xml

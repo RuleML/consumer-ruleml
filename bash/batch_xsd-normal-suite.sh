@@ -13,7 +13,7 @@
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
-# creates the xsd directory if they doesn't exist, and clears them, in case they already have contents
+# creates the xsd directory if it doesn't exist, and clears it, in case it already has contents
 mkdir -p ${NORMAL_SUITE_HOME}
 rm ${NORMAL_SUITE_HOME}* >> /dev/null 2>&1
 
