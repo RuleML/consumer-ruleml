@@ -78,7 +78,7 @@
   <!-- Phase II: rearrange into canonical ordering -->
 
 
-  <!-- Builds canonically-ordered content of Atom. -->
+  <!-- Builds canonically-ordered content of Time, Spatial, Interval. -->
   <xsl:template match="r:*[self::r:Time or self::r:Spatial or self::r:Interval ]" mode="phase-2">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="phase-2"/>
@@ -108,9 +108,35 @@
   </xsl:template>
 
   <!-- Phase III: add required attributes -->
+  <!-- Adds the required index attribute to the formula tag in Operation -->
+  <xsl:template match="*[self::r:Operation]/r:formula[not(@index)]" mode="phase-3">
+    <xsl:variable name="index_value">
+      <xsl:value-of select="count(preceding-sibling::r:formula)+1"/>
+    </xsl:variable>
+    <formula>
+      <xsl:attribute name="index">
+        <xsl:value-of select="$index_value"/>
+      </xsl:attribute>
+      <xsl:apply-templates select="@*|node()" mode="phase-3"/>
+    </formula>
+  </xsl:template>
+  
+  
   <!-- Phase IV: sort by required attributes -->
   <!-- Sorts by the required index attribute to the arg tag 
         There are errors with the indexing when the argument is within a slot-->
+  
+  <!-- Sorts by the required index attribute to the formula tag in Operation -->
+  <xsl:template match="*[self::r:Operation]" mode="phase-sort">
+    <xsl:copy>
+      <xsl:apply-templates select="@*"  mode="phase-sort"/>
+      <xsl:apply-templates select="node()[not(self::r:formula)]"  mode="phase-sort"/>
+      <xsl:apply-templates select="r:formula"  mode="phase-sort">
+        <xsl:sort select="@index"  data-type="number"/>                
+      </xsl:apply-templates>
+    </xsl:copy>  
+  </xsl:template>
+  
   
   <xsl:template match="*[r:content]" mode="phase-sort">
     <xsl:copy>
