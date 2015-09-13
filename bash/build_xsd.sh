@@ -34,3 +34,9 @@ if [[ "$?" -ne "0" ]]; then
      echo "Local Testing of RNC Compact Schema Failed"
      exit 1
 fi
+# Generate xml instances of consumer-reaction and validate against dr.xsd
+${BASH_HOME}generate_xml.sh  >> /dev/null 2>&1
+if [[ "$?" -ne "0" ]]; then
+     echo "Testing of Consumer-Reaction Sublanguages Failed"
+     exit 1
+fi

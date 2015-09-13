@@ -18,12 +18,6 @@ if [[ "$?" -ne "0" ]]; then
      echo "Local Testing of XSD Schemas Failed"
      exit 1
 fi
-# Generate xml instances of consumer-reaction and validate against dr.xsd
-${BASH_HOME}generate_xml.sh  >> /dev/null 2>&1
-if [[ "$?" -ne "0" ]]; then
-     echo "Testing of Consumer-Reaction Sublanguages Failed"
-     exit 1
-fi
 # Build zip packaage
 ${BASH_HOME}build_zip.sh  >> /dev/null 2>&1
 if [[ "$?" -ne "0" ]]; then
