@@ -17,7 +17,7 @@ do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor.xslt"  -o:"${f}"
-  if [ "$?" -ne "0" ]; then
+  if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed for " "${filename}"
      exit 1
    fi
@@ -28,7 +28,7 @@ done
   ${BASH_HOME}aux_valxsd.sh "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
-  if [ "${exitvalue}" -ne "0" ]; then
+  if [[ "${exitvalue}" -ne "0" ]]; then
        echo "Schema Validation Failed for ${schemaname}"
        exit 1
    fi   
@@ -39,11 +39,11 @@ do
   echo "File ${filename}"
   ${BASH_HOME}aux_valxsd.sh "${sfile}" "${file}"
   exitvalue=$?
-  if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then
+  if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
    else
-         if [[ ${file} =~ fail ]] && [ "${exitvalue}" == "0" ]; then
+         if [[ ${file} =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Validation Succeeded for Failure Test ${file}"
            exit 1
          fi
@@ -55,7 +55,7 @@ done
   ${BASH_HOME}aux_valxsd.sh "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
-  if [ "${exitvalue}" -ne "0" ]; then
+  if [[ "${exitvalue}" -ne "0" ]]; then
        echo "Schema Validation Failed for ${schemaname}"
        exit 1
    fi   
@@ -67,11 +67,11 @@ do
   echo "File ${filename}"
   ${BASH_HOME}aux_valxsd.sh "${sfile2}" "${file}"
   exitvalue=$?
-  if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then
+  if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
    else
-         if [[ ${file} =~ fail ]] && [ "${exitvalue}" == "0" ]; then
+         if [[ ${file} =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Validation Succeeded for Failure Test ${file}"
            exit 1
          fi

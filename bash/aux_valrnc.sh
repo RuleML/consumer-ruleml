@@ -9,13 +9,13 @@ extension1="${filename1##*.}"
 #filename1NE="${filename1%.*}"
 
 # Verifies that input schema name ends in ".rnc"
-if [ "${extension1}" != "rnc" ];then
+if [[ "${extension1}" != "rnc" ]];then
    echo "Extension of ${filename1} is not .rnc"
    exit 1
 fi
 
 # Validate
-if [ -z "${2+xxx}" ]; then
+if [[ $# -eq 1 ]]; then
   java -jar "${JING}" -c  "$1"
 else  
   java -jar "${JING}" -c  "$1" "$2"

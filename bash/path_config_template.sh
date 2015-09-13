@@ -23,15 +23,15 @@ PLATFORM="Linux"
 OXY_VERSION="17"
 # FIXME: handle the script name variations for other versions and platforms
 FLATTEN_SCRIPT="${OXY_HOME}flattenSchema.sh"
-if [[ ${OXY_VERSION} = "14" && ${PLATFORM} = "Mac" ]]; then 
+if [[ ${OXY_VERSION} == "14" && ${PLATFORM} == "Mac" ]]; then 
   FLATTEN_SCRIPT="${OXY_HOME}flattenSchemaMac.sh"
 fi  
 GENERATE_SCRIPT="${OXY_HOME}xmlGenerator.sh"
-if [[ ${OXY_VERSION} = "14" && ${PLATFORM} = "Mac" ]]; then 
+if [[ ${OXY_VERSION} == "14" && ${PLATFORM} == "Mac" ]]; then 
   GENERATE_SCRIPT="${OXY_HOME}xmlGeneratorMac.sh"
 fi  
 DOC_SCRIPT="${OXY_HOME}schemaDocumentation.sh"
-if [[ ${OXY_VERSION} = "14" && ${PLATFORM} = "Mac" ]]; then 
+if [[ ${OXY_VERSION} == "14" && ${PLATFORM} == "Mac" ]]; then 
   DOC_SCRIPT="${OXY_HOME}schemaDocumentationMac.sh"
 fi  
 OXY_LIB="${OXY_HOME}lib/"

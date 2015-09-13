@@ -25,7 +25,7 @@ rm ${COMPACT_SUITE_HOME}* >> /dev/null 2>&1
   ${BASH_HOME}aux_valxsd.sh "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
-  if [ "${exitvalue}" -ne "0" ]; then
+  if [[ "${exitvalue}" -ne "0" ]]; then
        echo "Schema Validation Failed for ${schemaname}"
        exit 1
    fi   
@@ -39,7 +39,7 @@ do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${COMPACT_XSLT_HOME}1.02_compactifier.xslt"  -o:"${COMPACT_SUITE_HOME}${filename}"   >> /dev/null 2>&1
-  if [ "$?" -ne "0" ]; then
+  if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed for " "${filename}"
      exit 1
    fi
@@ -51,22 +51,22 @@ do
   echo "File ${filename}"
     ${BASH_HOME}aux_valxsd.sh "${sfilesup}" "${file}"
     exitvalue=$?
-    if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then
+    if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Supremum Validation Failed for Compact ${file}"
           exit 1
      else
-        if [[ ${file} =~ fail ]] && [ "${exitvalue}" == "0" ]; then
+        if [[ ${file} =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Supremum Validation Succeeded for Compact Failure Test ${file}"
            exit 1
          fi
     fi       
     ${BASH_HOME}aux_valxsd.sh "${sfile}" "${file}"
     exitvalue=$?
-    if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then
+    if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for Compact ${file}"
           exit 1
      else
-        if [[ ${file} =~ fail ]] && [ "${exitvalue}" == "0" ]; then
+        if [[ ${file} =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Validation Succeeded for Compact Failure Test ${file}"
            exit 1
          fi

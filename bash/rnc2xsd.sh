@@ -16,7 +16,7 @@ extension1="${filename1##*.}"
 outdir=$(dirname "$2")
 
 # Verifies that input schema name ends in ".rnc"
-if [ "${extension1}" != "rnc" ];then
+if [[ "${extension1}" != "rnc" ]];then
    echo "Input extension is not .rnc"
    exit 1
 fi
@@ -27,17 +27,17 @@ extension2="${filename2##*.}"
 #filenameNE="${filename2%.*}"
 
 # Verifies that output name ends in ".xsd"
-if [ "${extension2}" != "xsd" ];then
+if [[ "${extension2}" != "xsd" ]];then
    echo "Output extension is not .xsd"
    exit 1
 fi
 infile="$1"
 outfile="${TMP_HOME}$filename2"
 echo "${infile}"
-if [ "$3" = true ]; then
+if [[ "$3" == true ]]; then
     echo "Start simplification."
     java -jar "${JING}" -cs "$1" > ${TMP_RNG}
-    if [ "$?" != "0" ];then
+    if [[ "$?" != "0" ]];then
       echo "Simplification Failed."
       exit 1
     fi
@@ -47,14 +47,14 @@ fi
 
 echo "Start conversion of " "$infile"
 java -jar "${TRANG}" -o disable-abstract-elements -o any-process-contents=lax "${infile}" "${outfile}"
-if [ "$?" != "0" ];then
+if [[ "$?" != "0" ]];then
    echo "Conversion to XSD Failed."
    exit 1
 fi
-if [ $3 != true ]; then
+if [[ $3 != true ]]; then
   "${BASH_HOME}flatten_xsd.sh" "${outfile}" "${outdir}" 
 fi
-if [ $4 = true ]; then
+if [[ $4 == true ]]; then
   function finish {
     rm ${TMP}
   }

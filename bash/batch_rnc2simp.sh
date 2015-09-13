@@ -25,7 +25,7 @@ for file in ${RNC4SIMP_HOME}*.rnc
 do
   filename=$(basename "$file")
   ${BASH_HOME}rnc2simp.sh "$file" "${SIMP_HOME}${filename}"
-  if [ "$?" -ne "0" ]; then
+  if [[ "$?" -ne "0" ]]; then
      echo "Simplification Failed for " "${filename}"
      exit 1
    fi
@@ -35,7 +35,7 @@ for file in ${SIMP_HOME}*.rnc
 do
   filename=$(basename "$file")
   ${BASH_HOME}aux_valrnc.sh "${file}"
-  if [ "$?" -ne "0" ]; then
+  if [[ "$?" -ne "0" ]]; then
      echo "Simplified RNC Validation Failed for " "${filename}"
      exit 1
   fi
