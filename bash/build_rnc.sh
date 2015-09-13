@@ -48,3 +48,15 @@ if [ "$?" -ne "0" ]; then
      echo "Local Testing of RNC Schemas Failed"
      exit 1
 fi
+# Generate and Validate Compact Examples in Relax NG Test Suites
+${BASH_HOME}batch_rnc-compact-suite.sh  >> /dev/null 2>&1
+if [ "$?" -ne "0" ]; then
+     echo "Local Testing of RNC Compact Schemas Failed"
+     exit 1
+fi
+# Generate and Validate Normalized Examples in Relax NG Test Suites
+${BASH_HOME}batch_rnc-normal-suite.sh  >> /dev/null 2>&1
+if [ "$?" -ne "0" ]; then
+     echo "Local Testing of RNC Normalized Schemas Failed"
+     exit 1
+fi

@@ -16,12 +16,24 @@
 #  - curl
 #  - libxml2-utils (for xmllint)
 #  - zip  
-# Note: change the OXY_HOME and APP_HOME path according to your path to the
-# Oxygen 17 installation and JAXB jar.
-OXY_HOME="/home/tara/Oxygen XML Editor 17/"
-FLATTEN_SCRIPT="${OXY_HOME}/flattenSchema.sh"
-GENERATE_SCRIPT="${OXY_HOME}/xmlGenerator.sh"
-DOC_SCRIPT="${OXY_HOME}/schemaDocumentation.sh"
+# Note: copy to path_config.sh and then
+# change the parameters accordingly
+# JAXB (jaxb-ri) should be installed in the Oxygen /lib directory
+PLATFORM="Linux"
+OXY_VERSION="17"
+# FIXME: handle the script name variations for other versions and platforms
+FLATTEN_SCRIPT="${OXY_HOME}flattenSchema.sh"
+if [[ ${OXY_VERSION} = "14" && ${PLATFORM} = "Mac" ]]; then 
+  FLATTEN_SCRIPT="${OXY_HOME}flattenSchemaMac.sh"
+fi  
+GENERATE_SCRIPT="${OXY_HOME}xmlGenerator.sh"
+if [[ ${OXY_VERSION} = "14" && ${PLATFORM} = "Mac" ]]; then 
+  GENERATE_SCRIPT="${OXY_HOME}xmlGeneratorMac.sh"
+fi  
+DOC_SCRIPT="${OXY_HOME}schemaDocumentation.sh"
+if [[ ${OXY_VERSION} = "14" && ${PLATFORM} = "Mac" ]]; then 
+  DOC_SCRIPT="${OXY_HOME}schemaDocumentationMac.sh"
+fi  
 OXY_LIB="${OXY_HOME}lib/"
 SAX_HOME="${OXY_LIB}"
 JING="${OXY_LIB}jing.jar"

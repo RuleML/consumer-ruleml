@@ -18,9 +18,11 @@ mkdir -p ${COMPACT_SUITE_HOME}
 rm ${COMPACT_SUITE_HOME}* >> /dev/null 2>&1
 
 
-  schemaname=consumer-compact.rnc
-  sfile=${DRIVER_HOME}${schemaname}       
-  ${BASH_HOME}aux_valrnc.sh "${sfile}"
+  schemaname=consumer-compact.xsd
+  schemasupname=consumer.xsd
+  sfile=${XSD_HOME}${schemaname}       
+  sfilesup=${XSD_HOME}${schemasupname}       
+  ${BASH_HOME}aux_valxsd.sh "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
   if [ "${exitvalue}" -ne "0" ]; then
@@ -47,7 +49,18 @@ for file in ${COMPACT_SUITE_HOME}*.ruleml
 do
   filename=$(basename "${file}")
   echo "File ${filename}"
-    ${BASH_HOME}aux_valrnc.sh "${sfile}" "${file}"
+    ${BASH_HOME}aux_valxsd.sh "${sfilesup}" "${file}"
+    exitvalue=$?
+    if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then
+          echo "Supremum Validation Failed for Compact ${file}"
+          exit 1
+     else
+        if [[ ${file} =~ fail ]] && [ "${exitvalue}" == "0" ]; then
+           echo "Supremum Validation Succeeded for Compact Failure Test ${file}"
+           exit 1
+         fi
+    fi       
+    ${BASH_HOME}aux_valxsd.sh "${sfile}" "${file}"
     exitvalue=$?
     if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then
           echo "Validation Failed for Compact ${file}"

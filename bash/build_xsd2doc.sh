@@ -6,5 +6,5 @@
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
-"${DOC_SCRIPT}"  ${XSD_HOME}consumer_normal.xsd  -cfg:${BASH_HOME}settings/doc.xml
+"${DOC_SCRIPT}"  ${XSD_HOME}consumer-normal.xsd  -cfg:${BASH_HOME}settings/doc.xml
  

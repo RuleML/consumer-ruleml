@@ -18,8 +18,10 @@ mkdir -p ${NORMAL_SUITE_HOME}
 rm ${NORMAL_SUITE_HOME}* >> /dev/null 2>&1
 
 
-  schemaname=consumer_normal.xsd
+  schemaname=consumer-normal.xsd
+  schemasupname=consumer.xsd
   sfile=${XSD_HOME}${schemaname}       
+  sfilesup=${XSD_HOME}${schemasupname}       
   ${BASH_HOME}aux_valxsd.sh "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
@@ -47,6 +49,17 @@ for file in ${NORMAL_SUITE_HOME}*.ruleml ${NORMAL_SUITE_HOME}*/*.ruleml
 do
   filename=$(basename "${file}")
   echo "File ${filename}"
+    ${BASH_HOME}aux_valxsd.sh "${sfilesup}" "${file}"
+    exitvalue=$?
+    if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then
+          echo "Supremum Validation Failed for Normal ${file}"
+          exit 1
+     else
+        if [[ ${file} =~ fail ]] && [ "${exitvalue}" == "0" ]; then
+           echo "Supremum Validation Succeeded for Normal Failure Test ${file}"
+           exit 1
+         fi
+    fi       
     ${BASH_HOME}aux_valxsd.sh "${sfile}" "${file}"
     exitvalue=$?
     if [[ ! ${file} =~ fail ]] && [ "${exitvalue}" -ne "0" ]; then

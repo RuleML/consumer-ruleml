@@ -54,7 +54,7 @@ fi
 if [ $3 != true ]; then
   "${BASH_HOME}flatten_xsd.sh" "${outfile}" "${outdir}" 
 fi
-if [ "$4" = true ]; then
+if [ $4 = true ]; then
   function finish {
     rm ${TMP}
   }
