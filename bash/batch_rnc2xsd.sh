@@ -7,7 +7,6 @@
 # rnc2xsd_min.xslt
 # aux_valxsd.sh
 # saxon9ee.jar
-# FIXME use configuration script to set path variables
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
