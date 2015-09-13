@@ -14,9 +14,11 @@
     <Rel>student</Rel>
     <slot>
       <Ind>at time</Ind>
-      <Time><Var>time_student</Var></Time>
+      <Time>
+        <Var>time_student</Var>
+      </Time>
     </slot>
-    
+
   </Atom>
 
   <!--a particular person is an employee of company at some time -->
@@ -31,7 +33,9 @@
     </slot>
     <slot>
       <Ind>at time</Ind>
-      <Time><Var>time_employee</Var></Time>
+      <Time>
+        <Var>time_employee</Var>
+      </Time>
     </slot>
   </Atom>
 
@@ -47,8 +51,11 @@
           <Rel>student</Rel>
           <slot>
             <Ind>at time</Ind>
-            <Time><Var>time_student</Var></Time>
-          </slot></Atom>
+            <Time>
+              <Var>time_student</Var>
+            </Time>
+          </slot>
+        </Atom>
         <Naf>
           <Atom>
             <oid>
@@ -57,8 +64,11 @@
             <Rel>parttime-student</Rel>
             <slot>
               <Ind>at time</Ind>
-              <Time><Var>time_student</Var></Time>
-            </slot></Atom>
+              <Time>
+                <Var>time_student</Var>
+              </Time>
+            </slot>
+          </Atom>
         </Naf>
       </And>
     </if>
@@ -70,8 +80,11 @@
         <Rel>fulltime-student</Rel>
         <slot>
           <Ind>at time</Ind>
-          <Time><Var>time_student</Var></Time>
-        </slot></Atom>
+          <Time>
+            <Var>time_student</Var>
+          </Time>
+        </slot>
+      </Atom>
     </then>
   </Implies>
 
@@ -87,8 +100,11 @@
         <Rel>fulltime-student</Rel>
         <slot>
           <Ind>at time</Ind>
-          <Time><Var>time_student</Var></Time>
-        </slot></Atom>
+          <Time>
+            <Var>time_student</Var>
+          </Time>
+        </slot>
+      </Atom>
       <Atom>
         <oid>
           <Var>person</Var>
@@ -101,8 +117,11 @@
         </slot>
         <slot>
           <Ind>at time</Ind>
-          <Time><Var>time_student</Var></Time>
-        </slot></Atom>
+          <Time>
+            <Var>time_student</Var>
+          </Time>
+        </slot>
+      </Atom>
     </And>
     <Or/>
   </Implies>
@@ -115,6 +134,12 @@
           <Var>person</Var>
         </oid>
         <Rel>fulltime-student</Rel>
+        <slot>
+          <Ind>at time</Ind>
+          <Time>
+            <Var>time_student</Var>
+          </Time>
+        </slot>
       </Atom>
       <Atom>
         <oid>
@@ -124,6 +149,12 @@
         <slot>
           <Ind>employer</Ind>
           <Ind>companyB</Ind>
+        </slot>
+        <slot>
+          <Ind>at time</Ind>
+          <Time>
+            <Var>time_student</Var>
+          </Time>
         </slot>
       </Atom>
     </And>
