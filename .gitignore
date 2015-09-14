@@ -3,6 +3,7 @@ xsd/org
 fipa-acl.dtd
 xslt/upgrader
 test/normalizer-test-suites
+exa/normalized
 zip
 test/compactifier-test-suites
 ConsumerRuleML1.02.zip
