@@ -46,13 +46,13 @@
   <xsl:template match="ruleml:Naf[not(ruleml:weak)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:weak><ruleml:And/></ruleml:weak>
+      <ruleml:weak><ruleml:Equal><ruleml:left><ruleml:Ind/></ruleml:left><ruleml:right><ruleml:Ind/></ruleml:right></ruleml:Equal></ruleml:weak>
     </xsl:copy>
   </xsl:template>  
   <xsl:template match="ruleml:Not[not(ruleml:strong)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:strong><ruleml:And/></ruleml:strong>
+      <ruleml:strong><ruleml:Equal><ruleml:left><ruleml:Ind/></ruleml:left><ruleml:right><ruleml:Ind/></ruleml:right></ruleml:Equal></ruleml:strong>
     </xsl:copy>
   </xsl:template>  
   <xsl:template match="ruleml:Equivalent[not(ruleml:torso[2])]">

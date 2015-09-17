@@ -14,15 +14,15 @@ shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # creates the xsd directory if it doesn't exist, and clears it, in case it already has contents
-mkdir -p ${NORMAL_SUITE_HOME}
-rm ${NORMAL_SUITE_HOME}* >> /dev/null 2>&1
+mkdir -p "${NORMAL_SUITE_HOME}"
+rm "${NORMAL_SUITE_HOME}"* >> /dev/null 2>&1
 
 
-  schemaname=consumer-normal.xsd
-  schemasupname=consumer.xsd
-  sfile=${XSD_HOME}${schemaname}       
-  sfilesup=${XSD_HOME}${schemasupname}       
-  ${BASH_HOME}aux_valxsd.sh "${sfile}"
+  schemaname="consumer-normal.xsd"
+  schemasupname="consumer.xsd"
+  sfile="${XSD_HOME}${schemaname}"       
+  sfilesup="${XSD_HOME}${schemasupname}"       
+  "${BASH_HOME}aux_valxsd.sh" "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
   if [[ "${exitvalue}" -ne "0" ]]; then
@@ -34,7 +34,7 @@ rm ${NORMAL_SUITE_HOME}* >> /dev/null 2>&1
 # transform files in TEST_SUITE_HOME ending in .ruleml
 # output to NORMAL_SUITE_HOME
 # FIXME write an aux script for the xslt call
-for f in ${RNC_TEST_SUITE_HOME}*/*.ruleml
+for f in "${RNC_TEST_SUITE_HOME}"*/*.ruleml
 do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
@@ -45,11 +45,11 @@ do
    fi
 done
 
-for file in ${NORMAL_SUITE_HOME}*.ruleml ${NORMAL_SUITE_HOME}*/*.ruleml
+for file in "${NORMAL_SUITE_HOME}"*.ruleml "${NORMAL_SUITE_HOME}"*/*.ruleml
 do
   filename=$(basename "${file}")
   echo "File ${filename}"
-    ${BASH_HOME}aux_valxsd.sh "${sfilesup}" "${file}"
+    "${BASH_HOME}aux_valxsd.sh" "${sfilesup}" "${file}"
     exitvalue=$?
     if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Supremum Validation Failed for Normal ${file}"
@@ -60,7 +60,7 @@ do
            exit 1
          fi
     fi       
-    ${BASH_HOME}aux_valxsd.sh "${sfile}" "${file}"
+    "${BASH_HOME}aux_valxsd.sh" "${sfile}" "${file}"
     exitvalue=$?
     if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for Normal ${file}"

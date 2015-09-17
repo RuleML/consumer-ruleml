@@ -3,7 +3,7 @@
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # Finds the filename without extension
-filename1=$(basename $1)
+filename1=$(basename "$1")
 echo "${filename1}"
 extension1="${filename1##*.}"
 #filename1NE="${filename1%.*}"

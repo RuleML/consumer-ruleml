@@ -7,28 +7,28 @@
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
-for file in ${RNC_TEST_SUITE_HOME}*/*.ruleml ${RNC_TEST_SUITE_HOME}*/*/*.ruleml
+for file in "${RNC_TEST_SUITE_HOME}"*/*.ruleml "${RNC_TEST_SUITE_HOME}"*/*/*.ruleml
 do
   filename=$(basename "${file}")
   echo "File "${filename}
   while read -r; do
      #echo "Line ${REPLY}"
-     if [[ ${REPLY} =~ ^..xml-model ]]
+     if [[ "${REPLY}" =~ "^..xml-model" ]]
      then     
-       tail=${REPLY#*\"}
+       tail="${REPLY#*\"}"
        #echo "Tail ${tail}"
-       url=${tail%%\"*}
+       url="${tail%%\"*}"
        #echo "URL ${url}"
-       schemaname=${url##*/}
+       schemaname="${url##*/}"
        #echo "Schema ${schemaname}"       
-       sfile=${DRIVER_HOME}${schemaname}       
-       ${BASH_HOME}aux_valrnc.sh "${sfile}"
+       sfile="${DRIVER_HOME}${schemaname}"       
+       "${BASH_HOME}aux_valrnc.sh" "${sfile}"
        exitvalue=$?
        if [[ "${exitvalue}" -ne "0" ]]; then
           echo "Schema Validation Failed for ${schemaname} called in ${file}"
           exit 1
        fi   
-       ${BASH_HOME}aux_valrnc.sh "${sfile}" "${file}"
+       "${BASH_HOME}aux_valrnc.sh" "${sfile}" "${file}"
        exitvalue=$?
        if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"

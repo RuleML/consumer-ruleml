@@ -12,8 +12,8 @@ BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 #
 # creates the xsd directory if they doesn't exist, and clears them, in case they already have contents
-mkdir -p ${XSD_HOME}
-rm ${XSD_HOME}*.xsd >> /dev/null 2>&1
+mkdir -p "${XSD_HOME}"
+rm "${XSD_HOME}"*.xsd >> /dev/null 2>&1
 
 # simplify before converting
 #simplify= true
@@ -27,21 +27,21 @@ finish= false
 # for a clean build, remove the temporary RNG
 # finish= true
 #
-for f in ${RNC4XSD_HOME}*.rnc
+for f in "${RNC4XSD_HOME}"*.rnc
 do
   filename=$(basename "$f")
   #extension="${filename##*.}"
   filenameNE="${filename%.*}"
-  ${BASH_HOME}rnc2xsd.sh "$f" ${XSD_HOME}"$filenameNE".xsd "{$simplify}" "{$finish}"
+  "${BASH_HOME}rnc2xsd.sh" "$f" "${XSD_HOME}""$filenameNE".xsd "{$simplify}" "{$finish}"
 done
 # temporary exit
 #exit 2
 
-rm ${XSD_HOME}xml.xsd  >> /dev/null 2>&1
+rm "${XSD_HOME}"xml.xsd  >> /dev/null 2>&1
 # Apply XSLT transforamtions
 # transform in place for files in XSD_HOME
 # FIXME write an aux script for the xslt call
-for f in ${XSD_HOME}*.xsd
+for f in "${XSD_HOME}"*.xsd
 do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
@@ -53,11 +53,11 @@ do
 done
 
 # Validate the resulting XSD schemas
-for f in ${XSD_HOME}*.xsd
+for f in "${XSD_HOME}"*.xsd
 do
   filename=$(basename "$f")
   echo "Validating " "${filename}"
-  ${BASH_HOME}aux_valxsd.sh "${f}"
+  "${BASH_HOME}aux_valxsd.sh" "${f}"
   if [[ "$?" -ne "0" ]]; then
      echo "Validation Failed for " "${filename}"
      exit 1

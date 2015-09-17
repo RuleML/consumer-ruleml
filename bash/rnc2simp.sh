@@ -30,18 +30,18 @@ if [[ "${extension2}" != "rnc" ]];then
 fi
 
 
-java -jar "${JING}" -cs "$1" > ${TMP}
+java -jar "${JING}" -cs "$1" > "${TMP}"
 if [[ "$?" != "0" ]];then
    echo "Simplification Failed."
    exit 1
 fi
-java -jar "${TRANG}" ${TMP} "$2"
+java -jar "${TRANG}" "${TMP}" "$2"
 if [[ "$?" != "0" ]];then
    echo "Conversion back to RNC Failed."
    exit 1
 fi
 function finish {
-  rm ${TMP}
+  rm "${TMP}"
 }
 trap finish EXIT
   

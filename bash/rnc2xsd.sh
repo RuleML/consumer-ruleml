@@ -4,8 +4,8 @@
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # creates the temporary directory if they doesn't exist, and clears them, in case they already have contents
-mkdir -p ${TMP_HOME}
-rm ${TMP_HOME}* >> /dev/null 2>&1
+mkdir -p "${TMP_HOME}"
+rm "${TMP_HOME}"* >> /dev/null 2>&1
 
 
 # Finds the filename without extension
@@ -56,7 +56,7 @@ if [[ $3 != true ]]; then
 fi
 if [[ $4 == true ]]; then
   function finish {
-    rm ${TMP}
+    rm "${TMP}"
   }
   trap finish EXIT
 fi

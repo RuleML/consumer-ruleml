@@ -14,9 +14,9 @@
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
-  schemaname=consumer.xsd
-  sfile=${XSD_HOME}${schemaname}       
-  ${BASH_HOME}aux_valxsd.sh "${sfile}"
+  schemaname="consumer.xsd"
+  sfile="${XSD_HOME}${schemaname}"       
+  "${BASH_HOME}aux_valxsd.sh" "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
   if [[ "${exitvalue}" -ne "0" ]]; then
@@ -24,11 +24,11 @@ BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
        exit 1
    fi   
 
-for file in ${XSD_TEST_SUITE_HOME}*/*.ruleml ${XSD_TEST_SUITE_HOME}*/*/*.ruleml
+for file in "${XSD_TEST_SUITE_HOME}"*/*.ruleml "${XSD_TEST_SUITE_HOME}"*/*/*.ruleml
 do
   filename=$(basename "${file}")
   echo "File ${filename}"
-  ${BASH_HOME}aux_valxsd.sh "${sfile}" "${file}"
+  "${BASH_HOME}aux_valxsd.sh" "${sfile}" "${file}"
   exitvalue=$?
   if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"

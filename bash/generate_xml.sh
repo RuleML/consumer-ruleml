@@ -4,7 +4,7 @@
 # 
 #
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
-rm ${INSTANCE_HOME}*.ruleml  >> /dev/null 2>&1
+rm "${INSTANCE_HOME}"*.ruleml  >> /dev/null 2>&1
 
 #   use oxygen to generate XML instances according to the configuration file for the consumer-reaction driver
 sh "$GENERATE_SCRIPT" "$REACTION_CONFIG"
@@ -12,7 +12,7 @@ sh "$GENERATE_SCRIPT" "$REACTION_CONFIG"
 # Apply XSLT transforamtions
 # transform in place for files in INSTANCE_HOME
 # FIXME write an aux script for the xslt call
-for f in ${INSTANCE_HOME}*.ruleml
+for f in "${INSTANCE_HOME}"*.ruleml
 do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
@@ -23,9 +23,9 @@ do
    fi
 done
 
-  schemaname=consumer-reaction-normal.xsd
-  sfile=${XSD_HOME}${schemaname}       
-  ${BASH_HOME}aux_valxsd.sh "${sfile}"
+  schemaname="consumer-reaction-normal.xsd"
+  sfile="${XSD_HOME}${schemaname}"       
+  "${BASH_HOME}aux_valxsd.sh" "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
   if [[ "${exitvalue}" -ne "0" ]]; then
@@ -33,11 +33,11 @@ done
        exit 1
    fi   
 
-for file in ${INSTANCE_HOME}*.ruleml 
+for file in "${INSTANCE_HOME}"*.ruleml 
 do
   filename=$(basename "${file}")
   echo "File ${filename}"
-  ${BASH_HOME}aux_valxsd.sh "${sfile}" "${file}"
+  "${BASH_HOME}aux_valxsd.sh" "${sfile}" "${file}"
   exitvalue=$?
   if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
@@ -51,8 +51,8 @@ do
 done
 
   schemaname2=dr.xsd
-  sfile2=${REACTION_XSD_HOME}${schemaname2}       
-  ${BASH_HOME}aux_valxsd.sh "${sfile}"
+  sfile2="${REACTION_XSD_HOME}${schemaname2}"       
+  "${BASH_HOME}aux_valxsd.sh" "${sfile}"
   exitvalue=$?
   echo ${exitvalue}
   if [[ "${exitvalue}" -ne "0" ]]; then
@@ -61,11 +61,11 @@ done
    fi   
 
 
-for file in ${INSTANCE_HOME}*.ruleml 
+for file in "${INSTANCE_HOME}"*.ruleml 
 do
   filename=$(basename "${file}")
   echo "File ${filename}"
-  ${BASH_HOME}aux_valxsd.sh "${sfile2}" "${file}"
+  "${BASH_HOME}aux_valxsd.sh" "${sfile2}" "${file}"
   exitvalue=$?
   if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
