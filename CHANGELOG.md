@@ -7,7 +7,6 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - more examples in exa directory
-- module solely for stripe-skipping operator edges
 - compactifier and normalizer XSLT, and formatting tests and bash script, included in main build script
 - normalizer does sorting by @index
 - drivers for compact serialization
@@ -25,7 +24,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - metadata and documentation in schemas, tests, and bash scripts
 - bash script for building the zip file
-- drivers, adding missing module, correcting typos
+- drivers, adding missing module, correcting typos, accommodating refactoring in Deliberation RuleML
 - rnc2xsd.xslt, to refer to correct online xml.xsd, and include RuleML datatypes XSD
 - required @index in content edge
 
