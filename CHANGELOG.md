@@ -37,12 +37,16 @@ All notable changes to this project will be documented in this file.
 ### Added
 - predefined semantic styles at http://wiki.ruleml.org/index.php/Predefined_Semantic_Styles_of_RuleML_1.02
 - wiki page for putting Consumer RuleML, and other families, into context http://wiki.ruleml.org/index.php/Specification_of_RuleML_1.02
+- examples
+- optional @index to formulas in Operation
 
 ### Changed
 - wiki documentation at http://wiki.ruleml.org/index.php?title=Specification_of_Consumer_RuleML_1.02&diff=14589&oldid=13837
   for clarification
 - namespace prefix in FIPA example, to clarify which are RuleML elements
 - syntax regarding Allen operators, so that an Interval wrapper is no longer required
+- Operator to Operation
+- to adapt to refactoring in modules imported from Deliberation
 
 ### Fixed
 - content model of Naf, to allow Operation as a child
