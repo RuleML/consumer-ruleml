@@ -22,6 +22,7 @@ All notable changes to this project will be documented in this file.
   generated instance testing for Reaction RuleML
   
 ### Fixed
+- required @index in content edge
 - metadata and documentation in schemas, tests, and bash scripts
 - bash script for building the zip file
 - drivers, adding missing module, correcting typos, accommodating refactoring in Deliberation RuleML
@@ -48,7 +49,6 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - content model of Naf, to allow Operation as a child
-- required @index in content edge
 - missing glossary entries for temporal logic constructs
 
 
