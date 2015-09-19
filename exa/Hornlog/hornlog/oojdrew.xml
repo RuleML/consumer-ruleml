@@ -12,805 +12,805 @@
       <name id="You"/>
     </agent-identifier>
   </receiver>
-  <content xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <content xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ruleml="http://ruleml.org/spec" >
     <!-- The Consumer RuleML content starts here.-->    
-    <Implies  xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>base_price</Rel>
-          <slot>
-            <Ind>customer</Ind>
-            <Var>cust0</Var>
-          </slot>
-          <slot>
-            <Ind>vehicle</Ind>
-            <Var>veh1</Var>
-          </slot>
-          <slot>
-            <Ind>price</Ind>
-            <Var>base4</Var>
-          </slot>
-        </Atom>
-        <Atom>
-          <Rel>adjustments</Rel>
-          <slot>
-            <Ind>customer</Ind>
-            <Var>cust0</Var>
-          </slot>
-          <slot>
-            <Ind>vehicle</Ind>
-            <Var>veh1</Var>
-          </slot>
-          <slot>
-            <Ind>ids</Ind>
-            <Var>adjustments3</Var>
-          </slot>
-          <slot>
-            <Ind>amount</Ind>
-            <Var>adjust5</Var>
-          </slot>
-        </Atom>
-        <Atom>
-          <Rel>add</Rel>
-          <Var>subtotal6</Var>
-          <Var>base4</Var>
-          <Var>adjust5</Var>
-        </Atom>
-        <Atom>
-          <Rel>multiply</Rel>
-          <Var>rate2</Var>
-          <Var>subtotal6</Var>
-          <Data xsi:type="xs:float">1.15</Data>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>calculate_rate</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Var>cust0</Var>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var>veh1</Var>
-        </slot>
-        <slot>
-          <Ind>rate</Ind>
-          <Var>rate2</Var>
-        </slot>
-        <slot>
-          <Ind>adjustment_ids</Ind>
-          <Var>adjustments3</Var>
-        </slot>
-      </Atom>
-    </Implies>
-    <Atom   xmlns="http://ruleml.org/spec" closure="universal">
-      <Rel>base_price</Rel>
-      <slot>
-        <Ind>customer</Ind>
-        <Plex>
-          <slot>
-            <Ind>sex</Ind>
-            <Ind>male</Ind>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Plex>
-      </slot>
-      <slot>
-        <Ind>vehicle</Ind>
-        <Var type="http://example.org/schemas/vehicles/Car"/>
-      </slot>
-      <slot>
-        <Ind>price</Ind>
-        <Data xsi:type="xs:float">800</Data>
-      </slot>
-    </Atom>
-    <Atom   xmlns="http://ruleml.org/spec" closure="universal">
-      <Rel>base_price</Rel>
-      <slot>
-        <Ind>customer</Ind>
-        <Plex>
-          <slot>
-            <Ind>sex</Ind>
-            <Ind>female</Ind>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Plex>
-      </slot>
-      <slot>
-        <Ind>vehicle</Ind>
-        <Var type="http://example.org/schemas/vehicles/Car"/>
-      </slot>
-      <slot>
-        <Ind>price</Ind>
-        <Data xsi:type="xs:float">500</Data>
-      </slot>
-    </Atom>
-    <Atom   xmlns="http://ruleml.org/spec" closure="universal">
-      <Rel>base_price</Rel>
-      <slot>
-        <Ind>customer</Ind>
-        <Plex>
-          <slot>
-            <Ind>sex</Ind>
-            <Ind>male</Ind>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Plex>
-      </slot>
-      <slot>
-        <Ind>vehicle</Ind>
-        <Var type="http://example.org/schemas/vehicles/Van"/>
-      </slot>
-      <slot>
-        <Ind>price</Ind>
-        <Data xsi:type="xs:float">700</Data>
-      </slot>
-    </Atom>
-    <Atom   xmlns="http://ruleml.org/spec" closure="universal">
-      <Rel>base_price</Rel>
-      <slot>
-        <Ind>customer</Ind>
-        <Plex>
-          <slot>
-            <Ind>sex</Ind>
-            <Ind>female</Ind>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Plex>
-      </slot>
-      <slot>
-        <Ind>vehicle</Ind>
-        <Var type="http://example.org/schemas/vehicles/Van"/>
-      </slot>
-      <slot>
-        <Ind>price</Ind>
-        <Data xsi:type="xs:float">500</Data>
-      </slot>
-    </Atom>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">16</Ind>
-        </Atom>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">21</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>male</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">600</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageM16_21</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">16</Ind>
-        </Atom>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">21</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>female</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">300</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageF16_21</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">22</Ind>
-        </Atom>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">25</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>male</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">400</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageM22_25</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">22</Ind>
-        </Atom>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">25</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>female</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">100</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageF22_25</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">26</Ind>
-        </Atom>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">50</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>male</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">0</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageM26_50</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">26</Ind>
-        </Atom>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>age0</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">60</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>female</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">0</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageF26_60</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <Atom>
-        <Rel>greaterThanOrEqual</Rel>
-        <Var>age0</Var>
-        <Ind type="http://example.org/schemas/vehicles/Integer">51</Ind>
-      </Atom>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>male</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">200</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageM51plus</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <Atom>
-        <Rel>greaterThanOrEqual</Rel>
-        <Var>age0</Var>
-        <Ind type="http://example.org/schemas/vehicles/Integer">61</Ind>
-      </Atom>
-      <Atom>
-        <Rel>age_adjustment</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Plex>
-            <slot>
-              <Ind>sex</Ind>
-              <Ind>female</Ind>
-            </slot>
-            <slot>
-              <Ind>age</Ind>
-              <Var>age0</Var>
-            </slot>
-            <resl>
-              <Var/>
-            </resl>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var type="http://example.org/schemas/vehicles/Vehicle"/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">75</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageF61plus</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Atom   xmlns="http://ruleml.org/spec" closure="universal">
-      <Rel>type_adjustment</Rel>
-      <slot>
-        <Ind>customer</Ind>
-        <Var/>
-      </slot>
-      <slot>
-        <Ind>vehicle</Ind>
-        <Var type="http://example.org/schemas/vehicles/Sedan"/>
-      </slot>
-      <slot>
-        <Ind>amount</Ind>
-        <Data xsi:type="xs:float">50</Data>
-      </slot>
-      <slot>
-        <Ind>id</Ind>
-        <Ind>typeSedan</Ind>
-      </slot>
-    </Atom>
-    <Atom   xmlns="http://ruleml.org/spec" closure="universal">
-      <Rel>type_adjustment</Rel>
-      <slot>
-        <Ind>customer</Ind>
-        <Var/>
-      </slot>
-      <slot>
-        <Ind>vehicle</Ind>
-        <Var type="http://example.org/schemas/vehicles/SportsCoupe"/>
-      </slot>
-      <slot>
-        <Ind>amount</Ind>
-        <Data xsi:type="xs:float">300</Data>
-      </slot>
-      <slot>
-        <Ind>id</Ind>
-        <Ind>typeSports</Ind>
-      </slot>
-    </Atom>
-    <Atom   xmlns="http://ruleml.org/spec" closure="universal">
-      <Rel>type_adjustment</Rel>
-      <slot>
-        <Ind>customer</Ind>
-        <Var/>
-      </slot>
-      <slot>
-        <Ind>vehicle</Ind>
-        <Var type="http://example.org/schemas/vehicles/MiniVan"/>
-      </slot>
-      <slot>
-        <Ind>amount</Ind>
-        <Data xsi:type="xs:float">-100</Data>
-      </slot>
-      <slot>
-        <Ind>id</Ind>
-        <Ind>typeMiniVan</Ind>
-      </slot>
-    </Atom>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <Atom>
-        <Rel>lessThanOrEqual</Rel>
-        <Var>year1</Var>
-        <Ind type="http://example.org/schemas/vehicles/Integer">1975</Ind>
-      </Atom>
-      <Atom>
-        <Rel>year_adjustment</Rel>
-        <Expr>
-          <Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</Fun>
-          <slot>
-            <Ind>year</Ind>
-            <Var>year1</Var>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Expr>
-        <slot>
-          <Ind>customer</Ind>
-          <Var/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">-250</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageAntiuqe</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>year1</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">1980</Ind>
-        </Atom>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>year1</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">1976</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>year_adjustment</Rel>
-        <Expr>
-          <Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</Fun>
-          <slot>
-            <Ind>year</Ind>
-            <Var>year1</Var>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Expr>
-        <slot>
-          <Ind>customer</Ind>
-          <Var/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">-150</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageClassic</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>lessThanOrEqual</Rel>
-          <Var>year1</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">1999</Ind>
-        </Atom>
-        <Atom>
-          <Rel>greaterThanOrEqual</Rel>
-          <Var>year1</Var>
-          <Ind type="http://example.org/schemas/vehicles/Integer">1981</Ind>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>year_adjustment</Rel>
-        <Expr>
-          <Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</Fun>
-          <slot>
-            <Ind>year</Ind>
-            <Var>year1</Var>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Expr>
-        <slot>
-          <Ind>customer</Ind>
-          <Var/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">200</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageOld</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <Atom>
-        <Rel>greaterThanOrEqual</Rel>
-        <Var>year1</Var>
-        <Ind type="http://example.org/schemas/vehicles/Integer">2000</Ind>
-      </Atom>
-      <Atom>
-        <Rel>year_adjustment</Rel>
-        <Expr>
-          <Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</Fun>
-          <slot>
-            <Ind>year</Ind>
-            <Var>year1</Var>
-          </slot>
-          <resl>
-            <Var/>
-          </resl>
-        </Expr>
-        <slot>
-          <Ind>customer</Ind>
-          <Var/>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Data xsi:type="xs:float">0</Data>
-        </slot>
-        <slot>
-          <Ind>id</Ind>
-          <Ind>ageNew</Ind>
-        </slot>
-      </Atom>
-    </Implies>
-    <Implies   xmlns="http://ruleml.org/spec" closure="universal">
-      <And>
-        <Atom>
-          <Rel>age_adjustment</Rel>
-          <slot>
-            <Ind>customer</Ind>
-            <Var>cust0</Var>
-          </slot>
-          <slot>
-            <Ind>vehicle</Ind>
-            <Var>veh1</Var>
-          </slot>
-          <slot>
-            <Ind>amount</Ind>
-            <Var>ageamt6</Var>
-          </slot>
-          <slot>
-            <Ind>id</Ind>
-            <Var>ageid2</Var>
-          </slot>
-        </Atom>
-        <Atom>
-          <Rel>type_adjustment</Rel>
-          <slot>
-            <Ind>customer</Ind>
-            <Var>cust0</Var>
-          </slot>
-          <slot>
-            <Ind>vehicle</Ind>
-            <Var>veh1</Var>
-          </slot>
-          <slot>
-            <Ind>amount</Ind>
-            <Var>typeamt7</Var>
-          </slot>
-          <slot>
-            <Ind>id</Ind>
-            <Var>typeid3</Var>
-          </slot>
-        </Atom>
-        <Atom>
-          <Rel>year_adjustment</Rel>
-          <slot>
-            <Ind>customer</Ind>
-            <Var>cust0</Var>
-          </slot>
-          <slot>
-            <Ind>vehicle</Ind>
-            <Var>veh1</Var>
-          </slot>
-          <slot>
-            <Ind>amount</Ind>
-            <Var>yearamt8</Var>
-          </slot>
-          <slot>
-            <Ind>id</Ind>
-            <Var>yearid4</Var>
-          </slot>
-        </Atom>
-        <Atom>
-          <Rel>add</Rel>
-          <Var>total5</Var>
-          <Var>ageamt6</Var>
-          <Var>typeamt7</Var>
-          <Var>yearamt8</Var>
-        </Atom>
-      </And>
-      <Atom>
-        <Rel>adjustments</Rel>
-        <slot>
-          <Ind>customer</Ind>
-          <Var>cust0</Var>
-        </slot>
-        <slot>
-          <Ind>vehicle</Ind>
-          <Var>veh1</Var>
-        </slot>
-        <slot>
-          <Ind>ids</Ind>
-          <Plex>
-            <Var>ageid2</Var>
-            <Var>typeid3</Var>
-            <Var>yearid4</Var>
-          </Plex>
-        </slot>
-        <slot>
-          <Ind>amount</Ind>
-          <Var>total5</Var>
-        </slot>
-      </Atom>
-    </Implies>
+    <ruleml:Implies  closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>base_price</ruleml:Rel>
+          <ruleml:slot>
+            <ruleml:Ind>customer</ruleml:Ind>
+            <ruleml:Var>cust0</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>vehicle</ruleml:Ind>
+            <ruleml:Var>veh1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>price</ruleml:Ind>
+            <ruleml:Var>base4</ruleml:Var>
+          </ruleml:slot>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>adjustments</ruleml:Rel>
+          <ruleml:slot>
+            <ruleml:Ind>customer</ruleml:Ind>
+            <ruleml:Var>cust0</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>vehicle</ruleml:Ind>
+            <ruleml:Var>veh1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>ids</ruleml:Ind>
+            <ruleml:Var>adjustments3</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>amount</ruleml:Ind>
+            <ruleml:Var>adjust5</ruleml:Var>
+          </ruleml:slot>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>add</ruleml:Rel>
+          <ruleml:Var>subtotal6</ruleml:Var>
+          <ruleml:Var>base4</ruleml:Var>
+          <ruleml:Var>adjust5</ruleml:Var>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>multiply</ruleml:Rel>
+          <ruleml:Var>rate2</ruleml:Var>
+          <ruleml:Var>subtotal6</ruleml:Var>
+          <ruleml:Data xsi:type="xs:float">1.15</ruleml:Data>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>calculate_rate</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Var>cust0</ruleml:Var>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var>veh1</ruleml:Var>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>rate</ruleml:Ind>
+          <ruleml:Var>rate2</ruleml:Var>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>adjustment_ids</ruleml:Ind>
+          <ruleml:Var>adjustments3</ruleml:Var>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Atom>
+      <ruleml:Rel>base_price</ruleml:Rel>
+      <ruleml:slot>
+        <ruleml:Ind>customer</ruleml:Ind>
+        <ruleml:Plex>
+          <ruleml:slot>
+            <ruleml:Ind>sex</ruleml:Ind>
+            <ruleml:Ind>male</ruleml:Ind>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Plex>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>vehicle</ruleml:Ind>
+        <ruleml:Var type="http://example.org/schemas/vehicles/Car"/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>price</ruleml:Ind>
+        <ruleml:Data xsi:type="xs:float">800</ruleml:Data>
+      </ruleml:slot>
+    </ruleml:Atom>
+    <ruleml:Atom    closure="universal">
+      <ruleml:Rel>base_price</ruleml:Rel>
+      <ruleml:slot>
+        <ruleml:Ind>customer</ruleml:Ind>
+        <ruleml:Plex>
+          <ruleml:slot>
+            <ruleml:Ind>sex</ruleml:Ind>
+            <ruleml:Ind>female</ruleml:Ind>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Plex>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>vehicle</ruleml:Ind>
+        <ruleml:Var type="http://example.org/schemas/vehicles/Car"/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>price</ruleml:Ind>
+        <ruleml:Data xsi:type="xs:float">500</ruleml:Data>
+      </ruleml:slot>
+    </ruleml:Atom>
+    <ruleml:Atom    closure="universal">
+      <ruleml:Rel>base_price</ruleml:Rel>
+      <ruleml:slot>
+        <ruleml:Ind>customer</ruleml:Ind>
+        <ruleml:Plex>
+          <ruleml:slot>
+            <ruleml:Ind>sex</ruleml:Ind>
+            <ruleml:Ind>male</ruleml:Ind>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Plex>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>vehicle</ruleml:Ind>
+        <ruleml:Var type="http://example.org/schemas/vehicles/Van"/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>price</ruleml:Ind>
+        <ruleml:Data xsi:type="xs:float">700</ruleml:Data>
+      </ruleml:slot>
+    </ruleml:Atom>
+    <ruleml:Atom    closure="universal">
+      <ruleml:Rel>base_price</ruleml:Rel>
+      <ruleml:slot>
+        <ruleml:Ind>customer</ruleml:Ind>
+        <ruleml:Plex>
+          <ruleml:slot>
+            <ruleml:Ind>sex</ruleml:Ind>
+            <ruleml:Ind>female</ruleml:Ind>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Plex>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>vehicle</ruleml:Ind>
+        <ruleml:Var type="http://example.org/schemas/vehicles/Van"/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>price</ruleml:Ind>
+        <ruleml:Data xsi:type="xs:float">500</ruleml:Data>
+      </ruleml:slot>
+    </ruleml:Atom>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">16</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">21</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>male</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">600</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageM16_21</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">16</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">21</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>female</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">300</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageF16_21</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">22</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">25</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>male</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">400</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageM22_25</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">22</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">25</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>female</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">100</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageF22_25</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">26</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">50</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>male</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">0</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageM26_50</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">26</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>age0</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">60</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>female</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">0</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageF26_60</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:Atom>
+        <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+        <ruleml:Var>age0</ruleml:Var>
+        <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">51</ruleml:Ind>
+      </ruleml:Atom>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>male</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">200</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageM51plus</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:Atom>
+        <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+        <ruleml:Var>age0</ruleml:Var>
+        <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">61</ruleml:Ind>
+      </ruleml:Atom>
+      <ruleml:Atom>
+        <ruleml:Rel>age_adjustment</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:slot>
+              <ruleml:Ind>sex</ruleml:Ind>
+              <ruleml:Ind>female</ruleml:Ind>
+            </ruleml:slot>
+            <ruleml:slot>
+              <ruleml:Ind>age</ruleml:Ind>
+              <ruleml:Var>age0</ruleml:Var>
+            </ruleml:slot>
+            <ruleml:resl>
+              <ruleml:Var/>
+            </ruleml:resl>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var type="http://example.org/schemas/vehicles/Vehicle"/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">75</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageF61plus</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Atom    closure="universal">
+      <ruleml:Rel>type_adjustment</ruleml:Rel>
+      <ruleml:slot>
+        <ruleml:Ind>customer</ruleml:Ind>
+        <ruleml:Var/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>vehicle</ruleml:Ind>
+        <ruleml:Var type="http://example.org/schemas/vehicles/Sedan"/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>amount</ruleml:Ind>
+        <ruleml:Data xsi:type="xs:float">50</ruleml:Data>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>id</ruleml:Ind>
+        <ruleml:Ind>typeSedan</ruleml:Ind>
+      </ruleml:slot>
+    </ruleml:Atom>
+    <ruleml:Atom    closure="universal">
+      <ruleml:Rel>type_adjustment</ruleml:Rel>
+      <ruleml:slot>
+        <ruleml:Ind>customer</ruleml:Ind>
+        <ruleml:Var/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>vehicle</ruleml:Ind>
+        <ruleml:Var type="http://example.org/schemas/vehicles/SportsCoupe"/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>amount</ruleml:Ind>
+        <ruleml:Data xsi:type="xs:float">300</ruleml:Data>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>id</ruleml:Ind>
+        <ruleml:Ind>typeSports</ruleml:Ind>
+      </ruleml:slot>
+    </ruleml:Atom>
+    <ruleml:Atom    closure="universal">
+      <ruleml:Rel>type_adjustment</ruleml:Rel>
+      <ruleml:slot>
+        <ruleml:Ind>customer</ruleml:Ind>
+        <ruleml:Var/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>vehicle</ruleml:Ind>
+        <ruleml:Var type="http://example.org/schemas/vehicles/MiniVan"/>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>amount</ruleml:Ind>
+        <ruleml:Data xsi:type="xs:float">-100</ruleml:Data>
+      </ruleml:slot>
+      <ruleml:slot>
+        <ruleml:Ind>id</ruleml:Ind>
+        <ruleml:Ind>typeMiniVan</ruleml:Ind>
+      </ruleml:slot>
+    </ruleml:Atom>
+    <ruleml:Implies    closure="universal">
+      <ruleml:Atom>
+        <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+        <ruleml:Var>year1</ruleml:Var>
+        <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">1975</ruleml:Ind>
+      </ruleml:Atom>
+      <ruleml:Atom>
+        <ruleml:Rel>year_adjustment</ruleml:Rel>
+        <ruleml:Expr>
+          <ruleml:Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</ruleml:Fun>
+          <ruleml:slot>
+            <ruleml:Ind>year</ruleml:Ind>
+            <ruleml:Var>year1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Expr>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Var/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">-250</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageAntiuqe</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>year1</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">1980</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>year1</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">1976</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>year_adjustment</ruleml:Rel>
+        <ruleml:Expr>
+          <ruleml:Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</ruleml:Fun>
+          <ruleml:slot>
+            <ruleml:Ind>year</ruleml:Ind>
+            <ruleml:Var>year1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Expr>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Var/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">-150</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageClassic</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>lessThanOrEqual</ruleml:Rel>
+          <ruleml:Var>year1</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">1999</ruleml:Ind>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+          <ruleml:Var>year1</ruleml:Var>
+          <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">1981</ruleml:Ind>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>year_adjustment</ruleml:Rel>
+        <ruleml:Expr>
+          <ruleml:Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</ruleml:Fun>
+          <ruleml:slot>
+            <ruleml:Ind>year</ruleml:Ind>
+            <ruleml:Var>year1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Expr>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Var/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">200</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageOld</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:Atom>
+        <ruleml:Rel>greaterThanOrEqual</ruleml:Rel>
+        <ruleml:Var>year1</ruleml:Var>
+        <ruleml:Ind type="http://example.org/schemas/vehicles/Integer">2000</ruleml:Ind>
+      </ruleml:Atom>
+      <ruleml:Atom>
+        <ruleml:Rel>year_adjustment</ruleml:Rel>
+        <ruleml:Expr>
+          <ruleml:Fun type="http://example.org/schemas/vehicles/VehicleFun">vehicle</ruleml:Fun>
+          <ruleml:slot>
+            <ruleml:Ind>year</ruleml:Ind>
+            <ruleml:Var>year1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:resl>
+            <ruleml:Var/>
+          </ruleml:resl>
+        </ruleml:Expr>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Var/>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Data xsi:type="xs:float">0</ruleml:Data>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>id</ruleml:Ind>
+          <ruleml:Ind>ageNew</ruleml:Ind>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
+    <ruleml:Implies    closure="universal">
+      <ruleml:And>
+        <ruleml:Atom>
+          <ruleml:Rel>age_adjustment</ruleml:Rel>
+          <ruleml:slot>
+            <ruleml:Ind>customer</ruleml:Ind>
+            <ruleml:Var>cust0</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>vehicle</ruleml:Ind>
+            <ruleml:Var>veh1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>amount</ruleml:Ind>
+            <ruleml:Var>ageamt6</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>id</ruleml:Ind>
+            <ruleml:Var>ageid2</ruleml:Var>
+          </ruleml:slot>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>type_adjustment</ruleml:Rel>
+          <ruleml:slot>
+            <ruleml:Ind>customer</ruleml:Ind>
+            <ruleml:Var>cust0</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>vehicle</ruleml:Ind>
+            <ruleml:Var>veh1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>amount</ruleml:Ind>
+            <ruleml:Var>typeamt7</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>id</ruleml:Ind>
+            <ruleml:Var>typeid3</ruleml:Var>
+          </ruleml:slot>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>year_adjustment</ruleml:Rel>
+          <ruleml:slot>
+            <ruleml:Ind>customer</ruleml:Ind>
+            <ruleml:Var>cust0</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>vehicle</ruleml:Ind>
+            <ruleml:Var>veh1</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>amount</ruleml:Ind>
+            <ruleml:Var>yearamt8</ruleml:Var>
+          </ruleml:slot>
+          <ruleml:slot>
+            <ruleml:Ind>id</ruleml:Ind>
+            <ruleml:Var>yearid4</ruleml:Var>
+          </ruleml:slot>
+        </ruleml:Atom>
+        <ruleml:Atom>
+          <ruleml:Rel>add</ruleml:Rel>
+          <ruleml:Var>total5</ruleml:Var>
+          <ruleml:Var>ageamt6</ruleml:Var>
+          <ruleml:Var>typeamt7</ruleml:Var>
+          <ruleml:Var>yearamt8</ruleml:Var>
+        </ruleml:Atom>
+      </ruleml:And>
+      <ruleml:Atom>
+        <ruleml:Rel>adjustments</ruleml:Rel>
+        <ruleml:slot>
+          <ruleml:Ind>customer</ruleml:Ind>
+          <ruleml:Var>cust0</ruleml:Var>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>vehicle</ruleml:Ind>
+          <ruleml:Var>veh1</ruleml:Var>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>ids</ruleml:Ind>
+          <ruleml:Plex>
+            <ruleml:Var>ageid2</ruleml:Var>
+            <ruleml:Var>typeid3</ruleml:Var>
+            <ruleml:Var>yearid4</ruleml:Var>
+          </ruleml:Plex>
+        </ruleml:slot>
+        <ruleml:slot>
+          <ruleml:Ind>amount</ruleml:Ind>
+          <ruleml:Var>total5</ruleml:Var>
+        </ruleml:slot>
+      </ruleml:Atom>
+    </ruleml:Implies>
   </content>
 </fipa-message>
 
