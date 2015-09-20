@@ -2190,7 +2190,7 @@
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
-    <xs:attribute name="index" type="ruleml:index.value">
+    <xs:attribute name="index" type="ruleml:index.value" use="required">
       <xs:annotation>
         <xs:documentation>A required attribute for specifying the position of a positional argument
           (&lt;arg&gt;) within a logical atom (&lt;Atom&gt;). See
@@ -2973,6 +2973,7 @@
   </xs:group>
   <xs:complexType name="arg_interval_term.type.def">
     <xs:group ref="ruleml:arg_interval_term.content"/>
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:arg_interval_term.attlist"/>
   </xs:complexType>
   <xs:group name="arg_interval_term.content">
@@ -2981,7 +2982,6 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_interval_term.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:group name="arg_interval_formula.edge.def">
@@ -2991,6 +2991,7 @@
   </xs:group>
   <xs:complexType name="arg_interval_formula.type.def">
     <xs:group ref="ruleml:arg_interval_formula.content"/>
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:arg_interval_formula.attlist"/>
   </xs:complexType>
   <xs:group name="arg_interval_formula.content">
@@ -2999,7 +3000,6 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_interval_formula.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   
@@ -3298,12 +3298,12 @@
   <xs:complexType name="arg_spatial.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_spatial.content">
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
         <xs:attributeGroup ref="ruleml:arg_spatial.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg_spatial.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="arg_spatial.content">
@@ -3681,12 +3681,12 @@
   <xs:complexType name="arg_time.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_time.content">
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
         <xs:attributeGroup ref="ruleml:arg_time.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg_time.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="arg_time.content">

@@ -2895,6 +2895,7 @@
   <xs:complexType name="arg_interval_term.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_interval_term.content">
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
         <xs:attributeGroup ref="ruleml:arg_interval_term.attlist"/>
       </xs:extension>
     </xs:complexContent>
@@ -2905,7 +2906,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg_interval_term.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:group name="arg_interval_formula-edge.choice">
@@ -2924,6 +2924,7 @@
   <xs:complexType name="arg_interval_formula.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_interval_formula.content">
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
         <xs:attributeGroup ref="ruleml:arg_interval_formula.attlist"/>
       </xs:extension>
     </xs:complexContent>
@@ -2934,7 +2935,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg_interval_formula.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   
@@ -3270,12 +3270,12 @@
   <xs:complexType name="arg_spatial.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_spatial.content">
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
         <xs:attributeGroup ref="ruleml:arg_spatial.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg_spatial.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="arg_spatial.content">
@@ -3663,12 +3663,12 @@
   <xs:complexType name="arg_time.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_time.content">
+        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
         <xs:attributeGroup ref="ruleml:arg_time.attlist"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg_time.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:complexType name="arg_time.content">

@@ -2838,6 +2838,7 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_interval_term.type.def">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:arg_interval_term.attlist"/>
   </xs:attributeGroup>
   <xs:group name="arg_interval_term.content">
@@ -2846,7 +2847,6 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_interval_term.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:group name="arg_interval_formula.type.def">
@@ -2855,6 +2855,7 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_interval_formula.type.def">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:arg_interval_formula.attlist"/>
   </xs:attributeGroup>
   <xs:group name="arg_interval_formula.content">
@@ -2863,7 +2864,6 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_interval_formula.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   
@@ -3154,10 +3154,10 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_spatial.type.def">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:arg_spatial.attlist"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="arg_spatial.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:group name="arg_spatial.content">
@@ -3535,10 +3535,10 @@
     </xs:sequence>
   </xs:group>
   <xs:attributeGroup name="arg_time.type.def">
+    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:arg_time.attlist"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="arg_time.attlist">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
   </xs:attributeGroup>
   <xs:group name="arg_time.content">

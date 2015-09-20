@@ -3530,7 +3530,7 @@ content_3 =
   }
 arg_2 =
   element arg {
-    attribute index { xsd:positiveInteger }?
+    attribute index { xsd:positiveInteger }
     & attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
@@ -3567,7 +3567,7 @@ arg_2 =
   }
 arg_3 =
   element arg {
-    attribute index { xsd:positiveInteger }?
+    attribute index { xsd:positiveInteger }
     & attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
@@ -3779,7 +3779,7 @@ then_2 =
   }
 arg_4 =
   element arg {
-    attribute index { xsd:positiveInteger }?
+    attribute index { xsd:positiveInteger }
     & attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
@@ -3816,7 +3816,7 @@ arg_4 =
   }
 arg_5 =
   element arg {
-    attribute index { xsd:positiveInteger }?
+    attribute index { xsd:positiveInteger }
     & attribute ns2:schemaLocation { text }?
     & attribute xml:base { xsd:anyURI }?
     & attribute xml:id { xsd:NCName }?
