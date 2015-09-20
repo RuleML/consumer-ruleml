@@ -51,17 +51,15 @@ Interval_formula.header &= Atom.header?
 ##
 arg_interval_term-edge.choice |= arg_interval_term.edge.def
 arg_interval_term.edge.def = element arg { arg_interval_term.type.def }
-arg_interval_term.type.def = arg_interval_term.attlist & arg_interval_term.content
+arg_interval_term.type.def = index-attrib.choice & arg_interval_term.attlist & arg_interval_term.content
 arg_interval_term.content |= arg.content
-arg_interval_term.attlist &= index-attrib.choice?
 arg_interval_term.attlist &= commonInit.attlist?
 
 ##
 arg_interval_formula-edge.choice |= arg_interval_formula.edge.def
 arg_interval_formula.edge.def = element arg { arg_interval_formula.type.def }
-arg_interval_formula.type.def = arg_interval_formula.attlist & arg_interval_formula.content
+arg_interval_formula.type.def = index-attrib.choice & arg_interval_formula.attlist & arg_interval_formula.content
 arg_interval_formula.content |= arg.content
-arg_interval_formula.attlist &= index-attrib.choice?
 arg_interval_formula.attlist &= commonInit.attlist?
 
 ## Usage

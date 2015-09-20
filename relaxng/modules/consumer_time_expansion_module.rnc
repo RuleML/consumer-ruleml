@@ -54,8 +54,7 @@ Atom-node.choice |= Time_formula.Node.def
 ##
 arg_time-edge.choice |= arg_time.edge.def
 arg_time.edge.def = element arg { arg_time.type.def }
-arg_time.type.def = arg_time.attlist & arg_time.content
-arg_time.attlist &= index-attrib.choice?
+arg_time.type.def = index-attrib.choice & arg_time.attlist & arg_time.content
 arg_time.attlist &= commonInit.attlist?
 arg_time.content |= time_primitives.content
 

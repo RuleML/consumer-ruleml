@@ -50,8 +50,7 @@ Spatial_formula.header &= Atom.header?
 ##
 arg_spatial-edge.choice |= arg_spatial.edge.def
 arg_spatial.edge.def = element arg { arg_spatial.type.def }
-arg_spatial.type.def = arg_spatial.attlist & arg_spatial.content
-arg_spatial.attlist &= index-attrib.choice?
+arg_spatial.type.def = index-attrib.choice & arg_spatial.attlist & arg_spatial.content
 arg_spatial.attlist &= commonInit.attlist?
 arg_spatial.content |= spatial_primitives.content
 
