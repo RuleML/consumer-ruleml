@@ -14,21 +14,21 @@
       <!-- time -->
       <formula>
         <Time>
-          <arg>
+          <arg index="1">
             <Ind>t1</Ind>
           </arg>
         </Time>
       </formula>
       <formula>
         <Time>
-          <arg>
+          <arg index="1">
             <Var>x</Var>
           </arg>
         </Time>
       </formula>
       <formula>
         <Time key="this:time1">
-          <arg>
+          <arg index="1">
             <Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data>
           </arg>
         </Time>
@@ -87,7 +87,7 @@
           <slot>
             <Ind>start</Ind>
             <Time>
-              <arg>
+              <arg index="1">
                 <Var>T1</Var>
               </arg>
             </Time>
@@ -95,7 +95,7 @@
           <slot>
             <Ind>end</Ind>
             <Time>
-              <arg>
+              <arg index="1">
                 <Var>T2</Var>
               </arg>
             </Time>
@@ -107,9 +107,9 @@
           <!-- after(2 years) -> Y -->
           <slot>
             <Time>
-              <arg>
+              <arg index="1">
                 <After>
-                  <arg>
+                  <arg index="1">
                     <Data xsi:type="xs:duration">P2Y</Data>
                   </arg>
                 </After>
@@ -138,7 +138,7 @@
           <!-- Dublin Core date -->
           <arg index="1">
             <Time>
-              <arg>
+              <arg index="1">
                 <Data xsi:type="xs:dateTime">2011-03-21T10:00:00-04:00</Data>
               </arg>
             </Time>
@@ -151,14 +151,14 @@
         <Interval>
           <arg index="1">
             <Time>
-              <arg>
+              <arg index="1">
                 <Ind>t1</Ind>
               </arg>
             </Time>
           </arg>
           <arg index="2">
             <Time>
-              <arg>
+              <arg index="1">
                 <Ind>t2</Ind>
               </arg>
             </Time>
@@ -176,14 +176,14 @@
         <Interval>
           <arg index="1">
             <Time>
-              <arg>
+              <arg index="1">
                 <Var>Y1</Var>
               </arg>
             </Time>
           </arg>
           <arg index="2">
             <Time>
-              <arg>
+              <arg index="1">
                 <Var>Y2</Var>
               </arg>
             </Time>
@@ -200,14 +200,14 @@
                 <Interval>
                   <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t3</Ind>
                       </arg>
                     </Time>
@@ -218,14 +218,14 @@
                 <Interval>
                   <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
@@ -242,14 +242,14 @@
                 <Interval>
                   <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t3</Ind>
                       </arg>
                     </Time>
@@ -260,14 +260,14 @@
                 <Interval>
                   <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
@@ -284,14 +284,14 @@
                 <Interval>
                   <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
@@ -302,14 +302,14 @@
                 <Interval>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
@@ -326,14 +326,14 @@
                 <Interval>
                   <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
@@ -344,14 +344,14 @@
                 <Interval>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t3</Ind>
                       </arg>
                     </Time>
                   </arg>
                   <arg index="2">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
@@ -364,36 +364,36 @@
       <!-- [t3,t4] succeeds [t1,t2] -->
       <formula>
             <Succeeds>
-              <arg>
+              <arg index="1">
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
                   </arg>
                 </Interval>
               </arg>
-              <arg>
+              <arg index="1">
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t3</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
@@ -406,36 +406,36 @@
       <!-- [t1,t2] meets [t2,t4] -->
       <formula>
             <Meets>
-              <arg>
+              <arg index="1">
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
                   </arg>
                 </Interval>
               </arg>
-              <arg>
+              <arg index="1">
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
@@ -450,16 +450,16 @@
             <Equal type="rulemm:AllenOperator" style=":deep-equality">
               <left>
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
@@ -468,16 +468,16 @@
               </left>
               <right>
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t2</Ind>
                       </arg>
                     </Time>
@@ -490,36 +490,36 @@
       <!-- [t1,t4] finishes [t3,t4] -->
       <formula>
             <Finishes>
-              <arg>
+              <arg index="1">
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t1</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
                   </arg>
                 </Interval>
               </arg>
-              <arg>
+              <arg index="1">
                 <Interval>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t3</Ind>
                       </arg>
                     </Time>
                   </arg>
-                  <arg>
+                  <arg index="1">
                     <Time>
-                      <arg>
+                      <arg index="1">
                         <Ind>t4</Ind>
                       </arg>
                     </Time>
@@ -535,7 +535,7 @@
   <then>
     <!-- rule head -->
     <Time>
-      <arg>
+      <arg index="1">
         <Ind>t2</Ind>
       </arg>
     </Time>

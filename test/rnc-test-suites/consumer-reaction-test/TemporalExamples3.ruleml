@@ -68,7 +68,7 @@
         <slot>
           <Ind>start</Ind>
           <Time>
-            <arg>
+            <arg index="1">
               <Var>T1</Var>
             </arg>
           </Time>
@@ -76,7 +76,7 @@
         <slot>
           <Ind>end</Ind>
           <Time>
-            <arg>
+            <arg index="1">
               <Var>T2</Var>
             </arg>
           </Time>
