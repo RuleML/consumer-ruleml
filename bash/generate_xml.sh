@@ -39,11 +39,11 @@ do
   echo "File ${filename}"
   "${BASH_HOME}aux_valxsd.sh" "${sfile}" "${file}"
   exitvalue=$?
-  if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
+  if [[ ! "${file}"=~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
    else
-         if [[ ${file} =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
+         if [[ "${file}"=~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Validation Succeeded for Failure Test ${file}"
            exit 1
          fi
@@ -67,11 +67,11 @@ do
   echo "File ${filename}"
   "${BASH_HOME}aux_valxsd.sh" "${sfile2}" "${file}"
   exitvalue=$?
-  if [[ ! ${file} =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
+  if [[ ! "${file}"=~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
    else
-         if [[ ${file} =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
+         if [[ "${file}"=~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Validation Succeeded for Failure Test ${file}"
            exit 1
          fi
