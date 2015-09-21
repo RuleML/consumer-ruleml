@@ -1,10 +1,4 @@
 #!/bin/bash
-# Prerequisites: batch_rnc2xsd.sh
-# Dependecies: 
-# aux_valxsd.sh
-#  Validate RuleML instances by XSD
-# Instructions:
-# run this script from the command line or another script after batch_rnc2xsd.sh
 # FIXME use configuration script to validate test files against multiple schemas, including fail tests
 # This will remove the fragile schema detection method now implemented.
 #
@@ -55,18 +49,18 @@ do
           echo "Supremum Validation Failed for Normal ${file}"
           exit 1
      else
-        if [[ "${file}"=~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
+        if [[ "${file}" =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Supremum Validation Succeeded for Normal Failure Test ${file}"
            exit 1
          fi
     fi       
     "${BASH_HOME}aux_valxsd.sh" "${sfile}" "${file}"
     exitvalue=$?
-    if [[ ! "${file}"=~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
+    if [[ ! "${file}" =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for Normal ${file}"
           exit 1
      else
-        if [[ "${file}"=~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
+        if [[ "${file}" =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
            echo "Validation Succeeded for Normal Failure Test ${file}"
            exit 1
          fi

@@ -1,11 +1,6 @@
 #!/bin/bash
 # dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
-# Prerequisites: batch_rnc2xsd.sh
-# Dependecies: 
-# aux_valxsd.sh
 #  Validate RuleML instances by XSD
-# Instructions:
-# run this script from the command line or another script after batch_rnc2xsd.sh
 # FIXME use configuration script to validate test files against multiple schemas, including fail tests
 # This will remove the fragile schema detection method now implemented.
 #
