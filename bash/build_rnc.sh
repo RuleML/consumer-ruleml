@@ -31,31 +31,31 @@ do
   fi
 done
 # Convert RNC to RNG, and validate against design
-"${BASH_HOME}batch_rnc2rng.sh"  >> /dev/null 2>&1
+"${BASH_HOME}batch_rnc2rng.sh"
 if [[ "$?" -ne "0" ]]; then
      echo "Validation Against Design Failed"
      exit 1
 fi
 # Simplify, and validate
-"${BASH_HOME}batch_rnc2simp.sh"  >> /dev/null 2>&1
+"${BASH_HOME}batch_rnc2simp.sh"
 if [[ "$?" -ne "0" ]]; then
      echo "Simplification Failed"
      exit 1
 fi
 # Validate Examples in Relax NG Test Suites
-"${BASH_HOME}batch_rnc-test-suite.sh"  >> /dev/null 2>&1
+"${BASH_HOME}batch_rnc-test-suite.sh"
 if [[ "$?" -ne "0" ]]; then
      echo "Local Testing of RNC Schemas Failed"
      exit 1
 fi
 # Generate and Validate Compact Examples in Relax NG Test Suites
-"${BASH_HOME}batch_rnc-compact-suite.sh"  >> /dev/null 2>&1
+"${BASH_HOME}batch_rnc-compact-suite.sh"
 if [[ "$?" -ne "0" ]]; then
      echo "Local Testing of RNC Compact Schemas Failed"
      exit 1
 fi
 # Generate and Validate Normalized Examples in Relax NG Test Suites
-"${BASH_HOME}batch_rnc-normal-suite.sh"  >> /dev/null 2>&1
+"${BASH_HOME}batch_rnc-normal-suite.sh"
 if [[ "$?" -ne "0" ]]; then
      echo "Local Testing of RNC Normalized Schemas Failed"
      exit 1
