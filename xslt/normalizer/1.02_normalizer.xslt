@@ -123,8 +123,6 @@
   
   
   <!-- Phase IV: sort by required attributes -->
-  <!-- Sorts by the required index attribute to the arg tag 
-        There are errors with the indexing when the argument is within a slot-->
   
   <!-- Sorts by the required index attribute to the formula tag in Operation -->
   <xsl:template match="*[self::r:Operation]" mode="phase-sort">
@@ -138,6 +136,7 @@
   </xsl:template>
   
   
+  <!-- Sorts by the required index attribute to the content tag -->
   <xsl:template match="*[r:content]" mode="phase-sort">
     <xsl:copy>
       <xsl:apply-templates select="@*"  mode="phase-sort"/>
