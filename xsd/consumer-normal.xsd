@@ -2100,7 +2100,7 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="arg-datt.choice">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+    <xs:attributeGroup ref="ruleml:index.attrib.def"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="rearg.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
@@ -2608,7 +2608,7 @@
     <xs:complexContent>
       <xs:extension base="ruleml:time_anycontent.content">
         <xs:attributeGroup ref="ruleml:time_anycontent.attlist"/>
-        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+        <xs:attributeGroup ref="ruleml:index.attrib.def"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -2635,7 +2635,7 @@
     <xs:complexContent>
       <xs:extension base="ruleml:spatial_anycontent.content">
         <xs:attributeGroup ref="ruleml:spatial_anycontent.attlist"/>
-        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+        <xs:attributeGroup ref="ruleml:index.attrib.def"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -2667,7 +2667,7 @@
     <xs:complexContent>
       <xs:extension base="ruleml:interval_anycontent.content">
         <xs:attributeGroup ref="ruleml:interval_anycontent.attlist"/>
-        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+        <xs:attributeGroup ref="ruleml:index.attrib.def"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -2895,7 +2895,7 @@
   <xs:complexType name="arg_interval_term.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_interval_term.content">
-        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+        <xs:attributeGroup ref="ruleml:index.attrib.def"/>
         <xs:attributeGroup ref="ruleml:arg_interval_term.attlist"/>
       </xs:extension>
     </xs:complexContent>
@@ -2924,7 +2924,7 @@
   <xs:complexType name="arg_interval_formula.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_interval_formula.content">
-        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+        <xs:attributeGroup ref="ruleml:index.attrib.def"/>
         <xs:attributeGroup ref="ruleml:arg_interval_formula.attlist"/>
       </xs:extension>
     </xs:complexContent>
@@ -3046,7 +3046,7 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:attributeGroup name="formula_Operation-datt.choice">
-    <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+    <xs:attributeGroup ref="ruleml:index.attrib.def"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="formula-Operation.attlist">
     <xs:attributeGroup ref="ruleml:commonInit.attlist"/>
@@ -3270,7 +3270,7 @@
   <xs:complexType name="arg_spatial.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_spatial.content">
-        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+        <xs:attributeGroup ref="ruleml:index.attrib.def"/>
         <xs:attributeGroup ref="ruleml:arg_spatial.attlist"/>
       </xs:extension>
     </xs:complexContent>
@@ -3663,7 +3663,7 @@
   <xs:complexType name="arg_time.type.def">
     <xs:complexContent>
       <xs:extension base="ruleml:arg_time.content">
-        <xs:attributeGroup ref="ruleml:index-attrib.choice"/>
+        <xs:attributeGroup ref="ruleml:index.attrib.def"/>
         <xs:attributeGroup ref="ruleml:arg_time.attlist"/>
       </xs:extension>
     </xs:complexContent>

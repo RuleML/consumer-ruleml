@@ -24,7 +24,10 @@
   <xsl:template match="xs:element[@name='Data']">
     <xs:element name="Data" type="xs:anyType"/>
   </xsl:template>
-
+  <xsl:template match="*[not (@name='formula_And-datt.choice') and not (@name='formula_Or-datt.choice')]/xs:attributeGroup[@ref='ruleml:index-attrib.choice']">
+    <xs:attributeGroup ref="ruleml:index.attrib.def"/>
+  </xsl:template>
+  
 
   <!-- Remove groups like 
   <xs:group name="_1">-->
