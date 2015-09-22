@@ -42,6 +42,7 @@ TRANG="${OXY_LIB}trang.jar"
 JAXB_HOME="${OXY_LIB}"jaxb-ri/
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/
 REPO_HOME="${BASH_HOME}../"
+DREPO_HOME="${REPO_HOME}../deliberation ruleml/"
 RNC_HOME="${REPO_HOME}relaxng/"
 DRIVER_HOME="${RNC_HOME}drivers/"
 TMP="${RNC_HOME}tmp-std2xsd.rng"
