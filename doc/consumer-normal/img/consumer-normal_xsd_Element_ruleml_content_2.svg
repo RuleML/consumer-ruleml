@@ -253,17 +253,17 @@
       /><line clip-path="url(#clipPath1)" fill="none" x1="293" x2="293" y1="280" y2="284"
     /></g
     ><g fill="url(#linearGradient19)" font-family="sans-serif" font-size="11" shape-rendering="crispEdges" stroke="url(#linearGradient19)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
-    ><polygon clip-path="url(#clipPath1)" points=" 285 312 480 312 481 313 482 313 483 314 484 315 485 316 485 317 486 318 486 344 285 344" stroke="none"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 285 312 480 312 481 313 482 313 483 314 484 315 485 316 485 317 486 318 486 344 285 344" stroke="silver"
+    ><polygon clip-path="url(#clipPath1)" points=" 285 312 459 312 460 313 461 313 462 314 463 315 464 316 464 317 465 318 465 344 285 344" stroke="none"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 285 312 459 312 460 313 461 313 462 314 463 315 464 316 464 317 465 318 465 344 285 344" stroke="silver"
       /><rect clip-path="url(#clipPath1)" fill="rgb(242,152,0)" height="5" stroke="none" stroke-width="1" width="5" x="309" y="321"
       /><rect clip-path="url(#clipPath1)" fill="rgb(242,152,0)" height="5" stroke="none" stroke-width="1" width="5" x="309" y="328"
       /><rect clip-path="url(#clipPath1)" fill="rgb(242,152,0)" height="5" stroke="none" stroke-width="1" width="5" x="316" y="328"
       /><text clip-path="url(#clipPath1)" fill="black" stroke="none" stroke-width="1" x="331" xml:space="preserve" y="330"
-      >ruleml:index-attrib.choice</text
-      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="473" y="331"
-      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 475 339 475 338 478 335 478 334 477 333 481 333 481 337 480 336 479 336 476 339" stroke="black" stroke-width="1"
-      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 475 339 475 338 478 335 478 334 477 333 481 333 481 337 480 336 479 336 476 339" stroke="none" stroke-width="1"
-      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="473" y="331"
+      >ruleml:index.attrib.def</text
+      ><rect clip-path="url(#clipPath1)" fill="white" height="10" stroke="none" stroke-width="1" width="10" x="452" y="331"
+      /><polygon clip-path="url(#clipPath1)" fill="none" points=" 454 339 454 338 457 335 457 334 456 333 460 333 460 337 459 336 458 336 455 339" stroke="black" stroke-width="1"
+      /><polygon clip-path="url(#clipPath1)" fill="black" points=" 454 339 454 338 457 335 457 334 456 333 460 333 460 337 459 336 458 336 455 339" stroke="none" stroke-width="1"
+      /><rect clip-path="url(#clipPath1)" fill="none" height="10" stroke="black" stroke-width="1" width="10" x="452" y="331"
     /></g
     ><g font-family="sans-serif" font-size="11" stroke-linecap="butt" text-rendering="geometricPrecision"
     ><circle clip-path="url(#clipPath1)" cx="293" cy="326" fill="none" r="5"
