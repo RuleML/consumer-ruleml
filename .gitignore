@@ -11,3 +11,6 @@ ConsumerRuleML1.02.zip
 path_config.sh
 reaction-config.xml
 test/reaction-test-suites
+compact-config.xml
+test/compact-test-suites
+test/normal-test-suites
