@@ -3,7 +3,7 @@
   xmlns:ruleml="http://ruleml.org/spec">
   <!-- dc:rights [ 'Copyright 2015 RuleML Inc. - Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ] -->
   <!-- dc:description [ 'Transformation to correct incomplete termination in instance generation by post-processing. 
-       Target schema is normalized or relaxed serialization with equality and conjunctive heads of implications. ' ] -->
+       Target schema is compact serialization with equality and conjunctive heads of implications. ' ] -->
   <!-- Remove almost all white space between elements -->
   <xsl:preserve-space elements="ruleml:*"/>
   <!--<xsl:strip-space elements="*"/>-->
@@ -11,76 +11,87 @@
   <!-- Add the  <?xml version="1.0" ?> at the top of the result.-->
   <xsl:output method="xml" version="1.0" indent="yes"/>
 
-  <xsl:template match="ruleml:arg[not(*)]">
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <ruleml:Ind/>
-  </xsl:copy>
-  </xsl:template>  
   <xsl:template match="ruleml:repo[not(*)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:Var/>
+      <xsl:element name="ruleml:Var"/>
     </xsl:copy>
   </xsl:template>  
   <xsl:template match="ruleml:resl[not(*)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:Var/>
+      <xsl:element name="ruleml:Var"/>
     </xsl:copy>
   </xsl:template>  
   <xsl:template match="ruleml:slot[not(*)]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:Ind/>
-      <ruleml:Ind/>
+      <xsl:element name="ruleml:Ind"/>
+      <xsl:element name="ruleml:Ind"/>
     </xsl:copy>
   </xsl:template>  
-  <xsl:template match="ruleml:Equal[not(ruleml:left) or not(ruleml:right)]">
+  <xsl:template match="ruleml:Naf[not(ruleml:*[matches(name(), '^[A-Z]')])]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:left><ruleml:Ind/></ruleml:left>
-      <ruleml:right><ruleml:Ind/></ruleml:right>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
     </xsl:copy>
   </xsl:template>  
-  <xsl:template match="ruleml:Naf[not(ruleml:weak)]">
+  <xsl:template match="ruleml:Neg[not(ruleml:*[matches(name(), '^[A-Z]')])]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:weak><ruleml:Equal><ruleml:left><ruleml:Ind/></ruleml:left><ruleml:right><ruleml:Ind/></ruleml:right></ruleml:Equal></ruleml:weak>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
     </xsl:copy>
   </xsl:template>  
-  <xsl:template match="ruleml:Not[not(ruleml:strong)]">
+  <xsl:template match="ruleml:Exists[not(ruleml:*[matches(name(), '^[A-Z]')][2])]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:strong><ruleml:Equal><ruleml:left><ruleml:Ind/></ruleml:left><ruleml:right><ruleml:Ind/></ruleml:right></ruleml:Equal></ruleml:strong>
+      <xsl:element name="ruleml:Var"/>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
     </xsl:copy>
   </xsl:template>  
-  <xsl:template match="ruleml:Equivalent[not(ruleml:torso[2])]">
+  <xsl:template match="ruleml:Forall[not(ruleml:*[matches(name(), '^[A-Z]')][2])]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:torso><ruleml:And/></ruleml:torso>
-      <ruleml:torso><ruleml:And/></ruleml:torso>
+      <xsl:element name="ruleml:Var"/>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
     </xsl:copy>
   </xsl:template>  
-  <xsl:template match="ruleml:Implies[not(ruleml:if) or not(ruleml:then)]">
+  <xsl:template match="ruleml:Equivalent[not(ruleml:*[matches(name(), '^[A-Z]')][2])]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:if><ruleml:And/></ruleml:if>
-      <ruleml:then><ruleml:And/></ruleml:then>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
     </xsl:copy>
   </xsl:template>  
-  <xsl:template match="ruleml:Exists[not(ruleml:declare) or not(ruleml:formula)]">
+  <xsl:template match="ruleml:Implies[not(ruleml:*[matches(name(), '^[A-Z]')][2])]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <ruleml:declare><ruleml:Var/></ruleml:declare>
-      <ruleml:formula><ruleml:And/></ruleml:formula>
-    </xsl:copy>
-  </xsl:template>  
-  <xsl:template match="ruleml:Forall[not(ruleml:declare) or not(ruleml:formula)]">
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <ruleml:declare><ruleml:Var/></ruleml:declare>
-      <ruleml:formula><ruleml:And/></ruleml:formula>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
+      <xsl:element name="ruleml:Equal">
+        <xsl:element name="ruleml:Ind"/>
+        <xsl:element name="ruleml:Ind"/>
+      </xsl:element>
     </xsl:copy>
   </xsl:template>  
   
