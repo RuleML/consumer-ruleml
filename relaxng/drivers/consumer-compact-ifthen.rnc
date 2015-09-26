@@ -7,7 +7,7 @@ dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
 dc:creator [ "Adrian Paschke" ]
 dc:subject [ "RuleML, Consumer, driver" ]
 dc:description [
-  "The compact serialization driver schema that requires canonical ordering and requires stripe-skipping, exceot fir skipping of if and then edges."
+  "The compact serialization driver schema that requires canonical ordering and requires stripe-skipping, except for skipping of if and then edges."
 ]
 dc:language [ "en" ]
 dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
