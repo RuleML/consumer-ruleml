@@ -16,18 +16,15 @@ for f in "${INSTANCE_NORMAL_HOME}"*.ruleml
 do
   filename=$(basename "$f")
   echo "Transforming " "${filename}"
-  fdrop="${INSTANCE_NORMAL_HOME}drop-${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor.xslt"  -o:"${f}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_basedrop.xslt"  -o:"${fdrop}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fdrop}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_stripwhitespace.xslt"  -o:"${fdrop}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fdrop}" -xsl:"${XSLT_HOME}normalizer/1.02_normalizer_stripwhitespace.xslt"  -o:"${fdrop}"
-  #sed 's_xmlns="r:http://ruleml\.org/spec"__' <"${ftemp}" >"${f}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_basedrop.xslt"  -o:"${f}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_stripwhitespace.xslt"  -o:"${f}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}normalizer/1.02_normalizer_stripwhitespace.xslt"  -o:"${f}"
   if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed for " "${filename}"
      exit 1
    fi
 done
-  exit 0
 
   schemaname="consumer-normal.xsd"
   sfile="${XSD_HOME}${schemaname}"       
