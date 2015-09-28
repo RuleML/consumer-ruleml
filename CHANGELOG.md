@@ -9,10 +9,13 @@ All notable changes to this project will be documented in this file.
 - more examples in exa directory
 - compactifier and normalizer XSLT, and formatting tests and bash script, included in main build script
 - normalizer does sorting by @index
+- extra post-processing step in rnc2xsd to achieve required @index
+- "basedrop" compactifiers transfer the xml:base attribute to the child node when skipping stripes, if possible
 - drivers for compact serialization
 - drivers include new deliberation module for datatype annotation
 - path configuration script
 - bash script, schemas, and xslt for instance generation testing relative to Reaction RuleML's dr.xsd
+- bash scripts, and "stripwhitespace" xslts for round-trip law testing of compactifier/normalizer and normalizer/compactifier transformations
 - README.html and HEADER.html for schema directories
 
 ### Changed
