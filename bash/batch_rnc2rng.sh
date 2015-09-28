@@ -18,7 +18,7 @@ do
   #filenameNE="${filename%.*}"
   "${BASH_HOME}aux_rnc2rng.sh" "${file}" "${TMP_MODULES}"
    if [[ "$?" -ne "0" ]]; then
-     echo "Conversion Failed for " "${filename}"
+     echo "Conversion Failed for  ${filename}"
      exit 1
    fi
 done
@@ -35,7 +35,7 @@ do
   filename=$(basename "$file")
   "${BASH_HOME}aux_valdesign.sh" "${file}" >> /dev/null 2>&1
    if [[ "$?" -ne "0" ]]; then
-     echo "Validation Failed for " "${filename}"
+     echo "Validation Failed for  ${filename}"
      exit 1
    fi
 done

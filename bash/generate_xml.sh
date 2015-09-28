@@ -15,10 +15,10 @@ sh "$GENERATE_SCRIPT" "$REACTION_CONFIG"
 for f in "${INSTANCE_HOME}"*.ruleml
 do
   filename=$(basename "$f")
-  echo "Transforming " "${filename}"
+  echo "Transforming  ${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor.xslt"  -o:"${f}"
   if [[ "$?" -ne "0" ]]; then
-     echo "XSLT Transformation Failed for " "${filename}"
+     echo "XSLT Transformation Failed for  ${filename}"
      exit 1
    fi
 done

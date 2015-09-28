@@ -8,6 +8,7 @@
 #   - Sax
 #   - XSD flattening script
 #   - schema docs generation script
+#   - instance generation script
 # External libraries
 #   - JAXB
 # Installed packages
@@ -46,8 +47,8 @@ DREPO_HOME="${REPO_HOME}../deliberation ruleml/"
 RNC_HOME="${REPO_HOME}relaxng/"
 DRIVER_HOME="${RNC_HOME}drivers/"
 TMP="${RNC_HOME}tmp-std2xsd.rng"
-MYNG_BACK_END="${RNC_HOME}schema_rnc.php"
-PHP_CLI_INI="${RNC_HOME}php-cli.ini"
+#MYNG_BACK_END="${RNC_HOME}schema_rnc.php"
+#PHP_CLI_INI="${RNC_HOME}php-cli.ini"
 DESIGN_HOME="${REPO_HOME}designPattern/"
 TEST_HOME="${REPO_HOME}relaxng/test/"
 RNC4SIMP_HOME="${REPO_HOME}relaxng/drivers4simp/"

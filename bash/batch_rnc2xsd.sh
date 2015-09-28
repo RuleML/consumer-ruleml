@@ -37,10 +37,10 @@ rm "${XSD_HOME}"xml.xsd  >> /dev/null 2>&1
 for f in "${XSD_HOME}"*.xsd
 do
   filename=$(basename "$f")
-  echo "Transforming " "${filename}"
+  echo "Transforming  ${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT2_HOME}rnc2xsd.xslt"  -o:"${f}"   >> /dev/null 2>&1
   if [[ "$?" -ne "0" ]]; then
-     echo "XSLT Transformation Failed for " "${filename}"
+     echo "XSLT Transformation Failed for  ${filename}"
      exit 1
    fi
 done
@@ -49,10 +49,10 @@ done
 for f in "${XSD_HOME}"*.xsd
 do
   filename=$(basename "$f")
-  echo "Validating " "${filename}"
+  echo "Validating  ${filename}"
   "${BASH_HOME}aux_valxsd.sh" "${f}"
   if [[ "$?" -ne "0" ]]; then
-     echo "Validation Failed for " "${filename}"
+     echo "Validation Failed for  ${filename}"
      exit 1
    fi
 done

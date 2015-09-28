@@ -15,13 +15,13 @@ sh "$GENERATE_SCRIPT" "$NORMAL_CONFIG"
 for f in "${INSTANCE_NORMAL_HOME}"*.ruleml
 do
   filename=$(basename "$f")
-  echo "Transforming " "${filename}"
+  echo "Transforming  ${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor.xslt"  -o:"${f}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_basedrop.xslt"  -o:"${f}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_stripwhitespace.xslt"  -o:"${f}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}normalizer/1.02_normalizer_stripwhitespace.xslt"  -o:"${f}"
   if [[ "$?" -ne "0" ]]; then
-     echo "XSLT Transformation Failed for " "${filename}"
+     echo "XSLT Transformation Failed for  ${filename}"
      exit 1
    fi
 done
@@ -59,15 +59,15 @@ done
 for f in "${INSTANCE_NORMAL_HOME}"*.ruleml
 do
   filename=$(basename "$f")
-  echo "Round-Trip Transforming " "${filename}"
+  echo "Round-Trip Transforming  ${filename}"
   fnew="${INSTANCE_NORMAL_HOME}rt-${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_stripwhitespace.xslt"  -o:"${fnew}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fnew}" -xsl:"${XSLT_HOME}normalizer/1.02_normalizer_stripwhitespace.xslt"  -o:"${fnew}"
   read -r firstlineold<"${f}"
   read -r firstlinenew<"${fnew}"
-  echo "Round-Trip Comparing " "${filename}"
+  echo "Round-Trip Comparing  ${filename}"
   if [[ "${firstlineold}" != "${firstlinenew}" ]]; then
-     echo "XSLT Round Trip Failed for " "${filename}"
+     echo "XSLT Round Trip Failed for  ${filename}"
      diff -q "${f}" "${fnew}" 
      exit 1
    fi

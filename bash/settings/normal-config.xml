@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
-  <schemaSystemId>file:/Users/taraathan/Repositories/RuleML/Github/consumer ruleml/xsd/consumer-normal.xsd</schemaSystemId>
+  <schemaSystemId>file:/Users/taraathan/Repositories/RuleML/Github/consumer%20ruleml/xsd/consumer-normal.xsd</schemaSystemId>
     <documentRoot>Rule</documentRoot>
     <outputFolder>/Users/taraathan/Repositories/RuleML/Github/consumer ruleml/test/normal-test-suites</outputFolder>
     <filenamePrefix>instance</filenamePrefix>
