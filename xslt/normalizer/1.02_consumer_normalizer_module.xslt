@@ -5,19 +5,6 @@
   
 
   <!-- Phase I: insert stripes if skipped -->
-
-  <!-- Wraps the naked RuleML children of Implies in the cases where:
-        -the only children of Implies are <left>, <right> and <oid> which can appear before <if> and <then> - does not handle foreign elements in the last or second to last position
-        -if both children are already wrapped then they will be copied unchanged
-        -neither children are wrapped, then the second to last child is wrapped in <if> and the last child is wrapped <then>
-        -the second to last child is wrapped in <then>, and the last child is not wrapped, then the last child is wrapped in <if>, in all other cases,
-        the last child is wrapped in <then>
-        -the last child is wrapped in <if> and the second to last child is not wrapped, then the second to last child is wrapped in <then>,
-        in all other cases, the second to last child is wrapped in <if>
-        Does not normalize cases where:
-        -there are foreign elements as the last or second to last child
-        -there are foreign elements between the last and second to last child
-    -->
   
   <!-- Wraps the second to last RuleML child of Rule. -->
   <xsl:template
