@@ -7,10 +7,12 @@ rm "${ZIP_HOME}"*.zip >> /dev/null 2>&1
 cd "${GIT_HOME}"
 zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}bash/"*
 zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/modules/"*
-zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/drivers/"*
-zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/driver4simp/"*
-zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/driver4xsd/"*
-zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}test/"*
+zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/drivers/consumer-ifthen-compact.rnc"
+zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/drivers/consumer-normal.rnc"
+zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/driver4simp/consumer4simp-stripe-skipped.rnc" 
+zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/driver4xsd/consumer-compact-ifthen.rnc"
+zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}relaxng/driver4xsd/consumer-normal.rnc"
+zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}test/rnc-test-suites/"*
 zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${REPO_HOME}xslt/"*
 zip -r9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}datatypes/"*
 zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}relaxng/modules/atom_expansion_module.rnc"
@@ -62,6 +64,7 @@ zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}relaxng/modules/resl_ex
 zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}relaxng/modules/repo_expansion_module.rnc"
 zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}relaxng/modules/plex_expansion_module.rnc"
 zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}relaxng/modules/val_absence_expansion_module.rnc"
+zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}relaxng/modules/naffologeq_compact_expansion_module.rnc"
 zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "${DREPO_HOME}relaxng/modules/init_expansion_module.rnc"
 zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "oasis-intellectual_property_rights_ipr_policy-2013-07-31.pdf"
 zip -9 "${ZIP_HOME}ConsumerRuleML1.02.zip" "CopyrightLicense_AppendixB_RuleML.pdf"

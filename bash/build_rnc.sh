@@ -54,6 +54,12 @@ if [[ "$?" -ne "0" ]]; then
      echo "Local Testing of RNC Compact Schemas Failed"
      exit 1
 fi
+# Generate and Validate IfThen-Compact Examples in Relax NG Test Suites
+"${BASH_HOME}batch_rnc-ifthen-compact-suite.sh"
+if [[ "$?" -ne "0" ]]; then
+     echo "Local Testing of RNC IfThen-Compact Schemas Failed"
+     exit 1
+fi
 # Generate and Validate Normalized Examples in Relax NG Test Suites
 "${BASH_HOME}batch_rnc-normal-suite.sh"
 if [[ "$?" -ne "0" ]]; then

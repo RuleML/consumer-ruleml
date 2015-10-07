@@ -40,15 +40,21 @@ if [[ "$?" -ne "0" ]]; then
      echo "Testing of Consumer-Reaction Sublanguages Failed"
      exit 1
 fi
+# Generate xml instances of consumer-normal and verify round-trip laws of transformers
+"${BASH_HOME}generate_normal_xml.sh"
+if [[ "$?" -ne "0" ]]; then
+     echo "Testing of Consumer Compactifier-Normalizer Round Trip Law Failed"
+     exit 1
+fi
 # Generate xml instances of consumer-compact and verify round-trip laws of transformers
 "${BASH_HOME}generate_compact_xml.sh"
 if [[ "$?" -ne "0" ]]; then
      echo "Testing of Consumer Normalizer-Compactifier Round Trip Law Failed"
      exit 1
 fi
-# Generate xml instances of consumer-normal and verify round-trip laws of transformers
-"${BASH_HOME}generate_normal_xml.sh"
+# Generate xml instances of consumer-compact and verify round-trip laws of transformers
+"${BASH_HOME}generate_compact-ifthen_xml.sh"
 if [[ "$?" -ne "0" ]]; then
-     echo "Testing of Consumer Compactifier-Normalizer Round Trip Law Failed"
+     echo "Testing of Consumer Normalizer-Compactifier Round Trip Law Failed"
      exit 1
 fi

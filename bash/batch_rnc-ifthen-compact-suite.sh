@@ -17,7 +17,7 @@ BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 mkdir -p "${COMPACT_SUITE_HOME}"
 rm "${COMPACT_SUITE_HOME}"* >> /dev/null 2>&1
 
-  schemaname="consumer-compact.rnc"
+  schemaname="consumer-ifthen-compact.rnc"
   schemasupname="consumer-relaxed.rnc"
   sfile="${DRIVER_HOME}${schemaname}"       
   sfilesup="${DRIVER_HOME}${schemasupname}"       
@@ -37,7 +37,7 @@ for f in "${RNC_TEST_SUITE_HOME}"*/*.ruleml
 do
   filename=$(basename "$f")
   echo "Transforming  ${filename}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${COMPACT_XSLT_HOME}1.02_compactifier.xslt"  -o:"${COMPACT_SUITE_HOME}${filename}"   >> /dev/null 2>&1
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${COMPACT_XSLT_HOME}1.02_compactifier-ifthen.xslt"  -o:"${COMPACT_SUITE_HOME}${filename}"   >> /dev/null 2>&1
   if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed for ${filename}"
      exit 1
