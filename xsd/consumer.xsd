@@ -1150,10 +1150,14 @@
         XSD.</xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:sequence>
         <xs:group ref="ruleml:body_Implies.name.choice"/>
         <xs:group ref="ruleml:head_Implies.name.choice"/>
-      </xs:choice>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:group ref="ruleml:head_Implies.name.choice"/>
+        <xs:group ref="ruleml:body_Implies.name.choice"/>
+      </xs:sequence>
       <xs:sequence>
         <xs:group ref="ruleml:body_Implies-ss.content"/>
         <xs:group ref="ruleml:head_Implies.content"/>
@@ -1253,7 +1257,6 @@
       <xs:group ref="ruleml:arg.edge.def"/>
     </xs:choice>
   </xs:group>
-  
   <xs:group name="torso-edge.choice">
     <xs:annotation>
       <xs:documentation>Stripe-skipping is allowed asynchronously in
@@ -3742,11 +3745,7 @@
   
   
   
-  <xs:complexType mixed="true" name="anycontent.content">
-    <xs:sequence>
-      <xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:complexType mixed="true" name="anycontent.content"><xs:sequence><xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/></xs:sequence></xs:complexType>
   
   
   

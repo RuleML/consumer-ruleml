@@ -3636,11 +3636,7 @@
   
   
   
-  <xs:complexType mixed="true" name="anycontent.content">
-    <xs:sequence>
-      <xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:complexType mixed="true" name="anycontent.content"><xs:sequence><xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/></xs:sequence></xs:complexType>
   
   
   
