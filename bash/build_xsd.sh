@@ -53,8 +53,8 @@ if [[ "$?" -ne "0" ]]; then
      exit 1
 fi
 # Generate xml instances of consumer-compact and verify round-trip laws of transformers
-"${BASH_HOME}generate_compact-ifthen_xml.sh"
+"${BASH_HOME}generate_ifthen-compact_xml.sh"
 if [[ "$?" -ne "0" ]]; then
-     echo "Testing of Consumer Normalizer-Compactifier Round Trip Law Failed"
+     echo "Testing of Consumer Normalizer-Compactifier (IfThen) Round Trip Law Failed"
      exit 1
 fi

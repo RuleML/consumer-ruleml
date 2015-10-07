@@ -12,8 +12,8 @@ family="consumer-"
 # Validate XSD schema
   schemanameNE="${family}compact"
   schemaname="${schemanameNE}.xsd"
-  sfile="${XSD_HOME}${schemaname}"       
-  "${BASH_HOME}aux_valxsd.sh" "${sfile}"
+  sxfile="${XSD_HOME}${schemaname}"       
+  "${BASH_HOME}aux_valxsd.sh" "${sxfile}"
   exitvalue=$?
   echo ${exitvalue}
   if [[ "${exitvalue}" -ne "0" ]]; then
@@ -23,7 +23,7 @@ family="consumer-"
 
 #   use oxygen to generate XML instances according to the configuration file for the compact-serialization driver
 "$GENERATE_SCRIPT" "$COMPACT_CONFIG"
-exit 2
+
 # Validate RNC schema
   schemaname="${schemanameNE}.rnc"
   sfile="${DRIVER_COMPACT_HOME}${schemaname}"       
@@ -54,6 +54,7 @@ do
   filename=$(basename "${file}")
   echo "File ${filename}"
   "${BASH_HOME}aux_valrnc.sh" "${sfile}" "${file}"
+  "${BASH_HOME}aux_valxsd.sh" "${sxfile}" "${file}"
   exitvalue=$?
   if [[ ! "${file}" =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
@@ -66,14 +67,14 @@ do
   fi       
 done
 
-# Apply XSLT transforamtions to canonicalize - re-compactify (to sort edges with explicit index, like content) and strip whitespace
+# Apply XSLT transforamtions to canonicalize - postprocess to ensure sorted edges with explicit index, like content and strip whitespace
 # transform in place for files in INSTANCE_COMPACT_HOME
 for f in "${INSTANCE_COMPACT_HOME}"*.ruleml
 do
   filename=$(basename "$f")
   echo "Canonicalizing  ${filename}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor_sequential-indexing.xslt"  -o:"${f}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor_stripwhitespace.xslt"  -o:"${f}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor-sequential-indexing.xslt"  -o:"${f}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor-stripwhitespace.xslt"  -o:"${f}"
   if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed for  ${filename}"
      exit 1
@@ -86,6 +87,7 @@ do
   filename=$(basename "${file}")
   echo "File ${filename}"
   "${BASH_HOME}aux_valrnc.sh" "${sfile}" "${file}"
+  "${BASH_HOME}aux_valxsd.sh" "${sxfile}" "${file}"
   exitvalue=$?
   if [[ ! "${file}" =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
@@ -100,14 +102,14 @@ done
 
 # Apply XSLT transforamtions for compactifying
 # transform in place for files in INSTANCE_COMPACT_HOME
-# Law: Cy = y
+# Law: If y satisfies the compact schemas, then Cy = y
 for f in "${INSTANCE_COMPACT_HOME}ca-"*.ruleml
 do
   filename=$(basename "$f")
   echo "Re-Compactifying  ${filename}"
   fnew="${INSTANCE_COMPACT_HOME}re-${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier.xslt"  -o:"${fnew}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fnew}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor_stripwhitespace.xslt"  -o:"${fnew}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fnew}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor-stripwhitespace.xslt"  -o:"${fnew}"
   read -r firstlineold<"${f}"
   read -r firstlinenew<"${fnew}"
   echo "Re-Compactified Comparing  ${filename}"
@@ -128,8 +130,8 @@ do
   echo "Round-Trip Transforming  ${filename}"
   fnew="${INSTANCE_COMPACT_HOME}rt-${filename}"
   java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT_HOME}normalizer/1.02_normalizer.xslt"  -o:"${fnew}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fnew}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier.xslt"  -o:"${fnew}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fnew}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor_stripwhitespace.xslt"  -o:"${fnew}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fnew}" -xsl:"${XSLT_HOME}compactifier/1.02_compactifier_basedrop.xslt"  -o:"${fnew}"
+  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${fnew}" -xsl:"${XSLT_HOME}instance-postprocessor/1.02_instance-postprocessor-stripwhitespace.xslt"  -o:"${fnew}"
   read -r firstlineold<"${f}"
   read -r firstlinenew<"${fnew}"
   echo "Round-Trip Comparing  ${filename}"
