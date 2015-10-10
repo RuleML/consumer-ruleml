@@ -35,4 +35,4 @@ commonInit.attlist &= keyref-att.choice?
 # 
 # a dummy element to assist in XSD conversion
 #
-DummyKeyElement.def = element Key { key-att.choice }
+DummyKeyElement.def = element DummyKey { key-att.choice }
