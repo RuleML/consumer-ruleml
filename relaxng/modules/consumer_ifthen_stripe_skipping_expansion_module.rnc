@@ -19,19 +19,13 @@ dcterms:rights [ "http://ruleml.org/licensing/RSL1.0-RuleML" ]
 dcterms:relation [ "http://consumer.ruleml.org" ]
 start |= notAllowed
 # 
-# STRIPE-SKIPPING MODE ENABLED
+# IFTHEN STRIPE-SKIPPING MODE ENABLED
 # 
-formula-negation-edge.choice |= formula-negation.content
-arg_interval_term-edge.choice |= arg_interval_term.content
-arg_interval_formula-edge.choice |= arg_interval_formula.content
-arg_time-edge.choice |= time_primitives.content
-arg_spatial-edge.choice |= spatial_primitives.content
-formula-Operation-edge.choice |= formula_Operation.content
-# 
-# Also attribute skipping is enabled by this module.
-#
-formula_Operation-datt.choice |= empty
+# both stripes skipped
+Rule.main |= if_Rule-ss.content, then_Rule-ss.content
+if_Rule-ss.content |= if_Rule.content
+then_Rule-ss.content |= then_Rule.content
 # 
 # a dummy element to assist in XSD conversion
 #
-DummySkipElement.def = element Skip { text }
+DummyIfThenSkipElement.def = element Dummy { text }
