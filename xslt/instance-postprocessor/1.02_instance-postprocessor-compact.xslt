@@ -5,4 +5,5 @@
   <!-- dc:description [ 'Transformation to correct incomplete termination in instance generation by post-processing. 
        Target schema is compact serialization with equality and conjunctive heads of implications. ' ] -->
   <xsl:include href="http://deliberation.ruleml.org/1.02/xslt/instance-postprocessor/1.02_instance-postprocessor-compact.xslt"/>
+  <xsl:include href="1.02_instance-postprocessor-compact _module.xslt"/>
 </xsl:stylesheet>
