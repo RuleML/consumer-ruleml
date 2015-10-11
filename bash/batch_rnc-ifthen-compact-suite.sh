@@ -5,11 +5,6 @@
 #  Validate RuleML instances by XSD
 # Instructions:
 # run this script from the command line or another script after batch_rnc2xsd.sh
-# FIXME use configuration script to validate test files against multiple schemas, including fail tests
-# This will remove the fragile schema detection method now implemented.
-#
-# globstar is only available in bash 4
-#shopt -s globstar
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
@@ -32,14 +27,12 @@ rm "${COMPACT_SUITE_HOME}"* >> /dev/null 2>&1
 # Apply compactificaton XSLT transforamtions
 # transform files in TEST_SUITE_HOME ending in .ruleml
 # output to COMPACT_SUITE_HOME
-# FIXME write an aux script for the xslt call
 for f in "${RNC_TEST_SUITE_HOME}"*/*.ruleml
 do
   filename=$(basename "$f")
-  echo "Transforming  ${filename}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${COMPACT_XSLT_HOME}1.02_compactifier-ifthen.xslt"  -o:"${COMPACT_SUITE_HOME}${filename}"   >> /dev/null 2>&1
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${COMPACT_XSLT_HOME}1.02_compactifier-ifthen.xslt" "${COMPACT_SUITE_HOME}${filename}"
   if [[ "$?" -ne "0" ]]; then
-     echo "XSLT Transformation Failed for ${filename}"
+     echo "XSLT Transformation Failed"
      exit 1
    fi
 done

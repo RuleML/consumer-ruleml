@@ -1,9 +1,4 @@
 #!/bin/bash
-# FIXME use configuration script to validate test files against multiple schemas, including fail tests
-# This will remove the fragile schema detection method now implemented.
-#
-# globstar is only available in bash 4
-#shopt -s globstar
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
@@ -27,14 +22,12 @@ rm "${NORMAL_SUITE_HOME}"* >> /dev/null 2>&1
 # Apply normalization XSLT transforamtions
 # transform files in TEST_SUITE_HOME ending in .ruleml
 # output to NORMAL_SUITE_HOME
-# FIXME write an aux script for the xslt call
 for f in "${RNC_TEST_SUITE_HOME}"*/*.ruleml
 do
   filename=$(basename "$f")
-  echo "Transforming  ${filename}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${NORMAL_XSLT_HOME}1.02_normalizer.xslt"  -o:"${NORMAL_SUITE_HOME}${filename}"   >> /dev/null 2>&1
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${NORMAL_XSLT_HOME}1.02_normalizer.xslt" "${NORMAL_SUITE_HOME}${filename}"
   if [[ "$?" -ne "0" ]]; then
-     echo "XSLT Transformation Failed for  ${filename}"
+     echo "XSLT Transformation Failed"
      exit 1
    fi
 done

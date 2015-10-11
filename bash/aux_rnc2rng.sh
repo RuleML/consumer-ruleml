@@ -3,6 +3,9 @@
 # Convert RNC to RNG using Jing
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
+# Create the output directory if it does not exist
+mkdir -p "${2}"
+
 # Finds the filename without extension
 filename1=$(basename "$1")
 extension1="${filename1##*.}"
@@ -13,8 +16,6 @@ if [[ "${extension1}" != "rnc" ]];then
    echo "Extension is not .rnc"
    exit 1
 fi
-
-# FIXME verify that the second argument is an existing directory
 
 # Runs Trang on the input and generates RNG
 java -jar "${TRANG}"  "$1" "${2}/${filename1NE}.rng"

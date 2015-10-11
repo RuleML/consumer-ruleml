@@ -4,7 +4,6 @@
 #   - makes modular RNC monolothic
 #   - removes intermediate named patterns
 #   - simplified definitions
-# FIXME use named pipe instead of temporary file
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
 # Finds the filename without extension

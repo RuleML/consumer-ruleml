@@ -23,7 +23,6 @@
 PLATFORM="Linux"
 OXY_VERSION="17"
 OXY_HOME="/home/taraathan/oxygen 17/"
-# FIXME: handle the script name variations for other versions and platforms
 FLATTEN_SCRIPT="${OXY_HOME}flattenSchema.sh"
 if [[ ${OXY_VERSION} == "14" && ${PLATFORM} == "Mac" ]]; then 
   FLATTEN_SCRIPT="${OXY_HOME}flattenSchemaMac.sh"
@@ -80,4 +79,5 @@ NORMAL_CONFIG="${BASH_HOME}/settings/normal-config.xml"
 INSTANCE_HOME="${REPO_HOME}test/reaction-test-suites/"
 INSTANCE_COMPACT_HOME="${REPO_HOME}test/compact-test-suites/"
 INSTANCE_NORMAL_HOME="${REPO_HOME}test/normal-test-suites/"
+INSTANCE_XSLT_HOME="${XSLT_HOME}instance-postprocessor/"
 REACTION_XSD_HOME="${REPO_HOME}../reaction-ruleml/xsd/"

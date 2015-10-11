@@ -23,24 +23,19 @@ finish= false
 for f in "${RNC4XSD_HOME}"*.rnc
 do
   filename=$(basename "$f")
-  #extension="${filename##*.}"
   filenameNE="${filename%.*}"
   "${BASH_HOME}rnc2xsd.sh" "$f" "${XSD_HOME}""$filenameNE".xsd "{$simplify}" "{$finish}"
 done
-# temporary exit
-#exit 2
 
 rm "${XSD_HOME}"xml.xsd  >> /dev/null 2>&1
 # Apply XSLT transforamtions
 # transform in place for files in XSD_HOME
-# FIXME write an aux script for the xslt call
 for f in "${XSD_HOME}"*.xsd
 do
   filename=$(basename "$f")
-  echo "Transforming  ${filename}"
-  java -jar "${SAX_HOME}saxon9ee.jar" -s:"${f}" -xsl:"${XSLT2_HOME}rnc2xsd.xslt"  -o:"${f}"   >> /dev/null 2>&1
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${XSLT2_HOME}rnc2xsd.xslt" "${f}"
   if [[ "$?" -ne "0" ]]; then
-     echo "XSLT Transformation Failed for  ${filename}"
+     echo "XSLT Transformation Failed"
      exit 1
    fi
 done
