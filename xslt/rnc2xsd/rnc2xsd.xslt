@@ -17,6 +17,8 @@
         schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
       <xs:include
         schemaLocation="http://deliberation.ruleml.org/1.02/datatypes/SimpleWithAttributes.xsd"/>
+      <xsl:comment> dc:rights [ 'Copyright 2015 RuleML Inc. - Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]    
+</xsl:comment>
       <xsl:apply-templates select="text()|processing-instruction()|*[ name()!='xs:import']"/>
     </xsl:copy>
   </xsl:template>
@@ -51,21 +53,14 @@
     <xs:attribute name="id" type="xs:ID"/>
   </xsl:template>
 
+  <!-- Remove unused groups and elements -->
+  <xsl:template match="xs:group[@name='edge.choice']"></xsl:template>
+  <xsl:template match="xs:group[matches(@name,'^Dummy')]"></xsl:template>  
+  <xsl:template match="xs:element[matches(@name,'^Dummy')]"></xsl:template>
+  
   <!-- Remove existing includes -->
   <xsl:template match="xs:include"/>
 
-  <!-- Remove dummy elements -->
-  <xsl:template match="xs:element[@name='Closure']"/>
-  <xsl:template match="xs:element[@name='Type']"/>
-  <xsl:template match="xs:element[@name='Dummy']"/>
-  <xsl:template match="xs:element[@name='Base']"/>
-  <xsl:template match="xs:element[@name='Card']"/>
-  <xsl:template match="xs:element[@name='Common']"/>
-  <xsl:template match="xs:element[@name='Key']"/>
-  <xsl:template match="xs:element[@name='Material']"/>
-  <xsl:template match="xs:element[@name='Per']"/>
-  <xsl:template match="xs:element[@name='Skip']"/>
-  <xsl:template match="xs:element[@name='ValAbsence']"/>
 
   <!-- Remove unused Node.choice and edge.choice -->
   <xsl:template match="xs:group[@name='Node.choice']"/>
