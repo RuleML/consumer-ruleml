@@ -2,7 +2,7 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 default namespace ruleml = "http://ruleml.org/spec"
 
-dcterms:title [ "Stripe-skipping in Consumer RuleML" ]
+dcterms:title [ "Consumer RuleML Stripe-skipping in Rules" ]
 dcterms:identifier [
   "http://consumer.ruleml.org/1.02/relaxng/modules/consumer_stripe_skipping_expansion_module.rnc"
 ]
