@@ -10,8 +10,8 @@ do
   filename=$(basename "${file}")
   echo "File "${filename}
   while read -r; do
-     #echo "Line ${REPLY}"
-     if [[ "${REPLY}" =~ "^..xml-model" ]]
+     echo "Line ${REPLY}"
+     if [[ "${REPLY}" =~ ^..xml-model ]]
      then     
        tail="${REPLY#*\"}"
        #echo "Tail ${tail}"
