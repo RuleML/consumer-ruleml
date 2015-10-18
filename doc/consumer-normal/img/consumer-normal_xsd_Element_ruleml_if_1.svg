@@ -46,7 +46,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="64"
       >&lt;if&gt;: contains the premise of the implication. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="77"
-      >http://ruleml.org/1.02/glossary/#gloss-if FIXME: replace body_ with...</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-if</text
     ></g
   ></g
 ></svg

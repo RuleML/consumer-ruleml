@@ -758,7 +758,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="152"
       >&lt;Atom&gt;: a predicate applied to arguments. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="165"
-      >http://ruleml.org/1.02/glossary/#gloss-Atom</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Atom</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="499" x2="502" y1="952" y2="952"
@@ -1800,7 +1800,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="1983"
       >&lt;Equal&gt;: an equation between two terms. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="1996"
-      >http://ruleml.org/1.02/glossary/#gloss-Equal</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Equal</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="499" x2="502" y1="1938" y2="1938"
@@ -1943,7 +1943,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="2240"
       >&lt;And&gt;: polyadic conjunction where &lt;And/&gt; is true. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="2253"
-      >http://ruleml.org/1.02/glossary/#gloss-And</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-And</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="499" x2="502" y1="2195" y2="2195"
@@ -2068,7 +2068,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="2437"
       >&lt;Or&gt;: polyadic disjunction where &lt;Or/&gt; is false. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="2450"
-      >http://ruleml.org/1.02/glossary/#gloss-Or</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Or</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="499" x2="502" y1="2392" y2="2392"
@@ -2405,7 +2405,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="3124"
       >&lt;Equivalent&gt;: Syntactic sugar for two implications. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="530" xml:space="preserve" y="3137"
-      >http://ruleml.org/1.02/glossary/#gloss-Equivalent</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Equivalent</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="499" x2="502" y1="3079" y2="3079"

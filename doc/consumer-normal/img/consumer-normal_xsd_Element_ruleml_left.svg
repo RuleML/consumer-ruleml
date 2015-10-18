@@ -794,7 +794,7 @@
     ><text clip-path="url(#clipPath1)" stroke="none" x="513" xml:space="preserve" y="352"
       >A Skolem individual constant, like RDF's blank nodes. See </text
       ><text clip-path="url(#clipPath1)" stroke="none" x="513" xml:space="preserve" y="365"
-      >http://ruleml.org/1.02/glossary/#gloss-Skolem</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Skolem</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="482" x2="485" y1="307" y2="307"
@@ -940,7 +940,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="669" xml:space="preserve" y="572"
       >&lt;Ind&gt;: an individual constant. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="669" xml:space="preserve" y="585"
-      >http://ruleml.org/1.02/glossary/#gloss-Ind</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Ind</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="638" x2="641" y1="527" y2="527"
@@ -1556,7 +1556,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="513" xml:space="preserve" y="1633"
       >A logical variable, as in logic programming. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="513" xml:space="preserve" y="1646"
-      >http://ruleml.org/1.02/glossary/#gloss-Var</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Var</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="482" x2="485" y1="1588" y2="1588"
@@ -1685,7 +1685,7 @@
       /><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="513" xml:space="preserve" y="1890"
       >&lt;Expr&gt;: a functional expression. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="513" xml:space="preserve" y="1903"
-      >http://ruleml.org/1.02/glossary/#gloss-Expr</text
+      >http://deliberation.ruleml.org/1.02/glossary/#gloss-Expr</text
     ></g
     ><g fill="rgb(75,75,75)" font-family="sans-serif" font-size="11" stroke="rgb(75,75,75)" stroke-linecap="butt" stroke-width="2" text-rendering="geometricPrecision"
     ><line clip-path="url(#clipPath1)" fill="none" x1="482" x2="485" y1="2112" y2="2112"
@@ -2385,9 +2385,9 @@
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="2540"
       >equation. See </text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="2553"
-      >http://ruleml.org/1.02/glossary/#gl</text
+      >http://deliberation.ruleml.org/1.02/</text
       ><text clip-path="url(#clipPath1)" fill="rgb(51,51,51)" font-size="10" stroke="none" x="3" xml:space="preserve" y="2566"
-      >oss-left</text
+      >glossary/#gloss-left</text
     ></g
   ></g
 ></svg
