@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://consumer.ruleml.org/1.02/relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="http://consumer.ruleml.org/1.03/relaxng/drivers/consumer-reaction.rnc" type="application/relax-ng-compact-syntax"?>
 <And xmlns="http://ruleml.org/spec"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:dc="http://purl.org/dc/elements/1.1"
 	xmlns:owltime="http://www.w3.org/2006/time"
-	xmlns:exa="http://consumer.ruleml.org/1.02/exa/"
-	xmlns:this="http://consumer.ruleml.org/1.02/exa/Temporal/TemporalExample1.ruleml#"
+	xmlns:exa="http://consumer.ruleml.org/1.03/exa/"
+	xmlns:this="http://consumer.ruleml.org/1.03/exa/Temporal/TemporalExample1.ruleml#"
 	xmlns:rulemm="http://ruleml.org/metamodel/"
-	xsi:schemaLocation="http://ruleml.org/spec http://consumer.ruleml.org/1.02/xsd/consumer.xsd"
+	xsi:schemaLocation="http://ruleml.org/spec http://consumer.ruleml.org/1.03/xsd/consumer.xsd"
   >	
 		<!-- different time definitions -->
 		

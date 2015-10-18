@@ -41,7 +41,7 @@ for f in "${INSTANCE_COMPACT_HOME}"*.ruleml
 do
   filename=$(basename "$f")
   echo "Completing  ${filename}"
-  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.02_instance-postprocessor-compact.xslt" "${f}"
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.03_instance-postprocessor-compact.xslt" "${f}"
   if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed"
      exit 1
@@ -73,8 +73,8 @@ for f in "${INSTANCE_COMPACT_HOME}"*.ruleml
 do
   filename=$(basename "$f")
   echo "Canonicalizing  ${filename}"
-  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.02_instance-postprocessor-sequential-indexing.xslt" "${f}"
-  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.02_instance-postprocessor-stripwhitespace.xslt" "${f}"
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.03_instance-postprocessor-sequential-indexing.xslt" "${f}"
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.03_instance-postprocessor-stripwhitespace.xslt" "${f}"
   if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed for  ${filename}"
      exit 1
@@ -108,8 +108,8 @@ do
   filename=$(basename "$f")
   echo "Re-Compactifying  ${filename}"
   fnew="${INSTANCE_COMPACT_HOME}re-${filename}"
-  "${BASH_HOME}aux_xslt.sh" "${f}" "${COMPACT_XSLT_HOME}1.02_compactifier.xslt" "${fnew}"
-  "${BASH_HOME}aux_xslt.sh" "${fnew}" "${INSTANCE_XSLT_HOME}1.02_instance-postprocessor-stripwhitespace.xslt" "${fnew}"
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${COMPACT_XSLT_HOME}1.03_compactifier.xslt" "${fnew}"
+  "${BASH_HOME}aux_xslt.sh" "${fnew}" "${INSTANCE_XSLT_HOME}1.03_instance-postprocessor-stripwhitespace.xslt" "${fnew}"
   read -r firstlineold<"${f}"
   read -r firstlinenew<"${fnew}"
   echo "Re-Compactified Comparing  ${filename}"
@@ -129,9 +129,9 @@ do
   filename=$(basename "$f")
   echo "Round-Trip Transforming  ${filename}"
   fnew="${INSTANCE_COMPACT_HOME}rt-${filename}"
-  "${BASH_HOME}aux_xslt.sh" "${f}" "${NORMAL_XSLT_HOME}1.02_normalizer.xslt" "${fnew}"
-  "${BASH_HOME}aux_xslt.sh" "${fnew}" "${COMPACT_XSLT_HOME}1.02_compactifier.xslt" "${fnew}"
-  "${BASH_HOME}aux_xslt.sh" "${fnew}" "${INSTANCE_XSLT_HOME}1.02_instance-postprocessor-stripwhitespace.xslt" "${fnew}"
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${NORMAL_XSLT_HOME}1.03_normalizer.xslt" "${fnew}"
+  "${BASH_HOME}aux_xslt.sh" "${fnew}" "${COMPACT_XSLT_HOME}1.03_compactifier.xslt" "${fnew}"
+  "${BASH_HOME}aux_xslt.sh" "${fnew}" "${INSTANCE_XSLT_HOME}1.03_instance-postprocessor-stripwhitespace.xslt" "${fnew}"
   read -r firstlineold<"${f}"
   read -r firstlinenew<"${fnew}"
   echo "Round-Trip Comparing  ${filename}"

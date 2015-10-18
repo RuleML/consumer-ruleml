@@ -6,7 +6,7 @@
 <Rule xmlns="http://ruleml.org/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:ex="http://reaction.ruleml.org/exa/dr/FrameDerivationRule#"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.02/xsd/dr.xsd">
+  xsi:schemaLocation="http://ruleml.org/spec http://reaction.ruleml.org/1.03/xsd/dr.xsd">
   <!-- Clocksin/Mellish sample rule 
 
   Shows the frame representation 

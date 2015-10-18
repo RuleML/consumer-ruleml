@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl"
+    href="http://consumer.ruleml.org/1.03/nvdl/fipa-consumer-ruleml.nvdl"
     type="application/xml" 
     schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
 <!-- This is an illustrative example of the embedding of Consumer RuleML rule inside a 
@@ -17,7 +17,7 @@
     </agent-identifier>
   </receiver>
   <content xmlns:ruleml="http://ruleml.org/spec" 
-    xmlns:rp="http://ruleml.org/1.02/profiles/"
+    xmlns:rp="http://ruleml.org/1.03/profiles/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:dbp="http://dbpedia.org/"

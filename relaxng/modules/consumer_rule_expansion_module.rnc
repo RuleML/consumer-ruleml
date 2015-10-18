@@ -2,8 +2,8 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
 dcterms:title [ "Consumer RuleML Rules" ]
-dcterms:identifier [ "http://consumer.ruleml.org/1.02/relaxng/modules/consumer_rule_expansion_module.rnc" ]
-dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
+dcterms:identifier [ "http://consumer.ruleml.org/1.03/relaxng/modules/consumer_rule_expansion_module.rnc" ]
+dcterms:isPartOf [ "http://consumer.ruleml.org/1.03/spec" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Paschkea" ]
 dc:subject [ "RuleML, Consumer, Rule" ]
@@ -26,7 +26,7 @@ Rule-node.choice |= Rule.Node.def
 Rule.Node.def =
   
   ## <Rule>: defines a rule in Consumer RuleML. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Rule
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Rule
   element Rule { Rule.type.def }
 Rule.type.def = (Rule-datt.choice & reRule.attlist) & Rule.content
 Rule-datt.choice |= direction-att-inf.choice & material-att-inf.choice
@@ -39,7 +39,7 @@ if_Rule-edge.choice |= if_Rule.edge.def
 if_Rule.edge.def =
   
   ## <if>: contains the premises of the rule. See 
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-if
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-if
   element if { if_Rule.type.def }
 if_Rule.type.def = if_Rule.attlist? & if_Rule.content
 if_Rule.attlist &= commonInit.attlist?
@@ -50,7 +50,7 @@ then_Rule-edge.choice |= then_Rule.edge.def
 then_Rule.edge.def =
   
   ## <then>: contains the conclusion of the rule. See 
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-then
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-then
   element then { then_Rule.type.def }
 then_Rule.type.def = then_Rule.attlist? & then_Rule.content
 then_Rule.attlist &= commonInit.attlist?

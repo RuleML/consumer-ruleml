@@ -30,7 +30,7 @@ rm "${COMPACT_SUITE_HOME}"* >> /dev/null 2>&1
 for f in "${RNC_TEST_SUITE_HOME}"*/*.ruleml
 do
   filename=$(basename "$f")
-  "${BASH_HOME}aux_xslt.sh" "${f}" "${COMPACT_XSLT_HOME}1.02_compactifier-ifthen.xslt" "${COMPACT_SUITE_HOME}${filename}"
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${COMPACT_XSLT_HOME}1.03_compactifier-ifthen.xslt" "${COMPACT_SUITE_HOME}${filename}"
   if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed"
      exit 1

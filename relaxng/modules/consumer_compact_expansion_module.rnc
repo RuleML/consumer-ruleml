@@ -3,9 +3,9 @@ namespace dcterms = "http://purl.org/dc/terms/"
 
 dcterms:title [ "Consumer RuleML Compact Serialization" ]
 dcterms:identifier [
-  "http://consumer.ruleml.org/1.02/modules/consumer_compact_expansion_modoule.rnc"
+  "http://consumer.ruleml.org/1.03/modules/consumer_compact_expansion_modoule.rnc"
 ]
-dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
+dcterms:isPartOf [ "http://consumer.ruleml.org/1.03/spec" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
 dc:subject [ "Consumer RuleML, compact" ]
 dcterms:description [
@@ -16,11 +16,11 @@ dc:rights [
   'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.'
 ]
 dcterms:rights [ "http://ruleml.org/licensing/RSL1.0-RuleML" ]
-dcterms:relation [ "http://consumer.ruleml.org/1.02" ]
+dcterms:relation [ "http://consumer.ruleml.org/1.03" ]
 # 
 # ATOMIC FORMULAS REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/atom_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/atom_expansion_module.rnc" {
   start |= notAllowed
   operatorForAtoms-edge.choice |= notAllowed
   op_Atom.edge.def = notAllowed
@@ -29,7 +29,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/atom_expansion_modu
 # 
 # CONJUNCTIONS AND DISJUNCTIONS REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/andor_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/andor_expansion_module.rnc" {
   start |= notAllowed
   formula_And-edge.choice |= notAllowed
   formula_Or-edge.choice |= notAllowed
@@ -41,7 +41,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/andor_expansion_mod
 # 
 # QUANTIFICATION OVER VARIABLES REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/quantification_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/quantification_expansion_module.rnc" {
   start |= notAllowed
   formula_Exists-edge.choice |= notAllowed
   formula_Forall-edge.choice |= notAllowed
@@ -56,7 +56,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/quantification_expa
 # 
 # EXPRESSIONS REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/expr_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/expr_expansion_module.rnc" {
   start |= notAllowed
   operatorForExpressions-edge.choice |= notAllowed
   op_Expr.edge.def = notAllowed
@@ -65,7 +65,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/expr_expansion_modu
 # 
 # STRONG NEGATION REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/neg_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/neg_expansion_module.rnc" {
   start |= notAllowed
   strong-edge.choice |= notAllowed
   strong.edge.def = notAllowed
@@ -74,7 +74,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/neg_expansion_modul
 # 
 # WEAK NEGATIONS REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/naf_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/naf_expansion_module.rnc" {
   start |= notAllowed
   weak-edge.choice |= notAllowed
   weak.edge.def = notAllowed
@@ -83,7 +83,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/naf_expansion_modul
 # 
 # EQUIVALENCES REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/equivalent_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/equivalent_expansion_module.rnc" {
   start |= notAllowed
   torso-edge.choice |= notAllowed
   torso.edge.def = notAllowed
@@ -92,7 +92,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/equivalent_expansio
 # 
 # EQUATIONS REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/equal_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/equal_expansion_module.rnc" {
   start |= notAllowed
   leftSide-edge.choice |= notAllowed
   rightSide-edge.choice |= notAllowed
@@ -104,7 +104,7 @@ include "http://deliberation.ruleml.org/1.02/relaxng/modules/equal_expansion_mod
 # 
 # INDIVIDUAL TERMS (INTERPRETED NAMES) ARE REDEFINED
 #
-include "http://deliberation.ruleml.org/1.02/relaxng/modules/individual_expansion_module.rnc" {
+include "http://deliberation.ruleml.org/1.03/relaxng/modules/individual_expansion_module.rnc" {
   start |= notAllowed
   positionalArgument-edge.choice |= notAllowed
   arg.type.def = notAllowed

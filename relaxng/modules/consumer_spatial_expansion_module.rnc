@@ -2,8 +2,8 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
 dcterms:title [ "Consumer RuleML Spatial" ]
-dcterms:identifier [ "http://consumer.ruleml.org/1.02/relaxng/modules/consumer_spatial_expansion_module.rnc" ]
-dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
+dcterms:identifier [ "http://consumer.ruleml.org/1.03/relaxng/modules/consumer_spatial_expansion_module.rnc" ]
+dcterms:isPartOf [ "http://consumer.ruleml.org/1.03/spec" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Paschkea" ]
 dc:subject [ "RuleML, Consumer, Spatial" ]
@@ -27,7 +27,7 @@ Spatial_term-node.choice |= Spatial_term.Node.def
 Spatial_term.Node.def =
   
   ## <Spatial>: generic Spatial element. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Spatial
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Spatial
   element Spatial { Spatial_term.type.def }
 Spatial_term.type.def = Spatial_term.attlist & Spatial_term.content
 Spatial_term.attlist &= type-att.choice?

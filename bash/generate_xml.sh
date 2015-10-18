@@ -15,7 +15,7 @@ for f in "${INSTANCE_HOME}"*.ruleml
 do
   filename=$(basename "$f")
   echo "Completing  ${filename}"
-  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.02_instance-postprocessor.xslt" "${f}"
+  "${BASH_HOME}aux_xslt.sh" "${f}" "${INSTANCE_XSLT_HOME}1.03_instance-postprocessor.xslt" "${f}"
   if [[ "$?" -ne "0" ]]; then
      echo "XSLT Transformation Failed"
      exit 1

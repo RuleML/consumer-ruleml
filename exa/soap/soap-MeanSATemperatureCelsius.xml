@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/soap-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<?xml-model href="http://consumer.ruleml.org/1.03/nvdl/soap-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
   <soap:Body  xmlns="http://ruleml.org/spec"
-    xmlns:rp="http://ruleml.org/1.02/profiles/"
+    xmlns:rp="http://ruleml.org/1.03/profiles/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:dbp="http://dbpedia.org/"

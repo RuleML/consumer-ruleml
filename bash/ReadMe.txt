@@ -1,4 +1,4 @@
-To locally verify the Consumer RuleML 1.02 schemas:
+To locally verify the Consumer RuleML 1.03 schemas:
 1. Clone the Github repository https://github.com/RuleML/consumer-ruleml.git
 2. Clone the Github repository https://github.com/RuleML/reaction-ruleml.git
 3. Copy the <path to your consumer-ruleml repo>/bash/path_config_template.sh file to <path to your consumer-ruleml repo>/bash/path_config.sh
@@ -13,5 +13,5 @@ To locally verify the Consumer RuleML 1.02 schemas:
   - build_zip.sh regenerates the zip corresponding to the Contribution to OASIS
  9. An additional verification: 
   -generate_xml.sh randomly generates instances of the consumer-reaction.xsd schema and 
-     validates them against the Reaction RuleML 1.02 dr.xsd XSD schema.
+     validates them against the Reaction RuleML 1.03 dr.xsd XSD schema.
    

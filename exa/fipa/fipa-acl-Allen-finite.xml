@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://consumer.ruleml.org/1.02/nvdl/fipa-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<?xml-model href="http://consumer.ruleml.org/1.03/nvdl/fipa-consumer-ruleml.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
 <!-- This is an illustrative example of the embedding of Consumer RuleML rule inside a FIPA-ACL envelope, not an actual message from RuleML.-->
 <fipa-message act="inform">
   <sender>
@@ -16,7 +16,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ex="http://example.org/">
     <!-- An Axiomatization of Interval Time by J.Allen and P.Hayes
          http://ijcai.org/Past%20Proceedings/IJCAI-85-VOL1/PDF/101.pdf
-         rendered in Consumer RuleML 1.02.
+         rendered in Consumer RuleML 1.03.
     -->
     <ruleml:And style="rulemm:FOL">
 

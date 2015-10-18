@@ -7,7 +7,7 @@
   </namespace>  
   <namespace ns="http://ruleml.org/spec">
     <validate
-      schema="http://consumer.ruleml.org/1.02/relaxng/drivers/consumer-relaxed.rnc"
+      schema="http://consumer.ruleml.org/1.03/relaxng/drivers/consumer-relaxed.rnc"
       schemaType="application/relax-ng-compact-syntax"/>
     
   </namespace>

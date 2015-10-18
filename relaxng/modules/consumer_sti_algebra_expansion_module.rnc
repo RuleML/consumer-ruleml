@@ -2,8 +2,8 @@ namespace dc = "http://purl.org/dc/elements/1.1/"
 namespace dcterms = "http://purl.org/dc/terms/"
 
 dcterms:title [ "Consumer RuleML Spatial-Temporal Algebra" ]
-dcterms:identifier [ "http://consumer.ruleml.org/1.02/relaxng/modules/consumer_sti_algebra_expansion_module.rnc" ]
-dcterms:isPartOf [ "http://consumer.ruleml.org/1.02/spec" ]
+dcterms:identifier [ "http://consumer.ruleml.org/1.03/relaxng/modules/consumer_sti_algebra_expansion_module.rnc" ]
+dcterms:isPartOf [ "http://consumer.ruleml.org/1.03/spec" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Athant" ]
 dcterms:creator [ "http://wiki.ruleml.org/index.php/User:Paschkea" ]
 dc:subject [ "RuleML, Consumer, spatial, temporal, algebra" ]
@@ -68,7 +68,7 @@ Before-node.choice |= Before.Node.def
 Before.Node.def =
   
   ## <Before>: an interval constructor "d before (t)". See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Before
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Before
   element Before { BeforeAfter.type.def }
 
 ## an extension point for the after constructor category.  
@@ -78,7 +78,7 @@ After-node.choice |= After.Node.def
 After.Node.def =
   
   ## <After>: an interval constructor "d after (t)". See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-After
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-After
   element After { BeforeAfter.type.def }
 BeforeAfter.type.def = BeforeAfter.attlist & BeforeAfter.content
 BeforeAfter.attlist &= IntervalAlgebraConstructor.attlist?
@@ -91,7 +91,7 @@ Every-node.choice |= Every.Node.def
 Every.Node.def =
   
   ## <Every>: an interval constructor "every d". See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Every
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Every
   element Every { Every.type.def }
 Every.type.def = Every.attlist & Every.content
 Every.attlist &= IntervalAlgebraConstructor.attlist?
@@ -104,7 +104,7 @@ Any-node.choice |= Any.Node.def
 Any.Node.def =
   
   ## <Any>: an interval constructor "any t1, .., tn". See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Any
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Any
   element Any { Any.type.def }
 Any.type.def = Any.content, Any.attlist
 Any.attlist &= IntervalAlgebraConstructor.attlist?
@@ -117,7 +117,7 @@ Timer-node.choice |= Timer.Node.def
 Timer.Node.def =
   
   ## <Timer>: an interval constructor "After t Every d". See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Timer
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Timer
   element Timer { Timer.type.def }
 Timer.type.def = Timer.attlist & Timer.content
 Timer.attlist &= IntervalAlgebraConstructor.attlist?
@@ -134,7 +134,7 @@ During-node.choice |= During.Node.def
 During.Node.def =
   
   ## <During>: an interval operator. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-During
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-During
   element During { IntervalAlgebraOperation.type.def }
 
 ## an extension point for the overlaps operator category.  
@@ -144,7 +144,7 @@ Overlaps-node.choice |= Overlaps.Node.def
 Overlaps.Node.def =
   
   ## <Overlaps>: an interval operator. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Overlaps
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Overlaps
   element Overlaps { IntervalAlgebraOperation.type.def }
 
 ## an extension point for the starts operator category.  
@@ -154,7 +154,7 @@ Starts-node.choice |= Starts.Node.def
 Starts.Node.def =
   
   ## <Starts>: an interval operator. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Starts
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Starts
   element Starts { IntervalAlgebraOperation.type.def }
 
 ## an extension point for the preceds operator category.  
@@ -164,7 +164,7 @@ Precedes-node.choice |= Precedes.Node.def
 Precedes.Node.def =
   
   ## <Precedes>: an interval operator. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Precedes
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Precedes
   element Precedes { IntervalAlgebraOperation.type.def }
 
 ## an extension point for the succeeds operator category.  
@@ -174,7 +174,7 @@ Succeeds-node.choice |= Succeeds.Node.def
 Succeeds.Node.def =
   
   ## <Succeeds>: an interval operator. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Succeeds
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Succeeds
   element Succeeds { IntervalAlgebraOperation.type.def }
 
 ## an extension point for the meets operator category.  
@@ -184,7 +184,7 @@ Meets-node.choice |= Meets.Node.def
 Meets.Node.def =
   
   ## <Meets>: an interval operator. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Meets
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Meets
   element Meets { IntervalAlgebraOperation.type.def }
 
 ## an extension point for the finishes operator category.  
@@ -194,7 +194,7 @@ Finishes-node.choice |= Finishes.Node.def
 Finishes.Node.def =
   
   ## <Finishes>: an interval operator. See
-  ## http://consumer.ruleml.org/1.02/glossary/#gloss-Finishes
+  ## http://consumer.ruleml.org/1.03/glossary/#gloss-Finishes
   element Finishes { IntervalAlgebraOperation.type.def }
 
 ## Usage
