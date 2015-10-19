@@ -1,16 +1,11 @@
 #!/bin/bash
-# Prerequisites: batch_rnc2xsd.sh
-# Dependecies: 
-# aux_valxsd.sh
-#  Validate RuleML instances by XSD
-# Instructions:
-# run this script from the command line or another script after batch_rnc2xsd.sh
+# dc:rights [ 'Copyright 2015 RuleML Inc. -- Licensed under the RuleML Specification License, Version 1.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://ruleml.org/licensing/RSL1.0-RuleML. Disclaimer: THIS SPECIFICATION IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, ..., EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. See the License for the specifics governing permissions and limitations under the License.' ]
 shopt -s nullglob
 BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 
-# creates the xsd directory if they doesn't exist, and clears them, in case they already have contents
+# creates the test directory if it doesn't exist, and clears it, in case it already has contents
 mkdir -p "${COMPACT_SUITE_HOME}"
-rm "${COMPACT_SUITE_HOME}"* >> /dev/null 2>&1
+if [[ ${COMPACT_SUITE_HOME} ]]; then rm "${COMPACT_SUITE_HOME}"* >> /dev/null 2>&1; fi
 
   schemaname="consumer-compact.rnc"
   schemasupname="consumer-relaxed.rnc"
@@ -25,7 +20,7 @@ rm "${COMPACT_SUITE_HOME}"* >> /dev/null 2>&1
    fi   
 
 # Apply compactificaton XSLT transforamtions
-# transform files in TEST_SUITE_HOME ending in .ruleml
+# transform files in RNC_TEST_SUITE_HOME ending in .ruleml
 # output to COMPACT_SUITE_HOME
 for f in "${RNC_TEST_SUITE_HOME}"*/*.ruleml
 do

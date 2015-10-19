@@ -7,10 +7,10 @@ BASH_HOME=$( cd "$(dirname "$0")" ; pwd -P )/ ;. "${BASH_HOME}path_config.sh";
 #
 # creates the output directories if they don't exist, and clears them of RNC files, in case they already have contents
 mkdir -p "${TMP_MODULES}"
-rm "${TMP_MODULES}"*.rng >> /dev/null 2>&1
+if [[ ${TMP_MODULES} ]]; then rm "${TMP_MODULES}"*.rng >> /dev/null 2>&1; fi
 
 # applies the auxiliary script aux_rnc2rng.sh to all RNC expansion modules
-for file in "${RNC_HOME}modules/"*.rnc 
+for file in "${MODULE_HOME}"*.rnc "${DRIVER_HOME}"*.rnc
 do 
   filename=$(basename "$file")
   #extension="${filename##*.}"
@@ -32,7 +32,8 @@ fi
 for file in "${TMP_MODULES}"*.rng
 do
   filename=$(basename "$file")
-  "${BASH_HOME}aux_valdesign.sh" "${file}" >> /dev/null 2>&1
+  echo "${filename}"
+  "${BASH_HOME}aux_valdesign.sh" "${file}"
    if [[ "$?" -ne "0" ]]; then
      echo "Validation Failed for  ${filename}"
      exit 1
@@ -41,7 +42,7 @@ done
 
 # remove the temporary files and directory
 function finish {
-  rm "${TMP_MODULES}"*
-  rmdir "${TMP_MODULES}"
+  if [[ ${TMP_MODULES} ]]; then rm "${TMP_MODULES}"*; fi
+  if [[ ${TMP_MODULES} ]]; then rmdir "${TMP_MODULES}"; fi
 }
 trap finish EXIT 
