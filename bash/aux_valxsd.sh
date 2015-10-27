@@ -31,5 +31,4 @@ fi
      echo "Validation Failed for instance $2"
      exit 1
    fi
-
  fi  

@@ -60,15 +60,9 @@ do
   filename=$(basename "${file}")
   echo "File ${filename}"
   "${BASH_HOME}aux_valrnc.sh" "${nsfile}" "${file}"
-  exitvalue=$?
-  if [[ ! "${file}" =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
+  if [[ "$?" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
-   else
-         if [[ "${file}" =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
-           echo "Validation Succeeded for Failure Test ${file}"
-           exit 1
-         fi
   fi       
 done
 
@@ -104,15 +98,9 @@ do
   filename=$(basename "${file}")
   echo "Validating File ${filename}"
   "${BASH_HOME}aux_valrnc.sh" "${csfile}" "${file}"
-  exitvalue=$?
-  if [[ ! "${file}" =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
+  if [[ "$?" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
-   else
-         if [[ "${file}" =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
-           echo "Validation Succeeded for Failure Test ${file}"
-           exit 1
-         fi
   fi       
 done
 
@@ -142,15 +130,9 @@ do
   echo "Validating File ${filename}"
   "${BASH_HOME}aux_valrnc.sh" "${nsfile}" "${file}"
   "${BASH_HOME}aux_valxsd.sh" "${nxsfile}"
-  exitvalue=$?
-  if [[ ! "${file}" =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
+  if [[ "$?" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
-   else
-         if [[ "${file}" =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
-           echo "Validation Succeeded for Failure Test ${file}"
-           exit 1
-         fi
   fi       
 done
 
@@ -173,15 +155,9 @@ do
   filename=$(basename "${file}")
   echo "File ${filename}"
   "${BASH_HOME}aux_valrnc.sh" "${nsfile}" "${file}"
-  exitvalue=$?
-  if [[ ! "${file}" =~ fail ]] && [[ "${exitvalue}" -ne "0" ]]; then
+  if [[ "$?" -ne "0" ]]; then
           echo "Validation Failed for ${file}"
           exit 1
-   else
-         if [[ "${file}" =~ fail ]] && [[ "${exitvalue}" == "0" ]]; then
-           echo "Validation Succeeded for Failure Test ${file}"
-           exit 1
-         fi
   fi       
 done
 
